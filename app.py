@@ -200,7 +200,7 @@ if submit_btn:
         elif predicted_score >= 60:
             grade_level = "Level 4 (進步空間大 📈)"
         else:
-            grade_level = "需加一把勁，盡快執好根基 ⚠️"  # 保留完整原文！
+            grade_level = "需加大把勁，盡快執好根基 ⚠️"  # 保留完整原文！
         st.metric(label="評級水準", value=grade_level)
         
     st.markdown("### 🔍 Terry Sir 的專業分析與建議：")

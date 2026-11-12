@@ -76,7 +76,7 @@ st.markdown("""
 
 st.markdown("---")
 
-# 選擇學年階段與年級
+# 選擇學年階段與年級 (完整包含 1st Term Test 及 1st Exam)
 st.subheader("📌 第一步：選擇你的考試階段與年級")
 exam_stage = st.selectbox(
     "選擇考試階段",
@@ -91,7 +91,7 @@ grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2
 
 st.markdown("---")
 
-# 根據唔同考試階段，展示對應嘅校本真題級 10 題快測
+# 根據唔同考試階段，動態展示對應嘅 10 題快測
 if "1st Term Test" in exam_stage:
     st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
     st.markdown("請認真完成以下 10 題精選實戰試題：")

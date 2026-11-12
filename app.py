@@ -177,12 +177,12 @@ if submit_btn:
         
     st.balloons()
     
-    # 呢度明確指定 color: #111111 !important，確保字體變為深黑色！
+    # 徹底棄用 st.success，改用純 HTML 區塊，確保文字顏色強制為實黑色 (#000000)
     st.markdown(f"""
     <div style="background-color: #d4edda; border: 1px solid #c3e6cb; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <p style="color: #111111 !important; font-size: 18px; font-weight: bold; margin: 0;">
+        <span style="color: #000000 !important; font-size: 18px; font-weight: bold; display: block;">
             🎉 評估完成！你目前在 {exam_stage} ({grade}) 的表現如下：
-        </p>
+        </span>
     </div>
     """, unsafe_allow_html=True)
     

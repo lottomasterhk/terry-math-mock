@@ -137,25 +137,10 @@ elif "1st Exam" in exam_stage:
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
     
-    st.markdown("---")
-    st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**")
-    st.image("images/geom_q7.png", caption="第 7 題幾何圖形", use_column_width=True)
-    q7 = st.radio("請選擇正確答案：", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
-
-    st.markdown("---")
-    st.markdown("**8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?**")
-    st.image("images/geom_q8.png", caption="第 8 題幾何圖形", use_column_width=True)
-    q8 = st.radio("請選擇正確答案：", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
-
-    st.markdown("---")
-    st.markdown("**9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?**")
-    st.image("images/geom_q9.png", caption="第 9 題幾何圖形", use_column_width=True)
-    q9 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
-
-    st.markdown("---")
-    st.markdown("**10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively. Which of the following must be correct?**")
-    st.image("images/pie_q10.png", caption="第 10 題雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
-    q10 = st.radio("請選擇正確答案：", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
+    q7 = st.radio("7. In the figure, AED and BEC are straight lines. Which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
+    q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
+    q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+    q10 = st.radio("10. The pie charts below show favourite flavours of ice cream. Which of the following must be correct?", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
 
 elif "2nd Term Test" in exam_stage:
     st.subheader("✍️ 第二步：中二 2nd Term Test 校本真題級 10 題快測")
@@ -167,26 +152,22 @@ elif "2nd Term Test" in exam_stage:
     q4 = st.radio("4. Joe has brought some candies for his students who pass the term test. If 84 students pass, each can have 7 candies. How many students pass if each can have 3 candies?", ("A) 4", "B) 36", "C) 196", "D) 252"), key="t2_q4")
     q5 = st.radio("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", ("A) 22:27", "B) 21:25", "C) 10:9", "D) 37:27"), key="t2_q5")
     q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\nI. The value of n is 24.\nII. The ratio of the size of each interior angle to each exterior angle is 12:1.\nIII. The sum of the interior angles is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="t2_q6")
+    q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="t2_q7")
     
-    st.markdown("---")
-    st.markdown("**7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.**")
-    st.image("images/geom_2nd_q7.png", caption="2nd Term Test 第 7 題梯形相似圖", use_column_width=True)
-    q7 = st.radio("請選擇正確答案：", ("A) 6", "B) 7", "C) 8", "D) 9"), key="t2_q7")
+    # 按照你的要求，將第 8 題的三個選項改為直排顯示
+    q8 = st.radio(
+        "8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. Given ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?",
+        (
+            "A) I. ΔQPS ≅ ΔRSP\nII. ΔPTS ~ ΔQTR\nIII. PS // QR (A) I and II only",
+            "B) I. ΔQPS ≅ ΔRSP\nII. ΔPTS ~ ΔQTR\nIII. PS // QR (B) I and III only",
+            "C) I. ΔQPS ≅ ΔRSP\nII. ΔPTS ~ ΔQTR\nIII. PS // QR (C) II and III only",
+            "D) I. ΔQPS ≅ ΔRSP\nII. ΔPTS ~ ΔQTR\nIII. PS // QR (D) I, II and III"
+        ),
+        key="t2_q8"
+    )
 
-    st.markdown("---")
-    st.markdown("**8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. Given ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?\nI. ΔQPS ≅ ΔRSP\nII. ΔPTS ~ ΔQTR\nIII. PS // QR**")
-    st.image("images/geom_2nd_q8.png", caption="2nd Term Test 第 8 題四邊形對角線圖", use_column_width=True)
-    q8 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="t2_q8")
-
-    st.markdown("---")
-    st.markdown("**9. In the figure, ABC and FED are straight lines, where AB=BC=DE=EF. It is given that AC // FD and AF // CD. Which of the following must be true?\nI. ΔABF ≅ ΔEFB\nII. ΔEFB ≅ ΔEDB\nIII. ΔCBD ≅ ΔABF**")
-    st.image("images/geom_2nd_q9.png", caption="2nd Term Test 第 9 題平行線全等圖", use_column_width=True)
-    q9 = st.radio("請選擇正確答案：", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="t2_q9")
-
-    st.markdown("---")
-    st.markdown("**10. In the figure, ABCD is a square and ΔCED is an equilateral triangle. If DE = DG and DG // EF, find x.**")
-    st.image("images/geom_2nd_q10.png", caption="2nd Term Test 第 10 題正方形與等邊三角形圖", use_column_width=True)
-    q10 = st.radio("請選擇正確答案：", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="t2_q10")
+    q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB=BC=DE=EF. It is given that AC // FD and AF // CD. Which of the following must be true?\nI. ΔABF ≅ ΔEFB\nII. ΔEFB ≅ ΔEDB\nIII. ΔCBD ≅ ΔABF", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="t2_q9")
+    q10 = st.radio("10. In the figure, ABCD is a square and ΔCED is an equilateral triangle. If DE = DG and DG // EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="t2_q10")
 
 else:
     st.subheader("✍️ 第二步：中二 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
@@ -198,25 +179,10 @@ else:
     q4 = st.radio("4. In the figure, the length of the line segment joining A and G is", ("A) 19", "B) 23", "C) 25", "D) 30"), key="fin_q4")
     q5 = st.radio("5. A square and an isosceles triangle have the same perimeter 100 cm. If the base of the isosceles triangle is 18 cm, how much greater is the area of the square comparing to that of the isosceles triangle?", ("A) 256 cm²", "B) 265 cm²", "C) 440.5 cm²", "D) 445 cm²"), key="fin_q5")
     q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\nI. The value of n is 16.\nII. The sum of the interior angle of the polygon is 2520°.\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="fin_q6")
-    
-    st.markdown("---")
-    st.markdown("**7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\nI. ΔABC ≅ ΔEDC\nII. AC ⊥ CE\nIII. ∠AEF = 80°**")
-    st.image("images/geom_final_q7.png", caption="2nd Exam 第 7 題正九邊形圖", use_column_width=True)
-    q7 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="fin_q7")
-
-    st.markdown("---")
-    st.markdown("**8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find cos β / sin α.**")
-    st.image("images/geom_final_q8.png", caption="2nd Exam 第 8 題三角比圖", use_column_width=True)
-    q8 = st.radio("請選擇正確答案：", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α cos β"), key="fin_q8")
-
-    st.markdown("---")
-    st.markdown("**9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1:2. The ratio of the base radius of P to the height of P is 1:3. The ratio of the total surface area of P to Q is**")
-    q9 = st.radio("請選擇正確答案：", ("A) 1:2", "B) 2:5", "C) 4:7", "D) 7:16"), key="fin_q9")
-
-    st.markdown("---")
-    st.markdown("**10. In the figure, PQRST is a regular pentagon. QT =**")
-    st.image("images/geom_final_q10.png", caption="2nd Exam 第 10 題正五邊形圖", use_column_width=True)
-    q10 = st.radio("請選擇正確答案：", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"), key="fin_q10")
+    q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="fin_q7")
+    q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find cos β / sin α.", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α cos β"), key="fin_q8")
+    q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1:2. The ratio of the base radius of P to the height of P is 1:3. The ratio of the total surface area of P to Q is", ("A) 1:2", "B) 2:5", "C) 4:7", "D) 7:16"), key="fin_q9")
+    q10 = st.radio("10. In the figure, PQRST is a regular pentagon. QT =", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"), key="fin_q10")
 
 st.markdown("---")
 

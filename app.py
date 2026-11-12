@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (保持你原本的高科技深藍 Mood)
+# 注入自定義 CSS (保持高科技深藍 Mood，並完美修復 Metric 長字截斷問題)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -58,6 +58,11 @@ st.markdown("""
         border-radius: 12px !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         margin-bottom: 15px;
+    }
+    
+    /* 專門調整 Metric 數值方框入面嘅字體大小，確保「需加把勁，盡快執好根基 ⚠️」完美出晒黎唔會被截斷 */
+    [data-testid="stMetricValue"] {
+        font-size: 22px !important;
     }
     
     /* 按鈕美化：極靚嘅漸變金藍按鈕 */
@@ -177,7 +182,7 @@ if submit_btn:
         
     st.balloons()
     
-    # 改用深藍色底卡片 + 亮黃色字體，保證 100% 唔會再有白字盲點！
+    # 評估完成提示卡片
     st.markdown(f"""
     <div style="background-color: #0f2744; border: 2px solid #f39c12; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
         <span style="color: #ffeb3b !important; font-size: 18px; font-weight: bold; display: block;">
@@ -191,11 +196,11 @@ if submit_btn:
         st.metric(label="預測 Mock 考試分數", value=f"{predicted_score} 分 / 100分")
     with col2:
         if predicted_score >= 80:
-            grade_level = "Level 5 或以上 (奪 A 級別 🏆)"
+            grade_level = "Level 5 或以上 (奪 A 🏆)"
         elif predicted_score >= 60:
             grade_level = "Level 4 (進步空間大 📈)"
         else:
-            grade_level = "需加把勁，盡快執好根基 ⚠️"
+            grade_level = "需加一把勁，盡快執好根基 ⚠️"  # 保留完整原文！
         st.metric(label="評級水準", value=grade_level)
         
     st.markdown("### 🔍 Terry Sir 的專業分析與建議：")
@@ -221,7 +226,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # WhatsApp 預約試課按鈕 ($150/1hr)
-whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E4%B8%AD%E4%BA%8CMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84+%24150%2F1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81&type=phone_number&app_absent=0"
+whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約%20$150/1小時試課詳情！"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">

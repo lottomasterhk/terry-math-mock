@@ -85,7 +85,8 @@ exam_stage = st.selectbox(
         "1st Exam (上學期考試)", 
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
-    ]
+    ],
+    index=1 if "1st Exam" in st.session_state.get('last_stage', '') else 0
 )
 grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
 
@@ -109,7 +110,7 @@ if "1st Term Test" in exam_stage:
 
 else:
     st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
-    st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
+    st.markdown("請認真完成以下 10 題精選上學期實戰試題（附設實戰幾何與圖表題）：")
     
     q1 = st.radio("1. The thickness of a dictionary is measured as 4.0 cm, correct to the nearest 0.5 cm. Find the actual range of values of x.", ("A) 3.5 ≤ x < 4.5", "B) 3.5 < x < 4.5", "C) 3.75 ≤ x < 4.25", "D) 3.75 < x < 4.25"))
     q2 = st.radio("2. Which of the following is not a polynomial?", ("A) 5x - 3y", "B) 5xy - 3", "C) x/5 - y/3", "D) 5x - 3/y"))
@@ -117,10 +118,29 @@ else:
     q4 = st.radio("4. Factorize completely: ax - cx - ay - bx + cy + by =", ("A) (x + y)(a + b - c)", "B) (x + y)(a - b - c)", "C) (x - y)(a + b - c)", "D) (x - y)(a - b - c)"))
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
-    q7 = st.radio("7. In the figure (parallel lines / angles in triangle), if AED and BEC are straight lines with angle EDC = x, etc., which must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
-    q8 = st.radio("8. In the figure where PQT and PRS are straight lines, which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
-    q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which must be true? (I. AB//CE, II. AC⊥AD, III. x = y)", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
-    q10 = st.radio("10. Based on the pie charts of ice cream flavors (Shop A vs Shop B), which must be correct? (I. Peach in A > B, II. Peach > Strawberry in both, III. Almond % is same)", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
+    
+    # 題目 7：平行線與三角形內角 (配備原卷幾何圖形圖示)
+    st.markdown("---")
+    st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**[cite: 6]")
+    # 這裡可以直接放入你從 PDF crop 出來嘅幾何圖形圖片 (例如上載到 GitHub 或 imgur 後放 URL，或用本地圖片)
+    # 示範使用佔位圖或直接嵌入說明：
+    st.image("https://i.imgur.com/example_geom1.png", caption="試題第 7 題：平行線與對頂角圖形", use_column_width=True)
+    q7 = st.radio("請選擇正確答案：", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
+
+    st.markdown("---")
+    st.markdown("**8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?**[cite: 8]")
+    st.image("https://i.imgur.com/example_geom2.png", caption="試題第 8 題：多邊形角關係圖形", use_column_width=True)
+    q8 = st.radio("請選擇正確答案：", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
+
+    st.markdown("---")
+    st.markdown("**9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?**[cite: 9]")
+    st.image("https://i.imgur.com/example_geom3.png", caption="試題第 9 題：直線與垂直線圖形", use_column_width=True)
+    q9 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+
+    st.markdown("---")
+    st.markdown("**10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively. Which of the following must be correct?**[cite: 8]")
+    st.image("https://i.imgur.com/example_piecharts.png", caption="試題第 10 題：Shop A 與 Shop B 雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
+    q10 = st.radio("請選擇正確答案：", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
 
 st.markdown("---")
 

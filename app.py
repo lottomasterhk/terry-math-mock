@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (完美解決下拉選單文字看得見問題，並保持深藍高科技 Mood)
+# 注入自定義 CSS (完美解決所有提示框與選單白字問題，保持深藍高科技 Mood)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -43,6 +43,16 @@ st.markdown("""
     div[data-baseweb="menu"] div:hover {
         background-color: #1e3c72 !important;
         color: #f39c12 !important;
+    }
+    
+    /* 成功提示框（st.success）強制轉為淺黃底深色字，徹底解決白字問題！ */
+    div.stSuccess {
+        background-color: #eef9e8 !important;
+        border: 1px solid #2ecc71 !important;
+    }
+    div.stSuccess p, div.stSuccess span, div.stSuccess div {
+        color: #1b4d3e !important;
+        font-weight: bold !important;
     }
     
     /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大 */
@@ -128,7 +138,7 @@ if "1st Term Test" in exam_stage:
 
 else:
     st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
-    st.markdown("請認真完成以下 10 題精選上學期實戰試題（附設幾何與圖表）：")
+    st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
     
     q1 = st.radio("1. The thickness of a dictionary is measured as 4.0 cm, correct to the nearest 0.5 cm. Find the actual range of values of x.", ("A) 3.5 ≤ x < 4.5", "B) 3.5 < x < 4.5", "C) 3.75 ≤ x < 4.25", "D) 3.75 < x < 4.25"))
     q2 = st.radio("2. Which of the following is not a polynomial?", ("A) 5x - 3y", "B) 5xy - 3", "C) x/5 - y/3", "D) 5x - 3/y"))
@@ -136,27 +146,10 @@ else:
     q4 = st.radio("4. Factorize completely: ax - cx - ay - bx + cy + by =", ("A) (x + y)(a + b - c)", "B) (x + y)(a - b - c)", "C) (x - y)(a + b - c)", "D) (x - y)(a - b - c)"))
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
-    
-    # 7-10 題：加入圖片顯示 (請確保 GitHub 內有 images 資料夾並上載咗 geom_q7.png, geom_q8.png, geom_q9.png, pie_q10.png)
-    st.markdown("---")
-    st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**")
-    st.image("images/geom_q7.png", caption="第 7 題幾何圖形", use_column_width=True)
-    q7 = st.radio("請選擇正確答案：", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
-
-    st.markdown("---")
-    st.markdown("**8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?**")
-    st.image("images/geom_q8.png", caption="第 8 題幾何圖形", use_column_width=True)
-    q8 = st.radio("請選擇正確答案：", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
-
-    st.markdown("---")
-    st.markdown("**9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?**")
-    st.image("images/geom_q9.png", caption="第 9 題幾何圖形", use_column_width=True)
-    q9 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
-
-    st.markdown("---")
-    st.markdown("**10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively. Which of the following must be correct?**")
-    st.image("images/pie_q10.png", caption="第 10 題雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
-    q10 = st.radio("請選擇正確答案：", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
+    q7 = st.radio("7. In the geometric figure where AED and BEC are straight lines with angle EDC = x, z = exterior angle, which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
+    q8 = st.radio("8. In the figure where PQT and PRS are straight lines with internal angles a, b, c, d, e, which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
+    q9 = st.radio("9. In the figure where CDE is a straight line and x + y = 90°, which of the following statements must be true?\nI. AB // CE\nII. AC ⊥ AD\nIII. x = y", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+    q10 = st.radio("10. Based on the ice cream flavor pie charts (Shop A: Chocolate 40%, Peach 24%, Mango 16%, Strawberry 12%, Almond 8%; Shop B: Mango 40%, Peach 22%, Chocolate 20%, Strawberry 10%, Almond 8%), which of the following must be correct?\nI. Number of customers voting peach in A > B\nII. Peach flavor is more popular than strawberry in both shops\nIII. Percentages of customers voting almond in shop A and B are the same", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
 
 st.markdown("---")
 

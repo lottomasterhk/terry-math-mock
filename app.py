@@ -159,7 +159,7 @@ st.markdown("### 🌟 關於 Terry Sir 數學專科教室")
 st.markdown("""
 <div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
     <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
-        Terry Sir 系出名門（香港中文大學數學系畢業），擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A[cite: 4]！
+        Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>
     <p style="margin-top: 10px;">
         👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
@@ -167,13 +167,13 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# WhatsApp 預約試課按鈕
-whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約%20$400/1小時試課詳情！"
+# WhatsApp 預約試課按鈕 ($150/1hr)
+whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約%20$150/1小時試課詳情！"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">
         <button style="background-color: #25D366; color: white; padding: 14px 28px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($400/1hr)
+            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)
         </button>
     </a>
 </div>

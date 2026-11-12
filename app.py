@@ -93,7 +93,7 @@ st.markdown("---")
 st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
 st.markdown("請認真完成以下 10 題精選實戰試題：")
 
-# 10 題精選中二 MC
+# 10 題精選中二 MC (中大數學 Terry Sir 校本真題卷)
 q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"))
 q2 = st.radio("2. If y = 29.4 (correct to 3 significant figures), find the range of values of y.", ("A) 29.3 < y ≤ 29.5", "B) 29.3 ≤ y < 29.5", "C) 29.35 < y ≤ 29.45", "D) 29.35 ≤ y < 29.45"))
 q3 = st.radio("3. Find the degree of the expansion of (x^2 + 2x + 4)(y - 2).", ("A) 1", "B) 2", "C) 3", "D) 4"))
@@ -107,24 +107,77 @@ q10 = st.radio("10. If x^2 + y^2 = m and x + y = n, then xy =", ("A) (1/2)(n^2 -
 
 st.markdown("---")
 
-# 提交按鈕
-submit = st.button("🚀 立即生成我的中二 Mock 考試預測報告！", type="primary")
+# 提交按鈕與結果預測運算
+submit_btn = st.button("🚀 立即生成我的中二 Mock 考試預測報告！", type="primary")
 
-# 顯示 Terry Sir 品牌一致性專區 (擺放 Facebook Poster 幅圖)
+# 當學生禁咗提交按鈕後才計算和顯示結果
+if submit_btn:
+    # 標準答案對應計算分數
+    score = 0
+    if "A" in q1: score += 1
+    if "D" in q2: score += 1
+    if "C" in q3: score += 1
+    if "A" in q4: score += 1
+    if "C" in q5: score += 1
+    if "C" in q6: score += 1
+    if "C" in q7: score += 1
+    if "C" in q8: score += 1
+    if "A" in q9: score += 1
+    if "A" in q10: score += 1
+    
+    predicted_score = score * 10
+    if predicted_score < 30: 
+        predicted_score = 35
+        
+    st.balloons()
+    
+    st.success(f"🎉 評估完成！你目前在 **{exam_stage} ({grade})** 的表現如下：")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric(label="預測 Mock 考試分數", value=f"{predicted_score} 分 / 100分")
+    with col2:
+        if predicted_score >= 80:
+            grade_level = "Level 5 或以上 (奪 A 級別 🏆)"
+        elif predicted_score >= 60:
+            grade_level = "Level 4 (進步空間大 📈)"
+        else:
+            grade_level = "需加一把勁，盡快執好根基 ⚠️"
+        st.metric(label="評級水準", value=grade_level)
+        
+    st.markdown("### 🔍 Terry Sir 的專業分析與建議：")
+    if score >= 8:
+        st.markdown("🌟 **太棒了！** 你對中二上學期嘅代數展開、指數定律、恆等式同誤差掌握得極之出色，絕對具備全班奪 A 嘅實力！")
+    elif score >= 5:
+        st.markdown("💪 **表現唔錯，但仍有進步空間！** 你大部分觀念清晰，但有少部分題目仲有盲點。只要做多幾次「拆局」訓練，好快可以衝上 80 分以上！")
+    else:
+        st.markdown("⚠️ **你需要即刻正視盲點喇！** 目前嘅基礎出現咗唔少漏洞，如果唔盡快由淺入深執好底層邏輯，到正式考試好容易因為緊張失準。建議盡快搵 Terry Sir 幫你重塑數學根基！")
+
+# 品牌宣傳區與 Facebook 專頁聯結
 st.markdown("---")
-st.subheader("💡 Terry Sir 品牌核心理念")
-# 將你的 Poster 圖片 cropped 顯示，去除不必要 UI
-st.image(image_2.png, caption="【中大數學】Terry Sir - 初中數學專科教室", use_column_width=True)
+st.markdown("### 🌟 關於 Terry Sir 數學專科教室")
 st.markdown("""
-<div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
-    <p style="color: #ffffff !important; font-size: 15px;">
-        Terry Sir 系出名門（中大數學系畢業），擁有 26 年一線教學經驗，深諳初中生學習盲點。更是少數結合 NLP 心理引導技巧的導師，能幫孩子解開數學心結，重建自信。與 Facebook 專頁展示的一樣，我們致力於「專業、用心、成效」，讓孩子告別公式死記，輕鬆奪 A！
+<div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+    <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
+        Terry Sir 系出名門（香港中文大學數學系畢業），擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A[cite: 4]！
+    </p>
+    <p style="margin-top: 10px;">
+        👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
     </p>
 </div>
 """, unsafe_allow_html=True)
-st.markdown("---")
 
-# 當客戶提交答案後，顯示結果與 WhatsApp 引流按鈕
-if submit:
-    # 你的計分與結果顯示邏輯 (與上一版程式碼相同，故省略)
-    # ...
+# WhatsApp 預約試課按鈕
+whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約%20$400/1小時試課詳情！"
+st.markdown(f"""
+<div style="text-align: center; margin-top: 25px;">
+    <a href="{whatsapp_url}" target="_blank">
+        <button style="background-color: #25D366; color: white; padding: 14px 28px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($400/1hr)
+        </button>
+    </a>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("---")
+st.markdown("<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - Terry Sir - 初中數學專科. All Rights Reserved.</p>", unsafe_allow_html=True)

@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (完美匹配深藍高科技 Mood，並強制所有題目文字變為清晰白色)
+# 注入自定義 CSS (修復下拉選單文字看得見，並保持深藍高科技 Mood)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -17,19 +17,36 @@ st.markdown("""
     }
     
     /* 確保所有標題、副標題、文字強制為白色 */
-    h1, h2, h3, h4, h5, h6, p, span, label, div {
+    h1, h2, h3, h4, h5, h6, p, label, div {
         color: #ffffff !important;
+    }
+    
+    /* 專門針對普通文本 span，避免覆蓋下拉選單導致透明/白字看不見 */
+    span {
+        color: #ffffff;
+    }
+    
+    /* 下拉選單（Selectbox）本身的外觀與文字顏色修正 */
+    .stSelectbox div[data-baseweb="select"] {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 8px !important;
+    }
+    .stSelectbox div[data-baseweb="select"] div, 
+    .stSelectbox div[data-baseweb="select"] span {
+        color: #ffffff !important;
+    }
+    
+    /* 下拉選單展開後的選單項目（Dropdown Options）文字設為深色，保證看得見！ */
+    div[data-baseweb="popover"] div, 
+    div[data-baseweb="popover"] span,
+    div[data-baseweb="menu"] div {
+        color: #000000 !important;
     }
     
     /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大 */
     .stRadio label p {
         color: #ffffff !important;
         font-size: 16px !important;
-    }
-    
-    /* 下拉選單文字顏色修正 */
-    .stSelectbox div[data-baseweb="select"] span {
-        color: #ffffff !important;
     }
     
     /* 區塊卡片化 (Container Card) 加強邊框與深色半透明背景，令選項極易閱讀 */
@@ -76,7 +93,7 @@ st.markdown("""
 
 st.markdown("---")
 
-# 第一步：選擇考試階段與年級（完整包含 1st Term Test 及 1st Exam）
+# 第一步：選擇考試階段與年級
 st.subheader("📌 第一步：選擇你的考試階段與年級")
 exam_stage = st.selectbox(
     "選擇考試階段",
@@ -109,7 +126,7 @@ if "1st Term Test" in exam_stage:
 
 else:
     st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
-    st.markdown("請認真完成以下 10 題精選上學期實戰試題（附設實戰幾何與圖表）：")
+    st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
     
     q1 = st.radio("1. The thickness of a dictionary is measured as 4.0 cm, correct to the nearest 0.5 cm. Find the actual range of values of x.", ("A) 3.5 ≤ x < 4.5", "B) 3.5 < x < 4.5", "C) 3.75 ≤ x < 4.25", "D) 3.75 < x < 4.25"))
     q2 = st.radio("2. Which of the following is not a polynomial?", ("A) 5x - 3y", "B) 5xy - 3", "C) x/5 - y/3", "D) 5x - 3/y"))
@@ -117,27 +134,10 @@ else:
     q4 = st.radio("4. Factorize completely: ax - cx - ay - bx + cy + by =", ("A) (x + y)(a + b - c)", "B) (x + y)(a - b - c)", "C) (x - y)(a + b - c)", "D) (x - y)(a - b - c)"))
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
-    
-    # 幾何與圖表題 (如已建立 images 資料夾，會自動顯示對應圖片)
-    st.markdown("---")
-    st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**")
-    st.image("images/geom_q7.png", caption="試題第 7 題：平行線與對頂角幾何圖形", use_column_width=True)
-    q7 = st.radio("請選擇正確答案：", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
-
-    st.markdown("---")
-    st.markdown("**8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?**")
-    st.image("images/geom_q8.png", caption="試題第 8 題：多邊形角關係幾何圖形", use_column_width=True)
-    q8 = st.radio("請選擇正確答案：", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
-
-    st.markdown("---")
-    st.markdown("**9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?**")
-    st.image("images/geom_q9.png", caption="試題第 9 題：直線與垂直線幾何圖形", use_column_width=True)
-    q9 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
-
-    st.markdown("---")
-    st.markdown("**10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively. Which of the following must be correct?**")
-    st.image("images/pie_q10.png", caption="試題第 10 題：Shop A 與 Shop B 雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
-    q10 = st.radio("請選擇正確答案：", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
+    q7 = st.radio("7. In the figure where AED and BEC are straight lines with angle EDC = x, which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
+    q8 = st.radio("8. In the figure where PQT and PRS are straight lines, which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
+    q9 = st.radio("9. In the figure where CDE is a straight line and x + y = 90°, which of the following must be true? (I. AB//CE, II. AC⊥AD, III. x = y)", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+    q10 = st.radio("10. Based on the ice cream flavor pie charts (Shop A vs Shop B), which of the following must be correct?", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
 
 st.markdown("---")
 

@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (保持高科技深藍 Mood，並完美修復 Metric 長字截斷問題)
+# 注入自定義 CSS (保持你原本的高科技深藍 Mood)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -58,11 +58,6 @@ st.markdown("""
         border-radius: 12px !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         margin-bottom: 15px;
-    }
-    
-    /* 專門調整 Metric 數值方框入面嘅字體大小，確保「需加把勁，盡快執好根基 ⚠️」完美出晒黎唔會被截斷 */
-    [data-testid="stMetricValue"] {
-        font-size: 22px !important;
     }
     
     /* 按鈕美化：極靚嘅漸變金藍按鈕 */
@@ -141,10 +136,27 @@ else:
     q4 = st.radio("4. Factorize completely: ax - cx - ay - bx + cy + by =", ("A) (x + y)(a + b - c)", "B) (x + y)(a - b - c)", "C) (x - y)(a + b - c)", "D) (x - y)(a - b - c)"))
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
-    q7 = st.radio("7. In the geometric figure where AED and BEC are straight lines with angle EDC = x, z = exterior angle, which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
-    q8 = st.radio("8. In the figure where PQT and PRS are straight lines with internal angles a, b, c, d, e, which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
-    q9 = st.radio("9. In the figure where CDE is a straight line and x + y = 90°, which of the following statements must be true?\nI. AB // CE\nII. AC ⊥ AD\nIII. x = y", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
-    q10 = st.radio("10. Based on the ice cream flavor pie charts (Shop A: Chocolate 40%, Peach 24%, Mango 16%, Strawberry 12%, Almond 8%; Shop B: Mango 40%, Peach 22%, Chocolate 20%, Strawberry 10%, Almond 8%), which of the following must be correct?\nI. Number of customers voting peach in A > B\nII. Peach flavor is more popular than strawberry in both shops\nIII. Percentages of customers voting almond in shop A and B are the same", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
+    
+    # 第 7 至 10 題：完美補回圖片顯示！ (請確保 GitHub 內有 images 資料夾並上載了 geom_q7.png, geom_q8.png, geom_q9.png, pie_q10.png)
+    st.markdown("---")
+    st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**")
+    st.image("images/geom_q7.png", caption="第 7 題幾何圖形", use_column_width=True)
+    q7 = st.radio("請選擇正確答案：", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
+
+    st.markdown("---")
+    st.markdown("**8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?**")
+    st.image("images/geom_q8.png", caption="第 8 題幾何圖形", use_column_width=True)
+    q8 = st.radio("請選擇正確答案：", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
+
+    st.markdown("---")
+    st.markdown("**9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?**")
+    st.image("images/geom_q9.png", caption="第 9 題幾何圖形", use_column_width=True)
+    q9 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+
+    st.markdown("---")
+    st.markdown("**10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively. Which of the following must be correct?**")
+    st.image("images/pie_q10.png", caption="第 10 題雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
+    q10 = st.radio("請選擇正確答案：", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
 
 st.markdown("---")
 
@@ -182,7 +194,7 @@ if submit_btn:
         
     st.balloons()
     
-    # 評估完成提示卡片
+    # 評估完成提示框（亮黃字 + 深藍卡片，確保 100% 清晰）
     st.markdown(f"""
     <div style="background-color: #0f2744; border: 2px solid #f39c12; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
         <span style="color: #ffeb3b !important; font-size: 18px; font-weight: bold; display: block;">
@@ -200,7 +212,7 @@ if submit_btn:
         elif predicted_score >= 60:
             grade_level = "Level 4 (進步空間大 📈)"
         else:
-            grade_level = "需加大把勁，盡快執好根基 ⚠️"  # 保留完整原文！
+            grade_level = "需加一把勁，盡快執好根基 ⚠️"
         st.metric(label="評級水準", value=grade_level)
         
     st.markdown("### 🔍 Terry Sir 的專業分析與建議：")
@@ -220,7 +232,7 @@ st.markdown("""
         Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>
     <p style="margin-top: 10px;">
-        👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
+        👉 歡迎瀏覽我們的 [Facebook 專頁](https://www.facebook.com/terrysir) 了解更多學生成績分享與實戰心得！
     </p>
 </div>
 """, unsafe_allow_html=True)

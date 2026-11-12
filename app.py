@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (完美解決所有白字問題，保持深藍高科技 Mood)
+# 注入自定義 CSS (保持深藍高科技 Mood，並修復所有提示框文字為黑色)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -177,10 +177,10 @@ if submit_btn:
         
     st.balloons()
     
-    # 改用專屬 HTML 卡片確保深色字體清晰易讀，絕不出白字！
+    # 強制使用黑色字體（color: #111111 !important），確保在淺綠底卡片上極之清晰！
     st.markdown(f"""
     <div style="background-color: #d4edda; border: 1px solid #c3e6cb; padding: 16px; border-radius: 10px; margin-bottom: 20px;">
-        <p style="color: #155724 !important; font-size: 18px; font-weight: bold; margin: 0;">
+        <p style="color: #111111 !important; font-size: 18px; font-weight: bold; margin: 0;">
             🎉 評估完成！你目前在 {exam_stage} ({grade}) 的表現如下：
         </p>
     </div>

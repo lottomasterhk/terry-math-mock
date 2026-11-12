@@ -7,62 +7,68 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (完美還原 Poster 嘅深藍高科技、金藍配色、圓角膠囊與專業 Mood)
+# 注入自定義 CSS (完美匹配深藍高科技 Mood，並強制所有題目文字變為清晰白色)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
     .stApp {
         background: linear-gradient(135deg, #0b1d3a 0%, #061124 100%);
-        color: #ffffff;
-    }
-    
-    /* 標題與文字美化 */
-    h1, h2, h3 {
         color: #ffffff !important;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     
-    /* 區塊卡片化 (Container Card) */
-    .css-1r6slb0, .stRadio > div {
-        background-color: rgba(255, 255, 255, 0.03);
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+    /* 確保所有標題、副標題、文字強制為白色 */
+    h1, h2, h3, h4, h5, h6, p, span, label, div {
+        color: #ffffff !important;
+    }
+    
+    /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大 */
+    .stRadio label p {
+        color: #ffffff !important;
+        font-size: 16px !important;
+    }
+    
+    /* 下拉選單文字顏色修正 */
+    .stSelectbox div[data-baseweb="select"] span {
+        color: #ffffff !important;
+    }
+    
+    /* 區塊卡片化 (Container Card) 加強邊框與深色半透明背景，令選項極易閱讀 */
+    .stRadio > div {
+        background-color: rgba(255, 255, 255, 0.06) !important;
+        padding: 20px !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        margin-bottom: 15px;
     }
     
     /* 按鈕美化：極靚嘅漸變金藍按鈕 */
     .stButton>button {
         width: 100%;
-        background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        padding: 14px 24px;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
+        color: white !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+        padding: 14px 24px !important;
+        border-radius: 10px !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
         transition: 0.3s;
     }
     .stButton>button:hover {
-        background: linear-gradient(90deg, #2a5298 0%, #3a7bd5 100%);
-        border-color: #f39c12;
-    }
-    
-    /* 選擇框與下拉選單美化 */
-    .stSelectbox, .stRadio {
-        color: #ffffff;
+        background: linear-gradient(90deg, #2a5298 0%, #3a7bd5 100%) !important;
+        border-color: #f39c12 !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# 頁面頂部品牌視覺宣傳標題
+# 頁面頂部品牌視覺宣傳標題 (對應 Poster 風格)
 st.markdown("""
 <div style="text-align: center; padding: 10px 0;">
-    <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
+    <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
         🧠 NLP 心理引導 × 中大數學專業培訓
     </span>
-    <h1 style="margin-top: 15px; font-size: 32px; font-weight: 800;">【中大數學】Terry Sir - 初中數學專科教室</h1>
-    <p style="color: #a0aec0; font-size: 16px; max-width: 650px; margin: 0 auto;">
+    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】Terry Sir - 初中數學專科教室</h1>
+    <p style="color: #cbd5e0 !important; font-size: 15px; max-width: 650px; margin: 0 auto;">
         核心理念：不只教公式，用 NLP 心理引導幫孩子解開數學心結，由根基打起，重拾信心奪 A！ ✨
     </p>
 </div>
@@ -87,7 +93,7 @@ st.markdown("---")
 st.subheader("✍️ 第二步：中二 1st Term Test 全真 10 題 MC 能力快測")
 st.markdown("請認真完成以下 10 題精選實戰試題：")
 
-# 10 題精選中二 MC
+# 10 題精選中二 MC (中大數學 Terry Sir 實戰卷)
 q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"))
 q2 = st.radio("2. If y = 29.4 (correct to 3 significant figures), find the range of values of y.", ("A) 29.3 < y ≤ 29.5", "B) 29.3 ≤ y < 29.5", "C) 29.35 < y ≤ 29.45", "D) 29.35 ≤ y < 29.45"))
 q3 = st.radio("3. Find the degree of the expansion of (x^2 + 2x + 4)(y - 2).", ("A) 1", "B) 2", "C) 3", "D) 4"))
@@ -103,6 +109,7 @@ st.markdown("---")
 
 # 提交按鈕與結果預測運算
 if st.button("🚀 立即生成我的中二 Mock 考試預測報告！", type="primary"):
+    # 計分邏輯 (根據標準答案：Q1:A, Q2:D, Q3:C, Q4:A, Q5:C, Q6:C, Q7:C, Q8:C, Q9:A, Q10:A)
     score = 0
     if "A" in q1: score += 1
     if "D" in q2: score += 1
@@ -142,7 +149,7 @@ if st.button("🚀 立即生成我的中二 Mock 考試預測報告！", type="p
     st.markdown("唔想每次溫書都盲目死背？想學識用 NLP 心法同高效系統化筆記輕鬆拿高分？")
     
     # WhatsApp 按鈕連結
-    whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約 $400/1小時試課詳情！"
+    whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約%20$400/1小時試課詳情！"
     st.markdown(f"""
     <div style="text-align: center; margin-top: 20px;">
         <a href="{whatsapp_url}" target="_blank">
@@ -154,4 +161,4 @@ if st.button("🚀 立即生成我的中二 Mock 考試預測報告！", type="p
     """, unsafe_allow_html=True)
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #a0aec0;'>© 2026 中大數學 - Terry Sir - 初中數學專科. All Rights Reserved.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - Terry Sir - 初中數學專科. All Rights Reserved.</p>", unsafe_allow_html=True)

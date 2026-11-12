@@ -177,10 +177,10 @@ if submit_btn:
         
     st.balloons()
     
-    # 徹底棄用 st.success，改用純 HTML 區塊，確保文字顏色強制為實黑色 (#000000)
+    # 改用深藍色底卡片 + 亮黃色字體，保證 100% 唔會再有白字盲點！
     st.markdown(f"""
-    <div style="background-color: #d4edda; border: 1px solid #c3e6cb; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <span style="color: #000000 !important; font-size: 18px; font-weight: bold; display: block;">
+    <div style="background-color: #0f2744; border: 2px solid #f39c12; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <span style="color: #ffeb3b !important; font-size: 18px; font-weight: bold; display: block;">
             🎉 評估完成！你目前在 {exam_stage} ({grade}) 的表現如下：
         </span>
     </div>
@@ -221,7 +221,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # WhatsApp 預約試課按鈕 ($150/1hr)
-whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約%20$150/1小時試課詳情！"
+whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E4%B8%AD%E4%BA%8CMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84+%24150%2F1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81&type=phone_number&app_absent=0"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">

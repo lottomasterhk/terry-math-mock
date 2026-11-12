@@ -169,7 +169,7 @@ elif "2nd Term Test" in exam_stage:
     q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\nI. The value of n is 24.\nII. The ratio of the size of each interior angle to each exterior angle is 12:1.\nIII. The sum of the interior angles is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="t2_q6")
     
     st.markdown("---")
-    st.markdown("**7. In the figure, AED and CGD are straight lines, and AED ~ EFGD [or ABCD ~ EFGD]. Find x.**")
+    st.markdown("**7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.**")
     st.image("images/geom_2nd_q7.png", caption="2nd Term Test 第 7 題梯形相似圖", use_column_width=True)
     q7 = st.radio("請選擇正確答案：", ("A) 6", "B) 7", "C) 8", "D) 9"), key="t2_q7")
 

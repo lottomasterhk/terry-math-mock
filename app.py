@@ -90,10 +90,11 @@ exam_stage = st.selectbox(
 grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
 
 st.markdown("---")
-st.subheader("✍️ 第二步：中二 1st Term Test 全真 10 題 MC 能力快測")
+# 更改為極具專業感嘅形容詞
+st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
 st.markdown("請認真完成以下 10 題精選實戰試題：")
 
-# 10 題精選中二 MC (中大數學 Terry Sir 實戰卷)
+# 10 題精選中二 MC (中大數學 Terry Sir 校本真題卷)
 q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"))
 q2 = st.radio("2. If y = 29.4 (correct to 3 significant figures), find the range of values of y.", ("A) 29.3 < y ≤ 29.5", "B) 29.3 ≤ y < 29.5", "C) 29.35 < y ≤ 29.45", "D) 29.35 ≤ y < 29.45"))
 q3 = st.radio("3. Find the degree of the expansion of (x^2 + 2x + 4)(y - 2).", ("A) 1", "B) 2", "C) 3", "D) 4"))
@@ -109,7 +110,6 @@ st.markdown("---")
 
 # 提交按鈕與結果預測運算
 if st.button("🚀 立即生成我的中二 Mock 考試預測報告！", type="primary"):
-    # 計分邏輯 (根據標準答案：Q1:A, Q2:D, Q3:C, Q4:A, Q5:C, Q6:C, Q7:C, Q8:C, Q9:A, Q10:A)
     score = 0
     if "A" in q1: score += 1
     if "D" in q2: score += 1

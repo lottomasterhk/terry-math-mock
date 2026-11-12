@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (保持深藍高科技 Mood，並強制所有報告結果文字改為清晰黑色)
+# 注入自定義 CSS (保持你原本的高科技深藍 Mood)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -16,8 +16,8 @@ st.markdown("""
         color: #ffffff !important;
     }
     
-    /* 確保主要標題、副標題保持白色 */
-    h1, h2, h3, h4, h5, h6 {
+    /* 確保所有標題、副標題、文字強制為白色 */
+    h1, h2, h3, h4, h5, h6, p, label {
         color: #ffffff !important;
     }
     
@@ -177,7 +177,7 @@ if submit_btn:
         
     st.balloons()
     
-    # 報告頂部卡片：強制所有內文使用極為清晰的黑色（#111111）
+    # 只有這句提示卡片強制用黑色字（color: #111111 !important），其餘分數同評級維持原本設計
     st.markdown(f"""
     <div style="background-color: #d4edda; border: 1px solid #c3e6cb; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
         <p style="color: #111111 !important; font-size: 18px; font-weight: bold; margin: 0;">
@@ -198,25 +198,13 @@ if submit_btn:
             grade_level = "需加一把勁，盡快執好根基 ⚠️"
         st.metric(label="評級水準", value=grade_level)
         
-    # 專業分析區：用獨立 HTML 包裹，確保字體強制為黑字，拒絕白字！
-    analysis_text = ""
+    st.markdown("### 🔍 Terry Sir 的專業分析與建議：")
     if score >= 8:
-        analysis_text = f"🌟 **太棒了！** 你對中二 <b>{exam_stage}</b> 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！"
+        st.markdown(f"🌟 **太棒了！** 你對中二 **{exam_stage}** 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！")
     elif score >= 5:
-        analysis_text = f"💪 **表現唔錯，但仍有進步空間！** 你大部分觀念清晰，但有少部分題目仲有盲點。只要做多幾次「拆局」訓練，好快可以衝上 80 分以上！"
+        st.markdown(f"💪 **表現唔錯，但仍有進步空間！** 你大部分觀念清晰，但有少部分題目仲有盲點。只要做多幾次「拆局」訓練，好快可以衝上 80 分以上！")
     else:
-        analysis_text = f"⚠️ **你需要即刻正視盲點喇！** 目前喺 <b>{exam_stage}</b> 嘅基礎出現咗唔少漏洞，如果唔盡快由淺入深執好底層邏輯，到正式考試好容易因為緊張失準。建議盡快搵 Terry Sir 幫你重塑數學根基！"
-
-    st.markdown(f"""
-    <div style="margin-top: 15px; margin-bottom: 20px;">
-        <h3 style="color: #ffffff !important; margin-bottom: 10px;">🔍 Terry Sir 的專業分析與建議：</h3>
-        <div style="background-color: rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 10px; border-left: 5px solid #f39c12;">
-            <p style="color: #ffffff !important; font-size: 16px; margin: 0; line-height: 1.6;">
-                {analysis_text}
-            </p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown(f"⚠️ **你需要即刻正視盲點喇！** 目前喺 **{exam_stage}** 嘅基礎出現咗唔少漏洞，如果唔盡快由淺入深執好底層邏輯，到正式考試好容易因為緊張失準。建議盡快搵 Terry Sir 幫你重塑數學根基！")
 
 # 品牌宣傳區與 Facebook 專頁聯結
 st.markdown("---")

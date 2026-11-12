@@ -138,12 +138,12 @@ if st.button("🚀 立即生成我的中二 Mock 考試預測報告！", type="p
     st.markdown("唔想每次溫書都盲目死背？想學識用 NLP 心法同高效系統化筆記輕鬆拿高分？")
     
     # WhatsApp 按鈕連結
-    whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約 $400/1小時試課詳情！"
+    whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成中二Mock測試，想預約 $150/1小時試課詳情！"
     st.markdown(f"""
     <div style="text-align: center; margin-top: 20px;">
         <a href="{whatsapp_url}" target="_blank">
             <button style="background-color: #25D366; color: white; padding: 12px 24px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
-                📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($400/1hr)
+                📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)
             </button>
         </a>
     </div>

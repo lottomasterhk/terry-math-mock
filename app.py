@@ -177,7 +177,7 @@ if submit_btn:
         
     st.balloons()
     
-    # 只有這句提示卡片強制用黑色字（color: #111111 !important），其餘分數同評級維持原本設計
+    # 呢度明確指定 color: #111111 !important，確保字體變為深黑色！
     st.markdown(f"""
     <div style="background-color: #d4edda; border: 1px solid #c3e6cb; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
         <p style="color: #111111 !important; font-size: 18px; font-weight: bold; margin: 0;">

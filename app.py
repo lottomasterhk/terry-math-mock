@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (完美解決所有提示框與選單白字問題，保持深藍高科技 Mood)
+# 注入自定義 CSS (完美解決所有白字問題，保持深藍高科技 Mood)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -43,16 +43,6 @@ st.markdown("""
     div[data-baseweb="menu"] div:hover {
         background-color: #1e3c72 !important;
         color: #f39c12 !important;
-    }
-    
-    /* 成功提示框（st.success）強制轉為淺黃底深色字，徹底解決白字問題！ */
-    div.stSuccess {
-        background-color: #eef9e8 !important;
-        border: 1px solid #2ecc71 !important;
-    }
-    div.stSuccess p, div.stSuccess span, div.stSuccess div {
-        color: #1b4d3e !important;
-        font-weight: bold !important;
     }
     
     /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大 */
@@ -187,7 +177,14 @@ if submit_btn:
         
     st.balloons()
     
-    st.success(f"🎉 評估完成！你目前在 **{exam_stage} ({grade})** 的表現如下：")
+    # 改用專屬 HTML 卡片確保深色字體清晰易讀，絕不出白字！
+    st.markdown(f"""
+    <div style="background-color: #d4edda; border: 1px solid #c3e6cb; padding: 16px; border-radius: 10px; margin-bottom: 20px;">
+        <p style="color: #155724 !important; font-size: 18px; font-weight: bold; margin: 0;">
+            🎉 評估完成！你目前在 {exam_stage} ({grade}) 的表現如下：
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     with col1:

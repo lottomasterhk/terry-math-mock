@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (保持你原本的高科技深藍 Mood)
+# 注入自定義 CSS (保持高科技深藍 Mood)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -80,7 +80,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 頁面頂部品牌視覺宣傳標題 (對應 Poster 風格)
+# 頁面頂部品牌視覺宣傳標題
 st.markdown("""
 <div style="text-align: center; padding: 10px 0;">
     <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
@@ -126,7 +126,7 @@ if "1st Term Test" in exam_stage:
     q9 = st.radio("9. Simplify [ (3a^2 + 6ab) / (a^2 + 2ab - ab - 2b^2) ] × [ (4a - 4b) / (9a^2) ] =", ("A) 4 / (3a)", "B) 4a / 3", "C) 4(a + 2b) / [3a(a^2 + ab - 2b^2)]", "D) 4a(a + 2b) / [3(a^2 + ab - 2b^2)]"))
     q10 = st.radio("10. If x^2 + y^2 = m and x + y = n, then xy =", ("A) (1/2)(n^2 - m)", "B) n^2 - m", "C) n^2 - m/2", "D) (n^2)/2 - m"))
 
-else:
+elif "1st Exam" in exam_stage:
     st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
     st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
     
@@ -137,7 +137,6 @@ else:
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
     
-    # 第 7 至 10 題圖片
     st.markdown("---")
     st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**")
     st.image("images/geom_q7.png", caption="第 7 題幾何圖形", use_column_width=True)
@@ -158,6 +157,48 @@ else:
     st.image("images/pie_q10.png", caption="第 10 題雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
     q10 = st.radio("請選擇正確答案：", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
 
+elif "2nd Term Test" in exam_stage:
+    st.subheader("✍️ 第二步：中二 2nd Term Test 校本真題級 10 題快測")
+    st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
+    
+    q1 = st.radio("1. If x and y are non-zero numbers such that 4x + 3y / 3x + 5y = 5 / 8, then 3x + y / x + 3y =", ("A) 5/13", "B) 4/3", "C) 13/5", "D) 3/4"))
+    q2 = st.radio("2. Suppose 10 Swiss Francs (CHF) = 89 HKD and 10 U.S. dollars (USD) = 78 HKD. How many USD can 546 CHF be changed to?", ("A) 478 USD", "B) 623 USD", "C) 1271 USD", "D) 2173 USD"))
+    q3 = st.radio("3. If 3 pipes fill a swimming pool in 1.5 hours, how much time can be saved by using 5 pipes instead?", ("A) 10 minutes", "B) 24 minutes", "C) 36 minutes", "D) 54 minutes"))
+    q4 = st.radio("4. Joe has candies for students. If 84 students pass, each gets 7 candies. How many students pass if each gets 3 candies?", ("A) 4", "B) 36", "C) 196", "D) 252"))
+    q5 = st.radio("5. If 0.75x = y and 2z = 7y, find the ratio (2x + y) : (y + z).", ("A) 22:27", "B) 21:25", "C) 10:9", "D) 37:27"))
+    q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true? (I. n = 24, II. Ratio of int to ext = 11:1, III. Sum of int angles = 3960°)", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+    q7 = st.radio("7. In the figure (Trapezium / similar figures), AED and CGD are straight lines, and AED ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"))
+    q8 = st.radio("8. In the figure, PQRS is a quadrilateral, diagonals PR and QS intersect at T. Given ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which must be true?", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+    q9 = st.radio("9. In the figure, ABC and FED are straight lines, AB=BC=DE=EF, AC // FD, AF // CD. Which must be true?", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"))
+    q10 = st.radio("10. In the figure, ABCD is a square and ΔCED is an equilateral triangle. If DE = DG and DG // EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"))
+
+else:
+    st.subheader("✍️ 第二步：中二 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
+    st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
+    
+    q1 = st.radio("1. Which of the following is/are rational number(s)? (I. sqrt(2^2), II. pi, III. 0.3)", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"))
+    q2 = st.radio("2. The scale of a map is 1 : 200 000. If the distance on map is 5.23 cm, find the actual distance.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"))
+    q3 = st.radio("3. Which of the following circles has the longest radius?", ("A) Circle with area 5 cm²", "B) Circle with circumference 4 cm", "C) Circle with diameter 3 cm", "D) Circle with radius 1 cm"))
+    q4 = st.radio("4. In the coordinate geometry figure, find the length of the line segment joining A and G.", ("A) 19", "B) 23", "C) 25", "D) 30"))
+    q5 = st.radio("5. A square and an isosceles triangle have the same perimeter 100 cm. Base of triangle is 18 cm. Find the difference in area.", ("A) 256 cm²", "B) 265 cm²", "C) 440.5 cm²", "D) 445 cm²"))
+    q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which are true? (I. n = 16, II. Sum = 2520°, III. Ratio int:ext = 6:1)", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+    
+    st.markdown("---")
+    st.markdown("**7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?**")
+    q7 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
+
+    st.markdown("---")
+    st.markdown("**8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find cos β / sin α.**")
+    q8 = st.radio("請選擇正確答案：", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α cos β"))
+
+    st.markdown("---")
+    st.markdown("**9. Two right cylinders P and Q have same height. Ratio of base radii is 1:2. Ratio of base radius of P to height of P is 1:3. Find ratio of total surface area.**")
+    q9 = st.radio("請選擇正確答案：", ("A) 1:2", "B) 2:5", "C) 4:7", "D) 7:16"))
+
+    st.markdown("---")
+    st.markdown("**10. In the figure, PQRST is a regular pentagon. QT =**")
+    q10 = st.radio("請選擇正確答案：", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"))
+
 st.markdown("---")
 
 # 提交按鈕與結果預測運算
@@ -176,7 +217,7 @@ if submit_btn:
         if "C" in q8: score += 1
         if "A" in q9: score += 1
         if "A" in q10: score += 1
-    else:
+    elif "1st Exam" in exam_stage:
         if "C" in q1: score += 1
         if "D" in q2: score += 1
         if "C" in q3: score += 1
@@ -187,6 +228,28 @@ if submit_btn:
         if "D" in q8: score += 1
         if "D" in q9: score += 1
         if "D" in q10: score += 1
+    elif "2nd Term Test" in exam_stage:
+        if "C" in q1: score += 1
+        if "A" in q2: score += 1
+        if "C" in q3: score += 1
+        if "C" in q4: score += 1
+        if "A" in q5: score += 1
+        if "B" in q6: score += 1
+        if "C" in q7: score += 1
+        if "A" in q8: score += 1
+        if "A" in q9: score += 1
+        if "D" in q10: score += 1
+    else:
+        if "C" in q1: score += 1
+        if "C" in q2: score += 1
+        if "A" in q3: score += 1
+        if "C" in q4: score += 1
+        if "B" in q5: score += 1
+        if "A" in q6: score += 1
+        if "B" in q7: score += 1
+        if "A" in q8: score += 1
+        if "D" in q9: score += 1
+        if "B" in q10: score += 1
     
     predicted_score = score * 10
     if predicted_score < 30: 
@@ -210,7 +273,7 @@ if submit_btn:
     else:
         grade_level = "需加一把勁，盡快執好根基 ⚠️"
         
-    # 改用自製 HTML 雙欄卡片顯示分數與評級，保證長字 100% 完美呈現、絕不被截斷！
+    # 自製 HTML 雙欄卡片顯示分數與評級，保證長字 100% 完美呈現、絕不被截斷
     st.markdown(f"""
     <div style="display: flex; gap: 15px; margin-bottom: 25px;">
         <div style="flex: 1; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 12px; text-align: center;">

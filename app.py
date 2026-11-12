@@ -137,7 +137,7 @@ else:
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
     
-    # 第 7 至 10 題：完美補回圖片顯示！ (請確保 GitHub 內有 images 資料夾並上載了 geom_q7.png, geom_q8.png, geom_q9.png, pie_q10.png)
+    # 第 7 至 10 題圖片
     st.markdown("---")
     st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**")
     st.image("images/geom_q7.png", caption="第 7 題幾何圖形", use_column_width=True)
@@ -194,7 +194,7 @@ if submit_btn:
         
     st.balloons()
     
-    # 評估完成提示框（亮黃字 + 深藍卡片，確保 100% 清晰）
+    # 評估完成提示卡片
     st.markdown(f"""
     <div style="background-color: #0f2744; border: 2px solid #f39c12; padding: 18px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
         <span style="color: #ffeb3b !important; font-size: 18px; font-weight: bold; display: block;">
@@ -203,17 +203,26 @@ if submit_btn:
     </div>
     """, unsafe_allow_html=True)
     
-    col1, col2 = st.columns(2)
-    with col1:
-        st.metric(label="預測 Mock 考試分數", value=f"{predicted_score} 分 / 100分")
-    with col2:
-        if predicted_score >= 80:
-            grade_level = "Level 5 或以上 (奪 A 🏆)"
-        elif predicted_score >= 60:
-            grade_level = "Level 4 (進步空間大 📈)"
-        else:
-            grade_level = "需加一把勁，盡快執好根基 ⚠️"
-        st.metric(label="評級水準", value=grade_level)
+    if predicted_score >= 80:
+        grade_level = "Level 5 或以上 (奪 A 🏆)"
+    elif predicted_score >= 60:
+        grade_level = "Level 4 (進步空間大 📈)"
+    else:
+        grade_level = "需加一把勁，盡快執好根基 ⚠️"
+        
+    # 改用自製 HTML 雙欄卡片顯示分數與評級，保證長字 100% 完美呈現、絕不被截斷！
+    st.markdown(f"""
+    <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+        <div style="flex: 1; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 12px; text-align: center;">
+            <p style="color: #cbd5e0 !important; font-size: 14px; margin: 0 0 8px 0;">預測 Mock 考試分數</p>
+            <p style="color: #ffffff !important; font-size: 26px; font-weight: bold; margin: 0;">{predicted_score} 分 / 100分</p>
+        </div>
+        <div style="flex: 1; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 12px; text-align: center;">
+            <p style="color: #cbd5e0 !important; font-size: 14px; margin: 0 0 8px 0;">評級水準</p>
+            <p style="color: #f39c12 !important; font-size: 20px; font-weight: bold; margin: 0;">{grade_level}</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
         
     st.markdown("### 🔍 Terry Sir 的專業分析與建議：")
     if score >= 8:

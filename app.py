@@ -76,7 +76,7 @@ st.markdown("""
 
 st.markdown("---")
 
-# 選擇學年階段與年級 (完整包含 1st Term Test 及 1st Exam)
+# 第一步：選擇考試階段與年級（完整包含 1st Term Test 及 1st Exam）
 st.subheader("📌 第一步：選擇你的考試階段與年級")
 exam_stage = st.selectbox(
     "選擇考試階段",
@@ -85,14 +85,13 @@ exam_stage = st.selectbox(
         "1st Exam (上學期考試)", 
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
-    ],
-    index=1 if "1st Exam" in st.session_state.get('last_stage', '') else 0
+    ]
 )
 grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
 
 st.markdown("---")
 
-# 根據唔同考試階段，動態展示對應嘅 10 題快測
+# 動態判斷：根據選擇顯示唔同嘅 10 題快測
 if "1st Term Test" in exam_stage:
     st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
     st.markdown("請認真完成以下 10 題精選實戰試題：")
@@ -110,7 +109,7 @@ if "1st Term Test" in exam_stage:
 
 else:
     st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
-    st.markdown("請認真完成以下 10 題精選上學期實戰試題（附設實戰幾何與圖表題）：")
+    st.markdown("請認真完成以下 10 題精選上學期實戰試題（附設實戰幾何與圖表）：")
     
     q1 = st.radio("1. The thickness of a dictionary is measured as 4.0 cm, correct to the nearest 0.5 cm. Find the actual range of values of x.", ("A) 3.5 ≤ x < 4.5", "B) 3.5 < x < 4.5", "C) 3.75 ≤ x < 4.25", "D) 3.75 < x < 4.25"))
     q2 = st.radio("2. Which of the following is not a polynomial?", ("A) 5x - 3y", "B) 5xy - 3", "C) x/5 - y/3", "D) 5x - 3/y"))
@@ -119,27 +118,25 @@ else:
     q5 = st.radio("5. The graph of 4x + ay = 18 passes through P(6, -3). Which of the following points lies on the graph?", ("A) (-3, -6)", "B) (-1, -11)", "C) (1, 7)", "D) (7, -2)"))
     q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"))
     
-    # 題目 7：平行線與三角形內角 (配備原卷幾何圖形圖示)
+    # 幾何與圖表題 (如已建立 images 資料夾，會自動顯示對應圖片)
     st.markdown("---")
-    st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**[cite: 6]")
-    # 這裡可以直接放入你從 PDF crop 出來嘅幾何圖形圖片 (例如上載到 GitHub 或 imgur 後放 URL，或用本地圖片)
-    # 示範使用佔位圖或直接嵌入說明：
-    st.image("https://i.imgur.com/example_geom1.png", caption="試題第 7 題：平行線與對頂角圖形", use_column_width=True)
+    st.markdown("**7. In the figure, AED and BEC are straight lines. Which of the following must be true?**")
+    st.image("images/geom_q7.png", caption="試題第 7 題：平行線與對頂角幾何圖形", use_column_width=True)
     q7 = st.radio("請選擇正確答案：", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"))
 
     st.markdown("---")
-    st.markdown("**8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?**[cite: 8]")
-    st.image("https://i.imgur.com/example_geom2.png", caption="試題第 8 題：多邊形角關係圖形", use_column_width=True)
+    st.markdown("**8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?**")
+    st.image("images/geom_q8.png", caption="試題第 8 題：多邊形角關係幾何圖形", use_column_width=True)
     q8 = st.radio("請選擇正確答案：", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
 
     st.markdown("---")
-    st.markdown("**9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?**[cite: 9]")
-    st.image("https://i.imgur.com/example_geom3.png", caption="試題第 9 題：直線與垂直線圖形", use_column_width=True)
+    st.markdown("**9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?**")
+    st.image("images/geom_q9.png", caption="試題第 9 題：直線與垂直線幾何圖形", use_column_width=True)
     q9 = st.radio("請選擇正確答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"))
 
     st.markdown("---")
-    st.markdown("**10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively. Which of the following must be correct?**[cite: 8]")
-    st.image("https://i.imgur.com/example_piecharts.png", caption="試題第 10 題：Shop A 與 Shop B 雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
+    st.markdown("**10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively. Which of the following must be correct?**")
+    st.image("images/pie_q10.png", caption="試題第 10 題：Shop A 與 Shop B 雪糕口味圓形圖 (Pie Charts)", use_column_width=True)
     q10 = st.radio("請選擇正確答案：", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"))
 
 st.markdown("---")
@@ -147,7 +144,6 @@ st.markdown("---")
 # 提交按鈕與結果預測運算
 submit_btn = st.button("🚀 立即生成我的 Mock 考試預測報告！", type="primary")
 
-# 當學生禁咗提交按鈕後才計算和顯示結果
 if submit_btn:
     score = 0
     if "1st Term Test" in exam_stage:
@@ -162,7 +158,6 @@ if submit_btn:
         if "A" in q9: score += 1
         if "A" in q10: score += 1
     else:
-        # 1st Exam 標準答案對應 (Q1:C, Q2:D, Q3:C, Q4:D, Q5:D, Q6:A, Q7:D, Q8:D, Q9:D, Q10:D)
         if "C" in q1: score += 1
         if "D" in q2: score += 1
         if "C" in q3: score += 1

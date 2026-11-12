@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS (修復下拉選單文字看得見，並保持深藍高科技 Mood)
+# 注入自定義 CSS (完美解決下拉選單文字看得見問題，並保持深藍高科技 Mood)
 st.markdown("""
 <style>
     /* 全局背景與字體顏色 */
@@ -17,30 +17,32 @@ st.markdown("""
     }
     
     /* 確保所有標題、副標題、文字強制為白色 */
-    h1, h2, h3, h4, h5, h6, p, label, div {
+    h1, h2, h3, h4, h5, h6, p, label {
         color: #ffffff !important;
     }
     
-    /* 專門針對普通文本 span，避免覆蓋下拉選單導致透明/白字看不見 */
-    span {
-        color: #ffffff;
+    /* 下拉選單（Selectbox）主按鈕外觀與文字 */
+    .stSelectbox [data-baseweb="select"] {
+        background-color: rgba(255, 255, 255, 0.12) !important;
+        border-radius: 8px !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+    .stSelectbox [data-baseweb="select"] * {
+        color: #ffffff !important;
     }
     
-    /* 下拉選單（Selectbox）本身的外觀與文字顏色修正 */
-    .stSelectbox div[data-baseweb="select"] {
-        background-color: rgba(255, 255, 255, 0.1) !important;
+    /* 下拉選單彈出清單（Dropdown Menu / Options）的背景與文字：強制深底白字或淺底黑字確保睇到 */
+    div[data-baseweb="popover"], div[data-baseweb="menu"] {
+        background-color: #0f2744 !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
         border-radius: 8px !important;
     }
-    .stSelectbox div[data-baseweb="select"] div, 
-    .stSelectbox div[data-baseweb="select"] span {
+    div[data-baseweb="menu"] div, div[data-baseweb="menu"] span {
         color: #ffffff !important;
     }
-    
-    /* 下拉選單展開後的選單項目（Dropdown Options）文字設為深色，保證看得見！ */
-    div[data-baseweb="popover"] div, 
-    div[data-baseweb="popover"] span,
-    div[data-baseweb="menu"] div {
-        color: #000000 !important;
+    div[data-baseweb="menu"] div:hover {
+        background-color: #1e3c72 !important;
+        color: #f39c12 !important;
     }
     
     /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大 */
@@ -206,7 +208,7 @@ st.markdown("""
         Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>
     <p style="margin-top: 10px;">
-        👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
+        👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">[中大數學 - Terry Sir - 初中數學專科]</a> 了解更多學生成績分享與實戰心得！
     </p>
 </div>
 """, unsafe_allow_html=True)

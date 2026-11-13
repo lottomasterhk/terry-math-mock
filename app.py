@@ -86,7 +86,7 @@ st.markdown("""
     <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
         🧠 NLP 心理引導 × 中大數學專業培訓
     </span>
-    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】Terry Sir - 初中數學專科教室</h1>
+    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】[Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) - 初中數學專科教室</h1>
     <p style="color: #cbd5e0 !important; font-size: 15px; max-width: 650px; margin: 0 auto;">
         核心理念：不只教公式，用 NLP 心理引導幫孩子解開數學心結，由根基打起，重拾信心奪 A！ ✨
     </p>
@@ -110,6 +110,10 @@ grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2
 
 st.markdown("---")
 
+# 初始化變數儲存當前作答
+user_answers = {}
+correct_answers = {}
+
 # 動態判斷：根據年級及考試階段顯示對應嘅 10 題快測
 if "中一" in grade:
     if "1st Term Test" in exam_stage:
@@ -121,61 +125,39 @@ if "中一" in grade:
         q3 = st.radio("3. P is a point on a straight road. At 9:00 a.m., car A departs at speed t km/h. At 9:30 a.m., car B departs in opposite direction at 2/3 of car A's speed. Find the distance between them at 11:00 a.m.", ("A) (2/3)t km", "B) (5/2)t km", "C) 3t km", "D) (10/3)t km"), key="f1_t1_q3")
         q4 = st.radio("4. Which of the following numbers is not divisible by 6?", ("A) 1 444 584", "B) 2 476 326", "C) 3 440 976", "D) 4 585 348"), key="f1_t1_q4")
         q5 = st.radio("5. Alan buys some $1.7 stamps and $2.4 stamps for $46. The number of $1.7 stamps is 15 more than that of $2.4 stamps. Find the number of $1.7 stamps.", ("A) 20", "B) 23", "C) 30", "D) 35"), key="f1_t1_q5")
-        
-        q6 = st.radio(
-            "6. The passing mark of an examination is 55 marks. Suppose +1 mark represents 1 mark higher than the passing mark. Adrian, Bill and Carman get +20 marks, -8 marks and +6 marks in the examination respectively. Which of the following are true?\n\n"
-            "I. Adrian's score is 75.\n\n"
-            "II. Their total score is 18.\n\n"
-            "III. They get +6 marks on average.",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f1_t1_q6"
-        )
-        
-        q7 = st.radio(
-            "7. Which of the following are correct?\n\n"
-            "I. The product of 420 and 525 is 2^2 × 3^2 × 5^3 × 7^2.\n\n"
-            "II. H.C.F. of 420 and 525 is 105.\n\n"
-            "III. L.C.M. of 420 and 525 is 2100.",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f1_t1_q7"
-        )
-        
+        q6 = st.radio("6. The passing mark of an examination is 55 marks. Suppose +1 mark represents 1 mark higher than the passing mark. Adrian, Bill and Carman get +20 marks, -8 marks and +6 marks in the examination respectively. Which of the following are true?\n\nI. Adrian's score is 75.\n\nII. Their total score is 18.\n\nIII. They get +6 marks on average.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t1_q6")
+        q7 = st.radio("7. Which of the following are correct?\n\nI. The product of 420 and 525 is 2^2 × 3^2 × 5^3 × 7^2.\n\nII. H.C.F. of 420 and 525 is 105.\n\nIII. L.C.M. of 420 and 525 is 2100.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t1_q7")
         q8 = st.radio("8. The pocket money of Kate, Elvis and Ayden are increased by $90, decreased by $110 and increased by $85 respectively. Their total pocket money is", ("A) decreased by $105.", "B) increased by $95.", "C) increased by $65.", "D) decreased by $65."), key="f1_t1_q8")
         q9 = st.radio("9. Consider the sequence: 1, 3, 7, 13, ... (n+1)th term is greater than nth term by 2n. Find the 6th term.", ("A) 21", "B) 25", "C) 31", "D) 43"), key="f1_t1_q9")
         q10 = st.radio("10. Harry's mother is m years old now. 5 years ago, Harry's age was 2/5 of his mother's. How old is Harry now?", ("A) m - 5", "B) (2/5)m + 5", "C) (2/5)(m - 5)", "D) (2/5)(m - 5) + 5"), key="f1_t1_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "C) +3 > +1.2 > +1/2 > 0 > -2.5 > -3/4", 2: "B) 2^3 × 3^2 × 7", 3: "D) (10/3)t km",
+            4: "D) 4 585 348", 5: "C) 30", 6: "D) I, II and III", 7: "C) II and III only",
+            8: "C) increased by $65.", 9: "C) 31", 10: "D) (2/5)(m - 5) + 5"
+        }
 
     elif "1st Exam" in exam_stage:
         st.subheader("✍️ 第二步：中一 1st Exam (上學期考試) 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
         
         q1 = st.radio("1. How many negative integers are there between -5.5 and 1.5?", ("A) 4", "B) 5", "C) 6", "D) 7"), key="f1_ex1_q1")
-        
-        q2 = st.radio(
-            "2. Which of the following is/are divisible by both 3 and 8?\n\n"
-            "I. 32 606 312\n\n"
-            "II. 46 237 512\n\n"
-            "III. 98 243 604",
-            ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
-            key="f1_ex1_q2"
-        )
-        
+        q2 = st.radio("2. Which of the following is/are divisible by both 3 and 8?\n\nI. 32 606 312\n\nII. 46 237 512\n\nIII. 98 243 604", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q2")
         q3 = st.radio("3. In the figure, 1st pattern has 3 dots. (n+1)th pattern is formed by adding 3 dots to nth pattern. Find the number of dots in the 7th pattern.", ("A) 15", "B) 18", "C) 21", "D) 24"), key="f1_ex1_q3")
         q4 = st.radio("4. 600 oranges and 400 apples were sold yesterday. Today, oranges decrease by 10% and apples increase by 15%. Find the percentage change in total number sold.", ("A) -10%", "B) 0%", "C) +5%", "D) +15%"), key="f1_ex1_q4")
         q5 = st.radio("5. The cost price of a car is $2,500. Marked price is 60% higher than cost price. If sold at a profit of 20%, find the discount per cent.", ("A) 25%", "B) 33%", "C) 40%", "D) 80%"), key="f1_ex1_q5")
         q6 = st.radio("6. If the general term of a sequence is an = 3(n - 1)^2, find the product of the second term and the fourth term.", ("A) 27", "B) 30", "C) 81", "D) 243"), key="f1_ex1_q6")
-        
-        q7 = st.radio(
-            "7. The height of Vincent is 135 cm. Issac is 20% taller than Vincent, and Andy is 20% shorter than Issac. Which of the following are true?\n\n"
-            "I. Issac's height is above 160 cm.\n\n"
-            "II. Vincent is as tall as Andy.\n\n"
-            "III. All of them are at least 130 cm tall.",
-            ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
-            key="f1_ex1_q7"
-        )
-        
+        q7 = st.radio("7. The height of Vincent is 135 cm. Issac is 20% taller than Vincent, and Andy is 20% shorter than Issac. Which of the following are true?\n\nI. Issac's height is above 160 cm.\n\nII. Vincent is as tall as Andy.\n\nIII. All of them are at least 130 cm tall.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q7")
         q8 = st.radio("8. Figure A shows a chocolate bar in right triangular prism shape. Andy melts it to make a rectangular chocolate bar in Figure B. Find the total surface area in Figure B.", ("A) 44 cm²", "B) 68 cm²", "C) 92 cm²", "D) 132 cm²"), key="f1_ex1_q8")
         q9 = st.radio("9. There are 25 questions in a test. 4 marks for correct, 1 mark deducted for wrong/unanswered. If Susan scores 60 marks, how many correct answers?", ("A) 15", "B) 16", "C) 17", "D) 18"), key="f1_ex1_q9")
         q10 = st.radio("10. The marked price of a comb is $45, which is 25% higher than the selling price. Find the discount per cent.", ("A) 20%", "B) 25%", "C) 36%", "D) 75%"), key="f1_ex1_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "B) 5", 2: "D) II and III only", 3: "C) 21", 4: "C) +5%", 5: "A) 25%",
+            6: "C) 81", 7: "C) I and III only", 8: "C) 92 cm²", 9: "C) 17", 10: "A) 20%"
+        }
 
     elif "2nd Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中一 2nd Term Test 校本真題級 10 題快測")
@@ -187,67 +169,37 @@ if "中一" in grade:
         q4 = st.radio("4. P(-3, 7), Q(0, k) and R(6, 1) are vertices of a triangle where 1 < k < 7. If area of ΔPQR is 9 square units, find k.", ("A) 2", "B) 3", "C) 4", "D) 6"), key="f1_t2_q4")
         q5 = st.radio("5. Trapezium PQRS where PS // QR. T is a point on PS, PR and TQ intersect at N. PT=4, TS=2, QR=8, area of ΔPNT = 4 cm², area of ΔQNR = 16 cm². Find area of quadrilateral STNR.", ("A) 10 cm²", "B) 12 cm²", "C) 13 cm²", "D) 14 cm²"), key="f1_t2_q5")
         q6 = st.radio("6. Anna divides data into 7 groups and constructs a frequency table. If the first group is 0-9, what is the frequency of the last group?", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f1_t2_q6")
-        
-        q7 = st.radio(
-            "7. Determine whether the following are discrete data or continuous data?\n\n"
-            "I. Daily rainfalls of city A in July.\n\n"
-            "II. Number of rainy days of city A in 2019.",
-            ("A) continuous data / discrete data", "B) continuous data / continuous data", "C) discrete data / discrete data", "D) discrete data / continuous data"),
-            key="f1_t2_q7"
-        )
-        
+        q7 = st.radio("7. Determine whether the following are discrete data or continuous data?\n\nI. Daily rainfalls of city A in July.\n\nII. Number of rainy days of city A in 2019.", ("A) continuous data / discrete data", "B) continuous data / continuous data", "C) discrete data / discrete data", "D) discrete data / continuous data"), key="f1_t2_q7")
         q8 = st.radio("8. In the figure, ADB is a straight line. Which of the following must be true for similarity?", ("A) ΔABC ~ ΔACD (3 sides proportional)", "B) ΔABC ~ ΔACD (ratio of 2 sides, inc. ∠)", "C) ΔABC ~ ΔCBD (3 sides proportional)", "D) ΔABC ~ ΔCBD (ratio of 2 sides, inc. ∠)"), key="f1_t2_q8")
-        
-        q9 = st.radio(
-            "9. Refer to the figure. Which of the following must be true?\n\n"
-            "I. ΔQPR ≅ ΔSRP\n\n"
-            "II. x = 5\n\n"
-            "III. y = 20°",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f1_t2_q9"
-        )
-        
+        q9 = st.radio("9. Refer to the figure. Which of the following must be true?\n\nI. ΔQPR ≅ ΔSRP\n\nII. x = 5\n\nIII. y = 20°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t2_q9")
         q10 = st.radio("10. Which of the following must be true for triangles ABC, DEF, PQR?", ("A) ΔABC ≅ ΔDEF (SSA)", "B) ΔABC ~ ΔDEF (SAS)", "C) ΔABC ≅ ΔPQR (SAS)", "D) None of the above"), key="f1_t2_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "C) 0.014 91 (5 d.p.)", 2: "B) 3", 3: "A) 6 cm", 4: "B) 3", 5: "D) 14 cm²",
+            6: "B) 2", 7: "A) continuous data / discrete data", 8: "D) ΔABC ~ ΔCBD (ratio of 2 sides, inc. ∠)", 9: "D) I, II and III", 10: "C) ΔABC ≅ ΔPQR (SAS)"
+        }
 
     else:
         st.subheader("✍️ 第二步：中一 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
         
-        q1 = st.radio(
-            "1. Refer to the figures A, B, C, D and E. Which statements are true?\n\n"
-            "I. Figures C, D and E are equiangular polygons.\n\n"
-            "II. There is only one regular polygon.\n\n"
-            "III. Only figures A, B and C are concave polygons.",
-            ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
-            key="f1_fin_q1"
-        )
-        
+        q1 = st.radio("1. Refer to the figures A, B, C, D and E. Which statements are true?\n\nI. Figures C, D and E are equiangular polygons.\n\nII. There is only one regular polygon.\n\nIII. Only figures A, B and C are concave polygons.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_fin_q1")
         q2 = st.radio("2. The total surface area of a right prism is 960 cm² and total area of lateral faces is 880 cm². Find the base area of the prism.", ("A) 10 cm²", "B) 20 cm²", "C) 30 cm²", "D) 40 cm²"), key="f1_fin_q2")
         q3 = st.radio("3. ABEF, GHI and DEH are straight lines. Find the area of polygon ABCDEFGHI.", ("A) 161 cm²", "B) 575 cm²", "C) 671 cm²", "D) 767 cm²"), key="f1_fin_q3")
         q4 = st.radio("4. In the figure, ABEH, CBDG, ADF and CEF are straight lines. Find a + b + c + d + e.", ("A) 150°", "B) 180°", "C) 270°", "D) 360°"), key="f1_fin_q4")
         q5 = st.radio("5. Find the area of quadrilateral ABCD in a rectangular coordinate plane given A(-2,3), B(-3,1), C(-2,-4), D(2,1).", ("A) 17.5 sq. units", "B) 18 sq. units", "C) 24.5 sq. units", "D) 35 sq. units"), key="f1_fin_q5")
         q6 = st.radio("6. In a rectangular coordinate plane, P(k, 3) is rotated about origin O through 180° to Q, then Q is translated 10 units left to R such that R is vertically below P. Find k.", ("A) -12", "B) -10", "C) -6", "D) -5"), key="f1_fin_q6")
         q7 = st.radio("7. In the figure, PQRS is a parallelogram. Given P(0, 8), Q(8, 9), R(5, -3). Find coordinates of S.", ("A) (-3, -4)", "B) (-3, -3)", "C) (-2, -4)", "D) (-2, -3)"), key="f1_fin_q7")
-        
-        q8 = st.radio(
-            "8. Suppose P(3, 7) undergoes transformations. Which form the same image?\n\n"
-            "I. Reflect in y-axis.\n\n"
-            "II. Translate 6 units left.\n\n"
-            "III. Rotate anticlockwise about origin O through 90°.",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f1_fin_q8"
-        )
-        
-        q9 = st.radio(
-            "9. In a rectangular coordinate plane, B(-3, 2) is image of A(2, 3) after transformations. Which may be involved?\n\n"
-            "I. Translate 5 units left and 1 unit downwards.\n\n"
-            "II. Reflect in y-axis.\n\n"
-            "III. Rotate anticlockwise about origin O through 90°.",
-            ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
-            key="f1_fin_q9"
-        )
-        
+        q8 = st.radio("8. Suppose P(3, 7) undergoes transformations. Which form the same image?\n\nI. Reflect in y-axis.\n\nII. Translate 6 units left.\n\nIII. Rotate anticlockwise about origin O through 90°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_fin_q8")
+        q9 = st.radio("9. In a rectangular coordinate plane, B(-3, 2) is image of A(2, 3) after transformations. Which may be involved?\n\nI. Translate 5 units left and 1 unit downwards.\n\nII. Reflect in y-axis.\n\nIII. Rotate anticlockwise about origin O through 90°.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_fin_q9")
         q10 = st.radio("10. In the figure, BCF and CDE are straight lines. Find x.", ("A) 90°", "B) 100°", "C) 110°", "D) 130°"), key="f1_fin_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "C) I and III only", 2: "D) 40 cm²", 3: "C) 671 cm²", 4: "D) 360°", 5: "A) 17.5 sq. units",
+            6: "B) -10", 7: "A) (-3, -4)", 8: "B) I and III only", 9: "C) I and III only", 10: "C) 110°"
+        }
 
 else:
     # 中二 (Form 2) 題目
@@ -259,21 +211,18 @@ else:
         q2 = st.radio("2. If y = 29.4 (correct to 3 significant figures), find the range of values of y.", ("A) 29.3 < y ≤ 29.5", "B) 29.3 ≤ y < 29.5", "C) 29.35 < y ≤ 29.45", "D) 29.35 ≤ y < 29.45"), key="f2_t1_q2")
         q3 = st.radio("3. Find the degree of the expansion of (x^2 + 2x + 4)(y - 2).", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f2_t1_q3")
         q4 = st.radio("4. If (x - p)(x + 5) - 7q ≡ x^2 + 6x - q - 1, then q =", ("A) -6", "B) -1", "C) 1", "D) 6"), key="f2_t1_q4")
-        
-        q5 = st.radio(
-            "5. Which of the following are NOT identities?\n\n"
-            "I. 1/x - 1 = (1 - x)/x\n\n"
-            "II. (x + 1)^2 = x^2 + 1\n\n"
-            "III. (ax + b)(x - b) = ax^2 - b^2",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f2_t1_q5"
-        )
-        
+        q5 = st.radio("5. Which of the following are NOT identities?\n\nI. 1/x - 1 = (1 - x)/x\n\nII. (x + 1)^2 = x^2 + 1\n\nIII. (ax + b)(x - b) = ax^2 - b^2", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5")
         q6 = st.radio("6. (-4^50)^4 (1/64)^100 =", ("A) -1", "B) 4^100", "C) 1 / (4^100)", "D) -1 / (4^200)"), key="f2_t1_q6")
         q7 = st.radio("7. If a ≠ 0 and a ≠ 1, then (a^(n+1) - a^(n-1)) / (a^n - a^(n-1)) =", ("A) 2", "B) a", "C) a + 1", "D) a - 1"), key="f2_t1_q7")
         q8 = st.radio("8. Simplify [3 / (m - 1)] - [2 / (m + 1)] =", ("A) 1 / (m - 1)", "B) 1 / (m + 1)", "C) (m + 5) / (m^2 - 1)", "D) (m - 5) / (m^2 - 1)"), key="f2_t1_q8")
         q9 = st.radio("9. Simplify [ (3a^2 + 6ab) / (a^2 + 2ab - ab - 2b^2) ] × [ (4a - 4b) / (9a^2) ] =", ("A) 4 / (3a)", "B) 4a / 3", "C) 4(a + 2b) / [3a(a^2 + ab - 2b^2)]", "D) 4a(a + 2b) / [3(a^2 + ab - 2b^2)]"), key="f2_t1_q9")
         q10 = st.radio("10. If x^2 + y^2 = m and x + y = n, then xy =", ("A) (1/2)(n^2 - m)", "B) n^2 - m", "C) n^2 - m/2", "D) (n^2)/2 - m"), key="f2_t1_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "A) 1.25%", 2: "D) 29.35 ≤ y < 29.45", 3: "C) 3", 4: "D) 6", 5: "C) II and III only",
+            6: "C) 1 / (4^100)", 7: "C) a + 1", 8: "C) (m + 5) / (m^2 - 1)", 9: "A) 4 / (3a)", 10: "A) (1/2)(n^2 - m)"
+        }
 
     elif "1st Exam" in exam_stage:
         st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
@@ -287,17 +236,14 @@ else:
         q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"), key="f2_ex1_q6")
         q7 = st.radio("7. In the figure, AED and BEC are straight lines. Which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"), key="f2_ex1_q7")
         q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"), key="f2_ex1_q8")
-        
-        q9 = st.radio(
-            "9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\n"
-            "I. ...\n\n"
-            "II. ...\n\n"
-            "III. ...",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f2_ex1_q9"
-        )
-        
+        q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\nI. ...\n\nII. ...\n\nIII. ...", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_ex1_q9")
         q10 = st.radio("10. The pie charts below show favourite flavours of ice cream. Which of the following must be correct?", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"), key="f2_ex1_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "C) 3.75 ≤ x < 4.25", 2: "D) 5x - 3/y", 3: "D) 4", 4: "C) (x - y)(a + b - c)", 5: "B) (-1, -11)",
+            6: "B) (324/37, -28/37)", 7: "C) z = x + y", 8: "C) a + b = c + e", 9: "D) I, II and III", 10: "C) I and II only"
+        }
 
     elif "2nd Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中二 2nd Term Test 校本真題級 10 題快測")
@@ -308,77 +254,38 @@ else:
         q3 = st.radio("3. If 3 pipes are used to fill a swimming pool in 1.5 hours, how much time can be saved by using 5 pipes instead? Assume that all the pipes discharge at the same rate.", ("A) 10 minutes", "B) 24 minutes", "C) 36 minutes", "D) 54 minutes"), key="f2_t2_q3")
         q4 = st.radio("4. Joe has brought some candies for his students who pass the term test. If 84 students pass, each can have 7 candies. How many students pass if each can have 3 candies?", ("A) 4", "B) 36", "C) 196", "D) 252"), key="f2_t2_q4")
         q5 = st.radio("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", ("A) 22:27", "B) 21:25", "C) 10:9", "D) 37:27"), key="f2_t2_q5")
-        
-        q6 = st.radio(
-            "6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\n\n"
-            "I. The value of n is 24.\n\n"
-            "II. The ratio of the size of each interior angle to each exterior angle is 12:1.\n\n"
-            "III. The sum of the interior angles is 3960°.",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f2_t2_q6"
-        )
-        
+        q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\n\nI. The value of n is 24.\n\nII. The ratio of the size of each interior angle to each exterior angle is 12:1.\n\nIII. The sum of the interior angles is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q6")
         q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
-        
-        q8 = st.radio(
-            "8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. Given ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?\n\n"
-            "I. ΔQPS ≅ ΔRSP\n\n"
-            "II. ΔPTS ~ ΔQTR\n\n"
-            "III. PS // QR",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f2_t2_q8"
-        )
-
-        q9 = st.radio(
-            "9. In the figure, ABC and FED are straight lines, where AB=BC=DE=EF. It is given that AC // FD and AF // CD. Which of the following must be true?\n\n"
-            "I. ΔABF ≅ ΔEFB\n\n"
-            "II. ΔEFB ≅ ΔEDB\n\n"
-            "III. ΔCBD ≅ ΔABF",
-            ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
-            key="f2_t2_q9"
-        )
-        
+        q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. Given ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?\n\nI. ΔQPS ≅ ΔRSP\n\nII. ΔPTS ~ ΔQTR\n\nIII. PS // QR", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q8")
+        q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB=BC=DE=EF. It is given that AC // FD and AF // CD. Which of the following must be true?\n\nI. ΔABF ≅ ΔEFB\n\nII. ΔEFB ≅ ΔEDB\n\nIII. ΔCBD ≅ ΔABF", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_t2_q9")
         q10 = st.radio("10. In the figure, ABCD is a square and ΔCED is an equilateral triangle. If DE = DG and DG // EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="f2_t2_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "C) 13/5", 2: "B) 623 USD", 3: "C) 36 minutes", 4: "D) 252", 5: "B) 21:25",
+            6: "D) I, II and III", 7: "D) 9", 8: "D) I, II and III", 9: "C) I and III only", 10: "B) 36°"
+        }
 
     else:
         st.subheader("✍️ 第二步：中二 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
         
-        q1 = st.radio(
-            "1. Which of the following is/are rational number(s)?\n\n"
-            "I. √(2^2)\n\n"
-            "II. π\n\n"
-            "III. 0.3",
-            ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
-            key="f2_fin_q1"
-        )
-        
+        q1 = st.radio("1. Which of the following is/are rational number(s)?\n\nI. √(2^2)\n\nII. π\n\nIII. 0.3", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_fin_q1")
         q2 = st.radio("2. The scale of a map is 1 : 200 000. If the distance between two lighthouses on the map is 5.23 cm, find the actual distance between the two lighthouses.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"), key="f2_fin_q2")
         q3 = st.radio("3. Which of the following circles has the longest radius?", ("A) A circle with area 5 cm²", "B) A circle with circumference 4 cm", "C) A circle with diameter 3 cm", "D) A circle with radius 1 cm"), key="f2_fin_q3")
         q4 = st.radio("4. In the figure, the length of the line segment joining A and G is", ("A) 19", "B) 23", "C) 25", "D) 30"), key="f2_fin_q4")
         q5 = st.radio("5. A square and an isosceles triangle have the same perimeter 100 cm. If the base of the isosceles triangle is 18 cm, how much greater is the area of the square comparing to that of the isosceles triangle?", ("A) 256 cm²", "B) 265 cm²", "C) 440.5 cm²", "D) 445 cm²"), key="f2_fin_q5")
-        
-        q6 = st.radio(
-            "6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\n"
-            "I. The value of n is 16.\n\n"
-            "II. The sum of the interior angle of the polygon is 2520°.\n\n"
-            "III. The ratio of the size of each interior angle to that of each exterior angle is 6:1.",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f2_fin_q6"
-        )
-        
-        q7 = st.radio(
-            "7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\n"
-            "I. ΔABC ≅ ΔEDC\n\n"
-            "II. AC ⊥ CE\n\n"
-            "III. ∠AEF = 80°",
-            ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
-            key="f2_fin_q7"
-        )
-        
+        q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\nI. The value of n is 16.\n\nII. The sum of the interior angle of the polygon is 2520°.\n\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q6")
+        q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. ΔABC ≅ ΔEDC\n\nII. AC ⊥ CE\n\nIII. ∠AEF = 80°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q7")
         q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find cos β / sin α.", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α cos β"), key="f2_fin_q8")
         q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1:2. The ratio of the base radius of P to the height of P is 1:3. The ratio of the total surface area of P to Q is", ("A) 1:2", "B) 2:5", "C) 4:7", "D) 7:16"), key="f2_fin_q9")
         q10 = st.radio("10. In the figure, PQRST is a regular pentagon. QT =", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"), key="f2_fin_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "C) I and III only", 2: "C) 10.46 km", 3: "A) A circle with area 5 cm²", 4: "C) 25", 5: "D) 445 cm²",
+            6: "D) I, II and III", 7: "D) I, II and III", 8: "A) MR / NR", 9: "D) 7:16", 10: "B) 2x sin 54°"
+        }
 
 st.markdown("---")
 
@@ -386,33 +293,11 @@ st.markdown("---")
 submit_btn = st.button("🚀 立即生成我的 Mock 考試預測報告！", type="primary")
 
 if submit_btn:
-    # 真實動態計分邏輯
-    correct_answers = {
-        "f1_t1_q1": "C) +3 > +1.2 > +1/2 > 0 > -2.5 > -3/4",
-        "f1_t1_q2": "B) 2^3 × 3^2 × 7",
-        "f1_t1_q3": "D) (10/3)t km",
-        "f1_t1_q4": "D) 4 585 348",
-        "f1_t1_q5": "C) 30",
-        "f1_t1_q6": "D) I, II and III",
-        "f1_t1_q7": "C) II and III only",
-        "f1_t1_q8": "C) increased by $65.",
-        "f1_t1_q9": "C) 31",
-        "f1_t1_q10": "D) (2/5)(m - 5) + 5"
-    }
-    
     score = 0
-    user_answers = {
-        "f1_t1_q1": q1, "f1_t1_q2": q2, "f1_t1_q3": q3, "f1_t1_q4": q4, "f1_t1_q5": q5,
-        "f1_t1_q6": q6, "f1_t1_q7": q7, "f1_t1_q8": q8, "f1_t1_q9": q9, "f1_t1_q10": q10
-    }
-    
-    for key, correct_ans in correct_answers.items():
-        if key in user_answers and user_answers[key] == correct_ans:
+    for q_num, correct_ans in correct_answers.items():
+        if q_num in user_answers and user_answers[q_num] == correct_ans:
             score += 1
             
-    if score == 0: 
-        score = 8  # 預設給予合理分數
-        
     predicted_score = score * 10
         
     st.balloons()
@@ -436,7 +321,7 @@ if submit_btn:
     <div style="display: flex; gap: 15px; margin-bottom: 25px;">
         <div style="flex: 1; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 12px; text-align: center;">
             <p style="color: #cbd5e0 !important; font-size: 14px; margin: 0 0 8px 0;">真實預測 Mock 分數</p>
-            <p style="color: #ffffff !important; font-size: 26px; font-weight: bold; margin: 0;">{predicted_score} 分 / 100分</p>
+            <p style="color: #ffffff !important; font-size: 26px; font-weight: bold; margin: 0;">{predicted_score} 分 / 100分 ({score}/10題)</p>
         </div>
         <div style="flex: 1; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 12px; text-align: center;">
             <p style="color: #cbd5e0 !important; font-size: 14px; margin: 0 0 8px 0;">評級水準</p>
@@ -445,12 +330,12 @@ if submit_btn:
     </div>
     """, unsafe_allow_html=True)
         
-    st.markdown("### 🔍 Terry Sir 的專業分析與建議：")
+    st.markdown("### 🔍 [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) 的專業分析與建議：")
     st.markdown(f"🌟 **太棒了！** 你對 **{grade} - {exam_stage}** 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！")
 
 # 品牌宣傳區與 Facebook 專頁聯結
 st.markdown("---")
-st.markdown("### 🌟 關於 Terry Sir 數學專科教室")
+st.markdown("### 🌟 關於 [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) 數學專科教室")
 st.markdown("""
 <div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
     <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
@@ -468,11 +353,11 @@ st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">
         <button style="background-color: #25D366; color: white; padding: 14px 28px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)
+            📱 立即 WhatsApp 聯絡 [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) 預約試課 ($150/1hr)
         </button>
     </a>
 </div>
 """, unsafe_allow_html=True)
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - Terry Sir - 初中數學專科. All Rights Reserved.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) - 初中數學專科. All Rights Reserved.</p>", unsafe_allow_html=True)

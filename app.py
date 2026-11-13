@@ -121,7 +121,7 @@ correct_answers = {}
 question_topics = {}
 
 # ==================== 中一 (Form 1) ====================
-if "中一" in grade:
+if grade == "中一 (Form 1)":
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中一 1st Term Test 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選實戰試題：")
@@ -290,7 +290,7 @@ if "中一" in grade:
         }
 
 # ==================== 中二 (Form 2) ====================
-elif "中二" in grade:
+elif grade == "中二 (Form 2)":
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選實戰試題：")
@@ -451,7 +451,7 @@ elif "中二" in grade:
         }
 
 # ==================== 中三 (Form 3) ====================
-else:
+elif grade == "中三 (Form 3)":
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中三 1st Term Test 校本真題級 20 題全真總動員")
         st.markdown("請認真完成以下 20 題精選中三實戰試題：")

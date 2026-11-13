@@ -80,7 +80,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 頁面頂部品牌視覺宣傳標題 (轉為純文字，徹底杜絕轉譯崩潰)
+# 頁面頂部品牌視覺宣傳標題
 st.markdown("""
 <div style="text-align: center; padding: 10px 0;">
     <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
@@ -333,21 +333,21 @@ if submit_btn:
     st.markdown("### 🔍 專業分析與建議：")
     st.markdown(f"🌟 **太棒了！** 你對 **{grade} - {exam_stage}** 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！")
 
-# 品牌宣傳區與 Facebook 專頁聯結
+# 品牌宣傳區與 Facebook 專頁聯結 (使用標準 HTML <a> 確保按完直接跳轉)
 st.markdown("---")
-st.markdown("### 🌟 關於 [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) 數學專科教室")
+st.markdown("### 🌟 關於 Terry Sir 數學專科教室")
 st.markdown("""
 <div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
     <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
         Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>
     <p style="margin-top: 10px;">
-        👉 歡迎瀏覽我們的 [Facebook 專頁](https://www.facebook.com/terrysir) 了解更多學生成績分享與實戰心得！
+        👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
     </p>
 </div>
 """, unsafe_allow_html=True)
 
-# 經典綠色 WhatsApp 預約試課按鈕 (完全獨立安全區域)
+# 經典綠色 WhatsApp 預約試課按鈕 (安全獨立區域)
 whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成初中Mock測試，想預約%20$150/1小時試課詳情！"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
@@ -361,6 +361,6 @@ st.markdown(f"""
 
 st.markdown("---")
 st.markdown(
-    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 初中數學專科. All Rights Reserved.</p>", 
+    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 初中數學專科. All Rights Reserved.</p>", 
     unsafe_allow_html=True
 )

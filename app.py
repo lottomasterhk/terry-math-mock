@@ -112,7 +112,7 @@ exam_stage = st.selectbox(
         "2nd Exam (下學期考試 / Final)"
     ]
 )
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=0, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
 
 st.markdown("---")
 

@@ -139,7 +139,7 @@ if "中一" in grade:
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
         correct_answers = {
-            1: "A) +3 > +1.2 > +1/2 > 0 > -3/4 > -2.5", 2: "C) 2^2 × 3^3 × 7", 3: "D) (10/3)t km",
+            1: "A) +3 > +1.2 > +1/2 > 0 > -3/4 > -2.5", 2: "C) 2^2 × 3^3 × 7", 3: "C) 3t km",
             4: "D) 4 585 348", 5: "A) 20", 6: "B) I and III only", 7: "D) I, II and III",
             8: "C) increased by $65.", 9: "C) 31", 10: "D) (2/5)(m - 5) + 5"
         }
@@ -268,6 +268,7 @@ if "中一" in grade:
         safe_image("images/f1_fin_q9.png", width=260)
         q9 = st.radio("9. Refer to the figure. Which of the following must be true?\n\nI. ΔQPR ≅ ΔSRP\n\nII. x = 5\n\nIII. y = 20°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_fin_q9")
         
+        safe_image("images/f1_fin_q10.png", width=260)
         q10 = st.radio("10. Which of the following must be true?", ("A) ΔABC ≅ ΔDEF (SSA)", "B) ΔABC ≅ ΔDEF (SAS)", "C) ΔABC ≅ ΔPQR (SAS)", "D) None of the above"), key="f1_fin_q10")
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
@@ -464,7 +465,8 @@ if submit_btn:
                 score += 1
             else:
                 if q_num in question_topics:
-                    wrong_topics.append(f"第 {q_num} 題：{question_topics[q_num]}")
+                    # 按照要求：唔講第幾題，只保留後面的課題名稱部分
+                    wrong_topics.append(question_topics[q_num])
             
     predicted_score = score * 10
         
@@ -505,10 +507,10 @@ if submit_btn:
     st.markdown("### 🔍 專業分析與建議：")
     st.markdown(analysis_text)
     
-    # 顯示錯題歸納與弱項課題
+    # 顯示錯題歸納與弱項課題（不顯示題號，純保留課題名稱）
     if wrong_topics:
         st.markdown("### ⚠️ 需要加強溫習嘅弱項課題 (錯題診斷)：")
-        st.markdown("以下係你今次測驗中答錯、需要重點重溫嘅數學課題：")
+        st.markdown("以下係你今次測驗中需要重點重溫嘅數學課題：")
         for topic_item in wrong_topics:
             st.markdown(f"- ❌ {topic_item}")
     else:

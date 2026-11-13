@@ -390,7 +390,7 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     }
 
 elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
-    # 嚴格對齊你所給予該檔案內嘅 10 題真題及正確答案
+    # 嚴格一字不漏對齊你畀嗰份 Form 3 1st Exam 檔案及截圖原題
     q1 = st.radio("1. 3²⁴⁶ · 9⁻¹²³ =", ("A) 1.", "B) -1.", "C) 3¹²³.", "D) 1 / (3¹²³)."), key="f3_ex1_q1")
     q2 = st.radio("2. Find the smallest integer a satisfying a/5 - 1 > -4.", ("A) -24", "B) -15", "C) -14", "D) -3"), key="f3_ex1_q2")
     q3 = st.radio("3. Solve the inequality (8 - 3x)/5 ≥ (5 + 2x)/2 .", ("A) x ≤ -9/16", "B) x ≤ 9/16", "C) x ≥ -9/16", "D) x ≥ 9/16"), key="f3_ex1_q3")
@@ -402,7 +402,7 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     safe_image("images/f3_ex1_q8.png", width=390)
     q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_ex1_q8")
     safe_image("images/f3_ex1_q9.png", width=390)
-    q9 = st.radio("9. The prices of items sold in a supermarket: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. Prices are increased by 10% and then decreased by $2. Find the mean of the adjusted price.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_ex1_q9")
+    q9 = st.radio("9. The prices of items sold in a supermarket are as follows: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. The prices of all items are increased by 10% and then decreased by $2. Find the mean of the adjusted price of the above items.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_ex1_q9")
     safe_image("images/f3_ex1_q10.png", width=390)
     q10 = st.radio("10. In the figure, APB and AQC are straight lines. If AQ = 26, PQ = 10, QC = 22 and PB = 28, which of the following must be true?", ("A) BC is an altitude of ΔABC.", "B) BQ is an angle bisector of ΔABC.", "C) PC is a median of ΔABC.", "D) PQ is a perpendicular bisector of ΔABC."), key="f3_ex1_q10")
 

@@ -64,6 +64,7 @@ st.markdown("""
     /* 按鈕美化：極靚嘅漸變金藍按鈕 */
     .stButton>button {
         width: 100%;
+        background: linear-weight(90deg, #1e3c72 0%, #2a5298 100%) !important;
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
         color: white !important;
         font-size: 18px !important;
@@ -80,6 +81,11 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+# 輔助函式：安全載入圖片（如果檔案存在就顯示，否則自動略過，避免 App Crash）
+def safe_image(img_path, width=260):
+    if os.path.exists(img_path):
+        st.image(img_path, width=width)
 
 # 頁面頂部品牌視覺宣傳標題
 st.markdown("""
@@ -113,6 +119,7 @@ st.markdown("---")
 
 user_answers = {}
 correct_answers = {}
+question_topics = {}
 
 # ==================== 中一 (Form 1) ====================
 if "中一" in grade:
@@ -137,6 +144,18 @@ if "中一" in grade:
             4: "D) 4 585 348", 5: "A) 20", 6: "B) I and III only", 7: "D) I, II and III",
             8: "C) increased by $65.", 9: "C) 31", 10: "D) (2/5)(m - 5) + 5"
         }
+        question_topics = {
+            1: "有向數與數線大小比較 (Directed Numbers)",
+            2: "指數記數法與質因數分解 (Indices & Prime Factorization)",
+            3: "應用題與速度距離計算 (Word Problems & Speed/Distance)",
+            4: "整除性與因數倍數 (Divisibility Tests)",
+            5: "簡易方程應用題 (Simple Equations)",
+            6: "有向數嘅實際應用與平均數 (Application of Directed Numbers)",
+            7: "H.C.F. 與 L.C.M. 綜合運算 (H.C.F. & L.C.M.)",
+            8: "有向數加減運算 (Operations of Directed Numbers)",
+            9: "數列規律與一般項 (Number Sequences)",
+            10: "代數與年齡應用題 (Algebraic Word Problems)"
+        }
 
     elif "1st Exam" in exam_stage:
         st.subheader("✍️ 第二步：中一 1st Exam (上學期考試) 校本真題級 10 題快測")
@@ -145,7 +164,7 @@ if "中一" in grade:
         q1 = st.radio("1. How many negative integers are there between -5.5 and 1.5?", ("A) 4", "B) 5", "C) 6", "D) 7"), key="f1_ex1_q1")
         q2 = st.radio("2. Which of the following is/are divisible by both 3 and 8?\n\nI. 32 606 312\n\nII. 46 237 512\n\nIII. 98 243 604", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q2")
         
-        st.image("images/f1_ex1_q3.png", width=350)
+        safe_image("images/f1_ex1_q3.png", width=350)
         q3 = st.radio("3. In the figure, the 1st pattern consists of 3 dots. For any positive integer n, the (n + 1)th pattern is formed by adding 3 dots to the nth pattern. Find the number of dots in the 7th pattern.", ("A) 15", "B) 18", "C) 21", "D) 24"), key="f1_ex1_q3")
         
         q4 = st.radio("4. 600 oranges and 400 apples were sold in a shop yesterday. Today, the number of oranges sold decreases by 10% while the number of apples sold increases by 15%. Find the percentage change in the total number of oranges and apples sold.", ("A) -10%", "B) 0%", "C) +5%", "D) +15%"), key="f1_ex1_q4")
@@ -153,7 +172,7 @@ if "中一" in grade:
         q6 = st.radio("6. If the general term of a sequence is an = 3(n - 1)^2, find the product of the second term and the fourth term of the sequence.", ("A) 27", "B) 30", "C) 81", "D) 243"), key="f1_ex1_q6")
         q7 = st.radio("7. The height of Vincent is 135 cm. Issac is 20% taller than Vincent, while Andy is 20% shorter than Issac. Which of the following is/are true?\n\nI. Issac's height is above 160 cm.\n\nII. Vincent is as tall as Andy.\n\nIII. All of them are at least 130 cm tall.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q7")
         
-        st.image("images/f1_ex1_q8.png", width=260)
+        safe_image("images/f1_ex1_q8.png", width=260)
         q8 = st.radio("8. Figure A shows a chocolate bar in the shape of a right triangular prism. Andy melts it to make a rectangular chocolate bar as shown in Figure B. Find the total surface area of the chocolate bar in Figure B.", ("A) 44 cm²", "B) 68 cm²", "C) 92 cm²", "D) 132 cm²"), key="f1_ex1_q8")
         
         q9 = st.radio("9. There are 25 questions in a test. 4 marks are awarded for each correct answer and 1 mark is deducted for a wrong answer or an unanswered question. If Susan scores 60 marks in the test, how many correct answers does she get?", ("A) 15", "B) 16", "C) 17", "D) 18"), key="f1_ex1_q9")
@@ -164,42 +183,66 @@ if "中一" in grade:
             1: "B) 5", 2: "B) II only", 3: "C) 21", 4: "B) 0%", 5: "A) 25%",
             6: "C) 81", 7: "A) I only", 8: "C) 92 cm²", 9: "C) 17", 10: "A) 20%"
         }
+        question_topics = {
+            1: "有向數範圍與整數概念 (Negative Integers)",
+            2: "綜合整除性判定 (Divisibility Rules)",
+            3: "圖形規律與點數計算 (Patterns & Sequences)",
+            4: "百分比增減與總量變化 (Percentage Changes)",
+            5: "營利、標價與折扣計算 (Marked Price & Discount)",
+            6: "一般項與數列計算 (General Terms of Sequences)",
+            7: "連鎖百分比應用 (Percentage Applications)",
+            8: "立體圖形體積與表面積 (Prisms & Surface Area)",
+            9: "多變量應用題與方程組 (Word Problems / Simultaneous Equations)",
+            10: "標價與售價百分比倒算 (Discounts & Percentages)"
+        }
 
     elif "2nd Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中一 2nd Term Test 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
         
-        st.image("images/f1_t2_q1.png", width=350)
+        safe_image("images/f1_t2_q1.png", width=350)
         q1 = st.radio("1. Refer to the figures A, B, C, D and E as shown.\n\nWhich of the following statements is/are true?\n\nI. Figures C, D and E are equiangular polygons.\n\nII. There is only one regular polygon.\n\nIII. Only figures A, B and C are concave polygons.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q1")
         
         q2 = st.radio("2. The total surface area of a right prism is 960 cm² and the total area of its lateral faces is 880 cm². Find the base area of the prism.", ("A) 10 cm²", "B) 20 cm²", "C) 30 cm²", "D) 40 cm²"), key="f1_t2_q2")
         
-        st.image("images/f1_t2_q3.png", width=260)
+        safe_image("images/f1_t2_q3.png", width=260)
         q3 = st.radio("3. It is given that ABEF, GHI and DEH are straight lines. Find the area of the polygon ABCDEFGHI in the figure.", ("A) 161 cm²", "B) 575 cm²", "C) 671 cm²", "D) 767 cm²"), key="f1_t2_q3")
         
-        st.image("images/f1_t2_q4.png", width=260)
+        safe_image("images/f1_t2_q4.png", width=260)
         q4 = st.radio("4. In the figure, ABEH, CBDG, ADF and CEF are straight lines. Find a + b + c + d + e.", ("A) 150°", "B) 180°", "C) 270°", "D) 360°"), key="f1_t2_q4")
         
-        st.image("images/f1_t2_q5.png", width=260)
+        safe_image("images/f1_t2_q5.png", width=260)
         q5 = st.radio("5. Find the area of the quadrilateral ABCD in a rectangular coordinate plane in the figure, given A(-2,3), B(-3,1), C(-2,-4), D(2,1).", ("A) 17.5 sq. units", "B) 18 sq. units", "C) 24.5 sq. units", "D) 35 sq. units"), key="f1_t2_q5")
         
         q6 = st.radio("6. In a rectangular coordinate plane, P(k, 3) is rotated about the origin O through 180° to a point Q, then Q is translated 10 units to the left to a point R such that R is vertically below P. Find k.", ("A) -12", "B) -10", "C) -6", "D) -5"), key="f1_t2_q6")
         
-        st.image("images/f1_t2_q7.png", width=260)
+        safe_image("images/f1_t2_q7.png", width=260)
         q7 = st.radio("7. In the figure, PQRS is a parallelogram. Given P(0, 8), Q(8, 9), R(5, -3). Find the coordinates of S.", ("A) (-3, -4)", "B) (-3, -3)", "C) (-2, -4)", "D) (-2, -3)"), key="f1_t2_q7")
         
         q8 = st.radio("8. Suppose a point P(3, 7) undergoes the following transformations respectively. Which of the following transformation can form the same image?\n\nI. Reflect in the y-axis.\n\nII. Translate 6 units to the left.\n\nIII. Rotate anticlockwise about the origin O through 90°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t2_q8")
         
-        st.image("images/f1_t2_q9.png", width=260)
+        safe_image("images/f1_t2_q9.png", width=260)
         q9 = st.radio("9. In a rectangular coordinate plane, B(-3, 2) is the image of A(2, 3) after transformations. Which of the following may be the transformation(s) involved?\n\nI. Translate 5 units to the left and then 1 unit downwards.\n\nII. Reflect in the y-axis.\n\nIII. Rotate anticlockwise about the origin O through 90°.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q9")
         
-        st.image("images/f1_t2_q10.png", width=260)
+        safe_image("images/f1_t2_q10.png", width=260)
         q10 = st.radio("10. In the figure, BCF and CDE are straight lines. Find x.", ("A) 90°", "B) 100°", "C) 110°", "D) 130°"), key="f1_t2_q10")
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
         correct_answers = {
             1: "D) II and III only", 2: "D) 40 cm²", 3: "B) 575 cm²", 4: "B) 180°", 5: "A) 17.5 sq. units",
             6: "B) -10", 7: "A) (-3, -4)", 8: "B) I and III only", 9: "C) I and III only", 10: "C) 110°"
+        }
+        question_topics = {
+            1: "多邊形認識 (Polygons: Convex & Concave)",
+            2: "直棱柱表面面積計算 (Prisms Surface Area)",
+            3: "複合圖形面積計算 (Composite Areas)",
+            4: "多邊形內角與外角 (Angles of Polygons)",
+            5: "坐標平面幾何與圖形面積 (Coordinate Geometry & Areas)",
+            6: "坐標平移與旋轉變換 (Transformations in Coordinate Plane)",
+            7: "平行四邊形坐標幾何 (Parallelograms in Coordinates)",
+            8: "坐標平面幾何變換 (Geometric Transformations)",
+            9: "複合坐標變換 (Compound Coordinate Transformations)",
+            10: "直線角與三角形內角 (Angles and Lines)"
         }
 
     else:
@@ -209,21 +252,21 @@ if "中一" in grade:
         q1 = st.radio("1. The total surface area of a square prism is 192 cm² and its width is 4 cm. Find the height of the square prism.", ("A) 6 cm", "B) 8 cm", "C) 10 cm", "D) 12 cm"), key="f1_fin_q1")
         q2 = st.radio("2. P(-3, 7), Q(0, k) and R(6, 1) are the vertices of a triangle in a rectangular coordinate plane where 1 < k < 7. If the area of ΔPQR is 9 square units, find k.", ("A) 2", "B) 3", "C) 4", "D) 6"), key="f1_fin_q2")
         
-        st.image("images/f1_fin_q3.png", width=260)
+        safe_image("images/f1_fin_q3.png", width=260)
         q3 = st.radio("3. The figure below shows a trapezium PQRS where PS // QR. T is a point on PS. PR and TQ intersect at N. It is given that the lengths of PT, TS and QR are 4 cm, 2 cm and 8 cm respectively and the areas of ΔPNT and ΔQNR are 4 cm² and 16 cm² respectively. Find the area of the quadrilateral STNR.", ("A) 10 cm²", "B) 12 cm²", "C) 13 cm²", "D) 14 cm²"), key="f1_fin_q3")
         
         q4 = st.radio("4. Anna divides the following data into 7 groups and constructs a frequency distribution table. If the first group is 0 - 9, what is the frequency of the last group in the table?\n\n8, 28, 54, 50, 60, 22, 34, 14, 55, 12\n14, 28, 6, 12, 15, 59, 66, 29, 4, 64", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f1_fin_q4")
         q5 = st.radio("5. 0.014 916 25 =", ("A) 0.015 (correct to the nearest integer)", "B) 0.015 (correct to 2 decimal places)", "C) 0.014 91 (correct to 5 decimal places)", "D) 0.014 916 (correct to 6 decimal places)"), key="f1_fin_q5")
         
-        st.image("images/f1_fin_q6.png", width=260)
+        safe_image("images/f1_fin_q6.png", width=260)
         q6 = st.radio("6. The broken line graphs below show the profits of shop A and shop B in the first half of 2019.\n\nIn how many months is the profit of shop A lower than that of shop B?", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f1_fin_q6")
         
         q7 = st.radio("7. Determine whether the following are discrete data or continuous data?\n\nI. The daily rainfalls of city A in July.\n\nII. The number of rainy days of city A in 2019.", ("A) continuous data / discrete data", "B) continuous data / continuous data", "C) discrete data / discrete data", "D) discrete data / continuous data"), key="f1_fin_q7")
         
-        st.image("images/f1_fin_q8.png", width=260)
+        safe_image("images/f1_fin_q8.png", width=260)
         q8 = st.radio("8. In the figure, ADB is a straight line. Which of the following must be true?", ("A) ΔABC ~ ΔACD (3 sides proportional)", "B) ΔABC ~ ΔACD (ratio of 2 sides, inc. ∠)", "C) ΔABC ~ ΔCBD (3 sides proportional)", "D) ΔABC ~ ΔCBD (ratio of 2 sides, inc. ∠)"), key="f1_fin_q8")
         
-        st.image("images/f1_fin_q9.png", width=260)
+        safe_image("images/f1_fin_q9.png", width=260)
         q9 = st.radio("9. Refer to the figure. Which of the following must be true?\n\nI. ΔQPR ≅ ΔSRP\n\nII. x = 5\n\nIII. y = 20°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_fin_q9")
         
         q10 = st.radio("10. Which of the following must be true?", ("A) ΔABC ≅ ΔDEF (SSA)", "B) ΔABC ≅ ΔDEF (SAS)", "C) ΔABC ≅ ΔPQR (SAS)", "D) None of the above"), key="f1_fin_q10")
@@ -232,6 +275,18 @@ if "中一" in grade:
         correct_answers = {
             1: "C) 10 cm", 2: "B) 3", 3: "D) 14 cm²", 4: "C) 3", 5: "D) 0.014 916 (correct to 6 decimal places)",
             6: "B) 3", 7: "A) continuous data / discrete data", 8: "D) ΔABC ~ ΔCBD (ratio of 2 sides, inc. ∠)", 9: "D) I, II and III", 10: "C) ΔABC ≅ ΔPQR (SAS)"
+        }
+        question_topics = {
+            1: "正方棱柱體積與表面積 (Square Prisms)",
+            2: "坐標平面三角形面積反算 (Triangle Areas in Coordinates)",
+            3: "相似三角形與梯形面積比例 (Similar Triangles & Trapeziums)",
+            4: "頻數分佈表與數據整理 (Frequency Distributions)",
+            5: "有效數字與四捨五入 (Significant Figures & Rounding)",
+            6: "折線圖數據分析 (Broken Line Graphs)",
+            7: "離散數據與連續數據辨別 (Discrete vs Continuous Data)",
+            8: "相似三角形判定 (Similar Triangles)",
+            9: "全等三角形與幾何推論 (Congruent Triangles)",
+            10: "三角形全等條件辨別 (Conditions for Triangle Congruence)"
         }
 
 # ==================== 中二 (Form 2) ====================
@@ -256,6 +311,18 @@ else:
             1: "A) 1.25%", 2: "D) 29.35 ≤ y < 29.45", 3: "C) 3", 4: "D) 6", 5: "C) II and III only",
             6: "C) 1 / (4^100)", 7: "C) a + 1", 8: "C) (m + 5) / (m^2 - 1)", 9: "A) 4 / (3a)", 10: "A) (1/2)(n^2 - m)"
         }
+        question_topics = {
+            1: "誤差與百分誤差計算 (Percentage Errors)",
+            2: "有效數字與數值範圍 (Significant Figures & Ranges)",
+            3: "多項式展開與次方次數 (Polynomial Expansions & Degrees)",
+            4: "恆等式系數比較法 (Polynomial Identities)",
+            5: "恆等式概念辨別 (Identities vs Equations)",
+            6: "指數定律與化簡 (Laws of Indices)",
+            7: "指數化簡與分式運算 (Algebraic Fractions with Indices)",
+            8: "分式加減法運算 (Addition/Subtraction of Rational Expressions)",
+            9: "分式乘法與因式分解 (Multiplication of Algebraic Fractions)",
+            10: "代數恆等式與完全平方公式 (Algebraic Identities & Formulas)"
+        }
 
     elif "1st Exam" in exam_stage:
         st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
@@ -268,22 +335,34 @@ else:
         q5 = st.radio("5. The graph of the equation 4x + ay = 18 passes through P(6, -3), where a is a constant. Which of the following points lies on the graph of the given equation?", ("A) (-3,-6)", "B) (-1,-11)", "C) (1,7)", "D) (7,-2)"), key="f2_ex1_q5")
         q6 = st.radio("6. Solve the simultaneous equations x + y - 8 = (3x)/4 + 10 - y = 0 .", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"), key="f2_ex1_q6")
         
-        st.image("images/f2_ex1_q7.png", width=260)
+        safe_image("images/f2_ex1_q7.png", width=260)
         q7 = st.radio("7. In the figure, AED and BEC are straight lines. Which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"), key="f2_ex1_q7")
         
-        st.image("images/f2_ex1_q8.png", width=260)
+        safe_image("images/f2_ex1_q8.png", width=260)
         q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"), key="f2_ex1_q8")
         
-        st.image("images/f2_ex1_q9.png", width=260)
+        safe_image("images/f2_ex1_q9.png", width=260)
         q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\nI. AB // CE\n\nII. AC ⊥ AD\n\nIII. x = y", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_ex1_q9")
         
-        st.image("images/f2_ex1_q10.png", width=260)
+        safe_image("images/f2_ex1_q10.png", width=260)
         q10 = st.radio("10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively.\n\nWhich of the following must be correct?\n\nI. The number of customers of shop A who vote peach flavour is more than that of shop B.\n\nII. In both shop A and shop B, peach flavour is more popular than strawberry flavour.\n\nIII. The percentages of customers who vote almond flavour in shop A and shop B are the same.", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"), key="f2_ex1_q10")
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
         correct_answers = {
             1: "C) 3.75 ≤ x < 4.25", 2: "D) 5x - 3/y", 3: "D) 4", 4: "D) (x - y)(a - b - c)", 5: "C) (1,7)",
             6: "C) (-8/7, 64/7)", 7: "C) z = x + y", 8: "C) a + b = c + e", 9: "A) I and II only", 10: "D) II and III only"
+        }
+        question_topics = {
+            1: "量度極限與誤差範圍 (Measurement Limits & Limits of Accuracy)",
+            2: "多項式概念與辨別 (Polynomial Concepts)",
+            3: "公式換算與主項變換 (Formula Manipulation)",
+            4: "進階因式分解技巧 (Advanced Factorization)",
+            5: "直線方程與坐標代入 (Linear Equations & Graphs)",
+            6: "二元一次方程組求解 (Simultaneous Linear Equations)",
+            7: "直線與角關係 (Angles and Lines)",
+            8: "三角形外角與內角和 (Exterior Angle Theorem of Triangles)",
+            9: "平行線與垂直線性質 (Parallel & Perpendicular Lines)",
+            10: "扇形圖與百分比誤區 (Pie Charts & Statistical Misconceptions)"
         }
 
     elif "2nd Term Test" in exam_stage:
@@ -297,22 +376,34 @@ else:
         q5 = st.radio("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", ("A) 22 : 27", "B) 21 : 25", "C) 10 : 9", "D) 37 : 27"), key="f2_t2_q5")
         q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true ?\n\nI. The value of n is 24.\n\nII. The ratio of the size of each interior angle of the polygon to that of each exterior angle is 12 : 1.\n\nIII. The sum of the interior angles of the polygon is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q6")
         
-        st.image("images/f2_t2_q7.png", width=260)
+        safe_image("images/f2_t2_q7.png", width=260)
         q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
         
-        st.image("images/f2_t2_q8.png", width=260)
-        q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?\n\nI. ΔQPS ≅ ΔRSP\n\nII. ΔPTS ~ ΔQTR\n\nIII. PS // QR", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q8")
+        safe_image("images/f2_t2_q8.png", width=260)
+        q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?\n\nI. Deduce ΔQPS ≅ ΔRSP\n\nII. ΔPTS ~ ΔQTR\n\nIII. PS // QR", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q8")
         
-        st.image("images/f2_t2_q9.png", width=260)
+        safe_image("images/f2_t2_q9.png", width=260)
         q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC // FD and AF // CD. Which of the following must be true?\n\nI. ΔABF ≅ ΔEFB\n\nII. ΔEFB ≅ ΔEDB\n\nIII. ΔCBD ≅ ΔABF", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_t2_q9")
         
-        st.image("images/f2_t2_q10.png", width=260)
+        safe_image("images/f2_t2_q10.png", width=260)
         q10 = st.radio("10. In the figure, ABCD is a square and ΔCED is an equilateral triangle. If DE = DG and DG // EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="f2_t2_q10")
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
         correct_answers = {
             1: "D) 13/5", 2: "B) 623 USD", 3: "C) 36 minutes", 4: "D) 252", 5: "B) 21 : 25",
             6: "B) I and III only", 7: "D) 9", 8: "D) I, II and III", 9: "C) I and III only", 10: "B) 36°"
+        }
+        question_topics = {
+            1: "比與率及分式代數化簡 (Ratios & Fractions)",
+            2: "外幣找換與比例應用 (Currency Conversions)",
+            3: "正比例與反比例應用題 (Direct & Inverse Proportions)",
+            4: "變分與極端比例應用 (Variation & Proportions)",
+            5: "連比運算與化簡 (Chain Ratios)",
+            6: "多邊形內角外角綜合計算 (Polygon Angle Properties)",
+            7: "相似圖形與邊長比例 (Similar Figures & Ratios)",
+            8: "相似三角形與全等三角形綜合 (Similar & Congruent Triangles)",
+            9: "圖形全等與平行線性質 (Congruence & Parallel Lines)",
+            10: "正方形與等邊三角形幾何綜合 (Squares & Equilateral Triangles)"
         }
 
     else:
@@ -323,28 +414,40 @@ else:
         q2 = st.radio("2. The scale of a map is 1 : 200 000. If the distance between two lighthouses on the map is 5.23 cm, find the actual distance between the two lighthouses.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"), key="f2_fin_q2")
         q3 = st.radio("3. Which of the following circles has the longest radius?", ("A) A circle with area 5 cm²", "B) A circle with circumference 4 cm", "C) A circle with diameter 3 cm", "D) A circle with radius 1 cm"), key="f2_fin_q3")
         
-        st.image("images/f2_fin_q4.png", width=260)
+        safe_image("images/f2_fin_q4.png", width=260)
         q4 = st.radio("4. In the figure, the length of the line segment joining A and G is", ("A) 19", "B) 23", "C) 25", "D) 30"), key="f2_fin_q4")
         
         q5 = st.radio("5. A square and an isosceles triangle have the same perimeter 100 cm. If the base of the isosceles triangle is 18 cm, how much greater is the area of the square comparing to that of the isosceles triangle?", ("A) 256 cm²", "B) 265 cm²", "C) 440.5 cm²", "D) 445 cm²"), key="f2_fin_q5")
         
         q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\nI. The value of n is 16.\n\nII. The sum of the interior angle of the polygon is 2520°.\n\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q6")
         
-        st.image("images/f2_fin_q7.png", width=260)
+        safe_image("images/f2_fin_q7.png", width=260)
         q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. ΔABC ≅ ΔEDC\n\nII. AC ⊥ CE\n\nIII. ∠AEF = 80°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q7")
         
-        st.image("images/f2_fin_q8.png", width=260)
+        safe_image("images/f2_fin_q8.png", width=260)
         q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find cos β / sin α .", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α cos β"), key="f2_fin_q8")
         
         q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1:2. The ratio of the base radius of P to the height of P is 1:3. The ratio of the total surface area of P to Q is", ("A) 1:2", "B) 2:5", "C) 4:7", "D) 7:16"), key="f2_fin_q9")
         
-        st.image("images/f2_fin_q10.png", width=260)
+        safe_image("images/f2_fin_q10.png", width=260)
         q10 = st.radio("10. In the figure, PQRST is a regular pentagon. QT =", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"), key="f2_fin_q10")
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
         correct_answers = {
             1: "C) I and III only", 2: "C) 10.46 km", 3: "A) A circle with area 5 cm²", 4: "C) 25", 5: "D) 445 cm²",
             6: "D) I, II and III", 7: "D) I, II and III", 8: "A) MR / NR", 9: "D) 7:16", 10: "B) 2x sin 54°"
+        }
+        question_topics = {
+            1: "有理數與無理數概念 (Rational & Irrational Numbers)",
+            2: "地圖比例尺與實際距離換算 (Map Scales & Actual Distances)",
+            3: "圓面積、周界與半徑關係 (Circle Areas and Circumference)",
+            4: "直角坐標系與距離公式 (Coordinate Geometry & Distance Formula)",
+            5: "平面圖形面積綜合計算 (Areas of Polygons & Triangles)",
+            6: "正多邊形內角外角性質 (Properties of Regular Polygons)",
+            7: "正九邊形與全等圖形綜合 (Regular Nonagons & Congruence)",
+            8: "三角比（正弦、餘弦）應用 (Trigonometric Ratios: Sin & Cos)",
+            9: "相似形與體積表面面積比例 (Mensuration: Cylinders & Ratios)",
+            10: "正五邊形與三角比應用 (Regular Pentagons & Trig)"
         }
 
 st.markdown("---")
@@ -354,9 +457,15 @@ submit_btn = st.button("🚀 立即生成我的 Mock 考試預測報告！", typ
 
 if submit_btn:
     score = 0
+    wrong_topics = []
+    
     for q_num, correct_ans in correct_answers.items():
-        if q_num in user_answers and user_answers[q_num] == correct_ans:
-            score += 1
+        if q_num in user_answers:
+            if user_answers[q_num] == correct_ans:
+                score += 1
+            else:
+                if q_num in question_topics:
+                    wrong_topics.append(f"第 {q_num} 題：{question_topics[q_num]}")
             
     predicted_score = score * 10
         
@@ -370,12 +479,16 @@ if submit_btn:
     </div>
     """, unsafe_allow_html=True)
     
+    # 根據真實得分動態配對評級與專業分析建議
     if predicted_score >= 80:
         grade_level = "Level 5 或以上 (奪 A 🏆)"
+        analysis_text = f"🌟 **太棒了！** 你對 **{grade} - {exam_stage}** 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！繼續保持高水準發揮！"
     elif predicted_score >= 60:
         grade_level = "Level 4 (進步空間大 📈)"
+        analysis_text = f"💡 **表現唔錯！** 你對 **{grade} - {exam_stage}** 有一定基礎，但部分進階題型仲有失手。只要針對錯題課題加強練習，好快就可以衝上 Level 5！"
     else:
         grade_level = "需加一把勁，盡快執好根基 ⚠️"
+        analysis_text = f"⚠️ **需要注意！** 你在 **{grade} - {exam_stage}** 暴露出唔少根基漏洞。建議針對下方列出嘅失分弱項，盡快透過專科指導重頭鞏固起！"
         
     st.markdown(f"""
     <div style="display: flex; gap: 15px; margin-bottom: 25px;">
@@ -391,7 +504,17 @@ if submit_btn:
     """, unsafe_allow_html=True)
         
     st.markdown("### 🔍 專業分析與建議：")
-    st.markdown(f"🌟 **太棒了！** 你對 **{grade} - {exam_stage}** 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！")
+    st.markdown(analysis_text)
+    
+    # 顯示錯題歸納與弱項課題
+    if wrong_topics:
+        st.markdown("### ⚠️ 需要加強溫習嘅弱項課題 (錯題診斷)：")
+        st.markdown("以下係你今次測驗中答錯、需要重點重溫嘅數學課題：")
+        for topic_item in wrong_topics:
+            st.markdown(f"- ❌ {topic_item}")
+    else:
+        st.markdown("### 🎯 弱項診斷：")
+        st.markdown("🏆 **完美滿分！** 你喺今次測驗中所有題目全部答對，冇任何失分弱項，請繼續保持！")
 
 # 品牌宣傳區與 Facebook 專頁聯結
 st.markdown("---")
@@ -413,7 +536,7 @@ st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">
         <button style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; padding: 14px 28px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 100%; transition: 0.3s;">
-            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)[cite: 1]
+            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)
         </button>
     </a>
 </div>

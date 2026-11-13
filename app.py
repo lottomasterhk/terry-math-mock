@@ -86,7 +86,7 @@ st.markdown("""
     <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
         🧠 NLP 心理引導 × 中大數學專業培訓
     </span>
-    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】Terry Sir - 初中數學專科教室</h1>
+    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】[Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) - 初中數學專科教室</h1>
     <p style="color: #cbd5e0 !important; font-size: 15px; max-width: 650px; margin: 0 auto;">
         核心理念：不只教公式，用 NLP 心理引導幫孩子解開數學心結，由根基打起，重拾信心奪 A！ ✨
     </p>
@@ -236,8 +236,8 @@ else:
         q6 = st.radio("6. Solve the simultaneous equations: x + y - 8 = (3x)/4 + 10 - y = 0", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"), key="f2_ex1_q6")
         q7 = st.radio("7. In the figure, AED and BEC are straight lines. Which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"), key="f2_ex1_q7")
         q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"), key="f2_ex1_q8")
-        q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\nI. ...\n\nII. ...\n\nIII. ...", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_ex1_q9")
-        q10 = st.radio("10. The pie charts below show favourite flavours of ice cream. Which of the following must be correct?", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"), key="f2_ex1_q10")
+        q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\nI. AC ⊥ BC\n\nII. ΔABC ~ ΔEBD\n\nIII. AB = ED", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_ex1_q9")
+        q10 = st.radio("10. The pie charts below show favourite flavours of ice cream. Which of the following must be correct?\n\nI. Chocolate is the most popular flavour in Chart 1.\n\nII. The total number of people surveyed in both charts is the same.\n\nIII. Exactly 25% of people like vanilla in Chart 2.", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"), key="f2_ex1_q10")
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
         correct_answers = {
@@ -347,19 +347,14 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# WhatsApp 預約試課按鈕 ($150/1hr)
-whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成初中Mock測試，想預約%20$150/1小時試課詳情！"
-st.markdown(f"""
-<div style="text-align: center; margin-top: 25px;">
-    <a href="{whatsapp_url}" target="_blank">
-        <button style="background-color: #25D366; color: white; padding: 14px 28px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            📱 立即 WhatsApp 聯絡 [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) 預約試課 ($150/1hr)
-        </button>
-    </a>
-</div>
-""", unsafe_allow_html=True)
+# 使用 Streamlit 官方原生 link_button 完美解決按鈕外洩或亂碼問題
+st.markdown("<br>", unsafe_allow_html=True)
+st.link_button(
+    "📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)", 
+    "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成初中Mock測試，想預約%20$150/1小時試課詳情！",
+    use_container_width=True
+)
 
-# 徹底修復後的標準 HTML 版權宣告與安全結尾 (不再出現裸露亂碼 URL)
 st.markdown("---")
 st.markdown(
     "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 初中數學專科. All Rights Reserved.</p>", 

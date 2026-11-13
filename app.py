@@ -390,7 +390,6 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     }
 
 elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
-    # 嚴格一字不漏對齊你畀嗰份 Form 3 1st Exam 檔案及截圖原題
     q1 = st.radio("1. 3²⁴⁶ · 9⁻¹²³ =", ("A) 1.", "B) -1.", "C) 3¹²³.", "D) 1 / (3¹²³)."), key="f3_ex1_q1")
     q2 = st.radio("2. Find the smallest integer a satisfying a/5 - 1 > -4.", ("A) -24", "B) -15", "C) -14", "D) -3"), key="f3_ex1_q2")
     q3 = st.radio("3. Solve the inequality (8 - 3x)/5 ≥ (5 + 2x)/2 .", ("A) x ≤ -9/16", "B) x ≤ 9/16", "C) x ≥ -9/16", "D) x ≥ 9/16"), key="f3_ex1_q3")
@@ -452,7 +451,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q9.png", width=390)
     q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
     safe_image("images/f3_t2_q10.png", width=390)
-    q10 = st.radio("10. Which of the following numbers is the smallest?\n\nA. -4^-4 × 10^-10\nB. (-4)^-4 × 10^-10\nC. -0.000 000 000 000 4\nD. -3 / 12^12", ("A) A", "B) B", "C) C", "D) D"), key="f3_t2_q10")
+    q10 = st.radio("10. Which of the following numbers is the smallest?", ("A) A. -4⁻⁴ × 10⁻¹⁰", "B) B. (-4)⁻⁴ × 10⁻¹⁰", "C) C. -0.000 000 000 000 4", "D) D. -3 / 12¹²"), key="f3_t2_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
@@ -471,7 +470,7 @@ else:
     safe_image("images/f3_fin_q1.png", width=390)
     q1 = st.radio("1. The figure shows sector OAB. Radius = 9 cm, angle = 280°. Folded into a hollow circular cone, find base radius.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
     safe_image("images/f3_fin_q2.png", width=390)
-    q2 = st.radio("2. In the figure, slopes of L1, L2, L3 are m1, m2, m3. Which are correct? I. m2 < 0, II. m3 > 0, III. m2 > m1", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
+    q2 = st.radio("2. In the figure, slopes of L1, L2, L3 are m1, m2, m3. Which are correct?\n\nI. m2 < 0\n\nII. m3 > 0\n\nIII. m2 > m1", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
     safe_image("images/f3_fin_q3.png", width=390)
     q3 = st.radio("3. Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), key="f3_fin_q3")
     safe_image("images/f3_fin_q4.png", width=390)
@@ -485,7 +484,7 @@ else:
     safe_image("images/f3_fin_q8.png", width=390)
     q8 = st.radio("8. Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q8")
     safe_image("images/f3_fin_q9.png", width=390)
-    q9 = st.radio("9. Which of the following are identities? I. sin²θ - cos²θ = 1 - 2cos²θ, II. sin²θ + cosθ / tanθ = 1 / sinθ, III. sin²θ tan(90° - θ) = sinθ cosθ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q9")
+    q9 = st.radio("9. Which of the following are identities?\n\nI. sin²θ - cos²θ = 1 - 2cos²θ\n\nII. sin²θ + cosθ / tanθ = 1 / sinθ\n\nIII. sin²θ tan(90° - θ) = sinθ cosθ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q9")
     safe_image("images/f3_fin_q10.png", width=390)
     q10 = st.radio("10. Ratio of base radius of cylinder to cone is 6 : 5... [Duplicate variant test check]", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q10")
 
@@ -570,7 +569,7 @@ if submit_btn:
 st.markdown("---")
 st.markdown(f"### 🌟 關於 [Terry Sir 數學專科教室](https://www.facebook.com/terrysir)")
 st.markdown("""
-<div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+<div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-router: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
     <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
         Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>🧠 NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>

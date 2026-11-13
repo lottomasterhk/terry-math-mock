@@ -120,7 +120,9 @@ user_answers = {}
 correct_answers = {}
 question_topics = {}
 
-# ==================== 中一 (Form 1) ====================
+# ==================== 嚴格巢疊條件判斷 (避免混亂) ====================
+
+# -------------------- 中一 (Form 1) --------------------
 if grade == "中一 (Form 1)":
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中一 1st Term Test 校本真題級 10 題快測")
@@ -162,18 +164,14 @@ if grade == "中一 (Form 1)":
         
         q1 = st.radio("1. How many negative integers are there between -5.5 and 1.5?", ("A) 4", "B) 5", "C) 6", "D) 7"), key="f1_ex1_q1")
         q2 = st.radio("2. Which of the following is/are divisible by both 3 and 8?\n\nI. 32 606 312\n\nII. 46 237 512\n\nIII. 98 243 604", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q2")
-        
         safe_image("images/f1_ex1_q3.png", width=525)
         q3 = st.radio("3. In the figure, the 1st pattern consists of 3 dots. For any positive integer n, the (n + 1)th pattern is formed by adding 3 dots to the nth pattern. Find the number of dots in the 7th pattern.", ("A) 15", "B) 18", "C) 21", "D) 24"), key="f1_ex1_q3")
-        
         q4 = st.radio("4. 600 oranges and 400 apples were sold in a shop yesterday. Today, the number of oranges sold decreases by 10% while the number of apples sold increases by 15%. Find the percentage change in the total number of oranges and apples sold.", ("A) -10%", "B) 0%", "C) +5%", "D) +15%"), key="f1_ex1_q4")
         q5 = st.radio("5. The cost price of a car is $2 500. Its marked price is 60% higher than its cost price. If the car is sold at a profit of 20%, find the discount per cent.", ("A) 25%", "B) 33%", "C) 40%", "D) 80%"), key="f1_ex1_q5")
         q6 = st.radio("6. If the general term of a sequence is an = 3(n - 1)^2, find the product of the second term and the fourth term of the sequence.", ("A) 27", "B) 30", "C) 81", "D) 243"), key="f1_ex1_q6")
         q7 = st.radio("7. The height of Vincent is 135 cm. Issac is 20% taller than Vincent, while Andy is 20% shorter than Issac. Which of the following is/are true?\n\nI. Issac's height is above 160 cm.\n\nII. Vincent is as tall as Andy.\n\nIII. All of them are at least 130 cm tall.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q7")
-        
         safe_image("images/f1_ex1_q8.png", width=390)
         q8 = st.radio("8. Figure A shows a chocolate bar in the shape of a right triangular prism. Andy melts it to make a rectangular chocolate bar as shown in Figure B. Find the total surface area of the chocolate bar in Figure B.", ("A) 44 cm²", "B) 68 cm²", "C) 92 cm²", "D) 132 cm²"), key="f1_ex1_q8")
-        
         q9 = st.radio("9. There are 25 questions in a test. 4 marks are awarded for each correct answer and 1 mark is deducted for a wrong answer or an unanswered question. If Susan scores 60 marks in the test, how many correct answers does she get?", ("A) 15", "B) 16", "C) 17", "D) 18"), key="f1_ex1_q9")
         q10 = st.radio("10. The marked price of a comb is $45, which is 25% higher than the selling price. Find the discount per cent.", ("A) 20%", "B) 25%", "C) 36%", "D) 75%"), key="f1_ex1_q10")
 
@@ -201,28 +199,19 @@ if grade == "中一 (Form 1)":
         
         safe_image("images/f1_t2_q1.png", width=525)
         q1 = st.radio("1. Refer to the figures A, B, C, D and E as shown.\n\nWhich of the following statements is/are true?\n\nI. Figures C, D and E are equiangular polygons.\n\nII. There is only one regular polygon.\n\nIII. Only figures A, B and C are concave polygons.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q1")
-        
         q2 = st.radio("2. The total surface area of a right prism is 960 cm² and the total area of its lateral faces is 880 cm². Find the base area of the prism.", ("A) 10 cm²", "B) 20 cm²", "C) 30 cm²", "D) 40 cm²"), key="f1_t2_q2")
-        
         safe_image("images/f1_t2_q3.png", width=390)
         q3 = st.radio("3. It is given that ABEF, GHI and DEH are straight lines. Find the area of the polygon ABCDEFGHI in the figure.", ("A) 161 cm²", "B) 575 cm²", "C) 671 cm²", "D) 767 cm²"), key="f1_t2_q3")
-        
         safe_image("images/f1_t2_q4.png", width=390)
         q4 = st.radio("4. In the figure, ABEH, CBDG, ADF and CEF are straight lines. Find a + b + c + d + e.", ("A) 150°", "B) 180°", "C) 270°", "D) 360°"), key="f1_t2_q4")
-        
         safe_image("images/f1_t2_q5.png", width=390)
         q5 = st.radio("5. Find the area of the quadrilateral ABCD in a rectangular coordinate plane in the figure, given A(-2,3), B(-3,1), C(-2,-4), D(2,1).", ("A) 17.5 sq. units", "B) 18 sq. units", "C) 24.5 sq. units", "D) 35 sq. units"), key="f1_t2_q5")
-        
         q6 = st.radio("6. In a rectangular coordinate plane, P(k, 3) is rotated about the origin O through 180° to a point Q, then Q is translated 10 units to the left to a point R such that R is vertically below P. Find k.", ("A) -12", "B) -10", "C) -6", "D) -5"), key="f1_t2_q6")
-        
         safe_image("images/f1_t2_q7.png", width=390)
         q7 = st.radio("7. In the figure, PQRS is a parallelogram. Given P(0, 8), Q(8, 9), R(5, -3). Find the coordinates of S.", ("A) (-3, -4)", "B) (-3, -3)", "C) (-2, -4)", "D) (-2, -3)"), key="f1_t2_q7")
-        
         q8 = st.radio("8. Suppose a point P(3, 7) undergoes the following transformations respectively. Which of the following transformation can form the same image?\n\nI. Reflect in the y-axis.\n\nII. Translate 6 units to the left.\n\nIII. Rotate anticlockwise about the origin O through 90°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t2_q8")
-        
         safe_image("images/f1_t2_q9.png", width=390)
         q9 = st.radio("9. In a rectangular coordinate plane, B(-3, 2) is the image of A(2, 3) after transformations. Which of the following may be the transformation(s) involved?\n\nI. Translate 5 units to the left and then 1 unit downwards.\n\nII. Reflect in the y-axis.\n\nIII. Rotate anticlockwise about the origin O through 90°.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q9")
-        
         safe_image("images/f1_t2_q10.png", width=390)
         q10 = st.radio("10. In the figure, BCF and CDE are straight lines. Find x.", ("A) 90°", "B) 100°", "C) 110°", "D) 130°"), key="f1_t2_q10")
 
@@ -250,24 +239,17 @@ if grade == "中一 (Form 1)":
         
         q1 = st.radio("1. The total surface area of a square prism is 192 cm² and its width is 4 cm. Find the height of the square prism.", ("A) 6 cm", "B) 8 cm", "C) 10 cm", "D) 12 cm"), key="f1_fin_q1")
         q2 = st.radio("2. P(-3, 7), Q(0, k) and R(6, 1) are the vertices of a triangle in a rectangular coordinate plane where 1 < k < 7. If the area of ΔPQR is 9 square units, find k.", ("A) 2", "B) 3", "C) 4", "D) 6"), key="f1_fin_q2")
-        
         safe_image("images/f1_fin_q3.png", width=390)
         q3 = st.radio("3. The figure below shows a trapezium PQRS where PS // QR. T is a point on PS. PR and TQ intersect at N. It is given that the lengths of PT, TS and QR are 4 cm, 2 cm and 8 cm respectively and the areas of ΔPNT and ΔQNR are 4 cm² and 16 cm² respectively. Find the area of the quadrilateral STNR.", ("A) 10 cm²", "B) 12 cm²", "C) 13 cm²", "D) 14 cm²"), key="f1_fin_q3")
-        
         q4 = st.radio("4. Anna divides the following data into 7 groups and constructs a frequency distribution table. If the first group is 0 - 9, what is the frequency of the last group in the table?\n\n8, 28, 54, 50, 60, 22, 34, 14, 55, 12\n14, 28, 6, 12, 15, 59, 66, 29, 4, 64", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f1_fin_q4")
         q5 = st.radio("5. 0.014 916 25 =", ("A) 0.015 (correct to the nearest integer)", "B) 0.015 (correct to 2 decimal places)", "C) 0.014 91 (correct to 5 decimal places)", "D) 0.014 916 (correct to 6 decimal places)"), key="f1_fin_q5")
-        
         safe_image("images/f1_fin_q6.png", width=390)
         q6 = st.radio("6. The broken line graphs below show the profits of shop A and shop B in the first half of 2019.\n\nIn how many months is the profit of shop A lower than that of shop B?", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f1_fin_q6")
-        
         q7 = st.radio("7. Determine whether the following are discrete data or continuous data?\n\nI. The daily rainfalls of city A in July.\n\nII. The number of rainy days of city A in 2019.", ("A) continuous data / discrete data", "B) continuous data / continuous data", "C) discrete data / discrete data", "D) discrete data / continuous data"), key="f1_fin_q7")
-        
         safe_image("images/f1_fin_q8.png", width=390)
         q8 = st.radio("8. In the figure, ADB is a straight line. Which of the following must be true?", ("A) ΔABC ~ ΔACD (3 sides proportional)", "B) ΔABC ~ ΔACD (ratio of 2 sides, inc. ∠)", "C) ΔABC ~ ΔCBD (3 sides proportional)", "D) ΔABC ~ ΔCBD (ratio of 2 sides, inc. ∠)"), key="f1_fin_q8")
-        
         safe_image("images/f1_fin_q9.png", width=390)
         q9 = st.radio("9. Refer to the figure. Which of the following must be true?\n\nI. ΔQPR ≅ ΔSRP\n\nII. x = 5\n\nIII. y = 20°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_fin_q9")
-        
         safe_image("images/f1_fin_q10.png", width=390)
         q10 = st.radio("10. Which of the following must be true?", ("A) ΔABC ≅ ΔDEF (SSA)", "B) ΔABC ≅ ΔDEF (SAS)", "C) ΔABC ≅ ΔPQR (SAS)", "D) None of the above"), key="f1_fin_q10")
 
@@ -289,7 +271,8 @@ if grade == "中一 (Form 1)":
             10: "三角形全等條件辨別 (Conditions for Triangle Congruence)"
         }
 
-# ==================== 中二 (Form 2) ====================
+
+# -------------------- 中二 (Form 2) --------------------
 elif grade == "中二 (Form 2)":
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
@@ -334,16 +317,12 @@ elif grade == "中二 (Form 2)":
         q4 = st.radio("4. Factorize completely: ax - cx - ay - bx + cy + by =", ("A) (x + y)(a + b - c)", "B) (x + y)(a - b - c)", "C) (x - y)(a + b - c)", "D) (x - y)(a - b - c)"), key="f2_ex1_q4")
         q5 = st.radio("5. The graph of the equation 4x + ay = 18 passes through P(6, -3), where a is a constant. Which of the following points lies on the graph of the given equation?", ("A) (-3,-6)", "B) (-1,-11)", "C) (1,7)", "D) (7,-2)"), key="f2_ex1_q5")
         q6 = st.radio("6. Solve the simultaneous equations x + y - 8 = (3x)/4 + 10 - y = 0 .", ("A) (316/37, -20/37)", "B) (324/37, -28/37)", "C) (-8/7, 64/7)", "D) (-72/7, 16/7)"), key="f2_ex1_q6")
-        
         safe_image("images/f2_ex1_q7.png", width=390)
         q7 = st.radio("7. In the figure, AED and BEC are straight lines. Which of the following must be true?", ("A) x = y", "B) x + y = 90°", "C) z = x + y", "D) x + y + z = 180°"), key="f2_ex1_q7")
-        
         safe_image("images/f2_ex1_q8.png", width=390)
         q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"), key="f2_ex1_q8")
-        
         safe_image("images/f2_ex1_q9.png", width=390)
         q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\nI. AB // CE\n\nII. AC ⊥ AD\n\nIII. x = y", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_ex1_q9")
-        
         safe_image("images/f2_ex1_q10.png", width=390)
         q10 = st.radio("10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively.\n\nWhich of the following must be correct?\n\nI. The number of customers of shop A who vote peach flavour is more than that of shop B.\n\nII. In both shop A and shop B, peach flavour is more popular than strawberry flavour.\n\nIII. The percentages of customers who vote almond flavour in shop A and shop B are the same.", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"), key="f2_ex1_q10")
 
@@ -375,16 +354,12 @@ elif grade == "中二 (Form 2)":
         q4 = st.radio("4. Joe has brought some candies for his students who pass the term test. If 84 students pass, each of the students can have 7 candies. How many students pass the term test if each of them can have 3 candies?", ("A) 4", "B) 36", "C) 196", "D) 252"), key="f2_t2_q4")
         q5 = st.radio("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", ("A) 22 : 27", "B) 21 : 25", "C) 10 : 9", "D) 37 : 27"), key="f2_t2_q5")
         q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true ?\n\nI. The value of n is 24.\n\nII. The ratio of the size of each interior angle of the polygon to that of each exterior angle is 12 : 1.\n\nIII. The sum of the interior angles of the polygon is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q6")
-        
         safe_image("images/f2_t2_q7.png", width=390)
         q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
-        
         safe_image("images/f2_t2_q8.png", width=390)
         q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?\n\nI. Deduce ΔQPS ≅ ΔRSP\n\nII. ΔPTS ~ ΔQTR\n\nIII. PS // QR", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q8")
-        
         safe_image("images/f2_t2_q9.png", width=390)
         q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC // FD and AF // CD. Which of the following must be true?\n\nI. ΔABF ≅ ΔEFB\n\nII. ΔEFB ≅ ΔEDB\n\nIII. ΔCBD ≅ ΔABF", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_t2_q9")
-        
         safe_image("images/f2_t2_q10.png", width=390)
         q10 = st.radio("10. In the figure, ABCD is a square and ΔCED is an equilateral triangle. If DE = DG and DG // EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="f2_t2_q10")
 
@@ -413,22 +388,15 @@ elif grade == "中二 (Form 2)":
         q1 = st.radio("1. Which of the following is/are rational number(s)?\n\nI. √(2^2)\n\nII. π\n\nIII. 0.3", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_fin_q1")
         q2 = st.radio("2. The scale of a map is 1 : 200 000. If the distance between two lighthouses on the map is 5.23 cm, find the actual distance between the two lighthouses.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"), key="f2_fin_q2")
         q3 = st.radio("3. Which of the following circles has the longest radius?", ("A) A circle with area 5 cm²", "B) A circle with circumference 4 cm", "C) A circle with diameter 3 cm", "D) A circle with radius 1 cm"), key="f2_fin_q3")
-        
         safe_image("images/f2_fin_q4.png", width=390)
         q4 = st.radio("4. In the figure, the length of the line segment joining A and G is", ("A) 19", "B) 23", "C) 25", "D) 30"), key="f2_fin_q4")
-        
         q5 = st.radio("5. A square and an isosceles triangle have the same perimeter 100 cm. If the base of the isosceles triangle is 18 cm, how much greater is the area of the square comparing to that of the isosceles triangle?", ("A) 256 cm²", "B) 265 cm²", "C) 440.5 cm²", "D) 445 cm²"), key="f2_fin_q5")
-        
         q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\nI. The value of n is 16.\n\nII. The sum of the interior angle of the polygon is 2520°.\n\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q6")
-        
         safe_image("images/f2_fin_q7.png", width=390)
         q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. ΔABC ≅ ΔEDC\n\nII. AC ⊥ CE\n\nIII. ∠AEF = 80°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q7")
-        
         safe_image("images/f2_fin_q8.png", width=390)
         q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find cos β / sin α .", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α cos β"), key="f2_fin_q8")
-        
         q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1:2. The ratio of the base radius of P to the height of P is 1:3. The ratio of the total surface area of P to Q is", ("A) 1:2", "B) 2:5", "C) 4:7", "D) 7:16"), key="f2_fin_q9")
-        
         safe_image("images/f2_fin_q10.png", width=390)
         q10 = st.radio("10. In the figure, PQRST is a regular pentagon. QT =", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"), key="f2_fin_q10")
 
@@ -450,7 +418,8 @@ elif grade == "中二 (Form 2)":
             10: "正五邊形與三角比應用 (Regular Pentagons & Trig)"
         }
 
-# ==================== 中三 (Form 3) ====================
+
+# -------------------- 中三 (Form 3) --------------------
 elif grade == "中三 (Form 3)":
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中三 1st Term Test 校本真題級 20 題全真總動員")
@@ -461,18 +430,13 @@ elif grade == "中三 (Form 3)":
         q3 = st.radio("3. Solve the inequality (8 - 3x)/5 ≥ (5 + 2x)/2 .", ("A) x ≤ -9/16", "B) x ≤ 9/16", "C) x ≥ -9/16", "D) x ≥ 9/16"), key="f3_t1_q3")
         q4 = st.radio("4. If the growth rate of a value is 10% per month, and its value after 1 year is 2 125, find the original value correct to 3 significant figures.", ("A) 193", "B) 677", "C) 989", "D) 1920"), key="f3_t1_q4")
         q5 = st.radio("5. (x^2 - 9y^2) / y^4 ÷ (x + 3y) / y^2 =", ("A) (x + 3y) / y^6", "B) (x - 9y) / y^6", "C) (x - 3y) / y^2", "D) (x - 9y) / y^2"), key="f3_t1_q5")
-        
         safe_image("images/f3_t1_q6.png", width=390)
         q6 = st.radio("6. In the figure, QS and RS are angle bisectors of ΔPQR. Find ∠QSR.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_t1_q6")
-        
         q7 = st.radio("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", ("A) 1/12", "B) 1/6", "C) 1/4", "D) 1/3"), key="f3_t1_q7")
-        
         safe_image("images/f3_t1_q8.png", width=390)
         q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_t1_q8")
-        
         safe_image("images/f3_t1_q9.png", width=390)
         q9 = st.radio("9. The prices of items sold in a supermarket: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. Prices are increased by 10% and then decreased by $2. Find the mean of the adjusted price.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_t1_q9")
-        
         safe_image("images/f3_t1_q10.png", width=390)
         q10 = st.radio("10. In the figure, APB and AQC are straight lines. If AQ = 26, PQ = 10, QC = 22 and PB = 28, which of the following must be true?", ("A) BC is an altitude of ΔABC.", "B) BQ is an angle bisector of ΔABC.", "C) PC is a median of ΔABC.", "D) PQ is a perpendicular bisector of ΔABC."), key="f3_t1_q10")
 
@@ -524,31 +488,22 @@ elif grade == "中三 (Form 3)":
         
         safe_image("images/f3_ex1_q1.png", width=390)
         q1 = st.radio("1. 10010100011100_2 =", ("A) 37 × 2^8 + 28.", "B) 37 × 2^8 + 56.", "C) 37 × 2^9 + 28.", "D) 37 × 2^9 + 56."), key="f3_ex1_q1")
-        
         safe_image("images/f3_ex1_q2.png", width=390)
         q2 = st.radio("2. 9 × 2^10 + 6 × 2^9 + 2^3 - 7 =", ("A) 101100010000_2", "B) 110010000100_2", "C) 1011000001111_2", "D) 1100000000001_2"), key="f3_ex1_q2")
-        
         safe_image("images/f3_ex1_q3.png", width=390)
         q3 = st.radio("3. Arrange the three numbers 1101100_2, 105_10 and 1101110_2 in ascending order.", ("A) 1101110_2 < 105_10 < 1101100_2", "B) 1101100_2 < 105_10 < 1101110_2", "C) 105_10 < 1101110_2 < 1101100_2", "D) 105_10 < 1101100_2 < 1101110_2"), key="f3_ex1_q3")
-        
         safe_image("images/f3_ex1_q4.png", width=390)
         q4 = st.radio("4. A sum of $35 000 is deposited for 40 months at an interest rate of 3% p.a. compounded every four months. Find the interest.", ("A) $1 180", "B) $2 715", "C) $3 662", "D) $4 966"), key="f3_ex1_q4")
-        
         safe_image("images/f3_ex1_q5.png", width=390)
         q5 = st.radio("5. If the base of a triangle is increased by 20% and its height is decreased by m% such that its area will decrease by 4%. Find m.", ("A) 10/3", "B) 20", "C) 24", "D) 80"), key="f3_ex1_q5")
-        
         safe_image("images/f3_ex1_q6.png", width=390)
         q6 = st.radio("6. (25^2048 · 2^2076) / 5^2020 =", ("A) 50^4124 / 5^2020", "B) 25^56 · 2^2076", "C) 10^2076", "D) 10^2104"), key="f3_ex1_q6")
-        
         safe_image("images/f3_ex1_q7.png", width=390)
         q7 = st.radio("7. Mr Cheung takes out a loan at an interest rate of 20% p.a. compounded quarterly for 2 years. If he has to pay an interest of $4 000, find the amount he needs to repay.", ("A) $8 378", "B) $8 619", "C) $9 091", "D) $12 378"), key="f3_ex1_q7")
-        
         safe_image("images/f3_ex1_q8.png", width=390)
         q8 = st.radio("8. There are 20 questions in a test. For each correct answer m marks, for each wrong/unanswered n marks deducted. 10 correct = 20 marks, 15 correct = 60 marks. Find n.", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f3_ex1_q8")
-        
         safe_image("images/f3_ex1_q9.png", width=390)
         q9 = st.radio("9. If -x^2 + kx + 10 can be factorized where k is an integer, possible values of k: I. -5, II. -3, III. 9", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f3_ex1_q9")
-        
         safe_image("images/f3_ex1_q10.png", width=390)
         q10 = st.radio("10. Factorize -8x^2 - 28xy + 60y^2.", ("A) (x - 5y)(2x + 3y)", "B) (x + 5y)(2x - 3y)", "C) -4(x - 5y)(2x + 3y)", "D) -4(x + 5y)(2x - 3y)"), key="f3_ex1_q10")
 
@@ -576,31 +531,22 @@ elif grade == "中三 (Form 3)":
         
         safe_image("images/f3_t2_q1.png", width=390)
         q1 = st.radio("1. In the figure, ABCE is a rectangle, CDEF is a rhombus. If ∠FBC = 34°, find ∠CDE.", ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), key="f3_t2_q1")
-        
         safe_image("images/f3_t2_q2.png", width=390)
         q2 = st.radio("2. Solid consists of a right circular cone and hemisphere with common base. Height = 8 cm, slant height = 10 cm. Find total surface area.", ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), key="f3_t2_q2")
-        
         safe_image("images/f3_t2_q3.png", width=390)
         q3 = st.radio("3. Simplify cos θ / tan²(90° - θ) - 1 / sin(90° - θ) .", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3")
-        
         safe_image("images/f3_t2_q4.png", width=390)
         q4 = st.radio("4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given angle A = 45° and angle C = 30°.", ("A) 1 : 2", "B) √2 : 2", "C) √2 : 4", "D) 4 : √2"), key="f3_t2_q4")
-        
         safe_image("images/f3_t2_q5.png", width=390)
         q5 = st.radio("5. ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), key="f3_t2_q5")
-        
         safe_image("images/f3_t2_q6.png", width=390)
         q6 = st.radio("6. Paul deposited $65 000 at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year?", ("A) $112", "B) $2 746", "C) $2 858", "D) $5 604"), key="f3_t2_q6")
-        
         safe_image("images/f3_t2_q7.png", width=390)
         q7 = st.radio("7. Factorize 8xy - 6x^2 - 2y^2.", ("A) -2(x - y)(4x + y)", "B) -2(3x - y)(x - y)", "C) (x - y)(4x + y)", "D) (3x - y)(x - y)"), key="f3_t2_q7")
-        
         safe_image("images/f3_t2_q8.png", width=390)
         q8 = st.radio("8. BCDE is a parallelogram. G is mid-point of CD. AG and BE intersect at F. CB produced to A so area ΔABF : area ΔACG = 4 : 9. Area ΔABF = 12 cm², find area DEFG.", ("A) 21 cm²", "B) 27 cm²", "C) 36 cm²", "D) 42 cm²"), key="f3_t2_q8")
-        
         safe_image("images/f3_t2_q9.png", width=390)
         q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
-        
         safe_image("images/f3_t2_q10.png", width=390)
         q10 = st.radio("10. Which of the following numbers is the smallest?\n\nA. -4^-4 × 10^-10\nB. (-4)^-4 × 10^-10\nC. -0.000 000 000 000 4\nD. -3 / 12^12", ("A) A", "B) B", "C) C", "D) D"), key="f3_t2_q10")
 
@@ -628,31 +574,22 @@ elif grade == "中三 (Form 3)":
         
         safe_image("images/f3_fin_q1.png", width=390)
         q1 = st.radio("1. The figure shows sector OAB. Radius = 9 cm, angle = 280°. Folded into a hollow circular cone, find base radius.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
-        
         safe_image("images/f3_fin_q2.png", width=390)
         q2 = st.radio("2. In the figure, slopes of L1, L2, L3 are m1, m2, m3. Which are correct? I. m2 < 0, II. m3 > 0, III. m2 > m1", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
-        
         safe_image("images/f3_fin_q3.png", width=390)
         q3 = st.radio("3. Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), key="f3_fin_q3")
-        
         safe_image("images/f3_fin_q4.png", width=390)
         q4 = st.radio("4. If tan θ = √k / 2 where θ is acute, find sin θ cos θ.", ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) 2√k / (k + 4)", "D) 2√k / (k + 4) [variant]"), key="f3_fin_q4")
-        
         safe_image("images/f3_fin_q5.png", width=390)
         q5 = st.radio("5. A sheep walks 12m south from A to B, 25m east to C, 29m north to D. Find compass bearing of D from A.", ("A) S34°W", "B) S56°W", "C) N34°E", "D) N56°E"), key="f3_fin_q5")
-        
         safe_image("images/f3_fin_q6.png", width=390)
         q6 = st.radio("6. The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.", ("A) -2", "B) -1", "C) 1", "D) 2"), key="f3_fin_q6")
-        
         safe_image("images/f3_fin_q7.png", width=390)
         q7 = st.radio("7. A(-6, -1), B(b, -13), C(-2, b-5), E(-1, -9). If AE // BC, find b.", ("A) -8", "B) -2", "C) 2", "D) 8"), key="f3_fin_q7")
-        
         safe_image("images/f3_fin_q8.png", width=390)
         q8 = st.radio("8. Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q8")
-        
         safe_image("images/f3_fin_q9.png", width=390)
         q9 = st.radio("9. Which of the following are identities? I. sin²θ - cos²θ = 1 - 2cos²θ, II. sin²θ + cosθ / tanθ = 1 / sinθ, III. sin²θ tan(90° - θ) = sinθ cosθ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q9")
-        
         safe_image("images/f3_fin_q10.png", width=390)
         q10 = st.radio("10. Ratio of base radius of cylinder to cone is 6 : 5... [Duplicate variant test check]", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q10")
 

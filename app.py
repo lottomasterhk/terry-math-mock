@@ -365,7 +365,6 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
 # 3. 中三 (Form 3)
 # ----------------------------------------------------
 elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
-    # 嚴格對齊你所給予該檔案內嘅 10 題真題及正確答案
     q1 = st.radio("1. 10010100011100₂ =", ("A) 37 × 2⁸ + 28.", "B) 37 × 2⁸ + 56.", "C) 37 × 2⁹ + 28.", "D) 37 × 2⁹ + 56."), key="f3_t1_q1")
     q2 = st.radio("2. 9 × 2¹⁰ + 6 × 2⁹ + 2³ - 7 =", ("A) 101100010000₂", "B) 110010000100₂", "C) 1011000001111₂", "D) 1100000000001₂"), key="f3_t1_q2")
     q3 = st.radio("3. Arrange the three numbers 1101100₂, 105₁₀ and 1101110₂ in ascending order.", ("A) 1101110₂ < 105₁₀ < 1101100₂", "B) 1101100₂ < 105₁₀ < 1101110₂", "C) 105₁₀ < 1101110₂ < 1101100₂", "D) 105₁₀ < 1101100₂ < 1101110₂"), key="f3_t1_q3")
@@ -379,56 +378,8 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "A) 37 × 2⁸ + 28.", 
-        2: "D) 1100000000001₂", 
-        3: "D) 105₁₀ < 1101100₂ < 1101110₂", 
-        4: "C) $3 662", 
-        5: "C) 24",
-        6: "C) 10²⁰⁷⁶", 
-        7: "D) $12 378", 
-        8: "B) 3", 
-        9: "D) II and III only", 
-        10: "D) -4(x + 5y)(2x - 3y)"
-    }
-    question_topics = {
-        1: "二進制數與代數轉換 (Binary Numbers)", 
-        2: "二進制數加減運算 (Binary Arithmetic)", 
-        3: "不同進位制數值大小比較 (Number Bases Comparison)", 
-        4: "複利息與存款利息計算 (Compound Interest)", 
-        5: "百分比變化與面積應用 (Percentage Change in Area)", 
-        6: "指數律與底數化簡 (Laws of Indices)", 
-        7: "貸款複利息與還款額計算 (Loans & Compound Interest)", 
-        8: "聯立方程應用題 (Simultaneous Equations)", 
-        9: "二次多項式因式分解可能性 (Factorization of Quadratics)", 
-        10: "高級多項式因式分解 (Advanced Factorization)"
-    }
-
-elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
-    safe_image("images/f3_ex1_q1.png", width=390)
-    q1 = st.radio("1. 10010100011100_2 =", ("A) 37 × 2^8 + 28.", "B) 37 × 2^8 + 56.", "C) 37 × 2^9 + 28.", "D) 37 × 2^9 + 56."), key="f3_ex1_q1")
-    safe_image("images/f3_ex1_q2.png", width=390)
-    q2 = st.radio("2. 9 × 2^10 + 6 × 2^9 + 2^3 - 7 =", ("A) 101100010000_2", "B) 110010000100_2", "C) 1011000001111_2", "D) 1100000000001_2"), key="f3_ex1_q2")
-    safe_image("images/f3_ex1_q3.png", width=390)
-    q3 = st.radio("3. Arrange the three numbers 1101100_2, 105_10 and 1101110_2 in ascending order.", ("A) 1101110_2 < 105_10 < 1101100_2", "B) 1101100_2 < 105_10 < 1101110_2", "C) 105_10 < 1101110_2 < 1101100_2", "D) 105_10 < 1101100_2 < 1101110_2"), key="f3_ex1_q3")
-    safe_image("images/f3_ex1_q4.png", width=390)
-    q4 = st.radio("4. A sum of $35 000 is deposited for 40 months at an interest rate of 3% p.a. compounded every four months. Find the interest.", ("A) $1 180", "B) $2 715", "C) $3 662", "D) $4 966"), key="f3_ex1_q4")
-    safe_image("images/f3_ex1_q5.png", width=390)
-    q5 = st.radio("5. If the base of a triangle is increased by 20% and its height is decreased by m% such that its area will decrease by 4%. Find m.", ("A) 10/3", "B) 20", "C) 24", "D) 80"), key="f3_ex1_q5")
-    safe_image("images/f3_ex1_q6.png", width=390)
-    q6 = st.radio("6. (25^2048 · 2^2076) / 5^2020 =", ("A) 50^4124 / 5^2020", "B) 25^56 · 2^2076", "C) 10^2076", "D) 10^2104"), key="f3_ex1_q6")
-    safe_image("images/f3_ex1_q7.png", width=390)
-    q7 = st.radio("7. Mr Cheung takes out a loan at an interest rate of 20% p.a. compounded quarterly for 2 years. If he has to pay an interest of $4 000, find the amount he needs to repay.", ("A) $8 378", "B) $8 619", "C) $9 091", "D) $12 378"), key="f3_ex1_q7")
-    safe_image("images/f3_ex1_q8.png", width=390)
-    q8 = st.radio("8. There are 20 questions in a test. For each correct answer m marks, for each wrong/unanswered n marks deducted. 10 correct = 20 marks, 15 correct = 60 marks. Find n.", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f3_ex1_q8")
-    safe_image("images/f3_ex1_q9.png", width=390)
-    q9 = st.radio("9. If -x^2 + kx + 10 can be factorized where k is an integer, possible values of k: I. -5, II. -3, III. 9", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f3_ex1_q9")
-    safe_image("images/f3_ex1_q10.png", width=390)
-    q10 = st.radio("10. Factorize -8x^2 - 28xy + 60y^2.", ("A) (x - 5y)(2x + 3y)", "B) (x + 5y)(2x - 3y)", "C) -4(x - 5y)(2x + 3y)", "D) -4(x + 5y)(2x - 3y)"), key="f3_ex1_q10")
-
-    user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
-    correct_answers = {
-        1: "A) 37 × 2^8 + 28.", 2: "D) 1100000000001_2", 3: "D) 105_10 < 1101100_2 < 1101110_2", 4: "C) $3 662", 5: "C) 24",
-        6: "C) 10^2076", 7: "D) $12 378", 8: "B) 3", 9: "D) II and III only", 10: "D) -4(x + 5y)(2x - 3y)"
+        1: "A) 37 × 2⁸ + 28.", 2: "D) 1100000000001₂", 3: "D) 105₁₀ < 1101100₂ < 1101110₂", 4: "C) $3 662", 5: "C) 24",
+        6: "C) 10²⁰⁷⁶", 7: "D) $12 378", 8: "B) 3", 9: "D) II and III only", 10: "D) -4(x + 5y)(2x - 3y)"
     }
     question_topics = {
         1: "二進制數與代數轉換 (Binary Numbers)", 2: "二進制數加減運算 (Binary Arithmetic)",
@@ -436,6 +387,49 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
         5: "百分比變化與面積應用 (Percentage Change in Area)", 6: "指數律與底數化簡 (Laws of Indices)",
         7: "貸款複利息與還款額計算 (Loans & Compound Interest)", 8: "聯立方程應用題 (Simultaneous Equations)",
         9: "二次多項式因式分解可能性 (Factorization of Quadratics)", 10: "高級多項式因式分解 (Advanced Factorization)"
+    }
+
+elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
+    # 嚴格對齊你所給予該檔案內嘅 10 題真題及正確答案
+    q1 = st.radio("1. 3²⁴⁶ · 9⁻¹²³ =", ("A) 1.", "B) -1.", "C) 3¹²³.", "D) 1 / (3¹²³)."), key="f3_ex1_q1")
+    q2 = st.radio("2. Find the smallest integer a satisfying a/5 - 1 > -4.", ("A) -24", "B) -15", "C) -14", "D) -3"), key="f3_ex1_q2")
+    q3 = st.radio("3. Solve the inequality (8 - 3x)/5 ≥ (5 + 2x)/2 .", ("A) x ≤ -9/16", "B) x ≤ 9/16", "C) x ≥ -9/16", "D) x ≥ 9/16"), key="f3_ex1_q3")
+    q4 = st.radio("4. If the growth rate of a value is 10% per month, and its value after 1 year is 2 125, find the original value correct to 3 significant figures.", ("A) 193", "B) 677", "C) 989", "D) 1920"), key="f3_ex1_q4")
+    q5 = st.radio("5. (x² - 9y²) / y⁴ ÷ (x + 3y) / y² =", ("A) (x + 3y) / y⁶", "B) (x - 9y) / y⁶", "C) (x - 3y) / y²", "D) (x - 9y) / y²"), key="f3_ex1_q5")
+    safe_image("images/f3_ex1_q6.png", width=390)
+    q6 = st.radio("6. In the figure, QS and RS are angle bisectors of ΔPQR. Find ∠QSR.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_ex1_q6")
+    q7 = st.radio("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", ("A) 1/12", "B) 1/6", "C) 1/4", "D) 1/3"), key="f3_ex1_q7")
+    safe_image("images/f3_ex1_q8.png", width=390)
+    q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_ex1_q8")
+    safe_image("images/f3_ex1_q9.png", width=390)
+    q9 = st.radio("9. The prices of items sold in a supermarket: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. Prices are increased by 10% and then decreased by $2. Find the mean of the adjusted price.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_ex1_q9")
+    safe_image("images/f3_ex1_q10.png", width=390)
+    q10 = st.radio("10. In the figure, APB and AQC are straight lines. If AQ = 26, PQ = 10, QC = 22 and PB = 28, which of the following must be true?", ("A) BC is an altitude of ΔABC.", "B) BQ is an angle bisector of ΔABC.", "C) PC is a median of ΔABC.", "D) PQ is a perpendicular bisector of ΔABC."), key="f3_ex1_q10")
+
+    user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+    correct_answers = {
+        1: "A) 1.", 
+        2: "C) -14", 
+        3: "A) x ≤ -9/16", 
+        4: "B) 677", 
+        5: "C) (x - 3y) / y^2",
+        6: "D) 130°", 
+        7: "C) 1/4", 
+        8: "A) 9.25", 
+        9: "D) $34.3", 
+        10: "A) BC is an altitude of ΔABC."
+    }
+    question_topics = {
+        1: "指數定律與化簡 (Laws of Indices)", 
+        2: "一元一次不等式應用 (Linear Inequalities)", 
+        3: "代數不等式求解 (Solving Inequalities)", 
+        4: "複利息與增長率計算 (Growth Rate & Compound Interest)", 
+        5: "分式化簡與因式分解 (Algebraic Fractions)", 
+        6: "三角形內角與角平分線 (Angle Bisectors of Triangles)", 
+        7: "獨立事件概率計算 (Probability of Independent Events)", 
+        8: "數學期望值計算 (Expected Value)", 
+        9: "平均數與百分比調整 (Means & Percentage Adjustments)", 
+        10: "相似三角形與幾何推論 (Geometry Proofs & Similar Triangles)"
     }
 
 elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:

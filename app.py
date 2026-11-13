@@ -64,7 +64,6 @@ st.markdown("""
     /* 按鈕美化：極靚嘅漸變金藍按鈕 */
     .stButton>button {
         width: 100%;
-        background: linear-weight(90deg, #1e3c72 0%, #2a5298 100%) !important;
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
         color: white !important;
         font-size: 18px !important;
@@ -140,7 +139,7 @@ if "中一" in grade:
 
         user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
         correct_answers = {
-            1: "C) +3 > +1.2 > +1/2 > 0 > -2.5 > -3/4", 2: "C) 2^2 × 3^3 × 7", 3: "D) (10/3)t km",
+            1: "A) +3 > +1.2 > +1/2 > 0 > -3/4 > -2.5", 2: "C) 2^2 × 3^3 × 7", 3: "D) (10/3)t km",
             4: "D) 4 585 348", 5: "A) 20", 6: "B) I and III only", 7: "D) I, II and III",
             8: "C) increased by $65.", 9: "C) 31", 10: "D) (2/5)(m - 5) + 5"
         }
@@ -522,7 +521,7 @@ st.markdown("### 🌟 關於 [Terry Sir 數學專科教室](https://www.facebook
 st.markdown("""
 <div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
     <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
-        Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
+        Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>🧠 NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>
     <p style="margin-top: 10px;">
         👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！

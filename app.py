@@ -86,7 +86,7 @@ st.markdown("""
     <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
         🧠 NLP 心理引導 × 中大數學專業培訓
     </span>
-    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】[Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) - 初中數學專科教室</h1>
+    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】Terry Sir - 初中數學專科教室</h1>
     <p style="color: #cbd5e0 !important; font-size: 15px; max-width: 650px; margin: 0 auto;">
         核心理念：不只教公式，用 NLP 心理引導幫孩子解開數學心結，由根基打起，重拾信心奪 A！ ✨
     </p>
@@ -359,5 +359,9 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
+# 徹底修復後的標準 HTML 版權宣告與安全結尾 (不再出現裸露亂碼 URL)
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) - 初中數學專科. All Rights Reserved.</p>", unsafe_allow_html=True)
+st.markdown(
+    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 初中數學專科. All Rights Reserved.</p>", 
+    unsafe_allow_html=True
+)

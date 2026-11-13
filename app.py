@@ -117,7 +117,7 @@ correct_answers = {}
 if "中一" in grade:
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中一 1st Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選實戰試題：[cite: 5]")
+        st.markdown("請認真完成以下 10 題精選實戰試題：")
         
         q1 = st.radio("1. Arrange the following numbers in descending order: +3, +1/2, -2.5, 0, -3/4, +1.2", ("A) +3 > +1.2 > +1/2 > 0 > -3/4 > -2.5", "B) +3 > +1/2 > +1.2 > 0 > -3/4 > -2.5", "C) +3 > +1.2 > +1/2 > 0 > -2.5 > -3/4", "D) -2.5 > -3/4 > 0 > +1/2 > +1.2 > +3"), key="f1_t1_q1")
         q2 = st.radio("2. Which of the following expressions gives a result of 756?", ("A) 2^2 × 3^2 × 7", "B) 2^3 × 3^2 × 7", "C) 2^2 × 3^3 × 7", "D) 2^3 × 3^2 × 7^2"), key="f1_t1_q2")
@@ -139,7 +139,7 @@ if "中一" in grade:
 
     elif "1st Exam" in exam_stage:
         st.subheader("✍️ 第二步：中一 1st Exam (上學期考試) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選上學期實戰試題：[cite: 4]")
+        st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
         
         q1 = st.radio("1. How many negative integers are there between -5.5 and 1.5?", ("A) 4", "B) 5", "C) 6", "D) 7"), key="f1_ex1_q1")
         q2 = st.radio("2. Which of the following is/are divisible by both 3 and 8?\n\nI. 32 606 312\n\nII. 46 237 512\n\nIII. 98 243 604", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q2")
@@ -168,15 +168,32 @@ if "中一" in grade:
 
     elif "2nd Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中一 2nd Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：[cite: 7]")
+        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
         
+        # Q1 多邊形圖形
+        st.image("images/f1_t2_q1.png", width=550)
         q1 = st.radio("1. Refer to the figures A, B, C, D and E as shown.\n\nWhich of the following statements is/are true?\n\nI. Figures C, D and E are equiangular polygons.\n\nII. There is only one regular polygon.\n\nIII. Only figures A, B and C are concave polygons.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q1")
+        
         q2 = st.radio("2. The total surface area of a right prism is 960 cm² and the total area of its lateral faces is 880 cm². Find the base area of the prism.", ("A) 10 cm²", "B) 20 cm²", "C) 30 cm²", "D) 40 cm²"), key="f1_t2_q2")
+        
+        # Q3 複合多邊形圖形
+        st.image("images/f1_t2_q3.png", width=550)
         q3 = st.radio("3. It is given that ABEF, GHI and DEH are straight lines. Find the area of the polygon ABCDEFGHI in the figure.", ("A) 161 cm²", "B) 575 cm²", "C) 671 cm²", "D) 767 cm²"), key="f1_t2_q3")
+        
+        # Q4 直線相交圖形
+        st.image("images/f1_t2_q4.png", width=550)
         q4 = st.radio("4. In the figure, ABEH, CBDG, ADF and CEF are straight lines. Find a + b + c + d + e.", ("A) 150°", "B) 180°", "C) 270°", "D) 360°"), key="f1_t2_q4")
+        
+        # Q5 坐標平面四邊形面積圖形
+        st.image("images/f1_t2_q5.png", width=550)
         q5 = st.radio("5. Find the area of the quadrilateral ABCD in a rectangular coordinate plane in the figure, given A(-2,3), B(-3,1), C(-2,-4), D(2,1).", ("A) 17.5 sq. units", "B) 18 sq. units", "C) 24.5 sq. units", "D) 35 sq. units"), key="f1_t2_q5")
+        
         q6 = st.radio("6. In a rectangular coordinate plane, P(k, 3) is rotated about the origin O through 180° to a point Q, then Q is translated 10 units to the left to a point R such that R is vertically below P. Find k.", ("A) -12", "B) -10", "C) -6", "D) -5"), key="f1_t2_q6")
+        
+        # Q7 平行四邊形坐標圖形
+        st.image("images/f1_t2_q7.png", width=550)
         q7 = st.radio("7. In the figure, PQRS is a parallelogram. Given P(0, 8), Q(8, 9), R(5, -3). Find the coordinates of S.", ("A) (-3, -4)", "B) (-3, -3)", "C) (-2, -4)", "D) (-2, -3)"), key="f1_t2_q7")
+        
         q8 = st.radio("8. Suppose a point P(3, 7) undergoes the following transformations respectively. Which of the following transformation can form the same image?\n\nI. Reflect in the y-axis.\n\nII. Translate 6 units to the left.\n\nIII. Rotate anticlockwise about the origin O through 90°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t2_q8")
         q9 = st.radio("9. In a rectangular coordinate plane, B(-3, 2) is the image of A(2, 3) after transformations. Which of the following may be the transformation(s) involved?\n\nI. Translate 5 units to the left and then 1 unit downwards.\n\nII. Reflect in the y-axis.\n\nIII. Rotate anticlockwise about the origin O through 90°.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q9")
         q10 = st.radio("10. In the figure, BCF and CDE are straight lines. Find x.", ("A) 90°", "B) 100°", "C) 110°", "D) 130°"), key="f1_t2_q10")
@@ -189,7 +206,7 @@ if "中一" in grade:
 
     else:
         st.subheader("✍️ 第二步：中一 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：[cite: 6]")
+        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
         
         q1 = st.radio("1. The total surface area of a square prism is 192 cm² and its width is 4 cm. Find the height of the square prism.", ("A) 6 cm", "B) 8 cm", "C) 10 cm", "D) 12 cm"), key="f1_fin_q1")
         q2 = st.radio("2. P(-3, 7), Q(0, k) and R(6, 1) are the vertices of a triangle in a rectangular coordinate plane where 1 < k < 7. If the area of ΔPQR is 9 square units, find k.", ("A) 2", "B) 3", "C) 4", "D) 6"), key="f1_fin_q2")
@@ -212,7 +229,7 @@ if "中一" in grade:
 else:
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選實戰試題：[cite: 1]")
+        st.markdown("請認真完成以下 10 題精選實戰試題：")
         
         q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"), key="f2_t1_q1")
         q2 = st.radio("2. If y = 29.4 (correct to 3 significant figures), find the range of values of y.", ("A) 29.3 < y ≤ 29.5", "B) 29.3 ≤ y < 29.5", "C) 29.35 < y ≤ 29.45", "D) 29.35 ≤ y < 29.45"), key="f2_t1_q2")
@@ -233,7 +250,7 @@ else:
 
     elif "1st Exam" in exam_stage:
         st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選上學期實戰試題：[cite: 8]")
+        st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
         
         q1 = st.radio("1. The thickness of a dictionary is measured as 4.0 cm, correct to the nearest 0.5 cm. Let x cm be the actual thickness of the dictionary. Find the range of values of x.", ("A) 3.5 ≤ x < 4.5", "B) 3.5 < x < 4.5", "C) 3.75 ≤ x < 4.25", "D) 3.75 < x < 4.25"), key="f2_ex1_q1")
         q2 = st.radio("2. Which of the following is not a polynomial?", ("A) 5x - 3y", "B) 5xy - 3", "C) x/5 - y/3", "D) 5x - 3/y"), key="f2_ex1_q2")
@@ -254,7 +271,7 @@ else:
 
     elif "2nd Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中二 2nd Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：[cite: 3]")
+        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
         
         q1 = st.radio("1. If x and y are non-zero numbers such that (4x + 3y)/(3x + 5y) = 5/8, then (3x + y)/(x + 3y) =", ("A) 5/13", "B) 1.", "C) 4/3", "D) 13/5"), key="f2_t2_q1")
         q2 = st.radio("2. Suppose 10 Swiss Francs dollars (CHF) are equivalent to 89 H.K. dollars (HKD) and 10 U.S. dollars (USD) are equivalent to 78 HKD. How many USD can 546 CHF be changed to?", ("A) 478 USD", "B) 623 USD", "C) 1271 USD", "D) 2173 USD"), key="f2_t2_q2")
@@ -275,7 +292,7 @@ else:
 
     else:
         st.subheader("✍️ 第二步：中二 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：[cite: 2]")
+        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
         
         q1 = st.radio("1. Which of the following is/are rational number(s)?\n\nI. √(2^2)\n\nII. π\n\nIII. 0.3", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_fin_q1")
         q2 = st.radio("2. The scale of a map is 1 : 200 000. If the distance between two lighthouses on the map is 5.23 cm, find the actual distance between the two lighthouses.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"), key="f2_fin_q2")

@@ -80,13 +80,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 頁面頂部品牌視覺宣傳標題 (已徹底 Debug 修正，絕不外洩)
+# 頁面頂部品牌視覺宣傳標題 (轉為純文字，徹底杜絕轉譯崩潰)
 st.markdown("""
 <div style="text-align: center; padding: 10px 0;">
     <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
         🧠 NLP 心理引導 × 中大數學專業培訓
     </span>
-    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】[Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) - 初中數學專科教室</h1>
+    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】Terry Sir - 初中數學專科教室</h1>
     <p style="color: #cbd5e0 !important; font-size: 15px; max-width: 650px; margin: 0 auto;">
         核心理念：不只教公式，用 NLP 心理引導幫孩子解開數學心結，由根基打起，重拾信心奪 A！ ✨
     </p>
@@ -330,7 +330,7 @@ if submit_btn:
     </div>
     """, unsafe_allow_html=True)
         
-    st.markdown("### 🔍 [Terry Sir](https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84%20$150/1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81) 的專業分析與建議：")
+    st.markdown("### 🔍 專業分析與建議：")
     st.markdown(f"🌟 **太棒了！** 你對 **{grade} - {exam_stage}** 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！")
 
 # 品牌宣傳區與 Facebook 專頁聯結
@@ -347,7 +347,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 經典綠色 WhatsApp 預約試課按鈕 (安全獨立區塊)
+# 經典綠色 WhatsApp 預約試課按鈕 (完全獨立安全區域)
 whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成初中Mock測試，想預約%20$150/1小時試課詳情！"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">

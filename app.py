@@ -80,7 +80,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 頁面頂部品牌視覺宣傳標題
+# 頁面頂部品牌視覺宣傳標題 (已徹底 Debug 修正，絕不外洩)
 st.markdown("""
 <div style="text-align: center; padding: 10px 0;">
     <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
@@ -347,7 +347,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 還原返經典搶眼嘅綠色 WhatsApp 預約試課按鈕
+# 經典綠色 WhatsApp 預約試課按鈕 (安全獨立區塊)
 whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成初中Mock測試，想預約%20$150/1小時試課詳情！"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">

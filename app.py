@@ -112,7 +112,7 @@ exam_stage = st.selectbox(
         "2nd Exam (下學期考試 / Final)"
     ]
 )
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)"], index=0, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=0, horizontal=True)
 
 st.markdown("---")
 
@@ -290,7 +290,7 @@ if "中一" in grade:
         }
 
 # ==================== 中二 (Form 2) ====================
-else:
+elif "中二" in grade:
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選實戰試題：")
@@ -450,6 +450,206 @@ else:
             10: "正五邊形與三角比應用 (Regular Pentagons & Trig)"
         }
 
+# ==================== 中三 (Form 3) ====================
+else:
+    if "1st Term Test" in exam_stage:
+        st.subheader("✍️ 第二步：中三 1st Term Test 校本真題級 10 題快測")
+        st.markdown("請認真完成以下 10 題精選中三實戰試題：")
+        
+        q1 = st.radio("1. 3^246 · 9^-123 =", ("A) 1.", "B) -1.", "C) 3^123.", "D) 1 / (3^123)."), key="f3_t1_q1")
+        q2 = st.radio("2. Find the smallest integer a satisfying a/5 - 1 > -4.", ("A) -24", "B) -15", "C) -14", "D) -3"), key="f3_t1_q2")
+        q3 = st.radio("3. Solve the inequality (8 - 3x)/5 ≥ (5 + 2x)/2 .", ("A) x ≤ -9/16", "B) x ≤ 9/16", "C) x ≥ -9/16", "D) x ≥ 9/16"), key="f3_t1_q3")
+        q4 = st.radio("4. If the growth rate of a value is 10% per month, and its value after 1 year is 2 125, find the original value correct to 3 significant figures.", ("A) 193", "B) 677", "C) 989", "D) 1920"), key="f3_t1_q4")
+        q5 = st.radio("5. (x^2 - 9y^2) / y^4 ÷ (x + 3y) / y^2 =", ("A) (x + 3y) / y^6", "B) (x - 9y) / y^6", "C) (x - 3y) / y^2", "D) (x - 9y) / y^2"), key="f3_t1_q5")
+        
+        safe_image("images/f3_t1_q6.png", width=390)
+        q6 = st.radio("6. In the figure, QS and RS are angle bisectors of ΔPQR. Find ∠QSR.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_t1_q6")
+        
+        q7 = st.radio("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", ("A) 1/12", "B) 1/6", "C) 1/4", "D) 1/3"), key="f3_t1_q7")
+        
+        safe_image("images/f3_t1_q8.png", width=390)
+        q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_t1_q8")
+        
+        safe_image("images/f3_t1_q9.png", width=390)
+        q9 = st.radio("9. The prices of items sold in a supermarket: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. Prices are increased by 10% and then decreased by $2. Find the mean of the adjusted price.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_t1_q9")
+        
+        safe_image("images/f3_t1_q10.png", width=390)
+        q10 = st.radio("10. In the figure, APB and AQC are straight lines. If AQ = 26, PQ = 10, QC = 22 and PB = 28, which of the following must be true?", ("A) BC is an altitude of ΔABC.", "B) BQ is an angle bisector of ΔABC.", "C) PC is a median of ΔABC.", "D) PQ is a perpendicular bisector of ΔABC."), key="f3_t1_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "A) 1.", 2: "C) -14", 3: "A) x ≤ -9/16", 4: "B) 677", 5: "C) (x - 3y) / y^2",
+            6: "D) 130°", 7: "C) 1/4", 8: "A) 9.25", 9: "D) $34.3", 10: "A) BC is an altitude of ΔABC."
+        }
+        question_topics = {
+            1: "指數定律與化簡 (Laws of Indices)",
+            2: "一元一次不等式應用 (Linear Inequalities)",
+            3: "代數不等式求解 (Solving Inequalities)",
+            4: "複利息與增長率計算 (Growth Rate & Compound Interest)",
+            5: "分式化簡與因式分解 (Algebraic Fractions)",
+            6: "三角形內角與角平分線 (Angle Bisectors of Triangles)",
+            7: "獨立事件概率計算 (Probability of Independent Events)",
+            8: "數學期望值計算 (Expected Value)",
+            9: "平均數與百分比調整 (Means & Percentage Adjustments)",
+            10: "相似三角形與幾何推論 (Geometry Proofs & Similar Triangles)"
+        }
+
+    elif "1st Exam" in exam_stage:
+        st.subheader("✍️ 第二步：中三 1st Exam (上學期考試) 校本真題級 10 題快測")
+        st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
+        
+        safe_image("images/f3_ex1_q1.png", width=390)
+        q1 = st.radio("1. 10010100011100_2 =", ("A) 37 × 2^8 + 28.", "B) 37 × 2^8 + 56.", "C) 37 × 2^9 + 28.", "D) 37 × 2^9 + 56."), key="f3_ex1_q1")
+        
+        safe_image("images/f3_ex1_q2.png", width=390)
+        q2 = st.radio("2. 9 × 2^10 + 6 × 2^9 + 2^3 - 7 =", ("A) 101100010000_2", "B) 110010000100_2", "C) 1011000001111_2", "D) 1100000000001_2"), key="f3_ex1_q2")
+        
+        safe_image("images/f3_ex1_q3.png", width=390)
+        q3 = st.radio("3. Arrange the three numbers 1101100_2, 105_10 and 1101110_2 in ascending order.", ("A) 1101110_2 < 105_10 < 1101100_2", "B) 1101100_2 < 105_10 < 1101110_2", "C) 105_10 < 1101110_2 < 1101100_2", "D) 105_10 < 1101100_2 < 1101110_2"), key="f3_ex1_q3")
+        
+        safe_image("images/f3_ex1_q4.png", width=390)
+        q4 = st.radio("4. A sum of $35 000 is deposited for 40 months at an interest rate of 3% p.a. compounded every four months. Find the interest.", ("A) $1 180", "B) $2 715", "C) $3 662", "D) $4 966"), key="f3_ex1_q4")
+        
+        safe_image("images/f3_ex1_q5.png", width=390)
+        q5 = st.radio("5. If the base of a triangle is increased by 20% and its height is decreased by m% such that its area will decrease by 4%. Find m.", ("A) 10/3", "B) 20", "C) 24", "D) 80"), key="f3_ex1_q5")
+        
+        safe_image("images/f3_ex1_q6.png", width=390)
+        q6 = st.radio("6. (25^2048 · 2^2076) / 5^2020 =", ("A) 50^4124 / 5^2020", "B) 25^56 · 2^2076", "C) 10^2076", "D) 10^2104"), key="f3_ex1_q6")
+        
+        safe_image("images/f3_ex1_q7.png", width=390)
+        q7 = st.radio("7. Mr Cheung takes out a loan at an interest rate of 20% p.a. compounded quarterly for 2 years. If he has to pay an interest of $4 000, find the amount he needs to repay.", ("A) $8 378", "B) $8 619", "C) $9 091", "D) $12 378"), key="f3_ex1_q7")
+        
+        safe_image("images/f3_ex1_q8.png", width=390)
+        q8 = st.radio("8. There are 20 questions in a test. For each correct answer m marks, for each wrong/unanswered n marks deducted. 10 correct = 20 marks, 15 correct = 60 marks. Find n.", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f3_ex1_q8")
+        
+        safe_image("images/f3_ex1_q9.png", width=390)
+        q9 = st.radio("9. If -x^2 + kx + 10 can be factorized where k is an integer, possible values of k: I. -5, II. -3, III. 9", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f3_ex1_q9")
+        
+        safe_image("images/f3_ex1_q10.png", width=390)
+        q10 = st.radio("10. Factorize -8x^2 - 28xy + 60y^2.", ("A) (x - 5y)(2x + 3y)", "B) (x + 5y)(2x - 3y)", "C) -4(x - 5y)(2x + 3y)", "D) -4(x + 5y)(2x - 3y)"), key="f3_ex1_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "A) 37 × 2^8 + 28.", 2: "D) 1100000000001_2", 3: "D) 105_10 < 1101100_2 < 1101110_2", 4: "C) $3 662", 5: "C) 24",
+            6: "C) 10^2076", 7: "D) $12 378", 8: "B) 3", 9: "D) II and III only", 10: "D) -4(x + 5y)(2x - 3y)"
+        }
+        question_topics = {
+            1: "二進制數與代數轉換 (Binary Numbers)",
+            2: "二進制數加減運算 (Binary Arithmetic)",
+            3: "不同進位制數值大小比較 (Number Bases Comparison)",
+            4: "複利息與存款利息計算 (Compound Interest)",
+            5: "百分比變化與面積應用 (Percentage Change in Area)",
+            6: "指數律與底數化簡 (Laws of Indices)",
+            7: "貸款複利息與還款額計算 (Loans & Compound Interest)",
+            8: "聯立方程應用題 (Simultaneous Equations)",
+            9: "二次多項式因式分解可能性 (Factorization of Quadratics)",
+            10: "高級多項式因式分解 (Advanced Factorization)"
+        }
+
+    elif "2nd Term Test" in exam_stage:
+        st.subheader("✍️ 第二步：中三 2nd Term Test 校本真題級 10 題快測")
+        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
+        
+        safe_image("images/f3_t2_q1.png", width=390)
+        q1 = st.radio("1. In the figure, ABCE is a rectangle, CDEF is a rhombus. If ∠FBC = 34°, find ∠CDE.", ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), key="f3_t2_q1")
+        
+        safe_image("images/f3_t2_q2.png", width=390)
+        q2 = st.radio("2. Solid consists of a right circular cone and hemisphere with common base. Height = 8 cm, slant height = 10 cm. Find total surface area.", ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), key="f3_t2_q2")
+        
+        safe_image("images/f3_t2_q3.png", width=390)
+        q3 = st.radio("3. Simplify cos θ / tan²(90° - θ) - 1 / sin(90° - θ) .", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3")
+        
+        safe_image("images/f3_t2_q4.png", width=390)
+        q4 = st.radio("4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given angle A = 45° and angle C = 30°.", ("A) 1 : 2", "B) √2 : 2", "C) √2 : 4", "D) 4 : √2"), key="f3_t2_q4")
+        
+        safe_image("images/f3_t2_q5.png", width=390)
+        q5 = st.radio("5. ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), key="f3_t2_q5")
+        
+        safe_image("images/f3_t2_q6.png", width=390)
+        q6 = st.radio("6. Paul deposited $65 000 at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year?", ("A) $112", "B) $2 746", "C) $2 858", "D) $5 604"), key="f3_t2_q6")
+        
+        safe_image("images/f3_t2_q7.png", width=390)
+        q7 = st.radio("7. Factorize 8xy - 6x^2 - 2y^2.", ("A) -2(x - y)(4x + y)", "B) -2(3x - y)(x - y)", "C) (x - y)(4x + y)", "D) (3x - y)(x - y)"), key="f3_t2_q7")
+        
+        safe_image("images/f3_t2_q8.png", width=390)
+        q8 = st.radio("8. BCDE is a parallelogram. G is mid-point of CD. AG and BE intersect at F. CB produced to A so area ΔABF : area ΔACG = 4 : 9. Area ΔABF = 12 cm², find area DEFG.", ("A) 21 cm²", "B) 27 cm²", "C) 36 cm²", "D) 42 cm²"), key="f3_t2_q8")
+        
+        safe_image("images/f3_t2_q9.png", width=390)
+        q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
+        
+        safe_image("images/f3_t2_q10.png", width=390)
+        q10 = st.radio("10. Which of the following numbers is the smallest?\n\nA. -4^-4 × 10^-10\nB. (-4)^-4 × 10^-10\nC. -0.000 000 000 000 4\nD. -3 / 12^12", ("A) A", "B) B", "C) C", "D) D"), key="f3_t2_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "C) 68°", 2: "B) 132π cm²", 3: "D) -cos θ", 4: "B) √2 : 2", 5: "D) 1 : 6",
+            6: "A) $112", 7: "B) -2(3x - y)(x - y)", 8: "A) 21 cm²", 9: "C) (8, -7)", 10: "C) C"
+        }
+        question_topics = {
+            1: "四邊形性質：矩形與菱形 (Rectangles & Rhombuses)",
+            2: "立體圖形：圓錐與半球表面面積 (Surface Area of Composite Solids)",
+            3: "三角恆等式與轉角公式 (Trigonometric Identities)",
+            4: "解三角形與三角比應用 (Solution of Triangles)",
+            5: "立體圖形體積比例 (Volumes of Pyramids & Cuboids)",
+            6: "複利息期數利息差計算 (Compound Interest Differences)",
+            7: "二次多項式因式分解 (Quadratic Factorization)",
+            8: "平行四邊形與相似形面積比例 (Area Ratios of Similar Figures)",
+            9: "坐標幾何：中點公式 (Mid-point Formula)",
+            10: "負指數與極小數大小比較 (Indices & Small Numbers Comparison)"
+        }
+
+    else:
+        st.subheader("✍️ 第二步：中三 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
+        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
+        
+        safe_image("images/f3_fin_q1.png", width=390)
+        q1 = st.radio("1. The figure shows sector OAB. Radius = 9 cm, angle = 280°. Folded into a hollow circular cone, find base radius.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
+        
+        safe_image("images/f3_fin_q2.png", width=390)
+        q2 = st.radio("2. In the figure, slopes of L1, L2, L3 are m1, m2, m3. Which are correct? I. m2 < 0, II. m3 > 0, III. m2 > m1", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
+        
+        safe_image("images/f3_fin_q3.png", width=390)
+        q3 = st.radio("3. Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), key="f3_fin_q3")
+        
+        safe_image("images/f3_fin_q4.png", width=390)
+        q4 = st.radio("4. If tan θ = √k / 2 where θ is acute, find sin θ cos θ.", ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) 2√k / (k + 4)", "D) 2√k / (k + 4) [variant]"), key="f3_fin_q4")
+        
+        safe_image("images/f3_fin_q5.png", width=390)
+        q5 = st.radio("5. A sheep walks 12m south from A to B, 25m east to C, 29m north to D. Find compass bearing of D from A.", ("A) S34°W", "B) S56°W", "C) N34°E", "D) N56°E"), key="f3_fin_q5")
+        
+        safe_image("images/f3_fin_q6.png", width=390)
+        q6 = st.radio("6. The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.", ("A) -2", "B) -1", "C) 1", "D) 2"), key="f3_fin_q6")
+        
+        safe_image("images/f3_fin_q7.png", width=390)
+        q7 = st.radio("7. A(-6, -1), B(b, -13), C(-2, b-5), E(-1, -9). If AE // BC, find b.", ("A) -8", "B) -2", "C) 2", "D) 8"), key="f3_fin_q7")
+        
+        safe_image("images/f3_fin_q8.png", width=390)
+        q8 = st.radio("8. Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q8")
+        
+        safe_image("images/f3_fin_q9.png", width=390)
+        q9 = st.radio("9. Which of the following are identities? I. sin²θ - cos²θ = 1 - 2cos²θ, II. sin²θ + cosθ / tanθ = 1 / sinθ, III. sin²θ tan(90° - θ) = sinθ cosθ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q9")
+        
+        safe_image("images/f3_fin_q10.png", width=390)
+        q10 = st.radio("10. Ratio of base radius of cylinder to cone is 6 : 5... [Duplicate variant test check]", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q10")
+
+        user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+        correct_answers = {
+            1: "B) 7 cm", 2: "A) I and II only", 3: "B) 1 : 3", 4: "D) 2√k / (k + 4)", 5: "D) N56°E",
+            6: "A) -2", 7: "D) 8", 8: "A) 6 cm.", 9: "B) I and III only", 10: "A) 6 cm."
+        }
+        question_topics = {
+            1: "圓錐與扇形展開關係 (Sectors & Circular Cones)",
+            2: "直角坐標系中直線斜率分析 (Slopes of Straight Lines)",
+            3: "斜坡梯度與距離換算 (Gradients & Distances)",
+            4: "三角比代數化簡 (Trigonometric Ratios & Surds)",
+            5: "方向角與向量應用 (Bearings & Distances)",
+            6: "共線三點與斜率相等 (Collinear Points)",
+            7: "平行線與坐標幾何斜率 (Parallel Lines & Slopes)",
+            8: "圓柱與圓錐體積比例關係 (Volumes of Cylinders & Cones)",
+            9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)",
+            10: "幾何體積綜合應用 (Mensuration & Volumes)"
+        }
+
 st.markdown("---")
 
 # 提交按鈕與動態計分運算
@@ -465,7 +665,6 @@ if submit_btn:
                 score += 1
             else:
                 if q_num in question_topics:
-                    # 按照要求：唔講第幾題，只保留後面的課題名稱部分
                     wrong_topics.append(question_topics[q_num])
             
     predicted_score = score * 10
@@ -529,7 +728,7 @@ st.markdown("""
         👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
     </p>
 </div>
-""", unsafe_allow_html=True)
+""", unsafe_app_html=True)
 
 # 經典綠色 WhatsApp 預約試課按鈕
 whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試，想預約+%24150%2F1小時試課！&type=phone_number&app_absent=0"
@@ -545,6 +744,6 @@ st.markdown(f"""
 
 st.markdown("---")
 st.markdown(
-    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 初中數學專科. All Rights Reserved.</p>", 
+    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 中學數學專科. All Rights Reserved.</p>", 
     unsafe_allow_html=True
 )

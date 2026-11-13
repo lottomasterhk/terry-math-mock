@@ -347,13 +347,17 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 使用 Streamlit 官方原生 link_button 完美解決按鈕外洩或亂碼問題
-st.markdown("<br>", unsafe_allow_html=True)
-st.link_button(
-    "📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)", 
-    "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成初中Mock測試，想預約%20$150/1小時試課詳情！",
-    use_container_width=True
-)
+# 還原返經典搶眼嘅綠色 WhatsApp 預約試課按鈕
+whatsapp_url = "https://wa.me/85292861189?text=Hello%20Terry%20Sir,%20我剛剛喺網上完成初中Mock測試，想預約%20$150/1小時試課詳情！"
+st.markdown(f"""
+<div style="text-align: center; margin-top: 25px;">
+    <a href="{whatsapp_url}" target="_blank">
+        <button style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; padding: 14px 28px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 100%; transition: 0.3s;">
+            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)
+        </button>
+    </a>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("---")
 st.markdown(

@@ -120,8 +120,8 @@ user_answers = {}
 correct_answers = {}
 question_topics = {}
 
-# 🟢 完美動態聯動標題（完全跟隨你上面選擇的 grade 同 exam_stage）
-st.subheader(f"✍️ 第二步：{grade} {exam_stage} 校本真題級實戰快測")
+# 🟢 完美修正：一字不差地改返做你要求的「校本真題級 10 題快測」
+st.subheader(f"✍️ 第二步：{grade} {exam_stage} 校本真題級 10 題快測")
 st.markdown(f"請認真完成以下精選實戰試題：")
 
 # ==================== 嚴格雙重條件判定 (確保年級與考試階段 100% 絕對對應) ====================
@@ -606,7 +606,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 經典綠色 WhatsApp 預約試課按鈕
-whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試，想預約+%24150%2F1小時試課！&type=phone_number&app_absent=0"
+whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%8A%85%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試，想預約+%24150%2F1小時試課！&type=phone_number&app_absent=0"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">

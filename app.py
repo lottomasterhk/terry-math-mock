@@ -144,8 +144,8 @@ if "中一" in grade:
         q1 = st.radio("1. How many negative integers are there between -5.5 and 1.5?", ("A) 4", "B) 5", "C) 6", "D) 7"), key="f1_ex1_q1")
         q2 = st.radio("2. Which of the following is/are divisible by both 3 and 8?\n\nI. 32 606 312\n\nII. 46 237 512\n\nIII. 98 243 604", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q2")
         
-        # Q3 附帶原裝點陣圖
-        st.image("images/f1_ex1_q3.png", width=550)
+        # Q3 附帶適中尺寸點陣圖
+        st.image("images/f1_ex1_q3.png", width=400)
         q3 = st.radio("3. In the figure, the 1st pattern consists of 3 dots. For any positive integer n, the (n + 1)th pattern is formed by adding 3 dots to the nth pattern. Find the number of dots in the 7th pattern.", ("A) 15", "B) 18", "C) 21", "D) 24"), key="f1_ex1_q3")
         
         q4 = st.radio("4. 600 oranges and 400 apples were sold in a shop yesterday. Today, the number of oranges sold decreases by 10% while the number of apples sold increases by 15%. Find the percentage change in the total number of oranges and apples sold.", ("A) -10%", "B) 0%", "C) +5%", "D) +15%"), key="f1_ex1_q4")
@@ -153,8 +153,8 @@ if "中一" in grade:
         q6 = st.radio("6. If the general term of a sequence is an = 3(n - 1)^2, find the product of the second term and the fourth term of the sequence.", ("A) 27", "B) 30", "C) 81", "D) 243"), key="f1_ex1_q6")
         q7 = st.radio("7. The height of Vincent is 135 cm. Issac is 20% taller than Vincent, while Andy is 20% shorter than Issac. Which of the following is/are true?\n\nI. Issac's height is above 160 cm.\n\nII. Vincent is as tall as Andy.\n\nIII. All of them are at least 130 cm tall.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q7")
         
-        # Q8 附帶原裝朱古力立體圖
-        st.image("images/f1_ex1_q8.png", width=550)
+        # Q8 附帶適中尺寸朱古力立體圖
+        st.image("images/f1_ex1_q8.png", width=400)
         q8 = st.radio("8. Figure A shows a chocolate bar in the shape of a right triangular prism. Andy melts it to make a rectangular chocolate bar as shown in Figure B. Find the total surface area of the chocolate bar in Figure B.", ("A) 44 cm²", "B) 68 cm²", "C) 92 cm²", "D) 132 cm²"), key="f1_ex1_q8")
         
         q9 = st.radio("9. There are 25 questions in a test. 4 marks are awarded for each correct answer and 1 mark is deducted for a wrong answer or an unanswered question. If Susan scores 60 marks in the test, how many correct answers does she get?", ("A) 15", "B) 16", "C) 17", "D) 18"), key="f1_ex1_q9")
@@ -170,28 +170,28 @@ if "中一" in grade:
         st.subheader("✍️ 第二步：中一 2nd Term Test 校本真題級 10 題快測")
         st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
         
-        # Q1 多邊形圖形
-        st.image("images/f1_t2_q1.png", width=550)
+        # Q1 多邊形圖形 (適中尺寸)
+        st.image("images/f1_t2_q1.png", width=400)
         q1 = st.radio("1. Refer to the figures A, B, C, D and E as shown.\n\nWhich of the following statements is/are true?\n\nI. Figures C, D and E are equiangular polygons.\n\nII. There is only one regular polygon.\n\nIII. Only figures A, B and C are concave polygons.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q1")
         
         q2 = st.radio("2. The total surface area of a right prism is 960 cm² and the total area of its lateral faces is 880 cm². Find the base area of the prism.", ("A) 10 cm²", "B) 20 cm²", "C) 30 cm²", "D) 40 cm²"), key="f1_t2_q2")
         
-        # Q3 複合多邊形圖形
-        st.image("images/f1_t2_q3.png", width=550)
+        # Q3 複合多邊形圖形 (適中尺寸)
+        st.image("images/f1_t2_q3.png", width=400)
         q3 = st.radio("3. It is given that ABEF, GHI and DEH are straight lines. Find the area of the polygon ABCDEFGHI in the figure.", ("A) 161 cm²", "B) 575 cm²", "C) 671 cm²", "D) 767 cm²"), key="f1_t2_q3")
         
-        # Q4 直線相交圖形
-        st.image("images/f1_t2_q4.png", width=550)
+        # Q4 直線相交圖形 (適中尺寸)
+        st.image("images/f1_t2_q4.png", width=400)
         q4 = st.radio("4. In the figure, ABEH, CBDG, ADF and CEF are straight lines. Find a + b + c + d + e.", ("A) 150°", "B) 180°", "C) 270°", "D) 360°"), key="f1_t2_q4")
         
-        # Q5 坐標平面四邊形面積圖形
-        st.image("images/f1_t2_q5.png", width=550)
+        # Q5 坐標平面四邊形面積圖形 (適中尺寸)
+        st.image("images/f1_t2_q5.png", width=400)
         q5 = st.radio("5. Find the area of the quadrilateral ABCD in a rectangular coordinate plane in the figure, given A(-2,3), B(-3,1), C(-2,-4), D(2,1).", ("A) 17.5 sq. units", "B) 18 sq. units", "C) 24.5 sq. units", "D) 35 sq. units"), key="f1_t2_q5")
         
         q6 = st.radio("6. In a rectangular coordinate plane, P(k, 3) is rotated about the origin O through 180° to a point Q, then Q is translated 10 units to the left to a point R such that R is vertically below P. Find k.", ("A) -12", "B) -10", "C) -6", "D) -5"), key="f1_t2_q6")
         
-        # Q7 平行四邊形坐標圖形
-        st.image("images/f1_t2_q7.png", width=550)
+        # Q7 平行四邊形坐標圖形 (適中尺寸)
+        st.image("images/f1_t2_q7.png", width=400)
         q7 = st.radio("7. In the figure, PQRS is a parallelogram. Given P(0, 8), Q(8, 9), R(5, -3). Find the coordinates of S.", ("A) (-3, -4)", "B) (-3, -3)", "C) (-2, -4)", "D) (-2, -3)"), key="f1_t2_q7")
         
         q8 = st.radio("8. Suppose a point P(3, 7) undergoes the following transformations respectively. Which of the following transformation can form the same image?\n\nI. Reflect in the y-axis.\n\nII. Translate 6 units to the left.\n\nIII. Rotate anticlockwise about the origin O through 90°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t2_q8")
@@ -359,7 +359,7 @@ if submit_btn:
 
 # 品牌宣傳區與 Facebook 專頁聯結
 st.markdown("---")
-st.markdown("### 🌟 關於 Terry Sir 數學專科教室")
+st.markdown("### 🌟 關於 [Terry Sir 數學專科教室](https://www.facebook.com/terrysir)")
 st.markdown("""
 <div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
     <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
@@ -377,7 +377,7 @@ st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">
         <button style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; padding: 14px 28px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 100%; transition: 0.3s;">
-            📱 立即 WhatsApp 聯絡 Terry Sir 預約試課 ($150/1hr)
+            📱 立即 [WhatsApp](https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%90%E5%88%9D%E4%B8%ADMock%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%83%B3%E9%A0%90%E7%B4%84+%24150%2F1%E5%B0%8F%E6%99%82%E8%A9%A6%E8%AA%B2%E8%A9%B3%E6%83%85%EF%BC%81&type=phone_number&app_absent=0) 聯絡 Terry Sir 預約試課 ($150/1hr)
         </button>
     </a>
 </div>

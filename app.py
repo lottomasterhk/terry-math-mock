@@ -120,14 +120,15 @@ user_answers = {}
 correct_answers = {}
 question_topics = {}
 
+# 🔴 關鍵修復：呢度由原本寫死嘅 "中三 1st Term Test" 改為動態變數，完美跟隨你所選年級與考試階段！
+st.subheader(f"✍️ 第二步：{grade} {exam_stage} 校本真題級實戰快測")
+st.markdown(f"請認真完成以下精選實戰試題：")
+
 # ==================== 嚴格巢疊條件判斷 (避免混亂) ====================
 
 # -------------------- 中一 (Form 1) --------------------
 if grade == "中一 (Form 1)":
     if "1st Term Test" in exam_stage:
-        st.subheader("✍️ 第二步：中一 1st Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選實戰試題：")
-        
         q1 = st.radio("1. Arrange the following numbers in descending order: +3, +1/2, -2.5, 0, -3/4, +1.2", ("A) +3 > +1.2 > +1/2 > 0 > -3/4 > -2.5", "B) +3 > +1/2 > +1.2 > 0 > -3/4 > -2.5", "C) +3 > +1.2 > +1/2 > 0 > -2.5 > -3/4", "D) -2.5 > -3/4 > 0 > +1/2 > +1.2 > +3"), key="f1_t1_q1")
         q2 = st.radio("2. Which of the following expressions gives a result of 756?", ("A) 2^2 × 3^2 × 7", "B) 2^3 × 3^2 × 7", "C) 2^2 × 3^3 × 7", "D) 2^3 × 3^2 × 7^2"), key="f1_t1_q2")
         q3 = st.radio("3. P is a point on a straight road. At 9:00 a.m., car A departs from P and travels at a speed of t km/h. At 9:30 a.m., car B departs from P and travels in the opposite direction of car A. The speed of car B is 2/3 of the speed of car A. Find the distance between the two cars at 11:00 a.m..", ("A) (2/3)t km", "B) t km", "C) 3t km", "D) (10/3)t km"), key="f1_t1_q3")
@@ -146,22 +147,14 @@ if grade == "中一 (Form 1)":
             8: "C) increased by $65.", 9: "C) 31", 10: "D) (2/5)(m - 5) + 5"
         }
         question_topics = {
-            1: "有向數與數線大小比較 (Directed Numbers)",
-            2: "指數記數法與質因數分解 (Indices & Prime Factorization)",
-            3: "應用題與速度距離計算 (Word Problems & Speed/Distance)",
-            4: "整除性與因數倍数 (Divisibility Tests)",
-            5: "簡易方程應用題 (Simple Equations)",
-            6: "有向數嘅實際應用與平均數 (Application of Directed Numbers)",
-            7: "H.C.F. 與 L.C.M. 綜合運算 (H.C.F. & L.C.M.)",
-            8: "有向數加減運算 (Operations of Directed Numbers)",
-            9: "數列規律與一般項 (Number Sequences)",
-            10: "代數與年齡應用題 (Algebraic Word Problems)"
+            1: "有向數與數線大小比較 (Directed Numbers)", 2: "指數記數法與質因數分解 (Indices & Prime Factorization)",
+            3: "應用題與速度距離計算 (Word Problems & Speed/Distance)", 4: "整除性與因數倍数 (Divisibility Tests)",
+            5: "簡易方程應用題 (Simple Equations)", 6: "有向數嘅實際應用與平均數 (Application of Directed Numbers)",
+            7: "H.C.F. 與 L.C.M. 綜合運算 (H.C.F. & L.C.M.)", 8: "有向數加減運算 (Operations of Directed Numbers)",
+            9: "數列規律與一般項 (Number Sequences)", 10: "代數與年齡應用題 (Algebraic Word Problems)"
         }
 
     elif "1st Exam" in exam_stage:
-        st.subheader("✍️ 第二步：中一 1st Exam (上學期考試) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
-        
         q1 = st.radio("1. How many negative integers are there between -5.5 and 1.5?", ("A) 4", "B) 5", "C) 6", "D) 7"), key="f1_ex1_q1")
         q2 = st.radio("2. Which of the following is/are divisible by both 3 and 8?\n\nI. 32 606 312\n\nII. 46 237 512\n\nIII. 98 243 604", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_ex1_q2")
         safe_image("images/f1_ex1_q3.png", width=525)
@@ -181,22 +174,14 @@ if grade == "中一 (Form 1)":
             6: "C) 81", 7: "A) I only", 8: "C) 92 cm²", 9: "C) 17", 10: "A) 20%"
         }
         question_topics = {
-            1: "有向數範圍與整數概念 (Negative Integers)",
-            2: "綜合整除性判定 (Divisibility Rules)",
-            3: "圖形規律與點數計算 (Patterns & Sequences)",
-            4: "百分比增減與總量變化 (Percentage Changes)",
-            5: "營利、標價與折扣計算 (Marked Price & Discount)",
-            6: "一般項與數列計算 (General Terms of Sequences)",
-            7: "連鎖百分比應用 (Percentage Applications)",
-            8: "立體圖形體積與表面面積 (Prisms & Surface Area)",
-            9: "多變量應用題與方程組 (Word Problems / Simultaneous Equations)",
-            10: "標價與售價百分比倒算 (Discounts & Percentages)"
+            1: "有向數範圍與整數概念 (Negative Integers)", 2: "綜合整除性判定 (Divisibility Rules)",
+            3: "圖形規律與點數計算 (Patterns & Sequences)", 4: "百分比增減與總量變化 (Percentage Changes)",
+            5: "營利、標價與折扣計算 (Marked Price & Discount)", 6: "一般項與數列計算 (General Terms of Sequences)",
+            7: "連鎖百分比應用 (Percentage Applications)", 8: "立體圖形體積與表面面積 (Prisms & Surface Area)",
+            9: "多變量應用題與方程組 (Word Problems / Simultaneous Equations)", 10: "標價與售價百分比倒算 (Discounts & Percentages)"
         }
 
     elif "2nd Term Test" in exam_stage:
-        st.subheader("✍️ 第二步：中一 2nd Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
-        
         safe_image("images/f1_t2_q1.png", width=525)
         q1 = st.radio("1. Refer to the figures A, B, C, D and E as shown.\n\nWhich of the following statements is/are true?\n\nI. Figures C, D and E are equiangular polygons.\n\nII. There is only one regular polygon.\n\nIII. Only figures A, B and C are concave polygons.", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f1_t2_q1")
         q2 = st.radio("2. The total surface area of a right prism is 960 cm² and the total area of its lateral faces is 880 cm². Find the base area of the prism.", ("A) 10 cm²", "B) 20 cm²", "C) 30 cm²", "D) 40 cm²"), key="f1_t2_q2")
@@ -221,22 +206,14 @@ if grade == "中一 (Form 1)":
             6: "B) -10", 7: "A) (-3, -4)", 8: "B) I and III only", 9: "C) I and III only", 10: "C) 110°"
         }
         question_topics = {
-            1: "多邊形認識 (Polygons: Convex & Concave)",
-            2: "直棱柱表面面積計算 (Prisms Surface Area)",
-            3: "複合圖形面積計算 (Composite Areas)",
-            4: "多邊形內角與外角 (Angles of Polygons)",
-            5: "坐標平面幾何與圖形面積 (Coordinate Geometry & Areas)",
-            6: "坐標平移與旋轉變換 (Transformations in Coordinate Plane)",
-            7: "平行四邊形坐標幾何 (Parallelograms in Coordinates)",
-            8: "坐標平面幾何變換 (Geometric Transformations)",
-            9: "複合坐標變換 (Compound Coordinate Transformations)",
-            10: "直線角與三角形內角 (Angles and Lines)"
+            1: "多邊形認識 (Polygons: Convex & Concave)", 2: "直棱柱表面面積計算 (Prisms Surface Area)",
+            3: "複合圖形面積計算 (Composite Areas)", 4: "多邊形內角與外角 (Angles of Polygons)",
+            5: "坐標平面幾何與圖形面積 (Coordinate Geometry & Areas)", 6: "坐標平移與旋轉變換 (Transformations in Coordinate Plane)",
+            7: "平行四邊形坐標幾何 (Parallelograms in Coordinates)", 8: "坐標平面幾何變換 (Geometric Transformations)",
+            9: "複合坐標變換 (Compound Coordinate Transformations)", 10: "直線角與三角形內角 (Angles and Lines)"
         }
 
     else:
-        st.subheader("✍️ 第二步：中一 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
-        
         q1 = st.radio("1. The total surface area of a square prism is 192 cm² and its width is 4 cm. Find the height of the square prism.", ("A) 6 cm", "B) 8 cm", "C) 10 cm", "D) 12 cm"), key="f1_fin_q1")
         q2 = st.radio("2. P(-3, 7), Q(0, k) and R(6, 1) are the vertices of a triangle in a rectangular coordinate plane where 1 < k < 7. If the area of ΔPQR is 9 square units, find k.", ("A) 2", "B) 3", "C) 4", "D) 6"), key="f1_fin_q2")
         safe_image("images/f1_fin_q3.png", width=390)
@@ -259,25 +236,17 @@ if grade == "中一 (Form 1)":
             6: "B) 3", 7: "A) continuous data / discrete data", 8: "D) ΔABC ~ ΔCBD (ratio of 2 sides, inc. ∠)", 9: "D) I, II and III", 10: "C) ΔABC ≅ ΔPQR (SAS)"
         }
         question_topics = {
-            1: "正方棱柱體積與表面積 (Square Prisms)",
-            2: "坐標平面三角形面積反算 (Triangle Areas in Coordinates)",
-            3: "相似三角形與梯形面積比例 (Similar Triangles & Trapeziums)",
-            4: "頻數分佈表與數據整理 (Frequency Distributions)",
-            5: "有效數字與四捨五入 (Significant Figures & Rounding)",
-            6: "折線圖數據分析 (Broken Line Graphs)",
-            7: "離散數據與連續數據辨別 (Discrete vs Continuous Data)",
-            8: "相似三角形判定 (Similar Triangles)",
-            9: "全等三角形與幾何推論 (Congruent Triangles)",
-            10: "三角形全等條件辨別 (Conditions for Triangle Congruence)"
+            1: "正方棱柱體積與表面積 (Square Prisms)", 2: "坐標平面三角形面積反算 (Triangle Areas in Coordinates)",
+            3: "相似三角形與梯形面積比例 (Similar Triangles & Trapeziums)", 4: "頻數分佈表與數據整理 (Frequency Distributions)",
+            5: "有效數字與四捨五入 (Significant Figures & Rounding)", 6: "折線圖數據分析 (Broken Line Graphs)",
+            7: "離散數據與連續數據辨別 (Discrete vs Continuous Data)", 8: "相似三角形判定 (Similar Triangles)",
+            9: "全等三角形與幾何推論 (Congruent Triangles)", 10: "三角形全等條件辨別 (Conditions for Triangle Congruence)"
         }
 
 
 # -------------------- 中二 (Form 2) --------------------
 elif grade == "中二 (Form 2)":
     if "1st Term Test" in exam_stage:
-        st.subheader("✍️ 第二步：中二 1st Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選實戰試題：")
-        
         q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"), key="f2_t1_q1")
         q2 = st.radio("2. If y = 29.4 (correct to 3 significant figures), find the range of values of y.", ("A) 29.3 < y ≤ 29.5", "B) 29.3 ≤ y < 29.5", "C) 29.35 < y ≤ 29.45", "D) 29.35 ≤ y < 29.45"), key="f2_t1_q2")
         q3 = st.radio("3. Find the degree of the expansion of (x^2 + 2x + 4)(y - 2).", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f2_t1_q3")
@@ -295,22 +264,14 @@ elif grade == "中二 (Form 2)":
             6: "C) 1 / (4^100)", 7: "C) a + 1", 8: "C) (m + 5) / (m^2 - 1)", 9: "A) 4 / (3a)", 10: "A) (1/2)(n^2 - m)"
         }
         question_topics = {
-            1: "誤差與百分誤差計算 (Percentage Errors)",
-            2: "有效數字與數值範圍 (Significant Figures & Ranges)",
-            3: "多項式展開與次方次數 (Polynomial Expansions & Degrees)",
-            4: "恆等式系數比較法 (Polynomial Identities)",
-            5: "恆等式概念辨別 (Identities vs Equations)",
-            6: "指數定律與化簡 (Laws of Indices)",
-            7: "指數化簡與分式運算 (Algebraic Fractions with Indices)",
-            8: "分式加減法運算 (Addition/Subtraction of Rational Expressions)",
-            9: "分式乘法與因式分解 (Multiplication of Algebraic Fractions)",
-            10: "代數恆等式與完全平方公式 (Algebraic Identities & Formulas)"
+            1: "誤差與百分誤差計算 (Percentage Errors)", 2: "有效數字與數值範圍 (Significant Figures & Ranges)",
+            3: "多項式展開與次方次數 (Polynomial Expansions & Degrees)", 4: "恆等式系數比較法 (Polynomial Identities)",
+            5: "恆等式概念辨別 (Identities vs Equations)", 6: "指數定律與化簡 (Laws of Indices)",
+            7: "指數化簡與分式運算 (Algebraic Fractions with Indices)", 8: "分式加減法運算 (Addition/Subtraction of Rational Expressions)",
+            9: "分式乘法與因式分解 (Multiplication of Algebraic Fractions)", 10: "代數恆等式與完全平方公式 (Algebraic Identities & Formulas)"
         }
 
     elif "1st Exam" in exam_stage:
-        st.subheader("✍️ 第二步：中二 1st Exam (上學期考試) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
-        
         q1 = st.radio("1. The thickness of a dictionary is measured as 4.0 cm, correct to the nearest 0.5 cm. Let x cm be the actual thickness of the dictionary. Find the range of values of x.", ("A) 3.5 ≤ x < 4.5", "B) 3.5 < x < 4.5", "C) 3.75 ≤ x < 4.25", "D) 3.75 < x < 4.25"), key="f2_ex1_q1")
         q2 = st.radio("2. Which of the following is not a polynomial?", ("A) 5x - 3y", "B) 5xy - 3", "C) x/5 - y/3", "D) 5x - 3/y"), key="f2_ex1_q2")
         q3 = st.radio("3. It is given that V = (2πR) / T. If R = 8 and V = 5π, find the value of T.", ("A) 0.8", "B) 1.6", "C) 3.2", "D) 4"), key="f2_ex1_q3")
@@ -332,22 +293,14 @@ elif grade == "中二 (Form 2)":
             6: "C) (-8/7, 64/7)", 7: "C) z = x + y", 8: "C) a + b = c + e", 9: "A) I and II only", 10: "D) II and III only"
         }
         question_topics = {
-            1: "量度極限與誤差範圍 (Measurement Limits & Limits of Accuracy)",
-            2: "多項式概念與辨別 (Polynomial Concepts)",
-            3: "公式換算與主項變換 (Formula Manipulation)",
-            4: "進階因式分解技巧 (Advanced Factorization)",
-            5: "直線方程與坐標代入 (Linear Equations & Graphs)",
-            6: "二元一次方程組求解 (Simultaneous Linear Equations)",
-            7: "直線與角關係 (Angles and Lines)",
-            8: "三角形外角與內角和 (Exterior Angle Theorem of Triangles)",
-            9: "平行線與垂直線性質 (Parallel & Perpendicular Lines)",
-            10: "扇形圖與百分比誤區 (Pie Charts & Statistical Misconceptions)"
+            1: "量度極限與誤差範圍 (Measurement Limits & Limits of Accuracy)", 2: "多項式概念與辨別 (Polynomial Concepts)",
+            3: "公式換算與主項變換 (Formula Manipulation)", 4: "進階因式分解技巧 (Advanced Factorization)",
+            5: "直線方程與坐標代入 (Linear Equations & Graphs)", 6: "二元一次方程組求解 (Simultaneous Linear Equations)",
+            7: "直線與角關係 (Angles and Lines)", 8: "三角形外角與內角和 (Exterior Angle Theorem of Triangles)",
+            9: "平行線與垂直線性質 (Parallel & Perpendicular Lines)", 10: "扇形圖與百分比誤區 (Pie Charts & Statistical Misconceptions)"
         }
 
     elif "2nd Term Test" in exam_stage:
-        st.subheader("✍️ 第二步：中二 2nd Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
-        
         q1 = st.radio("1. If x and y are non-zero numbers such that (4x + 3y)/(3x + 5y) = 5/8, then (3x + y)/(x + 3y) =", ("A) 5/13", "B) 1.", "C) 4/3", "D) 13/5"), key="f2_t2_q1")
         q2 = st.radio("2. Suppose 10 Swiss Francs dollars (CHF) are equivalent to 89 H.K. dollars (HKD) and 10 U.S. dollars (USD) are equivalent to 78 HKD. How many USD can 546 CHF be changed to?", ("A) 478 USD", "B) 623 USD", "C) 1271 USD", "D) 2173 USD"), key="f2_t2_q2")
         q3 = st.radio("3. If 3 pipes are used to fill a swimming pool in 1.5 hour, how much time can be saved by using 5 pipes instead? Assume that all the pipes discharge at the same rate.", ("A) 10 minutes", "B) 24 minutes", "C) 36 minutes", "D) 54 minutes"), key="f2_t2_q3")
@@ -369,22 +322,14 @@ elif grade == "中二 (Form 2)":
             6: "B) I and III only", 7: "D) 9", 8: "D) I, II and III", 9: "C) I and III only", 10: "B) 36°"
         }
         question_topics = {
-            1: "比與率及分式代數化簡 (Ratios & Fractions)",
-            2: "外幣找換與比例應用 (Currency Conversions)",
-            3: "正比例與反比例應用題 (Direct & Inverse Proportions)",
-            4: "變分與極端比例應用 (Variation & Proportions)",
-            5: "連比運算與化簡 (Chain Ratios)",
-            6: "多邊形內角外角綜合計算 (Polygon Angle Properties)",
-            7: "相似圖形與邊長比例 (Similar Figures & Ratios)",
-            8: "相似三角形與全等三角形綜合 (Similar & Congruent Triangles)",
-            9: "圖形全等與平行線性質 (Congruence & Parallel Lines)",
-            10: "正方形與等邊三角形幾何綜合 (Squares & Equilateral Triangles)"
+            1: "比與率及分式代數化簡 (Ratios & Fractions)", 2: "外幣找換與比例應用 (Currency Conversions)",
+            3: "正比例與反比例應用題 (Direct & Inverse Proportions)", 4: "變分與極端比例應用 (Variation & Proportions)",
+            5: "連比運算與化簡 (Chain Ratios)", 6: "多邊形內角外角綜合計算 (Polygon Angle Properties)",
+            7: "相似圖形與邊長比例 (Similar Figures & Ratios)", 8: "相似三角形與全等三角形綜合 (Similar & Congruent Triangles)",
+            9: "圖形全等與平行線性質 (Congruence & Parallel Lines)", 10: "正方形與等邊三角形幾何綜合 (Squares & Equilateral Triangles)"
         }
 
     else:
-        st.subheader("✍️ 第二步：中二 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
-        
         q1 = st.radio("1. Which of the following is/are rational number(s)?\n\nI. √(2^2)\n\nII. π\n\nIII. 0.3", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_fin_q1")
         q2 = st.radio("2. The scale of a map is 1 : 200 000. If the distance between two lighthouses on the map is 5.23 cm, find the actual distance between the two lighthouses.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"), key="f2_fin_q2")
         q3 = st.radio("3. Which of the following circles has the longest radius?", ("A) A circle with area 5 cm²", "B) A circle with circumference 4 cm", "C) A circle with diameter 3 cm", "D) A circle with radius 1 cm"), key="f2_fin_q3")
@@ -406,25 +351,17 @@ elif grade == "中二 (Form 2)":
             6: "D) I, II and III", 7: "D) I, II and III", 8: "A) MR / NR", 9: "D) 7:16", 10: "B) 2x sin 54°"
         }
         question_topics = {
-            1: "有理數與無理數概念 (Rational & Irrational Numbers)",
-            2: "地圖比例尺與實際距離換算 (Map Scales & Actual Distances)",
-            3: "圓面積、周界與半徑關係 (Circle Areas and Circumference)",
-            4: "直角坐標系與距離公式 (Coordinate Geometry & Distance Formula)",
-            5: "平面圖形面積綜合計算 (Areas of Polygons & Triangles)",
-            6: "正多邊形內角外角性質 (Properties of Regular Polygons)",
-            7: "正九邊形與全等圖形綜合 (Regular Nonagons & Congruence)",
-            8: "三角比（正弦、餘弦）應用 (Trigonometric Ratios: Sin & Cos)",
-            9: "相似形與體積表面面積比例 (Mensuration: Cylinders & Ratios)",
-            10: "正五邊形與三角比應用 (Regular Pentagons & Trig)"
+            1: "有理數與無理數概念 (Rational & Irrational Numbers)", 2: "地圖比例尺與實際距離換算 (Map Scales & Actual Distances)",
+            3: "圓面積、周界與半徑關係 (Circle Areas and Circumference)", 4: "直角坐標系與距離公式 (Coordinate Geometry & Distance Formula)",
+            5: "平面圖形面積綜合計算 (Areas of Polygons & Triangles)", 6: "正多邊形內角外角性質 (Properties of Regular Polygons)",
+            7: "正九邊形與全等圖形綜合 (Regular Nonagons & Congruence)", 8: "三角比（正弦、餘弦）應用 (Trigonometric Ratios: Sin & Cos)",
+            9: "相似形與體積表面面積比例 (Mensuration: Cylinders & Ratios)", 10: "正五邊形與三角比應用 (Regular Pentagons & Trig)"
         }
 
 
 # -------------------- 中三 (Form 3) --------------------
 elif grade == "中三 (Form 3)":
     if "1st Term Test" in exam_stage:
-        st.subheader("✍️ 第二步：中三 1st Term Test 校本真題級 20 題全真總動員")
-        st.markdown("請認真完成以下 20 題精選中三實戰試題：")
-        
         q1 = st.radio("1. 3^246 · 9^-123 =", ("A) 1.", "B) -1.", "C) 3^123.", "D) 1 / (3^123)."), key="f3_t1_q1")
         q2 = st.radio("2. Find the smallest integer a satisfying a/5 - 1 > -4.", ("A) -24", "B) -15", "C) -14", "D) -3"), key="f3_t1_q2")
         q3 = st.radio("3. Solve the inequality (8 - 3x)/5 ≥ (5 + 2x)/2 .", ("A) x ≤ -9/16", "B) x ≤ 9/16", "C) x ≥ -9/16", "D) x ≥ 9/16"), key="f3_t1_q3")
@@ -483,9 +420,6 @@ elif grade == "中三 (Form 3)":
         }
 
     elif "1st Exam" in exam_stage:
-        st.subheader("✍️ 第二步：中三 1st Exam (上學期考試) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選上學期實戰試題：")
-        
         safe_image("images/f3_ex1_q1.png", width=390)
         q1 = st.radio("1. 10010100011100_2 =", ("A) 37 × 2^8 + 28.", "B) 37 × 2^8 + 56.", "C) 37 × 2^9 + 28.", "D) 37 × 2^9 + 56."), key="f3_ex1_q1")
         safe_image("images/f3_ex1_q2.png", width=390)
@@ -513,22 +447,14 @@ elif grade == "中三 (Form 3)":
             6: "C) 10^2076", 7: "D) $12 378", 8: "B) 3", 9: "D) II and III only", 10: "D) -4(x + 5y)(2x - 3y)"
         }
         question_topics = {
-            1: "二進制數與代數轉換 (Binary Numbers)",
-            2: "二進制數加減運算 (Binary Arithmetic)",
-            3: "不同進位制數值大小比較 (Number Bases Comparison)",
-            4: "複利息與存款利息計算 (Compound Interest)",
-            5: "百分比變化與面積應用 (Percentage Change in Area)",
-            6: "指數律與底數化簡 (Laws of Indices)",
-            7: "貸款複利息與還款額計算 (Loans & Compound Interest)",
-            8: "聯立方程應用題 (Simultaneous Equations)",
-            9: "二次多項式因式分解可能性 (Factorization of Quadratics)",
-            10: "高級多項式因式分解 (Advanced Factorization)"
+            1: "二進制數與代數轉換 (Binary Numbers)", 2: "二進制數加減運算 (Binary Arithmetic)",
+            3: "不同進位制數值大小比較 (Number Bases Comparison)", 4: "複利息與存款利息計算 (Compound Interest)",
+            5: "百分比變化與面積應用 (Percentage Change in Area)", 6: "指數律與底數化簡 (Laws of Indices)",
+            7: "貸款複利息與還款額計算 (Loans & Compound Interest)", 8: "聯立方程應用題 (Simultaneous Equations)",
+            9: "二次多項式因式分解可能性 (Factorization of Quadratics)", 10: "高級多項式因式分解 (Advanced Factorization)"
         }
 
     elif "2nd Term Test" in exam_stage:
-        st.subheader("✍️ 第二步：中三 2nd Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期測驗實戰試題：")
-        
         safe_image("images/f3_t2_q1.png", width=390)
         q1 = st.radio("1. In the figure, ABCE is a rectangle, CDEF is a rhombus. If ∠FBC = 34°, find ∠CDE.", ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), key="f3_t2_q1")
         safe_image("images/f3_t2_q2.png", width=390)
@@ -556,22 +482,14 @@ elif grade == "中三 (Form 3)":
             6: "A) $112", 7: "B) -2(3x - y)(x - y)", 8: "A) 21 cm²", 9: "C) (8, -7)", 10: "C) C"
         }
         question_topics = {
-            1: "四邊形性質：矩形與菱形 (Rectangles & Rhombuses)",
-            2: "立體圖形：圓錐與半球表面面積 (Surface Area of Composite Solids)",
-            3: "三角恆等式與轉角公式 (Trigonometric Identities)",
-            4: "解三角形與三角比應用 (Solution of Triangles)",
-            5: "立體圖形體積比例 (Volumes of Pyramids & Cuboids)",
-            6: "複利息期數利息差計算 (Compound Interest Differences)",
-            7: "二次多項式因式分解 (Quadratic Factorization)",
-            8: "平行四邊形與相似形面積比例 (Area Ratios of Similar Figures)",
-            9: "坐標幾何：中點公式 (Mid-point Formula)",
-            10: "負指數與極小數大小比較 (Indices & Small Numbers Comparison)"
+            1: "四邊形性質：矩形與菱形 (Rectangles & Rhombuses)", 2: "立體圖形：圓錐與半球表面面積 (Surface Area of Composite Solids)",
+            3: "三角恆等式與轉角公式 (Trigonometric Identities)", 4: "解三角形與三角比應用 (Solution of Triangles)",
+            5: "立體圖形體積比例 (Volumes of Pyramids & Cuboids)", 6: "複利息期數利息差計算 (Compound Interest Differences)",
+            7: "二次多項式因式分解 (Quadratic Factorization)", 8: "平行四邊形與相似形面積比例 (Area Ratios of Similar Figures)",
+            9: "坐標幾何：中點公式 (Mid-point Formula)", 10: "負指數與極小數大小比較 (Indices & Small Numbers Comparison)"
         }
 
     else:
-        st.subheader("✍️ 第二步：中三 2nd Exam (下學期考試 / Final) 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
-        
         safe_image("images/f3_fin_q1.png", width=390)
         q1 = st.radio("1. The figure shows sector OAB. Radius = 9 cm, angle = 280°. Folded into a hollow circular cone, find base radius.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
         safe_image("images/f3_fin_q2.png", width=390)
@@ -599,16 +517,11 @@ elif grade == "中三 (Form 3)":
             6: "A) -2", 7: "D) 8", 8: "A) 6 cm.", 9: "B) I and III only", 10: "A) 6 cm."
         }
         question_topics = {
-            1: "圓錐與扇形展開關係 (Sectors & Circular Cones)",
-            2: "直角坐標系中直線斜率分析 (Slopes of Straight Lines)",
-            3: "斜坡梯度與距離換算 (Gradients & Distances)",
-            4: "三角比代數化簡 (Trigonometric Ratios & Surds)",
-            5: "方向角與向量應用 (Bearings & Distances)",
-            6: "共線三點與斜率相等 (Collinear Points)",
-            7: "平行線與坐標幾何斜率 (Parallel Lines & Slopes)",
-            8: "圓柱與圓錐體積比例關係 (Volumes of Cylinders & Cones)",
-            9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)",
-            10: "幾何體積綜合應用 (Mensuration & Volumes)"
+            1: "圓錐與扇形展開關係 (Sectors & Circular Cones)", 2: "直角坐標系中直線斜率分析 (Slopes of Straight Lines)",
+            3: "斜坡梯度與距離換算 (Gradients & Distances)", 4: "三角比代數化簡 (Trigonometric Ratios & Surds)",
+            5: "方向角與向量應用 (Bearings & Distances)", 6: "共線三點與斜率相等 (Collinear Points)",
+            7: "平行線與坐標幾何斜率 (Parallel Lines & Slopes)", 8: "圓柱與圓錐體積比例關係 (Volumes of Cylinders & Cones)",
+            9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
         }
 
 st.markdown("---")
@@ -640,7 +553,6 @@ if submit_btn:
     </div>
     """, unsafe_allow_html=True)
     
-    # 根據真實得分動態配對評級與專業分析建議
     if predicted_score >= 80:
         grade_level = "Level 5 或以上 (奪 A 🏆)"
         analysis_text = f"🌟 **太棒了！** 你對 **{grade} - {exam_stage}** 嘅核心考點掌握得極之出色，絕對具備全班奪 A 嘅實力！繼續保持高水準發揮！"
@@ -667,7 +579,6 @@ if submit_btn:
     st.markdown("### 🔍 專業分析與建議：")
     st.markdown(analysis_text)
     
-    # 顯示錯題歸納與弱項課題（不顯示題號，純保留課題名稱）
     if wrong_topics:
         st.markdown("### ⚠️ 需要加強溫習嘅弱項課題 (錯題診斷)：")
         st.markdown("以下係你今次測驗中需要重點重溫嘅數學課題：")
@@ -675,7 +586,7 @@ if submit_btn:
             st.markdown(f"- ❌ {topic_item}")
     else:
         st.markdown("### 🎯 弱項診斷：")
-        st.markdown("🏆 **完美滿分！** 你喺今次測驗中所有題目全部答對，冇任何失分弱項，請繼續保持！")
+        st.mockdown("🏆 **完美滿分！** 你喺今次測驗中所有題目全部答對，冇任何失分弱項，請繼續保持！")
 
 # 品牌宣傳區與 Facebook 專頁聯結
 st.markdown("---")
@@ -705,6 +616,6 @@ st.markdown(f"""
 
 st.markdown("---")
 st.markdown(
-    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 中學數學專科. All Rights Reserved.</p>", 
+    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-text-decoration: none;'>Terry Sir</a> - 中學數學專科. All Rights Reserved.</p>", 
     unsafe_allow_html=True
 )

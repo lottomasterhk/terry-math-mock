@@ -454,7 +454,7 @@ elif "中二" in grade:
 else:
     if "1st Term Test" in exam_stage:
         st.subheader("✍️ 第二步：中三 1st Term Test 校本真題級 10 題快測")
-        st.markdown("請認真完成以下 10 題精選中三實戰試題：")
+        st.markdown("請認真完成以下 10 題精選中三實戰試題（已按真實 Word 檔校對）：")
         
         q1 = st.radio("1. 3^246 · 9^-123 =", ("A) 1.", "B) -1.", "C) 3^123.", "D) 1 / (3^123)."), key="f3_t1_q1")
         safe_image("images/f3_t1_q1.png", width=390)

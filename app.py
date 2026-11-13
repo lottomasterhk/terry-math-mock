@@ -101,6 +101,19 @@ st.markdown("""
 
 st.markdown("---")
 
+# ==================== 引流挑戰心態吸睛文案 (Lead Magnet 區) ====================
+st.markdown("""
+<div style="background: linear-gradient(135deg, rgba(243, 156, 18, 0.15) 0%, rgba(30, 60, 114, 0.4) 100%); border: 2px solid #f39c12; padding: 22px; border-radius: 14px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+    <h3 style="color: #ffeb3b !important; margin-top: 0; font-size: 22px; font-weight: 800;">🔥 【挑戰 10 題校本真題，測出你真實嘅數學「斤兩」！】</h3>
+    <p style="color: #ffffff !important; font-size: 16px; line-height: 1.6; margin-bottom: 12px;">
+        同學、家長你好！數學科成日溫到懷疑人生？唔好淨係靠估！與其估自己識唔識，不如直接接受呢個挑戰，用中一至中三<b>全港校本級 10 題實戰真題</b>嚟驗證你嘅真實實力。
+    </p>
+    <p style="color: #cbd5e0 !important; font-size: 15px; line-height: 1.5; margin-bottom: 0;">
+        💡 <b>夠膽就即刻挑戰，睇下自己離「Level 5 奪 A」仲差幾遠！</b> 如果發現有盲點唔緊要，因為呢度就係你逆轉勝嘅起點。立即開始下方的測試！👇
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
 # 第一步：選擇考試階段與年級
 st.subheader("📌 第一步：選擇你的考試階段與年級")
 exam_stage = st.selectbox(
@@ -451,12 +464,12 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q9.png", width=390)
     q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
     safe_image("images/f3_t2_q10.png", width=390)
-    q10 = st.radio("10. Which of the following numbers is the smallest?", ("A) A. -4⁻⁴ × 10⁻¹⁰", "B) B. (-4)⁻⁴ × 10⁻¹⁰", "C) C. -0.000 000 000 000 4", "D) D. -3 / 12¹²"), key="f3_t2_q10")
+    q10 = st.radio("10. Which of the following numbers is the smallest?", ("A) -4⁻⁴ × 10⁻¹⁰", "B) (-4)⁻⁴ × 10⁻¹⁰", "C) -0.000 000 000 000 4", "D) -3 / 12¹²"), key="f3_t2_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
         1: "C) 68°", 2: "B) 132π cm²", 3: "D) -cos θ", 4: "B) √2 : 2", 5: "D) 1 : 6",
-        6: "A) $112", 7: "B) -2(3x - y)(x - y)", 8: "A) 21 cm²", 9: "C) (8, -7)", 10: "C) C"
+        6: "A) $112", 7: "B) -2(3x - y)(x - y)", 8: "A) 21 cm²", 9: "C) (8, -7)", 10: "C) -0.000 000 000 000 4"
     }
     question_topics = {
         1: "四邊形性質：矩形與菱形 (Rectangles & Rhombuses)", 2: "立體圖形：圓錐與半球表面面積 (Surface Area of Composite Solids)",
@@ -569,7 +582,7 @@ if submit_btn:
 st.markdown("---")
 st.markdown(f"### 🌟 關於 [Terry Sir 數學專科教室](https://www.facebook.com/terrysir)")
 st.markdown("""
-<div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-router: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+<div style="background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
     <p style="color: #ffffff !important; font-size: 15px; line-height: 1.6;">
         Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>🧠 NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>

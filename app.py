@@ -122,16 +122,22 @@ if "中一" in grade:
         q4 = st.radio("4. Which of the following numbers is not divisible by 6?", ("A) 1 444 584", "B) 2 476 326", "C) 3 440 976", "D) 4 585 348"), key="f1_t1_q4")
         q5 = st.radio("5. Alan buys some $1.7 stamps and $2.4 stamps for $46. The number of $1.7 stamps is 15 more than that of $2.4 stamps. Find the number of $1.7 stamps.", ("A) 20", "B) 23", "C) 30", "D) 35"), key="f1_t1_q5")
         
-        # 第6題：強烈分行直排顯示
+        # 第6題：完美分行直排
         q6 = st.radio(
-            "6. The passing mark of an examination is 55 marks. Suppose +1 mark represents 1 mark higher than the passing mark. Adrian, Bill and Carman get +20 marks, -8 marks and +6 marks in the examination respectively. Which of the following are true?<br><br>I. Adrian's score is 75.<br>II. Their total score is 18.<br>III. They get +6 marks on average.",
+            "6. The passing mark of an examination is 55 marks. Suppose +1 mark represents 1 mark higher than the passing mark. Adrian, Bill and Carman get +20 marks, -8 marks and +6 marks in the examination respectively. Which of the following are true?\n\n"
+            "I. Adrian's score is 75.\n\n"
+            "II. Their total score is 18.\n\n"
+            "III. They get +6 marks on average.",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="f1_t1_q6"
         )
         
-        # 第7題：強烈分行直排顯示
+        # 第7題：完美分行直排
         q7 = st.radio(
-            "7. Which of the following are correct?<br><br>I. The product of 420 and 525 is 2^2 × 3^2 × 5^3 × 7^2.<br>II. H.C.F. of 420 and 525 is 105.<br>III. L.C.M. of 420 and 525 is 2100.",
+            "7. Which of the following are correct?\n\n"
+            "I. The product of 420 and 525 is 2^2 × 3^2 × 5^3 × 7^2.\n\n"
+            "II. H.C.F. of 420 and 525 is 105.\n\n"
+            "III. L.C.M. of 420 and 525 is 2100.",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="f1_t1_q7"
         )
@@ -147,7 +153,10 @@ if "中一" in grade:
         q1 = st.radio("1. How many negative integers are there between -5.5 and 1.5?", ("A) 4", "B) 5", "C) 6", "D) 7"), key="f1_ex1_q1")
         
         q2 = st.radio(
-            "2. Which of the following is/are divisible by both 3 and 8?<br><br>I. 32 606 312<br>II. 46 237 512<br>III. 98 243 604",
+            "2. Which of the following is/are divisible by both 3 and 8?\n\n"
+            "I. 32 606 312\n\n"
+            "II. 46 237 512\n\n"
+            "III. 98 243 604",
             ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
             key="f1_ex1_q2"
         )
@@ -158,7 +167,10 @@ if "中一" in grade:
         q6 = st.radio("6. If the general term of a sequence is an = 3(n - 1)^2, find the product of the second term and the fourth term.", ("A) 27", "B) 30", "C) 81", "D) 243"), key="f1_ex1_q6")
         
         q7 = st.radio(
-            "7. The height of Vincent is 135 cm. Issac is 20% taller than Vincent, and Andy is 20% shorter than Issac. Which of the following are true?<br><br>I. Issac's height is above 160 cm.<br>II. Vincent is as tall as Andy.<br>III. All of them are at least 130 cm tall.",
+            "7. The height of Vincent is 135 cm. Issac is 20% taller than Vincent, and Andy is 20% shorter than Issac. Which of the following are true?\n\n"
+            "I. Issac's height is above 160 cm.\n\n"
+            "II. Vincent is as tall as Andy.\n\n"
+            "III. All of them are at least 130 cm tall.",
             ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
             key="f1_ex1_q7"
         )
@@ -179,7 +191,9 @@ if "中一" in grade:
         q6 = st.radio("6. Anna divides data into 7 groups and constructs a frequency table. If the first group is 0-9, what is the frequency of the last group?", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f1_t2_q6")
         
         q7 = st.radio(
-            "7. Determine whether the following are discrete data or continuous data?<br><br>I. Daily rainfalls of city A in July.<br>II. Number of rainy days of city A in 2019.",
+            "7. Determine whether the following are discrete data or continuous data?\n\n"
+            "I. Daily rainfalls of city A in July.\n\n"
+            "II. Number of rainy days of city A in 2019.",
             ("A) continuous data / discrete data", "B) continuous data / continuous data", "C) discrete data / discrete data", "D) discrete data / continuous data"),
             key="f1_t2_q7"
         )
@@ -187,7 +201,10 @@ if "中一" in grade:
         q8 = st.radio("8. In the figure, ADB is a straight line. Which of the following must be true for similarity?", ("A) ΔABC ~ ΔACD (3 sides proportional)", "B) ΔABC ~ ΔACD (ratio of 2 sides, inc. ∠)", "C) ΔABC ~ ΔCBD (3 sides proportional)", "D) ΔABC ~ ΔCBD (ratio of 2 sides, inc. ∠)"), key="f1_t2_q8")
         
         q9 = st.radio(
-            "9. Refer to the figure. Which of the following must be true?<br><br>I. ΔQPR ≅ ΔSRP<br>II. x = 5<br>III. y = 20°",
+            "9. Refer to the figure. Which of the following must be true?\n\n"
+            "I. ΔQPR ≅ ΔSRP\n\n"
+            "II. x = 5\n\n"
+            "III. y = 20°",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="f1_t2_q9"
         )
@@ -199,7 +216,10 @@ if "中一" in grade:
         st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
         
         q1 = st.radio(
-            "1. Refer to the figures A, B, C, D and E. Which statements are true?<br><br>I. Figures C, D and E are equiangular polygons.<br>II. There is only one regular polygon.<br>III. Only figures A, B and C are concave polygons.",
+            "1. Refer to the figures A, B, C, D and E. Which statements are true?\n\n"
+            "I. Figures C, D and E are equiangular polygons.\n\n"
+            "II. There is only one regular polygon.\n\n"
+            "III. Only figures A, B and C are concave polygons.",
             ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
             key="f1_fin_q1"
         )
@@ -212,13 +232,19 @@ if "中一" in grade:
         q7 = st.radio("7. In the figure, PQRS is a parallelogram. Given P(0, 8), Q(8, 9), R(5, -3). Find coordinates of S.", ("A) (-3, -4)", "B) (-3, -3)", "C) (-2, -4)", "D) (-2, -3)"), key="f1_fin_q7")
         
         q8 = st.radio(
-            "8. Suppose P(3, 7) undergoes transformations. Which form the same image?<br><br>I. Reflect in y-axis.<br>II. Translate 6 units left.<br>III. Rotate anticlockwise about origin O through 90°.",
+            "8. Suppose P(3, 7) undergoes transformations. Which form the same image?\n\n"
+            "I. Reflect in y-axis.\n\n"
+            "II. Translate 6 units left.\n\n"
+            "III. Rotate anticlockwise about origin O through 90°.",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="f1_fin_q8"
         )
         
         q9 = st.radio(
-            "9. In a rectangular coordinate plane, B(-3, 2) is image of A(2, 3) after transformations. Which may be involved?<br><br>I. Translate 5 units left and 1 unit downwards.<br>II. Reflect in y-axis.<br>III. Rotate anticlockwise about origin O through 90°.",
+            "9. In a rectangular coordinate plane, B(-3, 2) is image of A(2, 3) after transformations. Which may be involved?\n\n"
+            "I. Translate 5 units left and 1 unit downwards.\n\n"
+            "II. Reflect in y-axis.\n\n"
+            "III. Rotate anticlockwise about origin O through 90°.",
             ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
             key="f1_fin_q9"
         )
@@ -237,7 +263,10 @@ else:
         q4 = st.radio("4. If (x - p)(x + 5) - 7q ≡ x^2 + 6x - q - 1, then q =", ("A) -6", "B) -1", "C) 1", "D) 6"))
         
         q5 = st.radio(
-            "5. Which of the following are NOT identities?<br><br>I. 1/x - 1 = (1 - x)/x<br>II. (x + 1)^2 = x^2 + 1<br>III. (ax + b)(x - b) = ax^2 - b^2",
+            "5. Which of the following are NOT identities?\n\n"
+            "I. 1/x - 1 = (1 - x)/x\n\n"
+            "II. (x + 1)^2 = x^2 + 1\n\n"
+            "III. (ax + b)(x - b) = ax^2 - b^2",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III")
         )
         
@@ -261,7 +290,10 @@ else:
         q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following angle relationships must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"))
         
         q9 = st.radio(
-            "9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?<br><br>I. ...<br>II. ...<br>III. ...",
+            "9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\n"
+            "I. ...\n\n"
+            "II. ...\n\n"
+            "III. ...",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III")
         )
         
@@ -278,7 +310,10 @@ else:
         q5 = st.radio("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", ("A) 22:27", "B) 21:25", "C) 10:9", "D) 37:27"), key="t2_q5")
         
         q6 = st.radio(
-            "6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?<br><br>I. The value of n is 24.<br>II. The ratio of the size of each interior angle to each exterior angle is 12:1.<br>III. The sum of the interior angles is 3960°.",
+            "6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\n\n"
+            "I. The value of n is 24.\n\n"
+            "II. The ratio of the size of each interior angle to each exterior angle is 12:1.\n\n"
+            "III. The sum of the interior angles is 3960°.",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="t2_q6"
         )
@@ -286,13 +321,19 @@ else:
         q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="t2_q7")
         
         q8 = st.radio(
-            "8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. Given ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?<br><br>I. ΔQPS ≅ ΔRSP<br>II. ΔPTS ~ ΔQTR<br>III. PS // QR",
+            "8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. Given ∠PSQ = ∠SPR and ∠PQS = ∠SRP. Which of the following must be true?\n\n"
+            "I. ΔQPS ≅ ΔRSP\n\n"
+            "II. ΔPTS ~ ΔQTR\n\n"
+            "III. PS // QR",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="t2_q8"
         )
 
         q9 = st.radio(
-            "9. In the figure, ABC and FED are straight lines, where AB=BC=DE=EF. It is given that AC // FD and AF // CD. Which of the following must be true?<br><br>I. ΔABF ≅ ΔEFB<br>II. ΔEFB ≅ ΔEDB<br>III. ΔCBD ≅ ΔABF",
+            "9. In the figure, ABC and FED are straight lines, where AB=BC=DE=EF. It is given that AC // FD and AF // CD. Which of the following must be true?\n\n"
+            "I. ΔABF ≅ ΔEFB\n\n"
+            "II. ΔEFB ≅ ΔEDB\n\n"
+            "III. ΔCBD ≅ ΔABF",
             ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
             key="t2_q9"
         )
@@ -304,7 +345,10 @@ else:
         st.markdown("請認真完成以下 10 題精選下學期期末實戰試題：")
         
         q1 = st.radio(
-            "1. Which of the following is/are rational number(s)?<br><br>I. √(2^2)<br>II. π<br>III. 0.3",
+            "1. Which of the following is/are rational number(s)?\n\n"
+            "I. √(2^2)\n\n"
+            "II. π\n\n"
+            "III. 0.3",
             ("A) I only", "B) II only", "C) I and III only", "D) II and III only"),
             key="fin_q1"
         )
@@ -315,13 +359,19 @@ else:
         q5 = st.radio("5. A square and an isosceles triangle have the same perimeter 100 cm. If the base of the isosceles triangle is 18 cm, how much greater is the area of the square comparing to that of the isosceles triangle?", ("A) 256 cm²", "B) 265 cm²", "C) 440.5 cm²", "D) 445 cm²"), key="fin_q5")
         
         q6 = st.radio(
-            "6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?<br><br>I. The value of n is 16.<br>II. The sum of the interior angle of the polygon is 2520°.<br>III. The ratio of the size of each interior angle to that of each exterior angle is 6:1.",
+            "6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\n"
+            "I. The value of n is 16.\n\n"
+            "II. The sum of the interior angle of the polygon is 2520°.\n\n"
+            "III. The ratio of the size of each interior angle to that of each exterior angle is 6:1.",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="fin_q6"
         )
         
         q7 = st.radio(
-            "7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?<br><br>I. ΔABC ≅ ΔEDC<br>II. AC ⊥ CE<br>III. ∠AEF = 80°",
+            "7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\n"
+            "I. ΔABC ≅ ΔEDC\n\n"
+            "II. AC ⊥ CE\n\n"
+            "III. ∠AEF = 80°",
             ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"),
             key="fin_q7"
         )

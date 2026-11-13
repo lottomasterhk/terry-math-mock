@@ -112,7 +112,7 @@ exam_stage = st.selectbox(
         "2nd Exam (下學期考試 / Final)"
     ]
 )
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
 
 st.markdown("---")
 
@@ -120,11 +120,11 @@ user_answers = {}
 correct_answers = {}
 question_topics = {}
 
-# 🟢 完美修正：一字不差地改返做你要求的「校本真題級 10 題快測」
+# 標題輸出
 st.subheader(f"✍️ 第二步：{grade} {exam_stage} 校本真題級 10 題快測")
 st.markdown(f"請認真完成以下精選實戰試題：")
 
-# ==================== 嚴格雙重條件判定 (確保年級與考試階段 100% 絕對對應) ====================
+# ==================== 嚴格雙重條件判定 ====================
 
 # ----------------------------------------------------
 # 1. 中一 (Form 1)
@@ -380,46 +380,13 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     safe_image("images/f3_t1_q10.png", width=390)
     q10 = st.radio("10. In the figure, APB and AQC are straight lines. If AQ = 26, PQ = 10, QC = 22 and PB = 28, which of the following must be true?", ("A) BC is an altitude of ΔABC.", "B) BQ is an angle bisector of ΔABC.", "C) PC is a median of ΔABC.", "D) PQ is a perpendicular bisector of ΔABC."), key="f3_t1_q10")
 
-    q11 = st.radio("11. 10010100011100₂ =", ("A) 37 × 2⁸ + 28.", "B) 37 × 2⁸ + 56.", "C) 37 × 2⁹ + 28.", "D) 37 × 2⁹ + 56."), key="f3_t1_q11")
-    safe_image("images/f3_t1_q11.png", width=390)
-
-    q12 = st.radio("12. 9 × 2¹⁰ + 6 × 2⁹ + 2³ - 7 =", ("A) 101100010000₂", "B) 110010000100₂", "C) 1011000001111₂", "D) 1100000000001₂"), key="f3_t1_q12")
-    safe_image("images/f3_t1_q12.png", width=390)
-
-    q13 = st.radio("13. Arrange the three numbers 1101100₂, 105₁₀ and 1101110₂ in ascending order.", ("A) 1101110₂ < 105₁₀ < 1101100₂", "B) 1101100₂ < 105₁₀ < 1101110₂", "C) 105₁₀ < 1101110₂ < 1101100₂", "D) 105₁₀ < 1101100₂ < 1101110₂"), key="f3_t1_q13")
-    safe_image("images/f3_t1_q13.png", width=390)
-
-    q14 = st.radio("14. A sum of $35 000 is deposited for 40 months at an interest rate of 3% p.a. compounded every four months. Find the interest, correct to the nearest dollar.", ("A) $1 180", "B) $2 715", "C) $3 662", "D) $4 966"), key="f3_t1_q14")
-    safe_image("images/f3_t1_q14.png", width=390)
-
-    q15 = st.radio("15. If the base of a triangle is increased by 20% and its height is decreased by m% such that its area will decrease by 4%. Find m.", ("A) 10/3", "B) 20", "C) 24", "D) 80"), key="f3_t1_q15")
-    safe_image("images/f3_t1_q15.png", width=390)
-
-    q16 = st.radio("16. (25²⁰⁴⁸ · 2²⁰⁷⁶) / 5²⁰²⁰ =", ("A) 50⁴¹²⁴ / 5²⁰²⁰", "B) 25⁵⁶ · 2²⁰⁷⁶", "C) 10²⁰⁷⁶", "D) 10²¹⁰⁴"), key="f3_t1_q16")
-    safe_image("images/f3_t1_q16.png", width=390)
-
-    q17 = st.radio("17. Mr Cheung takes out a loan at an interest rate of 20% p.a. compounded quarterly for 2 years. If he has to pay an interest of $4 000, find the amount he needs to repay, correct to nearest dollar.", ("A) $8 378", "B) $8 619", "C) $9 091", "D) $12 378"), key="f3_t1_q17")
-    safe_image("images/f3_t1_q17.png", width=390)
-
-    q18 = st.radio("18. There are 20 questions in a test. For each correct answer, m marks will be given. For each unanswered or wrongly answered question, n marks will be deducted. If 10 questions are answered correctly, a student will get 20 marks. If 15 questions are answered correctly, a student will get 60 marks. Find n.", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f3_t1_q18")
-    safe_image("images/f3_t1_q18.png", width=390)
-
-    q19 = st.radio("19. If -x² + kx + 10 can be factored where k is an integer, which of the following is/are possible value(s) of k? I. -5, II. -3, III. 9", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f3_t1_q19")
-    safe_image("images/f3_t1_q19.png", width=390)
-
-    q20 = st.radio("20. Factorize -8x² - 28xy + 60y².", ("A) (x - 5y)(2x + 3y)", "B) (x + 5y)(2x - 3y)", "C) -4(x - 5y)(2x + 3y)", "D) -4(x + 5y)(2x - 3y)"), key="f3_t1_q20")
-    safe_image("images/f3_t1_q20.png", width=390)
-
-    user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10, 11: q11, 12: q12, 13: q13, 14: q14, 15: q15, 16: q16, 17: q17, 18: q18, 19: q19, 20: q20}
+    user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
         1: "A) 1.", 2: "C) -14", 3: "A) x ≤ -9/16", 4: "B) 677", 5: "C) (x - 3y) / y^2",
-        6: "D) 130°", 7: "C) 1/4", 8: "A) 9.25", 9: "D) $34.3", 10: "A) BC is an altitude of ΔABC.",
-        11: "A) 37 × 2⁸ + 28.", 12: "D) 1100000000001₂", 13: "D) 105₁₀ < 1101100₂ < 1101110₂", 14: "C) $3 662", 15: "C) 24",
-        16: "C) 10²⁰⁷⁶", 17: "D) $12 378", 18: "B) 3", 19: "D) II and III only", 20: "D) -4(x + 5y)(2x - 3y)"
+        6: "D) 130°", 7: "C) 1/4", 8: "A) 9.25", 9: "D) $34.3", 10: "A) BC is an altitude of ΔABC."
     }
     question_topics = {
-        1: "指數定律與化簡 (Laws of Indices)", 2: "一元一次不等式應用 (Linear Inequalities)", 3: "代數不等式求解 (Solving Inequalities)", 4: "複利息與增長率計算 (Growth Rate & Compound Interest)", 5: "分式化簡與因式分解 (Algebraic Fractions)", 6: "三角形內角與角平分線 (Angle Bisectors of Triangles)", 7: "獨立事件概率計算 (Probability of Independent Events)", 8: "數學期望值計算 (Expected Value)", 9: "平均數與百分比調整 (Means & Percentage Adjustments)", 10: "相似三角形與幾何推論 (Geometry Proofs & Similar Triangles)",
-        11: "二進制數與代數轉換 (Binary Numbers)", 12: "二進制數加減運算 (Binary Arithmetic)", 13: "不同進位制數值大小比較 (Number Bases Comparison)", 14: "複利息與存款利息計算 (Compound Interest)", 15: "百分比變化與面積應用 (Percentage Change in Area)", 16: "指數律與底數化簡 (Laws of Indices)", 17: "貸款複利息與還款額計算 (Loans & Compound Interest)", 18: "聯立方程應用題 (Simultaneous Equations)", 19: "二次多項式因式分解可能性 (Factorization of Quadratics)", 20: "高級多項式因式分解 (Advanced Factorization)"
+        1: "指數定律與化簡 (Laws of Indices)", 2: "一元一次不等式應用 (Linear Inequalities)", 3: "代數不等式求解 (Solving Inequalities)", 4: "複利息與增長率計算 (Growth Rate & Compound Interest)", 5: "分式化簡與因式分解 (Algebraic Fractions)", 6: "三角形內角與角平分線 (Angle Bisectors of Triangles)", 7: "獨立事件概率計算 (Probability of Independent Events)", 8: "數學期望值計算 (Expected Value)", 9: "平均數與百分比調整 (Means & Percentage Adjustments)", 10: "相似三角形與幾何推論 (Geometry Proofs & Similar Triangles)"
     }
 
 elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
@@ -606,7 +573,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 經典綠色 WhatsApp 預約試課按鈕
-whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%8A%85%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試，想預約+%24150%2F1小時試課！&type=phone_number&app_absent=0"
+whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試，想預約+%24150%2F1小時試課！&type=phone_number&app_absent=0"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">

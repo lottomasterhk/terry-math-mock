@@ -425,7 +425,7 @@ elif "中二" in grade:
         q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. ΔABC ≅ ΔEDC\n\nII. AC ⊥ CE\n\nIII. ∠AEF = 80°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q7")
         
         safe_image("images/f2_fin_q8.png", width=390)
-        q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find cos β / sin α .", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α cos β"), key="f2_fin_q8")
+        q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find MR / NR .", ("A) cos β / sin α", "B) sin β / cos α", "C)cos β sin α", "D) sin β cos α cos β"), key="f2_fin_q8")
         
         q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1:2. The ratio of the base radius of P to the height of P is 1:3. The ratio of the total surface area of P to Q is", ("A) 1:2", "B) 2:5", "C) 4:7", "D) 7:16"), key="f2_fin_q9")
         

@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS：強制全網頁字體一致、優化排版、並將「選擇考試階段」下拉選單及其文字轉為黑色
+# 注入自定義 CSS：強制全網頁字體一致、優化排版、並將下拉選單文字強制設為黑色
 st.markdown("""
 <style>
     /* 全局背景與字體顏色、統一字體系列 (Sans-serif) 確保所有字體完全一致 */
@@ -24,17 +24,20 @@ st.markdown("""
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
     }
     
-    /* 專門針對「選擇考試階段」下拉選單按鈕本體與內部文字強制變成黑色背景、黑色字體 */
-    .stSelectbox [data-baseweb="select"] {
+    /* 🎯 專門針對「選擇考試階段」下拉選單：強制背景變白，入面所有文字變黑 */
+    div[data-baseweb="select"] {
         background-color: #ffffff !important;
         border-radius: 8px !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
-    .stSelectbox [data-baseweb="select"] *, div[data-baseweb="select"] * {
+    
+    /* 下拉選單入面選中嘅字體同圖標強制變黑色 */
+    div[data-baseweb="select"] * {
         color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
     }
     
-    /* 下拉選單彈出清單（Dropdown Menu / Options）入面嘅文字同選項亦強制變黑底白字或黑字（確保清晰見到） */
+    /* 下拉選單彈出清單（Dropdown Menu / Options）的背景與文字 */
     div[data-baseweb="popover"], div[data-baseweb="menu"] {
         background-color: #ffffff !important;
         border: 1px solid rgba(0, 0, 0, 0.2) !important;
@@ -42,10 +45,12 @@ st.markdown("""
     }
     div[data-baseweb="menu"] div, div[data-baseweb="menu"] span {
         color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
     }
     div[data-baseweb="menu"] div:hover {
         background-color: #1e3c72 !important;
         color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
     }
     
     /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大至 16px、行距拉開 */
@@ -236,7 +241,7 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
     safe_image("images/f1_fin_q3.png", width=390)
     q3 = st.radio("3. The figure below shows a trapezium PQRS where PS || QR. T is a point on PS. PR and TQ intersect at N. It is given that the lengths of PT, TS and QR are 4 cm, 2 cm and 8 cm respectively and the areas of triangle PNT and triangle QNR are 4 cm² and 16 cm² respectively. Find the area of the quadrilateral STNR.", ("A) 10 cm²", "B) 12 cm²", "C) 13 cm²", "D) 14 cm²"), key="f1_fin_q3")
     
-    # ✅ 第 4 題已按要求透過 \n\n 完美分成上下三行
+    # 第 4 題已按要求分成上下三行
     q4 = st.radio("4. Anna divides the following data into 7 groups and constructs a frequency distribution table. If the first group is 0 - 9, what is the frequency of the last group in the table?\n\n8, 28, 54, 50, 60, 22, 34, 14, 55, 12\n\n14, 28, 6, 12, 15, 59, 66, 29, 4, 64", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f1_fin_q4")
     
     q5 = st.radio("5. 0.01491625 =", ("A) 0.015 (correct to the nearest integer)", "B) 0.015 (correct to 2 decimal places)", "C) 0.01491 (correct to 5 decimal places)", "D) 0.014916 (correct to 6 decimal places)"), key="f1_fin_q5")
@@ -457,8 +462,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     q2 = st.radio("2. Solid consists of a right circular cone and hemisphere with common base. Height = 8 cm, slant height = 10 cm. Find total surface area.", ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), key="f3_t2_q2")
     safe_image("images/f3_t2_q3.png", width=390)
     
-    # ✅ 第 3 題：用 st.markdown 獨立輸出靚仔分式標題，下面只揀 A/B/C/D
-    safe_image("images/f3_t2_q3.png", width=390)
+    # 第 3 題：用 st.markdown 獨立輸出靚仔分式標題，下面只揀 A/B/C/D
     st.markdown("""
     <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
         3. Simplify 
@@ -475,7 +479,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     """, unsafe_allow_html=True)
     q3 = st.radio("請選擇第 3 題答案：", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3_ans", label_visibility="collapsed")
     
-    # ✅ 第 4 題：用 st.markdown 獨立輸出題目，下面只揀 A/B/C/D
+    # 第 4 題：用 st.markdown 獨立輸出題目，下面只揀 A/B/C/D
     safe_image("images/f3_t2_q4.png", width=390)
     st.markdown("""
     <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">

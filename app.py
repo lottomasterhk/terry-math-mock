@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS：優化排版、全面美化選項卡片，確保所有文字清晰完美
+# 注入自定義 CSS：優化排版、美化選項卡片、支援靚靚數學分數樣
 st.markdown("""
 <style>
     /* 全局背景與字體顏色、統一字體系列 (Sans-serif) 確保所有字體完全一致 */
@@ -93,7 +93,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 第一步：先揀年級，再揀考試階段（位置已互換）
+# 第一步：先揀年級，再揀考試階段
 st.subheader("📌 第一步：選擇你的年級與考試階段")
 grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
 
@@ -124,22 +124,57 @@ st.markdown(f"請認真完成以下精選實戰試題：")
 # 1. 中一 (Form 1)
 # ----------------------------------------------------
 if grade == "中一 (Form 1)" and "1st Term Test" in exam_stage:
-    q1 = st.radio("1. Arrange the following numbers in descending order: +3, 1/2, -2.5, 0, -3/4, +1.2", ("A) +3 > +1.2 > 1/2 > 0 > -3/4 > -2.5", "B) +3 > 1/2 > +1.2 > 0 > -3/4 > -2.5", "C) +3 > +1.2 > 1/2 > 0 > -2.5 > -3/4", "D) -2.5 > -3/4 > 0 > 1/2 > +1.2 > +3"), key="f1_t1_q1")
+    # 建立靚靚分數 HTML 片段
+    f_half = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>2</span></span>"
+    f_3_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3</span><span style='display:block; padding-top:1px;'>4</span></span>"
+    f_2_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>2</span><span style='display:block; padding-top:1px;'>3</span></span>"
+    f_10_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>10</span><span style='display:block; padding-top:1px;'>3</span></span>"
+    f_2_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>2</span><span style='display:block; padding-top:1px;'>5</span></span>"
+
+    st.markdown(f"1. Arrange the following numbers in descending order: +3, {f_half}, -2.5, 0, -{f_3_4}, +1.2", unsafe_allow_html=True)
+    q1_choice = st.radio("請選擇第 1 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) +3 > +1.2 > {f_half} > 0 > -{f_3_4} > -2.5",
+        "B": f"B) +3 > {f_half} > +1.2 > 0 > -{f_3_4} > -2.5",
+        "C": f"C) +3 > +1.2 > {f_half} > 0 > -2.5 > -{f_3_4}",
+        "D": f"D) -2.5 > -{f_3_4} > 0 > {f_half} > +1.2 > +3"
+    }[x], key="f1_t1_q1_ans", label_visibility="collapsed")
+    q1_mapping = {"A": f"A) +3 > +1.2 > {f_half} > 0 > -{f_3_4} > -2.5", "B": f"B) +3 > {f_half} > +1.2 > 0 > -{f_3_4} > -2.5", "C": f"C) +3 > +1.2 > {f_half} > 0 > -2.5 > -{f_3_4}", "D": f"D) -2.5 > -{f_3_4} > 0 > {f_half} > +1.2 > +3"}
+    q1 = q1_mapping[q1_choice]
+
     q2 = st.radio("2. Which of the following expressions gives a result of 756?", ("A) 2² × 3² × 7", "B) 2³ × 3² × 7", "C) 2² × 3³ × 7", "D) 2³ × 3² × 7²"), key="f1_t1_q2")
-    q3 = st.radio("3. P is a point on a straight road. At 9:00 a.m., car A departs from P and travels at a speed of t km/h. At 9:30 a.m., car B departs from P and travels in the opposite direction of car A. The speed of car B is 2/3 of the speed of car A. Find the distance between the two cars at 11:00 a.m.", ("A) (2/3)t km", "B) t km", "C) 3t km", "D) (10/3)t km"), key="f1_t1_q3")
+    
+    st.markdown(f"3. P is a point on a straight road. At 9:00 a.m., car A departs from P and travels at a speed of t km/h. At 9:30 a.m., car B departs from P and travels in the opposite direction of car A. The speed of car B is {f_2_3} of the speed of car A. Find the distance between the two cars at 11:00 a.m.", unsafe_allow_html=True)
+    q3_choice = st.radio("請選擇第 3 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) ({f_2_3})t km",
+        "B": "B) t km",
+        "C": "C) 3t km",
+        "D": f"D) ({f_10_3})t km"
+    }[x], key="f1_t1_q3_ans", label_visibility="collapsed")
+    q3_mapping = {"A": f"A) ({f_2_3})t km", "B": "B) t km", "C": "C) 3t km", "D": f"D) ({f_10_3})t km"}
+    q3 = q3_mapping[q3_choice]
+
     q4 = st.radio("4. Which of the following numbers is not divisible by 6?", ("A) 1,444,584", "B) 2,476,326", "C) 3,440,976", "D) 4,585,348"), key="f1_t1_q4")
     q5 = st.radio("5. Alan buys some $1.7 stamps and $2.4 stamps for $46. It is given that the number of $1.7 stamps is 15 more than that of $2.4 stamps. Find the number of $1.7 stamps.", ("A) 20", "B) 23", "C) 30", "D) 35"), key="f1_t1_q5")
     q6 = st.radio("6. The passing mark of an examination is 55 marks. Suppose +1 mark represents 1 mark higher than the passing mark. Adrian, Bill and Carman get +20 marks, -8 marks and +6 marks in the examination respectively. Which of the following are true?\n\nI. Adrian's score is 75.\n\nII. Their total score is 18.\n\nIII. They get +6 marks on average.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t1_q6")
     q7 = st.radio("7. Which of the following are correct?\n\nI. The product of 420 and 525 is 2² × 3² × 5³ × 7².\n\nII. The H.C.F. of 420 and 525 is 105.\n\nIII. The L.C.M. of 420 and 525 is 2,100.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_t1_q7")
     q8 = st.radio("8. The pocket money of Kate, Elvis and Ayden are increased by $90, decreased by $110 and increased by $85 respectively. Their total pocket money is", ("A) decreased by $105.", "B) increased by $95.", "C) increased by $65.", "D) decreased by $65"), key="f1_t1_q8")
     q9 = st.radio("9. Consider the following sequence: 1, 3, 7, 13, ... For any positive integer n, the (n + 1)-th term is greater than the n-th term by 2n. Find the 6th term.", ("A) 21", "B) 25", "C) 31", "D) 43"), key="f1_t1_q9")
-    q10 = st.radio("10. Harry's mother is m years old now. 5 years ago, Harry's age was 2/5 of his mother's age. How old is Harry now?", ("A) m - 5", "B) (2/5)m + 5", "C) (2/5)(m - 5)", "D) (2/5)(m - 5) + 5"), key="f1_t1_q10")
+    
+    st.markdown(f"10. Harry's mother is m years old now. 5 years ago, Harry's age was {f_2_5} of his mother's age. How old is Harry now?", unsafe_allow_html=True)
+    q10_choice = st.radio("請選擇第 10 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": "A) m - 5",
+        "B": f"B) ({f_2_5})m + 5",
+        "C": f"C) ({f_2_5})(m - 5)",
+        "D": f"D) ({f_2_5})(m - 5) + 5"
+    }[x], key="f1_t1_q10_ans", label_visibility="collapsed")
+    q10_mapping = {"A": "A) m - 5", "B": f"B) ({f_2_5})m + 5", "C": f"C) ({f_2_5})(m - 5)", "D": f"D) ({f_2_5})(m - 5) + 5"}
+    q10 = q10_mapping[q10_choice]
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "A) +3 > +1.2 > 1/2 > 0 > -3/4 > -2.5", 2: "C) 2² × 3³ × 7", 3: "C) 3t km",
+        1: f"A) +3 > +1.2 > {f_half} > 0 > -{f_3_4} > -2.5", 2: "C) 2² × 3³ × 7", 3: f"C) ({f_2_3})t km",
         4: "D) 4,585,348", 5: "A) 20", 6: "B) I and III only", 7: "D) I, II and III",
-        8: "C) increased by $65.", 9: "C) 31", 10: "D) (2/5)(m - 5) + 5"
+        8: "C) increased by $65.", 9: "C) 31", 10: f"D) ({f_2_5})(m - 5) + 5"
     }
     question_topics = {
         1: "有向數與數線大小比較 (Directed Numbers)", 2: "指數記數法與質因數分解 (Indices & Prime Factorization)",
@@ -214,7 +249,6 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
     safe_image("images/f1_fin_q3.png", width=390)
     q3 = st.radio("3. The figure below shows a trapezium PQRS where PS || QR. T is a point on PS. PR and TQ intersect at N. It is given that the lengths of PT, TS and QR are 4 cm, 2 cm and 8 cm respectively and the areas of triangle PNT and triangle QNR are 4 cm² and 16 cm² respectively. Find the area of the quadrilateral STNR.", ("A) 10 cm²", "B) 12 cm²", "C) 13 cm²", "D) 14 cm²"), key="f1_fin_q3")
     
-    # 第 4 題已按要求分成上下三行
     q4 = st.radio("4. Anna divides the following data into 7 groups and constructs a frequency distribution table. If the first group is 0 - 9, what is the frequency of the last group in the table?\n\n8, 28, 54, 50, 60, 22, 34, 14, 55, 12\n\n14, 28, 6, 12, 15, 59, 66, 29, 4, 64", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f1_fin_q4")
     
     q5 = st.radio("5. 0.01491625 =", ("A) 0.015 (correct to the nearest integer)", "B) 0.015 (correct to 2 decimal places)", "C) 0.01491 (correct to 5 decimal places)", "D) 0.014916 (correct to 6 decimal places)"), key="f1_fin_q5")
@@ -246,21 +280,55 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
 # 2. 中二 (Form 2)
 # ----------------------------------------------------
 elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
+    f_1_x = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>x</span></span>"
+    f_1_minus_x_x = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1 - x</span><span style='display:block; padding-top:1px;'>x</span></span>"
+    f_3_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3</span><span style='display:block; padding-top:1px;'>m - 1</span></span>"
+    f_2_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>2</span><span style='display:block; padding-top:1px;'>m + 1</span></span>"
+    f_1_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>m - 1</span></span>"
+    f_1_m_1_alt = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>m + 1</span></span>"
+    f_m_5_sq = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>m + 5</span><span style='display:block; padding-top:1px;'>m² - 1</span></span>"
+    f_m_5_neg = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>m - 5</span><span style='display:block; padding-top:1px;'>m² - 1</span></span>"
+    f_4_3a = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4</span><span style='display:block; padding-top:1px;'>3a</span></span>"
+    f_4a_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4a</span><span style='display:block; padding-top:1px;'>3</span></span>"
+    f_half = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>2</span></span>"
+
     q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"), key="f2_t1_q1")
     q2 = st.radio("2. If y = 29.4 (correct to 3 significant figures), find the range of values of y.", ("A) 29.3 < y <= 29.5", "B) 29.3 <= y < 29.5", "C) 29.35 < y <= 29.45", "D) 29.35 <= y < 29.45"), key="f2_t1_q2")
     q3 = st.radio("3. Find the degree of the expansion of (x² + 2x + 4)(y - 2).", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f2_t1_q3")
     q4 = st.radio("4. If p and q are constants such that (x - p)(x + 5) - 7q = x² + 6x - q - 1, then q =", ("A) -6", "B) -1", "C) 1", "D) 6"), key="f2_t1_q4")
-    q5 = st.radio("5. Which of the following are NOT identities?\n\nI. (1/x) - 1 = (1 - x)/x\n\nII. (x + 1)² = x² + 1\n\nIII. (ax + b)(x - b) = ax² - b²", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5")
+    
+    st.markdown(f"5. Which of the following are NOT identities?\n\nI. ({f_1_x}) - 1 = {f_1_minus_x_x}\n\nII. (x + 1)² = x² + 1\n\nIII. (ax + b)(x - b) = ax² - b²", unsafe_allow_html=True)
+    q5 = st.radio("請選擇第 5 題答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5")
+    
     q6 = st.radio("6. (-450)⁴ × (1/64)¹⁰⁰ =", ("A) -1", "B) 4¹⁰⁰", "C) 1 / 4¹⁰⁰", "D) -1 / 4²⁰⁰"), key="f2_t1_q6")
     q7 = st.radio("7. If a ≠ 0 and a ≠ 1, then (aⁿ⁺¹ - aⁿ⁻¹) / (aⁿ - aⁿ⁻¹) =", ("A) 2", "B) a", "C) a + 1", "D) a - 1"), key="f2_t1_q7")
-    q8 = st.radio("8. Simplify 3 / (m - 1) - 2 / (m + 1).", ("A) 1 / (m - 1)", "B) 1 / (m + 1)", "C) (m + 5) / (m² - 1)", "D) (m - 5) / (m² - 1)"), key="f2_t1_q8")
+    
+    st.markdown("8. Simplify 3 / (m - 1) - 2 / (m + 1).", unsafe_allow_html=True)
+    q8_choice = st.radio("請選擇第 8 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) {f_1_m_1}",
+        "B": f"B) {f_1_m_1_alt}",
+        "C": f"C) {f_m_5_sq}",
+        "D": f"D) {f_m_5_neg}"
+    }[x], key="f2_t1_q8_ans", label_visibility="collapsed")
+    q8_mapping = {"A": f"A) {f_1_m_1}", "B": f"B) {f_1_m_1_alt}", "C": f"C) {f_m_5_sq}", "D": f"D) {f_m_5_neg}"}
+    q8 = q8_mapping[q8_choice]
+
     q9 = st.radio("9. Simplify (3a² + 6ab) / (a² + 2ab - ab - 2b²) × (4a - 4b) / (9a²).", ("A) 4 / (3a)", "B) 4a / 3", "C) 4(a + 2b) / 3a(a² + ab - 2b²)", "D) 4a(a + 2b) / 3(a² + ab - 2b²)"), key="f2_t1_q9")
-    q10 = st.radio("10. If x² + y² = m and x + y = n, then xy =", ("A) (1/2)(n² - m)", "B) n² - m", "C) n² - m/2", "D) (n²)/2 - m"), key="f2_t1_q10")
+    
+    st.markdown("10. If x² + y² = m and x + y = n, then xy =", unsafe_allow_html=True)
+    q10_choice = st.radio("請選擇第 10 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) ({f_half})(n² - m)",
+        "B": "B) n² - m",
+        "C": "C) n² - m/2",
+        "D": f"D) ({f_half})n² - m"
+    }[x], key="f2_t1_q10_ans", label_visibility="collapsed")
+    q10_mapping = {"A": f"A) ({f_half})(n² - m)", "B": "B) n² - m", "C": "C) n² - m/2", "D": f"D) ({f_half})n² - m"}
+    q10 = q10_mapping[q10_choice]
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
         1: "A) 1.25%", 2: "D) 29.35 <= y < 29.45", 3: "C) 3", 4: "D) 6", 5: "C) II and III only",
-        6: "C) 1 / 4¹⁰⁰", 7: "C) a + 1", 8: "C) (m + 5) / (m² - 1)", 9: "A) 4 / (3a)", 10: "A) (1/2)(n² - m)"
+        6: "C) 1 / 4¹⁰⁰", 7: "C) a + 1", 8: f"C) {f_m_5_sq}", 9: "A) 4 / (3a)", 10: f"A) ({f_half})(n² - m)"
     }
     question_topics = {
         1: "誤差與百分誤差計算 (Percentage Errors)", 2: "有效數字與數值範圍 (Significant Figures & Ranges)",
@@ -300,11 +368,34 @@ elif grade == "中二 (Form 2)" and "1st Exam" in exam_stage:
     }
 
 elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
-    q1 = st.radio("1. If x and y are non-zero numbers such that (4x + 3y) / (3x + 5y) = 5/8, then (3x + y) / (x + 3y) =", ("A) 5/13", "B) 1", "C) 4/3", "D) 13/5"), key="f2_t2_q1")
+    f_5_13 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5</span><span style='display:block; padding-top:1px;'>13</span></span>"
+    f_4_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4</span><span style='display:block; padding-top:1px;'>3</span></span>"
+    f_13_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>13</span><span style='display:block; padding-top:1px;'>5</span></span>"
+
+    st.markdown("1. If x and y are non-zero numbers such that (4x + 3y) / (3x + 5y) = 5/8, then (3x + y) / (x + 3y) =", unsafe_allow_html=True)
+    q1_choice = st.radio("請選擇第 1 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) {f_5_13}",
+        "B": "B) 1",
+        "C": f"C) {f_4_3}",
+        "D": f"D) {f_13_5}"
+    }[x], key="f2_t2_q1_ans", label_visibility="collapsed")
+    q1_mapping = {"A": f"A) {f_5_13}", "B": "B) 1", "C": f"C) {f_4_3}", "D": f"D) {f_13_5}"}
+    q1 = q1_mapping[q1_choice]
+
     q2 = st.radio("2. Suppose 10 Swiss Francs dollars (CHF) are equivalent to 89 H.K. dollars (HKD) and 10 U.S. dollars (USD) are equivalent to 78 HKD. How many USD can 546 CHF be changed to?", ("A) 478 USD", "B) 623 USD", "C) 1271 USD", "D) 2173 USD"), key="f2_t2_q2")
     q3 = st.radio("3. If 3 pipes are used to fill a swimming pool in 1.5 hour, how much time can be saved by using 5 pipes instead? Assume that all the pipes discharge at the same rate.", ("A) 10 minutes", "B) 24 minutes", "C) 36 minutes", "D) 54 minutes"), key="f2_t2_q3")
     q4 = st.radio("4. Joe has brought some candies for his students who pass the term test. If 84 students pass, each of the students can have 7 candies. How many students pass the term test if each of them can have 3 candies?", ("A) 4", "B) 36", "C) 196", "D) 252"), key="f2_t2_q4")
-    q5 = st.radio("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", ("A) 22 : 27", "B) 21 : 25", "C) 10 : 9", "D) 37 : 27"), key="f2_t2_q5")
+    
+    st.markdown("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", unsafe_allow_html=True)
+    q5_choice = st.radio("請選擇第 5 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": "A) 22 : 27",
+        "B": "B) 21 : 25",
+        "C": "C) 10 : 9",
+        "D": "D) 37 : 27"
+    }[x], key="f2_t2_q5_ans", label_visibility="collapsed")
+    q5_mapping = {"A": "A) 22 : 27", "B": "B) 21 : 25", "C": "C) 10 : 9", "D": "D) 37 : 27"}
+    q5 = q5_mapping[q5_choice]
+
     q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\n\nI. The value of n is 24.\n\nII. The ratio of the size of each interior angle of the polygon to that of each exterior angle is 12 : 1.\n\nIII. The sum of the interior angles of the polygon is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q6")
     safe_image("images/f2_t2_q7.png", width=390)
     q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
@@ -317,7 +408,7 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "D) 13/5", 2: "B) 623 USD", 3: "C) 36 minutes", 4: "D) 252", 5: "B) 21 : 25",
+        1: f"D) {f_13_5}", 2: "B) 623 USD", 3: "C) 36 minutes", 4: "D) 252", 5: "B) 21 : 25",
         6: "B) I and III only", 7: "D) 9", 8: "D) I, II and III", 9: "C) I and III only", 10: "B) 36°"
     }
     question_topics = {
@@ -366,7 +457,18 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     q2 = st.radio("2. 9 × 2¹⁰ + 6 × 2⁹ + 2³ - 7 =", ("A) 101100010000₂", "B) 110010000100₂", "C) 1011000001111₂", "D) 1100000000001₂"), key="f3_t1_q2")
     q3 = st.radio("3. Arrange the three numbers 1101100₂, 105₁₀ and 1101110₂ in ascending order.", ("A) 1101110₂ < 105₁₀ < 1101100₂", "B) 1101100₂ < 105₁₀ < 1101110₂", "C) 105₁₀ < 1101110₂ < 1101100₂", "D) 105₁₀ < 1101100₂ < 1101110₂"), key="f3_t1_q3")
     q4 = st.radio("4. A sum of $35,000 is deposited for 40 months at an interest rate of 3% p.a. compounded every four months. Find the interest, correct to the nearest dollar.", ("A) $1,180", "B) $2,715", "C) $3,662", "D) $4,966"), key="f3_t1_q4")
-    q5 = st.radio("5. If the base of a triangle is increased by 20% and its height is decreased by m% such that its area will decrease by 4%. Find m.", ("A) 10/3", "B) 20", "C) 24", "D) 80"), key="f3_t1_q5")
+    
+    f_10_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>10</span><span style='display:block; padding-top:1px;'>3</span></span>"
+    st.markdown("5. If the base of a triangle is increased by 20% and its height is decreased by m% such that its area will decrease by 4%. Find m.", unsafe_allow_html=True)
+    q5_choice = st.radio("請選擇第 5 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) {f_10_3}",
+        "B": "B) 20",
+        "C": "C) 24",
+        "D": "D) 80"
+    }[x], key="f3_t1_q5_ans", label_visibility="collapsed")
+    q5_mapping = {"A": f"A) {f_10_3}", "B": "B) 20", "C": "C) 24", "D": "D) 80"}
+    q5 = q5_mapping[q5_choice]
+
     q6 = st.radio("6. (25²⁰⁴⁸ × 2²⁰⁷⁶) / 5²⁰²⁰ =", ("A) 50⁴¹²⁴ / 5²⁰²⁰", "B) 25⁵⁶ × 2²⁰⁷⁶", "C) 10²⁰⁷⁶", "D) 10²¹⁰⁴"), key="f3_t1_q6")
     q7 = st.radio("7. Mr Cheung takes out a loan at an interest rate of 20% p.a. compounded quarterly for 2 years. If he has to pay an interest of $4,000, find the amount he needs to repay, correct to nearest dollar.", ("A) $8,378", "B) $8,619", "C) $9,091", "D) $12,378"), key="f3_t1_q7")
     q8 = st.radio("8. There are 20 questions in a test. For each question answered correct, m marks will be given. For each unanswered or wrong question, n marks will be deducted. If 10 correct = 20 marks, 15 correct = 60 marks. Find n.", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f3_t1_q8")
@@ -375,7 +477,7 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "A) 37 × 2⁸ + 28.", 2: "D) 1100000000001₂", 3: "D) 105₁₀ < 1101100₂ < 1101110₂", 4: "C) $3,662", 5: "C) 24",
+        1: "A) 37 × 2⁸ + 28.", 2: "D) 1100000000001₂", 3: "D) 105₁₀ < 1101100₂ < 1101110₂", 4: "C) $3,662", 5: f"C) 24",
         6: "C) 10²⁰⁷⁶", 7: "D) $12,378", 8: "B) 3", 9: "D) II and III only", 10: "D) -4(x + 5y)(2x - 3y)"
     }
     question_topics = {
@@ -387,14 +489,50 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     }
 
 elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
-    q1 = st.radio("1. 3²⁴⁶ × 9⁻¹²³ =", ("A) 1.", "B) -1.", "C) 3¹²³.", "D) 1 / (3¹²³)."), key="f3_ex1_q1")
+    f_1_3123 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>3¹²³</span></span>"
+    f_9_16 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>9</span><span style='display:block; padding-top:1px;'>16</span></span>"
+    f_1_12 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>12</span></span>"
+    f_1_6 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>6</span></span>"
+    f_1_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>4</span></span>"
+    f_1_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>3</span></span>"
+
+    st.markdown("1. 3²⁴⁶ × 9⁻¹²³ =", unsafe_allow_html=True)
+    q1_choice = st.radio("請選擇第 1 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": "A) 1.",
+        "B": "B) -1.",
+        "C": "C) 3¹²³.",
+        "D": f"D) {f_1_3123}."
+    }[x], key="f3_ex1_q1_ans", label_visibility="collapsed")
+    q1_mapping = {"A": "A) 1.", "B": "B) -1.", "C": "C) 3¹²³.", "D": f"D) {f_1_3123}."}
+    q1 = q1_mapping[q1_choice]
+
     q2 = st.radio("2. Find the smallest integer a satisfying a/5 - 1 > -4.", ("A) -24", "B) -15", "C) -14", "D) -3"), key="f3_ex1_q2")
-    q3 = st.radio("3. Solve the inequality (8 - 3x)/5 >= (5 + 2x)/2.", ("A) x <= -9/16", "B) x <= 9/16", "C) x >= -9/16", "D) x >= 9/16"), key="f3_ex1_q3")
+    
+    st.markdown("3. Solve the inequality (8 - 3x)/5 >= (5 + 2x)/2.", unsafe_allow_html=True)
+    q3_choice = st.radio("請選擇第 3 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) x <= -{f_9_16}",
+        "B": f"B) x <= {f_9_16}",
+        "C": f"C) x >= -{f_9_16}",
+        "D": f"D) x >= {f_9_16}"
+    }[x], key="f3_ex1_q3_ans", label_visibility="collapsed")
+    q3_mapping = {"A": f"A) x <= -{f_9_16}", "B": f"B) x <= {f_9_16}", "C": f"C) x >= -{f_9_16}", "D": f"D) x >= {f_9_16}"}
+    q3 = q3_mapping[q3_choice]
+
     q4 = st.radio("4. If the growth rate of a value is 10% per month, and its value after 1 year is 2,125, find the original value correct to 3 significant figures.", ("A) 193", "B) 677", "C) 989", "D) 1,920"), key="f3_ex1_q4")
     q5 = st.radio("5. (x² - 9y²) / y⁴ ÷ ((x + 3y) / y²) =", ("A) (x + 3y) / y⁶", "B) (x - 9y) / y⁶", "C) (x - 3y) / y²", "D) (x - 9y) / y²"), key="f3_ex1_q5")
     safe_image("images/f3_ex1_q6.png", width=390)
     q6 = st.radio("6. In the figure, QS and RS are angle bisectors of triangle PQR. Find angle QSR.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_ex1_q6")
-    q7 = st.radio("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", ("A) 1/12", "B) 1/6", "C) 1/4", "D) 1/3"), key="f3_ex1_q7")
+    
+    st.markdown("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", unsafe_allow_html=True)
+    q7_choice = st.radio("請選擇第 7 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": f"A) {f_1_12}",
+        "B": f"B) {f_1_6}",
+        "C": f"C) {f_1_4}",
+        "D": f"D) {f_1_3}"
+    }[x], key="f3_ex1_q7_ans", label_visibility="collapsed")
+    q7_mapping = {"A": f"A) {f_1_12}", "B": f"B) {f_1_6}", "C": f"C) {f_1_4}", "D": f"D) {f_1_3}"}
+    q7 = q7_mapping[q7_choice]
+
     safe_image("images/f3_ex1_q8.png", width=390)
     q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_ex1_q8")
     safe_image("images/f3_ex1_q9.png", width=390)
@@ -406,11 +544,11 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     correct_answers = {
         1: "A) 1.", 
         2: "C) -14", 
-        3: "A) x <= -9/16", 
+        3: f"A) x <= -{f_9_16}", 
         4: "B) 677", 
         5: "C) (x - 3y) / y²",
         6: "D) 130°", 
-        7: "C) 1/4", 
+        7: f"C) {f_1_4}", 
         8: "A) 9.25", 
         9: "D) $34.3", 
         10: "A) BC is an altitude of triangle ABC."
@@ -435,7 +573,6 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     q2 = st.radio("2. Solid consists of a right circular cone and hemisphere with common base. Height = 8 cm, slant height = 10 cm. Find total surface area.", ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), key="f3_t2_q2")
     safe_image("images/f3_t2_q3.png", width=390)
     
-    # 第 3 題：用 st.markdown 獨立輸出靚仔分式標題，下面只揀 A/B/C/D
     st.markdown("""
     <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
         3. Simplify 
@@ -452,7 +589,6 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     """, unsafe_allow_html=True)
     q3 = st.radio("請選擇第 3 題答案：", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3_ans", label_visibility="collapsed")
     
-    # 第 4 題：用 st.markdown 獨立輸出題目，下面只揀 A/B/C/D
     safe_image("images/f3_t2_q4.png", width=390)
     st.markdown("""
     <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">

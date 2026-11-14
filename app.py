@@ -490,6 +490,11 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     f_1_6 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>6</span></span>"
     f_1_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>4</span></span>"
     f_1_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>3</span></span>"
+    f_a_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>a</span><span style='display:block; padding-top:1px;'>5</span></span>"
+    
+    # 新增：第 3 題的分數與不等式格式化
+    f_8_3x_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>8 - 3x</span><span style='display:block; padding-top:1px;'>5</span></span>"
+    f_5_2x_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5 + 2x</span><span style='display:block; padding-top:1px;'>2</span></span>"
 
     st.markdown("1. 3²⁴⁶ × 9⁻¹²³ =", unsafe_allow_html=True)
     q1_choice = st.radio("請選擇第 1 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
@@ -501,16 +506,29 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     q1_mapping = {"A": "A) 1.", "B": "B) -1.", "C": "C) 3¹²³.", "D": f"D) {f_1_3123}."}
     q1 = q1_mapping[q1_choice]
 
-    q2 = st.radio("2. Find the smallest integer a satisfying a/5 - 1 > -4.", ("A) -24", "B) -15", "C) -14", "D) -3"), key="f3_ex1_q2")
+    st.markdown(f"2. Find the smallest integer a satisfying {f_a_5} - 1 > -4.", unsafe_allow_html=True)
+    q2 = st.radio("請選擇第 2 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": "A) -24",
+        "B": "B) -15",
+        "C": "C) -14",
+        "D": "D) -3"
+    }[x], key="f3_ex1_q2_ans", label_visibility="collapsed")
+    q2_mapping = {"A": "A) -24", "B": "B) -15", "C": "C) -14", "D": "D) -3"}
+    q2 = q2_mapping[q2_choice]
     
-    st.markdown("3. Solve the inequality (8 - 3x)/5 >= (5 + 2x)/2.", unsafe_allow_html=True)
+    st.markdown(f"3. Solve the inequality {f_8_3x_5} ≥ {f_5_2x_2}.", unsafe_allow_html=True)
     q3_choice = st.radio("請選擇第 3 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": "A) x <= -9/16",
-        "B": "B) x <= 9/16",
-        "C": "C) x >= -9/16",
-        "D": "D) x >= 9/16"
+        "A": f"A) x <= -9/16",
+        "B": f"B) x <= 9/16",
+        "C": f"C) x >= -9/16",
+        "D": f"D) x >= 9/16"
     }[x], key="f3_ex1_q3_ans", label_visibility="collapsed")
-    q3_mapping = {"A": f"A) x <= -{f_9_16}", "B": f"B) x <= {f_9_16}", "C": f"C) x >= -{f_9_16}", "D": f"D) x >= {f_9_16}"}
+    q3_mapping = {
+        "A": f"A) x <= -{f_9_16}", 
+        "B": f"B) x <= {f_9_16}", 
+        "C": f"C) x >= -{f_9_16}", 
+        "D": f"D) x >= {f_9_16}"
+    }
     q3 = q3_mapping[q3_choice]
 
     q4 = st.radio("4. If the growth rate of a value is 10% per month, and its value after 1 year is 2,125, find the original value correct to 3 significant figures.", ("A) 193", "B) 677", "C) 989", "D) 1,920"), key="f3_ex1_q4")

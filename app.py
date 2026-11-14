@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS：強制全網頁字體一致、優化排版、並將下拉選單文字強制設為黑色
+# 注入自定義 CSS：強制全網頁字體一致、優化排版
 st.markdown("""
 <style>
     /* 全局背景與字體顏色、統一字體系列 (Sans-serif) 確保所有字體完全一致 */
@@ -22,35 +22,6 @@ st.markdown("""
     h1, h2, h3, h4, h5, h6, p, label, span, div {
         color: #ffffff !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    }
-    
-    /* 🎯 專門針對「選擇考試階段」下拉選單：強制背景變白，入面所有文字變黑 */
-    div[data-baseweb="select"] {
-        background-color: #ffffff !important;
-        border-radius: 8px !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    }
-    
-    /* 下拉選單入面選中嘅字體同圖標強制變黑色 */
-    div[data-baseweb="select"] * {
-        color: #000000 !important;
-        -webkit-text-fill-color: #000000 !important;
-    }
-    
-    /* 下拉選單彈出清單（Dropdown Menu / Options）的背景與文字 */
-    div[data-baseweb="popover"], div[data-baseweb="menu"] {
-        background-color: #ffffff !important;
-        border: 1px solid rgba(0, 0, 0, 0.2) !important;
-        border-radius: 8px !important;
-    }
-    div[data-baseweb="menu"] div, div[data-baseweb="menu"] span {
-        color: #000000 !important;
-        -webkit-text-fill-color: #000000 !important;
-    }
-    div[data-baseweb="menu"] div:hover {
-        background-color: #1e3c72 !important;
-        color: #ffffff !important;
-        -webkit-text-fill-color: #ffffff !important;
     }
     
     /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大至 16px、行距拉開 */
@@ -125,7 +96,7 @@ st.markdown("""
 # 第一步：選擇考試階段與年級
 st.subheader("📌 第一步：選擇你的考試階段與年級")
 exam_stage = st.selectbox(
-    "選擇考試階段",
+    "請選擇考試階段：",
     [
         "1st Term Test (第一次測驗)", 
         "1st Exam (上學期考試)", 

@@ -128,7 +128,7 @@ exam_stage = st.selectbox(
         "2nd Exam (下學期考試 / Final)"
     ]
 )
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
 
 st.markdown("---")
 
@@ -453,9 +453,12 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q2.png", width=390)
     q2 = st.radio("2. Solid consists of a right circular cone and hemisphere with common base. Height = 8 cm, slant height = 10 cm. Find total surface area.", ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), key="f3_t2_q2")
     safe_image("images/f3_t2_q3.png", width=390)
-    q3 = st.radio("3. Simplify (cos θ) / (tan²(90° - θ)) - 1 / (sin(90° - θ)).", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3")
+    
+    # ✅ 第 3 題已轉為完美的 HTML 上下分式排版
+    q3 = st.radio("3. Simplify <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>cos θ</span><span style='display: block; padding-top: 2px;'>tan²(90° - θ)</span></span> - <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>1</span><span style='display: block; padding-top: 2px;'>sin(90° - θ)</span></span>.", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3")
+    
     safe_image("images/f3_t2_q4.png", width=390)
-    q4 = st.radio("4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given angle A = 45° and angle C = 30°.", ("A) 1 : 2", "B) √2 / 2", "C) √2 / 4", "D) 4 / √2"), key="f3_t2_q4")
+    q4 = st.radio("4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given angle A = 45° and angle C = 30°.", ("A) 1 : 2", "B) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>√2</span><span style='display: block; padding-top: 2px;'>2</span></span>", "C) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>√2</span><span style='display: block; padding-top: 2px;'>4</span></span>", "D) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>4</span><span style='display: block; padding-top: 2px;'>√2</span></span>"), key="f3_t2_q4")
     safe_image("images/f3_t2_q5.png", width=390)
     q5 = st.radio("5. ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), key="f3_t2_q5")
     safe_image("images/f3_t2_q6.png", width=390)
@@ -471,7 +474,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "C) 68°", 2: "B) 132π cm²", 3: "D) -cos θ", 4: "B) √2 / 2", 5: "D) 1 : 6",
+        1: "C) 68°", 2: "B) 132π cm²", 3: "D) -cos θ", 4: "B) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>√2</span><span style='display: block; padding-top: 2px;'>2</span></span>", 5: "D) 1 : 6",
         6: "A) $112", 7: "B) -2(3x - y)(x - y)", 8: "A) 21 cm²", 9: "C) (8, -7)", 10: "C) -0.0000000000004"
     }
     question_topics = {

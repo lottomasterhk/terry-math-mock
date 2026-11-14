@@ -93,8 +93,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 第一步：改用美觀高質嘅 Radio 揀選考試階段（完全告別死場下拉選單，百分百清晰睇到白字深色底）
-st.subheader("📌 第一步：選擇你的考試階段與年級")
+# 第一步：先揀年級，再揀考試階段（位置已互換）
+st.subheader("📌 第一步：選擇你的年級與考試階段")
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
+
 exam_stage = st.radio(
     "請選擇考試階段：",
     [
@@ -105,8 +107,6 @@ exam_stage = st.radio(
     ],
     horizontal=False
 )
-
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
 
 st.markdown("---")
 

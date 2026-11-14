@@ -109,7 +109,7 @@ st.markdown("""
         同學、家長你好！數學科成日溫到懷疑人生？唔好淨係靠估！與其估自己識唔識，不如直接接受呢個挑戰，用中一至中三<b>全港校本級 10 題實戰真題</b>嚟驗證你嘅真實實力。
     </p>
     <p style="color: #cbd5e0 !important; font-size: 15px; line-height: 1.5; margin-bottom: 0;">
-        💡 <b>夠膽就即刻挑戰，睇下自己離「Level 5 奪 A」仲差幾遠！</b> 如果發現有盲點唔緊要，因為呢度就係你逆轉勝嘅起點。立即開始下方的測試！👇
+        💡 <b>夠膽就即刻挑戰，睇下自己離 "Level 5 奪 A" 仲差幾遠！</b> 如果發現有盲點唔緊要，因為呢度就係你逆轉勝嘅起點。立即開始下方的測試！👇
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -267,10 +267,13 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     q3 = st.radio("3. Find the degree of the expansion of $(x^2 + 2x + 4)(y - 2)$.", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f2_t1_q3")
     q4 = st.radio("4. If $p$ and $q$ are constants such that $(x - p)(x + 5) - 7q \\equiv x^2 + 6x - q - 1$, then $q =$", ("A) -6", "B) -1", "C) 1", "D) 6"), key="f2_t1_q4")
     q5 = st.radio("5. Which of the following are NOT identities?\n\nI. $\\frac{1}{x} - 1 = \\frac{1 - x}{x}$\n\nII. $(x + 1)^2 = x^2 + 1$\n\nIII. $(ax + b)(x - b) = ax^2 - b^2$", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5")
-    # ✅ 修正第 6 題的 LaTeX 語法
-    q6 = st.radio("6. $(-4^{50})^4 \\left(\\frac{1}{64}\\right)^{100} =", ("A) -1", "B) $4^{100}$", "C) $\\frac{1}{4^{100}}$", "D) $-\\frac{1}{4^{200}}$"), key="f2_t1_q6")
-    # ✅ 修正第 7 題的 LaTeX 語法
-    q7 = st.radio("7. If $a \\neq 0$ and $a \\neq 1$, then $\\dfrac{a^{n+1} - a^{n-1}}{a^n - a^{n-1}} =", ("A) 2", "B) $a$", "C) $a + 1$", "D) $a - 1$"), key="f2_t1_q7")
+    
+    # ✅ 第 6 題修正：避開複雜嵌套，確保順利渲染
+    q6 = st.radio("6. $(-4^{50})^4 (1 / 64)^{100} =", ("A) -1", "B) $4^{100}$", "C) $1 / 4^{100}$", "D) $-1 / 4^{200}$"), key="f2_t1_q6")
+    
+    # ✅ 第 7 題修正：將原始碼改為清晰易讀嘅傳統分數排版格式
+    q7 = st.radio("7. If $a \\neq 0$ and $a \\neq 1$, then (a^(n+1) - a^(n-1)) / (a^n - a^(n-1)) =", ("A) 2", "B) $a$", "C) $a + 1$", "D) $a - 1$"), key="f2_t1_q7")
+    
     q8 = st.radio("8. Simplify $\\frac{3}{m - 1} - \\frac{2}{m + 1}$.", ("A) $\\frac{1}{m - 1}$", "B) $\\frac{1}{m + 1}$", "C) $\\frac{m + 5}{m^2 - 1}$", "D) $\\frac{m - 5}{m^2 - 1}$"), key="f2_t1_q8")
     q9 = st.radio("9. Simplify $\\frac{3a^2 + 6ab}{a^2 + 2ab - ab - 2b^2} \\times \\frac{4a - 4b}{9a^2}$.", ("A) $\\frac{4}{3a}$", "B) $\\frac{4a}{3}$", "C) $\\frac{4(a + 2b)}{3a(a^2 + ab - 2b^2)}$", "D) $\\frac{4a(a + 2b)}{3(a^2 + ab - 2b^2)}$"), key="f2_t1_q9")
     q10 = st.radio("10. If $x^2 + y^2 = m$ and $x + y = n$, then $xy =", ("A) $\\frac{1}{2}(n^2 - m)$", "B) $n^2 - m$", "C) $n^2 - \\frac{m}{2}$", "D) $\\frac{n^2}{2} - m$"), key="f2_t1_q10")
@@ -278,7 +281,7 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
         1: "A) 1.25%", 2: "D) $29.35 \\le y < 29.45$", 3: "C) 3", 4: "D) 6", 5: "C) II and III only",
-        6: "C) $\\frac{1}{4^{100}}$", 7: "C) $a + 1$", 8: "C) $\\frac{m + 5}{m^2 - 1}$", 9: "A) $\\frac{4}{3a}$", 10: "A) $\\frac{1}{2}(n^2 - m)$"
+        6: "C) $1 / 4^{100}$", 7: "C) $a + 1$", 8: "C) $\\frac{m + 5}{m^2 - 1}$", 9: "A) $\\frac{4}{3a}$", 10: "A) $\\frac{1}{2}(n^2 - m)$"
     }
     question_topics = {
         1: "誤差與百分誤差計算 (Percentage Errors)", 2: "有效數字與數值範圍 (Significant Figures & Ranges)",

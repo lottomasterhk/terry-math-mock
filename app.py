@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS：優化排版、美化選項卡片、支援靚靚數學分數樣
+# 注入自定義 CSS：優化排版、美化選項卡片，確保所有文字清晰完美
 st.markdown("""
 <style>
     /* 全局背景與字體顏色、統一字體系列 (Sans-serif) 確保所有字體完全一致 */
@@ -124,7 +124,6 @@ st.markdown(f"請認真完成以下精選實戰試題：")
 # 1. 中一 (Form 1)
 # ----------------------------------------------------
 if grade == "中一 (Form 1)" and "1st Term Test" in exam_stage:
-    # 建立靚靚分數 HTML 片段
     f_half = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>2</span></span>"
     f_3_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3</span><span style='display:block; padding-top:1px;'>4</span></span>"
     f_2_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>2</span><span style='display:block; padding-top:1px;'>3</span></span>"
@@ -133,10 +132,10 @@ if grade == "中一 (Form 1)" and "1st Term Test" in exam_stage:
 
     st.markdown(f"1. Arrange the following numbers in descending order: +3, {f_half}, -2.5, 0, -{f_3_4}, +1.2", unsafe_allow_html=True)
     q1_choice = st.radio("請選擇第 1 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) +3 > +1.2 > {f_half} > 0 > -{f_3_4} > -2.5",
-        "B": f"B) +3 > {f_half} > +1.2 > 0 > -{f_3_4} > -2.5",
-        "C": f"C) +3 > +1.2 > {f_half} > 0 > -2.5 > -{f_3_4}",
-        "D": f"D) -2.5 > -{f_3_4} > 0 > {f_half} > +1.2 > +3"
+        "A": f"A) +3 > +1.2 > 1/2 > 0 > -3/4 > -2.5",
+        "B": f"B) +3 > 1/2 > +1.2 > 0 > -3/4 > -2.5",
+        "C": f"C) +3 > +1.2 > 1/2 > 0 > -2.5 > -3/4",
+        "D": f"D) -2.5 > -3/4 > 0 > 1/2 > +1.2 > +3"
     }[x], key="f1_t1_q1_ans", label_visibility="collapsed")
     q1_mapping = {"A": f"A) +3 > +1.2 > {f_half} > 0 > -{f_3_4} > -2.5", "B": f"B) +3 > {f_half} > +1.2 > 0 > -{f_3_4} > -2.5", "C": f"C) +3 > +1.2 > {f_half} > 0 > -2.5 > -{f_3_4}", "D": f"D) -2.5 > -{f_3_4} > 0 > {f_half} > +1.2 > +3"}
     q1 = q1_mapping[q1_choice]
@@ -145,10 +144,10 @@ if grade == "中一 (Form 1)" and "1st Term Test" in exam_stage:
     
     st.markdown(f"3. P is a point on a straight road. At 9:00 a.m., car A departs from P and travels at a speed of t km/h. At 9:30 a.m., car B departs from P and travels in the opposite direction of car A. The speed of car B is {f_2_3} of the speed of car A. Find the distance between the two cars at 11:00 a.m.", unsafe_allow_html=True)
     q3_choice = st.radio("請選擇第 3 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) ({f_2_3})t km",
+        "A": "A) (2/3)t km",
         "B": "B) t km",
         "C": "C) 3t km",
-        "D": f"D) ({f_10_3})t km"
+        "D": "D) (10/3)t km"
     }[x], key="f1_t1_q3_ans", label_visibility="collapsed")
     q3_mapping = {"A": f"A) ({f_2_3})t km", "B": "B) t km", "C": "C) 3t km", "D": f"D) ({f_10_3})t km"}
     q3 = q3_mapping[q3_choice]
@@ -163,9 +162,9 @@ if grade == "中一 (Form 1)" and "1st Term Test" in exam_stage:
     st.markdown(f"10. Harry's mother is m years old now. 5 years ago, Harry's age was {f_2_5} of his mother's age. How old is Harry now?", unsafe_allow_html=True)
     q10_choice = st.radio("請選擇第 10 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
         "A": "A) m - 5",
-        "B": f"B) ({f_2_5})m + 5",
-        "C": f"C) ({f_2_5})(m - 5)",
-        "D": f"D) ({f_2_5})(m - 5) + 5"
+        "B": "B) (2/5)m + 5",
+        "C": "C) (2/5)(m - 5)",
+        "D": "D) (2/5)(m - 5) + 5"
     }[x], key="f1_t1_q10_ans", label_visibility="collapsed")
     q10_mapping = {"A": "A) m - 5", "B": f"B) ({f_2_5})m + 5", "C": f"C) ({f_2_5})(m - 5)", "D": f"D) ({f_2_5})(m - 5) + 5"}
     q10 = q10_mapping[q10_choice]
@@ -282,14 +281,10 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
 elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     f_1_x = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>x</span></span>"
     f_1_minus_x_x = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1 - x</span><span style='display:block; padding-top:1px;'>x</span></span>"
-    f_3_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3</span><span style='display:block; padding-top:1px;'>m - 1</span></span>"
-    f_2_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>2</span><span style='display:block; padding-top:1px;'>m + 1</span></span>"
     f_1_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>m - 1</span></span>"
     f_1_m_1_alt = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>m + 1</span></span>"
     f_m_5_sq = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>m + 5</span><span style='display:block; padding-top:1px;'>m² - 1</span></span>"
     f_m_5_neg = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>m - 5</span><span style='display:block; padding-top:1px;'>m² - 1</span></span>"
-    f_4_3a = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4</span><span style='display:block; padding-top:1px;'>3a</span></span>"
-    f_4a_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4a</span><span style='display:block; padding-top:1px;'>3</span></span>"
     f_half = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>2</span></span>"
 
     q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"), key="f2_t1_q1")
@@ -305,10 +300,10 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     
     st.markdown("8. Simplify 3 / (m - 1) - 2 / (m + 1).", unsafe_allow_html=True)
     q8_choice = st.radio("請選擇第 8 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) {f_1_m_1}",
-        "B": f"B) {f_1_m_1_alt}",
-        "C": f"C) {f_m_5_sq}",
-        "D": f"D) {f_m_5_neg}"
+        "A": "A) 1 / (m - 1)",
+        "B": "B) 1 / (m + 1)",
+        "C": "C) (m + 5) / (m² - 1)",
+        "D": "D) (m - 5) / (m² - 1)"
     }[x], key="f2_t1_q8_ans", label_visibility="collapsed")
     q8_mapping = {"A": f"A) {f_1_m_1}", "B": f"B) {f_1_m_1_alt}", "C": f"C) {f_m_5_sq}", "D": f"D) {f_m_5_neg}"}
     q8 = q8_mapping[q8_choice]
@@ -317,10 +312,10 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     
     st.markdown("10. If x² + y² = m and x + y = n, then xy =", unsafe_allow_html=True)
     q10_choice = st.radio("請選擇第 10 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) ({f_half})(n² - m)",
+        "A": "A) (1/2)(n² - m)",
         "B": "B) n² - m",
         "C": "C) n² - m/2",
-        "D": f"D) ({f_half})n² - m"
+        "D": "D) (n²)/2 - m"
     }[x], key="f2_t1_q10_ans", label_visibility="collapsed")
     q10_mapping = {"A": f"A) ({f_half})(n² - m)", "B": "B) n² - m", "C": "C) n² - m/2", "D": f"D) ({f_half})n² - m"}
     q10 = q10_mapping[q10_choice]
@@ -374,10 +369,10 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
 
     st.markdown("1. If x and y are non-zero numbers such that (4x + 3y) / (3x + 5y) = 5/8, then (3x + y) / (x + 3y) =", unsafe_allow_html=True)
     q1_choice = st.radio("請選擇第 1 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) {f_5_13}",
+        "A": "A) 5/13",
         "B": "B) 1",
-        "C": f"C) {f_4_3}",
-        "D": f"D) {f_13_5}"
+        "C": "C) 4/3",
+        "D": "D) 13/5"
     }[x], key="f2_t2_q1_ans", label_visibility="collapsed")
     q1_mapping = {"A": f"A) {f_5_13}", "B": "B) 1", "C": f"C) {f_4_3}", "D": f"D) {f_13_5}"}
     q1 = q1_mapping[q1_choice]
@@ -461,7 +456,7 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     f_10_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>10</span><span style='display:block; padding-top:1px;'>3</span></span>"
     st.markdown("5. If the base of a triangle is increased by 20% and its height is decreased by m% such that its area will decrease by 4%. Find m.", unsafe_allow_html=True)
     q5_choice = st.radio("請選擇第 5 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) {f_10_3}",
+        "A": "A) 10/3",
         "B": "B) 20",
         "C": "C) 24",
         "D": "D) 80"
@@ -501,7 +496,7 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
         "A": "A) 1.",
         "B": "B) -1.",
         "C": "C) 3¹²³.",
-        "D": f"D) {f_1_3123}."
+        "D": "D) 1 / (3¹²³)."
     }[x], key="f3_ex1_q1_ans", label_visibility="collapsed")
     q1_mapping = {"A": "A) 1.", "B": "B) -1.", "C": "C) 3¹²³.", "D": f"D) {f_1_3123}."}
     q1 = q1_mapping[q1_choice]
@@ -510,10 +505,10 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     
     st.markdown("3. Solve the inequality (8 - 3x)/5 >= (5 + 2x)/2.", unsafe_allow_html=True)
     q3_choice = st.radio("請選擇第 3 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) x <= -{f_9_16}",
-        "B": f"B) x <= {f_9_16}",
-        "C": f"C) x >= -{f_9_16}",
-        "D": f"D) x >= {f_9_16}"
+        "A": "A) x <= -9/16",
+        "B": "B) x <= 9/16",
+        "C": "C) x >= -9/16",
+        "D": "D) x >= 9/16"
     }[x], key="f3_ex1_q3_ans", label_visibility="collapsed")
     q3_mapping = {"A": f"A) x <= -{f_9_16}", "B": f"B) x <= {f_9_16}", "C": f"C) x >= -{f_9_16}", "D": f"D) x >= {f_9_16}"}
     q3 = q3_mapping[q3_choice]
@@ -525,10 +520,10 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     
     st.markdown("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", unsafe_allow_html=True)
     q7_choice = st.radio("請選擇第 7 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": f"A) {f_1_12}",
-        "B": f"B) {f_1_6}",
-        "C": f"C) {f_1_4}",
-        "D": f"D) {f_1_3}"
+        "A": "A) 1/12",
+        "B": "B) 1/6",
+        "C": "C) 1/4",
+        "D": "D) 1/3"
     }[x], key="f3_ex1_q7_ans", label_visibility="collapsed")
     q7_mapping = {"A": f"A) {f_1_12}", "B": f"B) {f_1_6}", "C": f"C) {f_1_4}", "D": f"D) {f_1_3}"}
     q7 = q7_mapping[q7_choice]

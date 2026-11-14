@@ -492,7 +492,6 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     f_1_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>3</span></span>"
     f_a_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>a</span><span style='display:block; padding-top:1px;'>5</span></span>"
     
-    # 新增：第 3 題的分數與不等式格式化
     f_8_3x_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>8 - 3x</span><span style='display:block; padding-top:1px;'>5</span></span>"
     f_5_2x_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5 + 2x</span><span style='display:block; padding-top:1px;'>2</span></span>"
 
@@ -507,7 +506,7 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     q1 = q1_mapping[q1_choice]
 
     st.markdown(f"2. Find the smallest integer a satisfying {f_a_5} - 1 > -4.", unsafe_allow_html=True)
-    q2 = st.radio("請選擇第 2 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+    q2_choice = st.radio("請選擇第 2 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
         "A": "A) -24",
         "B": "B) -15",
         "C": "C) -14",

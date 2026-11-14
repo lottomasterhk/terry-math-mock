@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS：優化排版、並為下拉選單提供高對比深色容器確保白字清晰可見
+# 注入自定義 CSS：強制全網頁字體一致、優化排版
 st.markdown("""
 <style>
     /* 全局背景與字體顏色、統一字體系列 (Sans-serif) 確保所有字體完全一致 */
@@ -22,16 +22,6 @@ st.markdown("""
     h1, h2, h3, h4, h5, h6, p, label, span, div {
         color: #ffffff !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    }
-    
-    /* 🎯 專為下拉選單度身訂造嘅高對比深色包裝卡片，確保白字清晰醒目唔會盲眼 */
-    .select-container {
-        background-color: #162a4d !important;
-        border: 2px solid #f39c12 !important;
-        padding: 15px 20px !important;
-        border-radius: 12px !important;
-        margin-bottom: 20px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
     }
     
     /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大至 16px、行距拉開 */
@@ -103,9 +93,8 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 第一步：選擇考試階段與年級（加上高對比深色卡片包裝）
+# 第一步：選擇考試階段與年級
 st.subheader("📌 第一步：選擇你的考試階段與年級")
-st.markdown('<div class="select-container">', unsafe_allow_html=True)
 exam_stage = st.selectbox(
     "請選擇考試階段：",
     [
@@ -115,8 +104,6 @@ exam_stage = st.selectbox(
         "2nd Exam (下學期考試 / Final)"
     ]
 )
-st.markdown('</div>', unsafe_allow_html=True)
-
 grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
 
 st.markdown("---")

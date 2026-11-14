@@ -450,31 +450,70 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
 elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q1.png", width=390)
     q1 = st.radio("1. In the figure, ABCE is a rectangle, CDEF is a rhombus. If angle FBC = 34°, find angle CDE.", ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), key="f3_t2_q1")
+    
     safe_image("images/f3_t2_q2.png", width=390)
     q2 = st.radio("2. Solid consists of a right circular cone and hemisphere with common base. Height = 8 cm, slant height = 10 cm. Find total surface area.", ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), key="f3_t2_q2")
+    
+    # ✅ 第 3 題：用 st.markdown 獨立輸出靚仔分式標題，下面只揀 A/B/C/D
     safe_image("images/f3_t2_q3.png", width=390)
+    st.markdown("""
+    <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
+        3. Simplify 
+        <span style='display: inline-block; vertical-align: middle; text-align: center; margin: 0 4px;'>
+            <span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>cos θ</span>
+            <span style='display: block; padding-top: 2px;'>tan²(90° - θ)</span>
+        </span>
+        - 
+        <span style='display: inline-block; vertical-align: middle; text-align: center; margin: 0 4px;'>
+            <span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>1</span>
+            <span style='display: block; padding-top: 2px;'>sin(90° - θ)</span>
+        </span>.
+    </div>
+    """, unsafe_allow_html=True)
+    q3 = st.radio("請選擇第 3 題答案：", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3_ans", label_visibility="collapsed")
     
-    # ✅ 第 3 題已轉為完美的 HTML 上下分式排版
-    q3 = st.radio("3. Simplify <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>cos θ</span><span style='display: block; padding-top: 2px;'>tan²(90° - θ)</span></span> - <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>1</span><span style='display: block; padding-top: 2px;'>sin(90° - θ)</span></span>.", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3")
-    
+    # ✅ 第 4 題：用 st.markdown 獨立輸出題目，下面只揀 A/B/C/D
     safe_image("images/f3_t2_q4.png", width=390)
-    q4 = st.radio("4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given angle A = 45° and angle C = 30°.", ("A) 1 : 2", "B) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>√2</span><span style='display: block; padding-top: 2px;'>2</span></span>", "C) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>√2</span><span style='display: block; padding-top: 2px;'>4</span></span>", "D) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>4</span><span style='display: block; padding-top: 2px;'>√2</span></span>"), key="f3_t2_q4")
+    st.markdown("""
+    <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
+        4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given angle A = 45° and angle C = 30°.
+    </div>
+    """, unsafe_allow_html=True)
+    
+    opt_b_html = "<span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 1px;'>√2</span><span style='display: block; padding-top: 1px;'>2</span></span>"
+    opt_c_html = "<span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 1px;'>√2</span><span style='display: block; padding-top: 1px;'>4</span></span>"
+    opt_d_html = "<span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 1px;'>4</span><span style='display: block; padding-top: 1px;'>√2</span></span>"
+    
+    q4_choice = st.radio("請選擇第 4 題答案：", ("A) 1 : 2", "B) √2 / 2", "C) √2 / 4", "D) 4 / √2"), key="f3_t2_q4_ans", label_visibility="collapsed")
+    q4_mapping = {
+        "A) 1 : 2": "A) 1 : 2",
+        "B) √2 / 2": f"B) {opt_b_html}",
+        "C) √2 / 4": f"C) {opt_c_html}",
+        "D) 4 / √2": f"D) {opt_d_html}"
+    }
+    q4 = q4_mapping[q4_choice]
+
     safe_image("images/f3_t2_q5.png", width=390)
     q5 = st.radio("5. ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), key="f3_t2_q5")
+    
     safe_image("images/f3_t2_q6.png", width=390)
     q6 = st.radio("6. Paul deposited $65,000 at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year?", ("A) $112", "B) $2,746", "C) $2,858", "D) $5,604"), key="f3_t2_q6")
+    
     safe_image("images/f3_t2_q7.png", width=390)
     q7 = st.radio("7. Factorize 8xy - 6x² - 2y².", ("A) -2(x - y)(4x + y)", "B) -2(3x - y)(x - y)", "C) (x - y)(4x + y)", "D) (3x - y)(x - y)"), key="f3_t2_q7")
+    
     safe_image("images/f3_t2_q8.png", width=390)
     q8 = st.radio("8. BCDE is a parallelogram. G is mid-point of CD. AG and BE intersect at F. CB produced to A so area triangle ABF : area triangle ACG = 4 : 9. Area triangle ABF = 12 cm², find area DEFG.", ("A) 21 cm²", "B) 27 cm²", "C) 36 cm²", "D) 42 cm²"), key="f3_t2_q8")
+    
     safe_image("images/f3_t2_q9.png", width=390)
     q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
+    
     safe_image("images/f3_t2_q10.png", width=390)
     q10 = st.radio("10. Which of the following numbers is the smallest?", ("A) -4⁻⁴ × 10⁻¹⁰", "B) (-4)⁻⁴ × 10⁻¹⁰", "C) -0.0000000000004", "D) -3 / 12¹²"), key="f3_t2_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "C) 68°", 2: "B) 132π cm²", 3: "D) -cos θ", 4: "B) <span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>√2</span><span style='display: block; padding-top: 2px;'>2</span></span>", 5: "D) 1 : 6",
+        1: "C) 68°", 2: "B) 132π cm²", 3: "D) -cos θ", 4: f"B) {opt_b_html}", 5: "D) 1 : 6",
         6: "A) $112", 7: "B) -2(3x - y)(x - y)", 8: "A) 21 cm²", 9: "C) (8, -7)", 10: "C) -0.0000000000004"
     }
     question_topics = {
@@ -584,7 +623,7 @@ if submit_btn:
         st.markdown("### 🎯 弱項診斷：")
         st.markdown("🏆 **完美滿分！** 你喺今次測驗中所有題目全部答對，冇任何失分弱項，請繼續保持！")
 
-# 品牌宣傳區與 Facebook 專頁聯結
+# 品牌宣傳區與 [Terry Sir 數學專科教室](https://www.facebook.com/terrysir) 專頁聯結
 st.markdown("---")
 st.markdown(f"### 🌟 關於 [Terry Sir 數學專科教室](https://www.facebook.com/terrysir)")
 st.markdown("""

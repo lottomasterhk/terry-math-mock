@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 注入自定義 CSS：強制全網頁字體一致、優化排版
+# 注入自定義 CSS：優化排版、全面美化選項卡片，確保所有文字清晰完美
 st.markdown("""
 <style>
     /* 全局背景與字體顏色、統一字體系列 (Sans-serif) 確保所有字體完全一致 */
@@ -24,7 +24,7 @@ st.markdown("""
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
     }
     
-    /* 讓 radio 按鈕入面嘅選項文字清晰顯示、字體加大至 16px、行距拉開 */
+    /* 讓所有 radio 按鈕入面嘅選項文字清晰顯示、字體加大至 16px、行距拉開 */
     .stRadio label p {
         color: #ffffff !important;
         font-size: 16px !important;
@@ -93,17 +93,19 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 第一步：選擇考試階段與年級
+# 第一步：改用美觀高質嘅 Radio 揀選考試階段（完全告別死場下拉選單，百分百清晰睇到白字深色底）
 st.subheader("📌 第一步：選擇你的考試階段與年級")
-exam_stage = st.selectbox(
+exam_stage = st.radio(
     "請選擇考試階段：",
     [
         "1st Term Test (第一次測驗)", 
         "1st Exam (上學期考試)", 
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
-    ]
+    ],
+    horizontal=False
 )
+
 grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
 
 st.markdown("---")

@@ -125,7 +125,7 @@ exam_stage = st.selectbox(
         "2nd Exam (下學期考試 / Final)"
     ]
 )
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
 
 st.markdown("---")
 
@@ -265,10 +265,12 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     q1 = st.radio("1. The height of a door is measured as 2.00 m, correct to the nearest 0.05 m. Find the percentage error.", ("A) 1.25%", "B) 2.5%", "C) 12.5%", "D) 25%"), key="f2_t1_q1")
     q2 = st.radio("2. If $y = 29.4$ (correct to 3 significant figures), find the range of values of $y$.", ("A) $29.3 < y \\le 29.5$", "B) $29.3 \\le y < 29.5$", "C) $29.35 < y \\le 29.45$", "D) $29.35 \\le y < 29.45$"), key="f2_t1_q2")
     q3 = st.radio("3. Find the degree of the expansion of $(x^2 + 2x + 4)(y - 2)$.", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f2_t1_q3")
-    q4 = st.radio("4. If $p$ and $q$ are constants such that $(x - p)(x + 5) - 7q \\equiv x^2 + 6x - q - 1$, then $q =$?", ("A) -6", "B) -1", "C) 1", "D) 6"), key="f2_t1_q4")
+    q4 = st.radio("4. If $p$ and $q$ are constants such that $(x - p)(x + 5) - 7q \\equiv x^2 + 6x - q - 1$, then $q =$", ("A) -6", "B) -1", "C) 1", "D) 6"), key="f2_t1_q4")
     q5 = st.radio("5. Which of the following are NOT identities?\n\nI. $\\frac{1}{x} - 1 = \\frac{1 - x}{x}$\n\nII. $(x + 1)^2 = x^2 + 1$\n\nIII. $(ax + b)(x - b) = ax^2 - b^2$", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5")
-    q6 = st.radio("6. $(-4^{50})^4 (\\frac{1}{64})^{100} =", ("A) -1", "B) $4^{100}$", "C) $\\frac{1}{4^{100}}$", "D) $-\\frac{1}{4^{200}}$"), key="f2_t1_q6")
-    q7 = st.radio("7. If $a \\neq 0$ and $a \\neq 1$, then $\\frac{a^{n+1} - a^{n-1}}{a^n - a^{n-1}} =", ("A) 2", "B) $a$", "C) $a + 1$", "D) $a - 1$"), key="f2_t1_q7")
+    # ✅ 修正第 6 題的 LaTeX 語法
+    q6 = st.radio("6. $(-4^{50})^4 \\left(\\frac{1}{64}\\right)^{100} =", ("A) -1", "B) $4^{100}$", "C) $\\frac{1}{4^{100}}$", "D) $-\\frac{1}{4^{200}}$"), key="f2_t1_q6")
+    # ✅ 修正第 7 題的 LaTeX 語法
+    q7 = st.radio("7. If $a \\neq 0$ and $a \\neq 1$, then $\\dfrac{a^{n+1} - a^{n-1}}{a^n - a^{n-1}} =", ("A) 2", "B) $a$", "C) $a + 1$", "D) $a - 1$"), key="f2_t1_q7")
     q8 = st.radio("8. Simplify $\\frac{3}{m - 1} - \\frac{2}{m + 1}$.", ("A) $\\frac{1}{m - 1}$", "B) $\\frac{1}{m + 1}$", "C) $\\frac{m + 5}{m^2 - 1}$", "D) $\\frac{m - 5}{m^2 - 1}$"), key="f2_t1_q8")
     q9 = st.radio("9. Simplify $\\frac{3a^2 + 6ab}{a^2 + 2ab - ab - 2b^2} \\times \\frac{4a - 4b}{9a^2}$.", ("A) $\\frac{4}{3a}$", "B) $\\frac{4a}{3}$", "C) $\\frac{4(a + 2b)}{3a(a^2 + ab - 2b^2)}$", "D) $\\frac{4a(a + 2b)}{3(a^2 + ab - 2b^2)}$"), key="f2_t1_q9")
     q10 = st.radio("10. If $x^2 + y^2 = m$ and $x + y = n$, then $xy =", ("A) $\\frac{1}{2}(n^2 - m)$", "B) $n^2 - m$", "C) $n^2 - \\frac{m}{2}$", "D) $\\frac{n^2}{2} - m$"), key="f2_t1_q10")

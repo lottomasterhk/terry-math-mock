@@ -40,32 +40,25 @@ st.markdown("""
         margin-bottom: 15px;
     }
     
-    /* 自訂極致顯眼嘅 HTML 提交按鈕：強制 36px 特大字體、置中、兩行 */
-    .custom-submit-btn {
-        display: block !important;
+    /* 單一完美 Streamlit Primary 按鈕：強制 32px 字體、置中、兩行、去除多餘外框 */
+    div.stButton > button[kind="primary"] {
         width: 100% !important;
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
         color: white !important;
-        font-size: 36px !important;
+        font-size: 32px !important;
         font-weight: 800 !important;
         text-align: center !important;
         padding: 22px 24px !important;
         border-radius: 12px !important;
         border: 2px solid rgba(255, 255, 255, 0.5) !important;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-        text-decoration: none !important;
         line-height: 1.4 !important;
-        cursor: pointer;
-        transition: 0.3s;
+        white-space: pre-wrap !important;
+        height: auto !important;
     }
-    .custom-submit-btn:hover {
+    div.stButton > button[kind="primary"]:hover {
         background: linear-gradient(90deg, #2a5298 100%, #3a7bd5 100%) !important;
         border-color: #f39c12 !important;
-    }
-    
-    /* 隱藏 Streamlit Form 帶黎嘅多餘按鈕外框 */
-    div[data-testid="stForm"] button[kind="secondary"] {
-        display: none !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -694,16 +687,8 @@ else:
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
     }
 
-# ==================== 用 HTML Form + Form Submit 確保按鈕 100% 點擊有效 ====================
-with st.form(key="mock_submit_form"):
-    st.markdown("""
-        <div style="text-align: center;">
-            <button type="submit" class="custom-submit-btn">
-                🚀 按此立即提交<br>並生成我的 Mock 考試預測報告！
-            </button>
-        </div>
-    """, unsafe_allow_html=True)
-    submit_clicked = st.form_submit_button(label="", use_container_width=True)
+# ==================== 單一原生按鈕 (32px，乾淨俐落) ====================
+submit_clicked = st.button("🚀 按此立即提交\n並生成我的 Mock 考試預測報告！", type="primary")
 
 if submit_clicked:
     score = 0

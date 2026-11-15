@@ -68,10 +68,7 @@ def safe_image(img_path, width=390):
 # 頁面頂部品牌視覺宣傳標題
 st.markdown("""
 <div style="text-align: center; padding: 10px 0;">
-    <span style="background: rgba(243, 156, 18, 0.2); color: #f39c12 !important; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid rgba(243, 156, 18, 0.4);">
-        🧠 NLP 心理引導 × 中大數學專業培訓
-    </span>
-    <h1 style="margin-top: 15px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】Terry Sir - 初中數學專科教室</h1>
+    <h1 style="margin-top: 5px; font-size: 30px; font-weight: 800; color: #ffffff !important;">【中大數學】Terry Sir - 初中數學專科教室</h1>
     <p style="color: #cbd5e0 !important; font-size: 15px; max-width: 650px; margin: 0 auto;">
         核心理念：不只教公式，用 NLP 心理引導幫孩子解開數學心結，由根基打起，重拾信心奪 A！ ✨
     </p>
@@ -687,10 +684,8 @@ else:
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
     }
 
-st.markdown("---")
-
-# 提交按鈕與動態計分運算
-submit_btn = st.button("🚀 立即生成我的 Mock 考試預測報告！", type="primary")
+# 提交按鈕與動態計分運算 (取消上方橫線，直接緊貼最後一題)
+submit_btn = st.button("🚀 立即提交，並生成我的 Mock 考試預測報告！", type="primary")
 
 if submit_btn:
     score = 0

@@ -40,19 +40,19 @@ st.markdown("""
         margin-bottom: 15px;
     }
     
-    /* 完美修正 Streamlit 原生 primary 按鈕：強制兩行、字體 29px、置中顯示 */
+    /* 完美修正 Streamlit 原生 primary 按鈕：強制兩行、字體 36px、置中顯示 */
     div.stButton > button[kind="primary"] {
         width: 100% !important;
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
         color: white !important;
-        font-size: 29px !important;
+        font-size: 36px !important;
         font-weight: bold !important;
         text-align: center !important;
-        padding: 18px 24px !important;
-        border-radius: 10px !important;
+        padding: 20px 24px !important;
+        border-radius: 12px !important;
         border: 1px solid rgba(255, 255, 255, 0.4) !important;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-        line-height: 1.5 !important;
+        line-height: 1.4 !important;
         white-space: pre-wrap !important;
         height: auto !important;
     }
@@ -687,7 +687,7 @@ else:
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
     }
 
-# ==================== 單一完美主按鈕 (連埋文字，兩行置中) ====================
+# ==================== 單一極大字體 (36px) 主按鈕 ====================
 submit_clicked = st.button("🚀 按此立即提交\n並生成我的 Mock 考試預測報告！", type="primary")
 
 if submit_clicked:

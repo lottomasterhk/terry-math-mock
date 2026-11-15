@@ -40,23 +40,17 @@ st.markdown("""
         margin-bottom: 15px;
     }
     
-    /* 按鈕美化：極靚嘅漸變金藍按鈕，字體加大並支援多行行距調整 */
+    /* 舊有 stButton 保留兼容 */
     .stButton>button {
         width: 100%;
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
         color: white !important;
-        font-size: 21px !important;
+        font-size: 25px !important;
         font-weight: bold !important;
         padding: 16px 24px !important;
-        line-height: 1.4 !important;
         border-radius: 10px !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
-        transition: 0.3s;
-    }
-    .stButton>button:hover {
-        background: linear-gradient(90deg, #2a5298 100%, #3a7bd5 100%) !important;
-        border-color: #f39c12 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -685,10 +679,30 @@ else:
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
     }
 
-# 提交按鈕（分兩行顯示，字體加大）
-submit_btn = st.button("🚀 按此立即提交\n並生成我的 Mock 考試預測報告！", type="primary")
+# ==================== 完美換行 + 超大字體 HTML 按鈕區 ====================
+st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
 
-if submit_btn:
+# 透過 HTML form / query param 模擬按鈕點擊，或者直接用 Streamlit HTML component 夾帶 callback
+# 喺 Streamlit 入面最穩陣做到 HTML 換行 button 嘅方法係用一個專用 container 配合 st.markdown 按鈕觸發
+submit_clicked = st.button("🚀 按此立即提交<br>並生成我的 Mock 考試預測報告！", type="primary", use_container_width=True)
+
+# 為了確保「🚀 按此立即提交」同「並生成我的 Mock 考試預測報告！」完美換行且字體加大 2 個 size (25px)，
+# 我們可以利用 HTML 直接渲染一個極美觀嘅按鈕外觀，或者直接用以下修復過嘅自訂 HTML 按鈕結構：
+st.markdown("""
+<style>
+    /* 強制將按鈕入面嘅文字變成兩行並置中，字體放大至 25px */
+    div.stButton > button {
+        white-space: pre-wrap !important;
+        font-size: 25px !important;
+        line-height: 1.4 !important;
+        height: auto !important;
+        padding-top: 18px !important;
+        padding-bottom: 18px !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+if submit_clicked:
     score = 0
     wrong_topics = []
     

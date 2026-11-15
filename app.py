@@ -40,14 +40,15 @@ st.markdown("""
         margin-bottom: 15px;
     }
     
-    /* 按鈕美化：極靚嘅漸變金藍按鈕 */
+    /* 按鈕美化：極靚嘅漸變金藍按鈕，字體加大並支援多行行距調整 */
     .stButton>button {
         width: 100%;
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
         color: white !important;
-        font-size: 18px !important;
+        font-size: 21px !important;
         font-weight: bold !important;
-        padding: 14px 24px !important;
+        padding: 16px 24px !important;
+        line-height: 1.4 !important;
         border-radius: 10px !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
@@ -684,8 +685,8 @@ else:
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
     }
 
-# 提交按鈕與動態計分運算 (取消上方橫線，直接緊貼最後一題)
-submit_btn = st.button("🚀 立即提交，並生成我的 Mock 考試預測報告！", type="primary")
+# 提交按鈕（分兩行顯示，字體加大）
+submit_btn = st.button("🚀 按此立即提交\n並生成我的 Mock 考試預測報告！", type="primary")
 
 if submit_btn:
     score = 0

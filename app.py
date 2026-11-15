@@ -40,12 +40,12 @@ st.markdown("""
         margin-bottom: 15px;
     }
     
-    /* 完美修正 Streamlit 原生 primary 按鈕：強制兩行、字體 25px、置中顯示 */
+    /* 完美修正 Streamlit 原生 primary 按鈕：強制兩行、字體 29px、置中顯示 */
     div.stButton > button[kind="primary"] {
         width: 100% !important;
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
         color: white !important;
-        font-size: 25px !important;
+        font-size: 29px !important;
         font-weight: bold !important;
         text-align: center !important;
         padding: 18px 24px !important;

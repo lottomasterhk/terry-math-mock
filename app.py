@@ -39,6 +39,27 @@ st.markdown("""
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         margin-bottom: 15px;
     }
+    
+    /* 完美修正 Streamlit 原生 primary 按鈕：強制兩行、字體 25px、置中顯示 */
+    div.stButton > button[kind="primary"] {
+        width: 100% !important;
+        background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
+        color: white !important;
+        font-size: 25px !important;
+        font-weight: bold !important;
+        text-align: center !important;
+        padding: 18px 24px !important;
+        border-radius: 10px !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+        line-height: 1.5 !important;
+        white-space: pre-wrap !important;
+        height: auto !important;
+    }
+    div.stButton > button[kind="primary"]:hover {
+        background: linear-gradient(90deg, #2a5298 100%, #3a7bd5 100%) !important;
+        border-color: #f39c12 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -666,54 +687,8 @@ else:
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
     }
 
-# ==================== 完美置中 + 上下兩行 + 特大字體 HTML 按鈕區 ====================
-st.markdown("""
-<style>
-    /* 自訂極致顯眼嘅 HTML 按鈕外觀：字體加大、置中、強制兩行、靚麗漸變背景 */
-    .custom-submit-btn {
-        display: block;
-        width: 100%;
-        background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
-        color: white !important;
-        font-size: 25px !important;
-        font-weight: bold !important;
-        text-align: center !important;
-        padding: 18px 24px !important;
-        border-radius: 10px !important;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-        text-decoration: none !important;
-        line-height: 1.5 !important;
-        margin-top: 15px;
-        margin-bottom: 25px;
-        transition: 0.3s;
-    }
-    .custom-submit-btn:hover {
-        background: linear-gradient(90deg, #2a5298 100%, #3a7bd5 100%) !important;
-        border-color: #f39c12 !important;
-    }
-</style>
-""", unsafe_allow_html=True)
-
-# 透過 Streamlit form 結合 HTML 按鈕實現點擊觸發
-with st.form(key="mock_submit_form"):
-    st.markdown("""
-        <div style="text-align: center;">
-            <button type="submit" class="custom-submit-btn">
-                🚀 按此立即提交<br>並生成我的 Mock 考試預測報告！
-            </button>
-        </div>
-    """, unsafe_allow_html=True)
-    submit_clicked = st.form_submit_button(label="", use_container_width=True)
-
-# 為了隱藏 Form 帶黎嘅預設空白按鈕框，可以用 CSS 隱藏 form submit button
-st.markdown("""
-<style>
-    div[data-testid="stForm"] button[kind="secondary"] {
-        display: none !important;
-    }
-</style>
-""", unsafe_allow_html=True)
+# ==================== 單一完美主按鈕 (連埋文字，兩行置中) ====================
+submit_clicked = st.button("🚀 按此立即提交\n並生成我的 Mock 考試預測報告！", type="primary")
 
 if submit_clicked:
     score = 0

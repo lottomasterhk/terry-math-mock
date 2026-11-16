@@ -337,7 +337,6 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     st.markdown(f"5. Which of the following are NOT identities?\n\nI. ({f_1_x}) - 1 = {f_1_minus_x_x}\n\nII. (x + 1)² = x² + 1\n\nIII. (ax + b)(x - b) = ax² - b²", unsafe_allow_html=True)
     q5 = st.radio("5.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5", label_visibility="collapsed")
     
-    # 第 6 題精確還原圖中形式，外加完整括號包住 (1/64)¹⁰⁰
     f_minus_4_50_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'>(-4<sup>50</sup>)<sup>4</sup></span>"
     f_fraction_inner = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>64</span></span>"
     f_1_64_100 = f"<span style='display:inline-block; vertical-align:middle; text-align:center;'>( {f_fraction_inner} )<sup>100</sup></span>"
@@ -346,7 +345,10 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     
     q7 = st.radio("7. If a ≠ 0 and a ≠ 1, then (aⁿ⁺¹ - aⁿ⁻¹) / (aⁿ - aⁿ⁻¹) =", ("A) 2", "B) a", "C) a + 1", "D) a - 1"), key="f2_t1_q7")
     
-    st.markdown("8. Simplify 3 / (m - 1) - 2 / (m + 1).", unsafe_allow_html=True)
+    # 第 8 題精確還原上下直式分數排版
+    f_3_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3</span><span style='display:block; padding-top:1px;'>m - 1</span></span>"
+    f_2_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>2</span><span style='display:block; padding-top:1px;'>m + 1</span></span>"
+    st.markdown(f"8. Simplify {f_3_m_1} - {f_2_m_1}.", unsafe_allow_html=True)
     q8_choice = st.radio("請選擇第 8 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
         "A": "A) 1 / (m - 1)",
         "B": "B) 1 / (m + 1)",
@@ -356,7 +358,6 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     q8_mapping = {"A": f"A) {f_1_m_1}", "B": f"B) {f_1_m_1_alt}", "C": f"C) {f_m_5_sq}", "D": f"D) {f_m_5_neg}"}
     q8 = q8_mapping[q8_choice]
 
-    # 第 9 題圖中精確的分數排版形式
     f_frac_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3<i>a</i>² + 6<i>ab</i></span><span style='display:block; padding-top:1px;'><i>a</i>² + 2<i>ab</i> - <i>ab</i> - 2<i>b</i>²</span></span>"
     f_frac_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4<i>a</i> - 4<i>b</i></span><span style='display:block; padding-top:1px;'>9<i>a</i>²</span></span>"
     st.markdown(f"9. Simplify {f_frac_1} × {f_frac_2}.", unsafe_allow_html=True)
@@ -864,6 +865,6 @@ st.markdown(f"""
 
 st.markdown("---")
 st.markdown(
-    "<p style='text-align: center; color: #cbd5e0 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 中學數學專科. All Rights Reserved.</p>", 
+    "<p style='text-align: center; color: #cbd50 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 中學數學專科. All Rights Reserved.</p>", 
     unsafe_allow_html=True
 )

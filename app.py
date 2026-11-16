@@ -95,7 +95,7 @@ st.markdown("""
 
 # 第一步：先揀年級，再揀考試階段
 st.subheader("📌 第一步：選擇你的年級與考試階段")
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=0, horizontal=True)
 
 exam_stage = st.radio(
     "請選擇考試階段：",
@@ -105,6 +105,7 @@ exam_stage = st.radio(
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
     ],
+    index=3,
     horizontal=False
 )
 
@@ -230,7 +231,6 @@ elif grade == "中一 (Form 1)" and "2nd Term Test" in exam_stage:
     q10 = st.radio("10. In the figure, BCF and CDE are straight lines. Find x.", ("A) 90°", "B) 100°", "C) 110°", "D) 130°"), key="f1_t2_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
-    # 已修正第 6 題 (-5 對應 D)、第 8 題 (I and II only 對應 A)、第 10 題 (90° 對應 A)
     correct_answers = {
         1: "D) II and III only", 2: "D) 40 cm²", 3: "B) 575 cm²", 4: "B) 180°", 5: "A) 17.5 sq. units",
         6: "D) -5", 7: "A) (-3, -4)", 8: "A) I and II only", 9: "C) I and III only", 10: "A) 90°"
@@ -255,17 +255,59 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
     safe_image("images/f1_fin_q6.png", width=390)
     q6 = st.radio("6. The broken line graphs below show the profits of shop A and shop B in the first half of 2019.\n\nIn how many months is the profit of shop A lower than that of shop B?", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f1_fin_q6")
     q7 = st.radio("7. Determine whether the following are discrete data or continuous data?\n\nI. The daily rainfalls of city A in July.\n\nII. The number of rainy days of city A in 2019.", ("A) continuous data / discrete data", "B) continuous data / continuous data", "C) discrete data / discrete data", "D) discrete data / continuous data"), key="f1_fin_q7")
+    
     safe_image("images/f1_fin_q8.png", width=390)
-    q8 = st.radio("8. In the figure, ADB is a straight line. Which of the following must be true?", ("A) triangle ABC ~ triangle ACD (3 sides proportional)", "B) triangle ABC ~ triangle ACD (ratio of 2 sides, inc. angle)", "C) triangle ABC ~ triangle CBD (3 sides proportional)", "D) triangle ABC ~ triangle CBD (ratio of 2 sides, inc. angle)"), key="f1_fin_q8")
+    q8 = st.radio("8. In the figure, ADB is a straight line. Which of the following must be true?", (
+        "A) △ABC ~ △ACD (3 sides proportional)", 
+        "B) △ABC ~ △ACD (ratio of 2 sides, inc. angle)", 
+        "C) △ABC ~ △CBD (3 sides proportional)", 
+        "D) △ABC ~ △CBD (ratio of 2 sides, inc. angle)"
+    ), format_func=lambda x: {
+        "A) △ABC ~ △ACD (3 sides proportional)": "A) $\\triangle ABC \\sim \\triangle ACD$ (3 sides proportional)",
+        "B) △ABC ~ △ACD (ratio of 2 sides, inc. angle)": "B) $\\triangle ABC \\sim \\triangle ACD$ (ratio of 2 sides, inc. angle)",
+        "C) △ABC ~ △CBD (3 sides proportional)": "C) $\\triangle ABC \\sim \\triangle CBD$ (3 sides proportional)",
+        "D) △ABC ~ △CBD (ratio of 2 sides, inc. angle)": "D) $\\triangle ABC \\sim \\triangle CBD$ (ratio of 2 sides, inc. angle)"
+    }[x], key="f1_fin_q8")
+
     safe_image("images/f1_fin_q9.png", width=390)
-    q9 = st.radio("9. Refer to the figure. Which of the following must be true?\n\nI. triangle QPR congruent to triangle SRP\n\nII. x = 5\n\nIII. y = 20°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f1_fin_q9")
+    q9 = st.radio("9. Refer to the figure. Which of the following must be true?\n\nI. △QPR ≅ △SRP\n\nII. x = 5\n\nIII. y = 20°", (
+        "A) I and II only", 
+        "B) I and III only", 
+        "C) II and III only", 
+        "D) I, II and III"
+    ), format_func=lambda x: {
+        "A) I and II only": "A) I and II only ($\\triangle QPR \\cong \\triangle SRP$)",
+        "B) I and III only": "B) I and III only",
+        "C) II and III only": "C) II and III only",
+        "D) I, II and III": "D) I, II and III"
+    }[x], key="f1_fin_q9")
+
     safe_image("images/f1_fin_q10.png", width=390)
-    q10 = st.radio("10. Which of the following must be true?", ("A) triangle ABC congruent to triangle DEF (SSA)", "B) triangle ABC congruent to triangle DEF (SAS)", "C) triangle ABC congruent to triangle PQR (SAS)", "D) None of the above"), key="f1_fin_q10")
+    q10 = st.radio("10. Which of the following must be true?", (
+        "A) △ABC ≅ △DEF (SSA)", 
+        "B) △ABC ≅ △DEF (SAS)", 
+        "C) △ABC ≅ △PQR (SAS)", 
+        "D) None of the above"
+    ), format_func=lambda x: {
+        "A) △ABC ≅ △DEF (SSA)": "A) $\\triangle ABC \\cong \\triangle DEF$ (SSA)",
+        "B) △ABC ≅ △DEF (SAS)": "B) $\\triangle ABC \\cong \\triangle DEF$ (SAS)",
+        "C) △ABC ≅ △PQR (SAS)": "C) $\\triangle ABC \\cong \\triangle PQR$ (SAS)",
+        "D) None of the above": "D) None of the above"
+    }[x], key="f1_fin_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+    # 按照你指示修正第 8 題選 B、第 9 題選 A、第 10 題選 D
     correct_answers = {
-        1: "C) 10 cm", 2: "B) 3", 3: "D) 14 cm²", 4: "C) 3", 5: "D) 0.014916 (correct to 6 decimal places)",
-        6: "B) 3", 7: "A) continuous data / discrete data", 8: "D) triangle ABC ~ triangle CBD (ratio of 2 sides, inc. angle)", 9: "D) I, II and III", 10: "C) triangle ABC congruent to triangle PQR (SAS)"
+        1: "C) 10 cm", 
+        2: "B) 3", 
+        3: "D) 14 cm²", 
+        4: "C) 3", 
+        5: "D) 0.014916 (correct to 6 decimal places)",
+        6: "B) 3", 
+        7: "A) continuous data / discrete data", 
+        8: "B) △ABC ~ △ACD (ratio of 2 sides, inc. angle)", 
+        9: "A) I and II only", 
+        10: "D) None of the above"
     }
     question_topics = {
         1: "正方棱柱體積與表面積 (Square Prisms)", 2: "坐標平面三角形面積反算 (Triangle Areas in Coordinates)",
@@ -396,9 +438,32 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
     safe_image("images/f2_t2_q7.png", width=390)
     q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
     safe_image("images/f2_t2_q8.png", width=390)
-    q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that angle PSQ = angle SPR and angle PQS = angle SRP. Which of the following must be true?\n\nI. Deduce triangle QPS congruent to triangle RSP\n\nII. triangle PTS ~ triangle QTR\n\nIII. PS || QR", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q8")
+    
+    q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that angle PSQ = angle SPR and angle PQS = angle SRP. Which of the following must be true?\n\nI. △QPS ≅ △RSP\n\nII. △PTS ~ △QTR\n\nIII. PS || QR", (
+        "A) I and II only", 
+        "B) I and III only", 
+        "C) II and III only", 
+        "D) I, II and III"
+    ), format_func=lambda x: {
+        "A) I and II only": "A) I and II only",
+        "B) I and III only": "B) I and III only",
+        "C) II and III only": "C) II and III only",
+        "D) I, II and III": "D) I, II and III ($\\triangle QPS \\cong \\triangle RSP$, $\\triangle PTS \\sim \\triangle QTR$)"
+    }[x], key="f2_t2_q8")
+
     safe_image("images/f2_t2_q9.png", width=390)
-    q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC || FD and AF || CD. Which of the following must be true?\n\nI. triangle ABF congruent to triangle EFB\n\nII. triangle EFB congruent to triangle EDB\n\nIII. triangle CBD congruent to triangle ABF", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_t2_q9")
+    q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC || FD and AF || CD. Which of the following must be true?\n\nI. △ABF ≅ △EFB\n\nII. △EFB ≅ △EDB\n\nIII. △CBD ≅ △ABF", (
+        "A) I only", 
+        "B) II only", 
+        "C) I and III only", 
+        "D) II and III only"
+    ), format_func=lambda x: {
+        "A) I only": "A) I only",
+        "B) II only": "B) II only",
+        "C) I and III only": "C) I and III only ($\\triangle ABF \\cong \\triangle EFB$, $\\triangle CBD \\cong \\triangle ABF$)",
+        "D) II and III only": "D) II and III only"
+    }[x], key="f2_t2_q9")
+
     safe_image("images/f2_t2_q10.png", width=390)
     q10 = st.radio("10. In the figure, ABCD is a square and triangle CED is an equilateral triangle. If DE = DG and DG || EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="f2_t2_q10")
 
@@ -424,7 +489,19 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     q5 = st.radio("5. A square and an isosceles triangle have the same perimeter 100 cm. If the base of the isosceles triangle is 18 cm, how much greater is the area of the square comparing to that of the isosceles triangle?", ("A) 256 cm²", "B) 265 cm²", "C) 440.5 cm²", "D) 445 cm²"), key="f2_fin_q5")
     q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\nI. The value of n is 16.\n\nII. The sum of the interior angle of the polygon is 2520°.\n\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q6")
     safe_image("images/f2_fin_q7.png", width=390)
-    q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. triangle ABC congruent to triangle EDC\n\nII. AC ⊥ CE\n\nIII. angle AEF = 80°", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q7")
+    
+    q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. △ABC ≅ △EDC\n\nII. AC ⊥ CE\n\nIII. angle AEF = 80°", (
+        "A) I and II only", 
+        "B) I and III only", 
+        "C) II and III only", 
+        "D) I, II and III"
+    ), format_func=lambda x: {
+        "A) I and II only": "A) I and II only",
+        "B) I and III only": "B) I and III only",
+        "C) II and III only": "C) II and III only",
+        "D) I, II and III": "D) I, II and III ($\\triangle ABC \\cong \\triangle EDC$)"
+    }[x], key="f2_fin_q7")
+
     safe_image("images/f2_fin_q8.png", width=390)
     q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find (cos β) / (sin α).", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α × cos β"), key="f2_fin_q8")
     q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1 : 2. The ratio of the base radius of P to the height of P is 1 : 3. The ratio of the total surface area of P to Q is", ("A) 1 : 2", "B) 2 : 5", "C) 4 : 7", "D) 7 : 16"), key="f2_fin_q9")

@@ -171,7 +171,7 @@ if grade == "中一 (Form 1)" and "1st Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: f"A) +3 > +1.2 > {f_half} > 0 > -{f_3_4} > -2.5", 2: "C) 2² × 3³ × 7", 3: f"C) ({f_2_3})t km",
+        1: f"A) +3 > +1.2 > {f_half} > 0 > -{f_3_4} > -2.5", 2: "C) 2² × 3³ × 7", 3: "C) 3t km",
         4: "D) 4,585,348", 5: "A) 20", 6: "B) I and III only", 7: "D) I, II and III",
         8: "C) increased by $65.", 9: "C) 31", 10: f"D) ({f_2_5})(m - 5) + 5"
     }

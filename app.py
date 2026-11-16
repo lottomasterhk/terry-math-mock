@@ -230,9 +230,10 @@ elif grade == "中一 (Form 1)" and "2nd Term Test" in exam_stage:
     q10 = st.radio("10. In the figure, BCF and CDE are straight lines. Find x.", ("A) 90°", "B) 100°", "C) 110°", "D) 130°"), key="f1_t2_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+    # 已修正第 6 題 (-5 對應 D)、第 8 題 (I and II only 對應 A)、第 10 題 (90° 對應 A)
     correct_answers = {
         1: "D) II and III only", 2: "D) 40 cm²", 3: "B) 575 cm²", 4: "B) 180°", 5: "A) 17.5 sq. units",
-        6: "B) -10", 7: "A) (-3, -4)", 8: "B) I and III only", 9: "C) I and III only", 10: "C) 110°"
+        6: "D) -5", 7: "A) (-3, -4)", 8: "A) I and II only", 9: "C) I and III only", 10: "A) 90°"
     }
     question_topics = {
         1: "多邊形認識 (Polygons: Convex & Concave)", 2: "直棱柱表面面積計算 (Prisms Surface Area)",

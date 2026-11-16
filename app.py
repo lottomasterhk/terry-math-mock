@@ -375,8 +375,16 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "A) 1.25%", 2: "D) 29.35 <= y < 29.45", 3: "C) 3", 4: "D) 6", 5: "C) II and III only",
-        6: "C) 1 / 4¹⁰⁰.", 7: "C) a + 1", 8: f"C) {f_m_5_sq}", 9: "A) 4 / (3a)", 10: f"A) ({f_half})(n² - m)"
+        1: "A) 1.25%", 
+        2: "D) 29.35 <= y < 29.45", 
+        3: "C) 3", 
+        4: "C) 1",  # <-- 修正為 C) 1 (即 q = 1)
+        5: "C) II and III only",
+        6: "C) 1 / 4¹⁰⁰.", 
+        7: "C) a + 1", 
+        8: f"C) {f_m_5_sq}", 
+        9: "D) 4a(a + 2b) / 3(a² + ab - 2b²)", 
+        10: f"A) ({f_half})(n² - m)"
     }
     question_topics = {
         1: "誤差與百分誤差計算 (Percentage Errors)", 2: "有效數字與數值範圍 (Significant Figures & Ranges)",

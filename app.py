@@ -337,9 +337,10 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     st.markdown(f"5. Which of the following are NOT identities?\n\nI. ({f_1_x}) - 1 = {f_1_minus_x_x}\n\nII. (x + 1)² = x² + 1\n\nIII. (ax + b)(x - b) = ax² - b²", unsafe_allow_html=True)
     q5 = st.radio("5.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5", label_visibility="collapsed")
     
-    # 第 6 題精確還原圖中形式：(-4⁵⁰)⁴ × (1/64)¹⁰⁰
+    # 第 6 題精確還原圖中形式，外加完整括號包住 (1/64)¹⁰⁰
     f_minus_4_50_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'>(-4<sup>50</sup>)<sup>4</sup></span>"
-    f_1_64_100 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>64</span></span><sup>100</sup></span>"
+    f_fraction_inner = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>64</span></span>"
+    f_1_64_100 = f"<span style='display:inline-block; vertical-align:middle; text-align:center;'>( {f_fraction_inner} )<sup>100</sup></span>"
     st.markdown(f"6. {f_minus_4_50_4} × {f_1_64_100} =", unsafe_allow_html=True)
     q6 = st.radio("6.", ("A) -1.", "B) 4¹⁰⁰.", "C) 1 / 4¹⁰⁰.", "D) -1 / 4²⁰⁰."), key="f2_t1_q6", label_visibility="collapsed")
     

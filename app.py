@@ -95,7 +95,7 @@ st.markdown("""
 
 # 第一步：先揀年級，再揀考試階段
 st.subheader("📌 第一步：選擇你的年級與考試階段")
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=0, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
 
 exam_stage = st.radio(
     "請選擇考試階段：",
@@ -105,7 +105,7 @@ exam_stage = st.radio(
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
     ],
-    index=3,
+    index=0,
     horizontal=False
 )
 
@@ -296,7 +296,6 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
     }[x], key="f1_fin_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
-    # 按照你指示修正第 8 題選 B、第 9 題選 A、第 10 題選 D
     correct_answers = {
         1: "C) 10 cm", 
         2: "B) 3", 
@@ -336,9 +335,14 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     q4 = st.radio("4. If p and q are constants such that (x - p)(x + 5) - 7q = x² + 6x - q - 1, then q =", ("A) -6", "B) -1", "C) 1", "D) 6"), key="f2_t1_q4")
     
     st.markdown(f"5. Which of the following are NOT identities?\n\nI. ({f_1_x}) - 1 = {f_1_minus_x_x}\n\nII. (x + 1)² = x² + 1\n\nIII. (ax + b)(x - b) = ax² - b²", unsafe_allow_html=True)
-    q5 = st.radio("請選擇第 5 題答案：", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5")
+    q5 = st.radio("5.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5", label_visibility="collapsed")
     
-    q6 = st.radio("6. (-450)⁴ × (1/64)¹⁰⁰ =", ("A) -1", "B) 4¹⁰⁰", "C) 1 / 4¹⁰⁰", "D) -1 / 4²⁰⁰"), key="f2_t1_q6")
+    # 第 6 題修正為圖中精確形式 (-4⁵⁰)⁴ × (1/64)¹⁰⁰
+    f_minus_4_50_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'>(-4<sup>50</sup>)<sup>4</sup></span>"
+    f_1_64_100 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>64</span></span><sup>100</sup></span>"
+    st.markdown(f"6. {f_minus_4_50_4} × {f_1_64_100} =", unsafe_allow_html=True)
+    q6 = st.radio("6.", ("A) -1.", "B) 4¹⁰⁰.", "C) 1 / 4¹⁰⁰.", "D) -1 / 4²⁰⁰."), key="f2_t1_q6", label_visibility="collapsed")
+    
     q7 = st.radio("7. If a ≠ 0 and a ≠ 1, then (aⁿ⁺¹ - aⁿ⁻¹) / (aⁿ - aⁿ⁻¹) =", ("A) 2", "B) a", "C) a + 1", "D) a - 1"), key="f2_t1_q7")
     
     st.markdown("8. Simplify 3 / (m - 1) - 2 / (m + 1).", unsafe_allow_html=True)
@@ -351,7 +355,11 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     q8_mapping = {"A": f"A) {f_1_m_1}", "B": f"B) {f_1_m_1_alt}", "C": f"C) {f_m_5_sq}", "D": f"D) {f_m_5_neg}"}
     q8 = q8_mapping[q8_choice]
 
-    q9 = st.radio("9. Simplify (3a² + 6ab) / (a² + 2ab - ab - 2b²) × (4a - 4b) / (9a²).", ("A) 4 / (3a)", "B) 4a / 3", "C) 4(a + 2b) / 3a(a² + ab - 2b²)", "D) 4a(a + 2b) / 3(a² + ab - 2b²)"), key="f2_t1_q9")
+    # 第 9 題修正為圖中精確的分數排版形式
+    f_frac_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3<i>a</i>² + 6<i>ab</i></span><span style='display:block; padding-top:1px;'><i>a</i>² + 2<i>ab</i> - <i>ab</i> - 2<i>b</i>²</span></span>"
+    f_frac_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4<i>a</i> - 4<i>b</i></span><span style='display:block; padding-top:1px;'>9<i>a</i>²</span></span>"
+    st.markdown(f"9. Simplify {f_frac_1} × {f_frac_2}.", unsafe_allow_html=True)
+    q9 = st.radio("9.", ("A) 4 / (3a)", "B) 4a / 3", "C) 4(a + 2b) / 3a(a² + ab - 2b²)", "D) 4a(a + 2b) / 3(a² + ab - 2b²)"), key="f2_t1_q9", label_visibility="collapsed")
     
     st.markdown("10. If x² + y² = m and x + y = n, then xy =", unsafe_allow_html=True)
     q10_choice = st.radio("請選擇第 10 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
@@ -366,7 +374,7 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
         1: "A) 1.25%", 2: "D) 29.35 <= y < 29.45", 3: "C) 3", 4: "D) 6", 5: "C) II and III only",
-        6: "C) 1 / 4¹⁰⁰", 7: "C) a + 1", 8: f"C) {f_m_5_sq}", 9: "A) 4 / (3a)", 10: f"A) ({f_half})(n² - m)"
+        6: "C) 1 / 4¹⁰⁰.", 7: "C) a + 1", 8: f"C) {f_m_5_sq}", 9: "A) 4 / (3a)", 10: f"A) ({f_half})(n² - m)"
     }
     question_topics = {
         1: "誤差與百分誤差計算 (Percentage Errors)", 2: "有效數字與數值範圍 (Significant Figures & Ranges)",

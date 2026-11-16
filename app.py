@@ -337,7 +337,7 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     st.markdown(f"5. Which of the following are NOT identities?\n\nI. ({f_1_x}) - 1 = {f_1_minus_x_x}\n\nII. (x + 1)² = x² + 1\n\nIII. (ax + b)(x - b) = ax² - b²", unsafe_allow_html=True)
     q5 = st.radio("5.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t1_q5", label_visibility="collapsed")
     
-    # 第 6 題修正為圖中精確形式 (-4⁵⁰)⁴ × (1/64)¹⁰⁰
+    # 第 6 題精確還原圖中形式：(-4⁵⁰)⁴ × (1/64)¹⁰⁰
     f_minus_4_50_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'>(-4<sup>50</sup>)<sup>4</sup></span>"
     f_1_64_100 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>64</span></span><sup>100</sup></span>"
     st.markdown(f"6. {f_minus_4_50_4} × {f_1_64_100} =", unsafe_allow_html=True)
@@ -355,7 +355,7 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     q8_mapping = {"A": f"A) {f_1_m_1}", "B": f"B) {f_1_m_1_alt}", "C": f"C) {f_m_5_sq}", "D": f"D) {f_m_5_neg}"}
     q8 = q8_mapping[q8_choice]
 
-    # 第 9 題修正為圖中精確的分數排版形式
+    # 第 9 題圖中精確的分數排版形式
     f_frac_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3<i>a</i>² + 6<i>ab</i></span><span style='display:block; padding-top:1px;'><i>a</i>² + 2<i>ab</i> - <i>ab</i> - 2<i>b</i>²</span></span>"
     f_frac_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4<i>a</i> - 4<i>b</i></span><span style='display:block; padding-top:1px;'>9<i>a</i>²</span></span>"
     st.markdown(f"9. Simplify {f_frac_1} × {f_frac_2}.", unsafe_allow_html=True)

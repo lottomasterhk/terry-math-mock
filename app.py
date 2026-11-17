@@ -105,7 +105,7 @@ exam_stage = st.radio(
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
     ],
-    index=1,
+    index=3,
     horizontal=False
 )
 

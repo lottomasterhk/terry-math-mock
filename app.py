@@ -507,7 +507,7 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         2: "B) 623 USD", 
         3: "C) 36 minutes", 
         4: "C) 196", 
-        5: "B) 21 : 25",
+        5: "A) 22 : 27",          # <-- 修正：第 5 題答案係 A) 22 : 27
         6: "B) I and III only", 
         7: "C) 8", 
         8: "D) I, II and III", 

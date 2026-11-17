@@ -63,7 +63,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 輔助函式：安全載入圖片（已全面放大 50%）
+# 輔助函式：安全載入圖片
 def safe_image(img_path, width=390):
     if os.path.exists(img_path):
         st.image(img_path, width=width)
@@ -105,7 +105,7 @@ exam_stage = st.radio(
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
     ],
-    index=0,
+    index=1,
     horizontal=False
 )
 
@@ -345,7 +345,6 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     
     q7 = st.radio("7. If a ≠ 0 and a ≠ 1, then (aⁿ⁺¹ - aⁿ⁻¹) / (aⁿ - aⁿ⁻¹) =", ("A) 2", "B) a", "C) a + 1", "D) a - 1"), key="f2_t1_q7")
     
-    # 第 8 題精確還原上下直式分數排版
     f_3_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3</span><span style='display:block; padding-top:1px;'>m - 1</span></span>"
     f_2_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>2</span><span style='display:block; padding-top:1px;'>m + 1</span></span>"
     st.markdown(f"8. Simplify {f_3_m_1} - {f_2_m_1}.", unsafe_allow_html=True)
@@ -383,7 +382,7 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
         6: "C) 1 / 4¹⁰⁰.", 
         7: "C) a + 1", 
         8: f"C) {f_m_5_sq}", 
-        9: "A) 4 / (3a)",  # <-- 呢度已經完美修正返做 A) 4 / (3a)
+        9: "A) 4 / (3a)", 
         10: f"A) ({f_half})(n² - m)"
     }
     question_topics = {
@@ -407,13 +406,23 @@ elif grade == "中二 (Form 2)" and "1st Exam" in exam_stage:
     q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"), key="f2_ex1_q8")
     safe_image("images/f2_ex1_q9.png", width=390)
     q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\nI. AB || CE\n\nII. AC ⊥ AD\n\nIII. x = y", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_ex1_q9")
-    safe_image("images/f2_ex1_q10.png", width=390)
+    
+    # 嚴格按指令：只將第 10 題圖片放大 50% (width=390 * 1.5 = 585)，其他絕不改動！
+    safe_image("images/f2_ex1_q10.png", width=585)
     q10 = st.radio("10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively.\n\nWhich of the following must be correct?\n\nI. The number of customers of shop A who vote peach flavour is more than that of shop B.\n\nII. In both shop A and shop B, peach flavour is more popular than strawberry flavour.\n\nIII. The percentages of customers who vote almond flavour in shop A and shop B are the same.", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"), key="f2_ex1_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "C) 3.75 <= x < 4.25", 2: "D) 5x - 3/y", 3: "D) 4", 4: "D) (x - y)(a - b - c)", 5: "C) (1,7)",
-        6: "C) (-8/7, 64/7)", 7: "C) z = x + y", 8: "C) a + b = c + e", 9: "A) I and II only", 10: "D) II and III only"
+        1: "C) 3.75 <= x < 4.25", 
+        2: "D) 5x - 3/y", 
+        3: "C) 3.2",   # <-- 已修正為 C) 3.2
+        4: "D) (x - y)(a - b - c)", 
+        5: "C) (1,7)",
+        6: "C) (-8/7, 64/7)", 
+        7: "D) x + y + z = 180°", # <-- 修正第 7 題為 D
+        8: "D) c + d + e = 180° + b", # <-- 修正第 8 題為 D
+        9: "A) I and II only", 
+        10: "D) II and III only"
     }
     question_topics = {
         1: "量度極限與誤差範圍 (Measurement Limits & Limits of Accuracy)", 2: "多項式概念與辨別 (Polynomial Concepts)",

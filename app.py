@@ -934,13 +934,13 @@ st.markdown("""
         Terry Sir (香港中文大學數學系畢業)，擁有 26 年一線教學經驗。我們不只教公式，更擅長運用 <b>🧠 NLP 心理引導技巧</b> 幫孩子解開數學心結，由根基打起，重拾自信奪 A！
     </p>
     <p style="margin-top: 10px;">
-        👉 歡迎瀏覽我們的 <a href="https://www.facebook.com/terrysir" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
+        👉 歡迎瀏覽我們的 <a href="[https://www.facebook.com/terrysir](https://www.facebook.com/terrysir)" target="_blank" style="color: #f39c12; font-weight: bold; text-decoration: underline;">Facebook 專頁</a> 了解更多學生成績分享與實戰心得！
     </p>
 </div>
 """, unsafe_allow_html=True)
 
 # 經典綠色 WhatsApp 預約試課按鈕
-whatsapp_url = "https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試，想預約+%24150%2F1小時試課！&type=phone_number&app_absent=0"
+whatsapp_url = "[https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試](https://api.whatsapp.com/send/?phone=85292861189&text=Hello+Terry+Sir%2C+%E6%88%91%E5%89%9B%E5%89%9B%E5%96%BA%E7%B6%B2%E4%B8%8A%E5%AE%8C%E6%88%91初中Mock考試)，想預約+%24150%2F1小時試課！&type=phone_number&app_absent=0"
 st.markdown(f"""
 <div style="text-align: center; margin-top: 25px;">
     <a href="{whatsapp_url}" target="_blank">
@@ -953,7 +953,6 @@ st.markdown(f"""
 
 st.markdown("---")
 st.markdown(
-    "<p style='text-align: center; color: #cbd50 !important;'>© 2026 中大數學 - <a href='https://www.facebook.com/terrysir' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 中學數學專科. All Rights Reserved.</p>", 
+    "<p style='text-align: center; color: #cbd50 !important;'>© 2026 中大數學 - <a href='[https://www.facebook.com/terrysir](https://www.facebook.com/terrysir)' target='_blank' style='color: #f39c12; text-decoration: none;'>Terry Sir</a> - 中學數學專科. All Rights Reserved.</p>", 
     unsafe_allow_html=True
 )
-```[cite: 7]

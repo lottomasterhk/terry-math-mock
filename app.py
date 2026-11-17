@@ -432,7 +432,7 @@ elif grade == "中二 (Form 2)" and "1st Exam" in exam_stage:
     }
 
 elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
-    # 建立上下直式分數 HTML 輔助變數 (專門用於第 1 題等要求)
+    # 建立上下直式分數 HTML 輔助變數
     f_5_13 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5</span><span style='display:block; padding-top:1px;'>13</span></span>"
     f_4_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4</span><span style='display:block; padding-top:1px;'>3</span></span>"
     f_13_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>13</span><span style='display:block; padding-top:1px;'>5</span></span>"
@@ -447,14 +447,12 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         "C": "C) 4/3",
         "D": "D) 5/13"
     }[x], key="f2_t2_q1_ans", label_visibility="collapsed")
-    # 嚴格按指令：第1題答案係 A，並且轉返做直式分數樣
     q1_mapping = {"A": f"A) {f_13_5}", "B": "B) 1", "C": f"C) {f_4_3}", "D": f"D) {f_5_13}"}
     q1 = q1_mapping[q1_choice]
 
     q2 = st.radio("2. Suppose 10 Swiss Francs dollars (CHF) are equivalent to 89 H.K. dollars (HKD) and 10 U.S. dollars (USD) are equivalent to 78 HKD. How many USD can 546 CHF be changed to?", ("A) 478 USD", "B) 623 USD", "C) 1271 USD", "D) 2173 USD"), key="f2_t2_q2")
     q3 = st.radio("3. If 3 pipes are used to fill a swimming pool in 1.5 hour, how much time can be saved by using 5 pipes instead? Assume that all the pipes discharge at the same rate.", ("A) 10 minutes", "B) 24 minutes", "C) 36 minutes", "D) 54 minutes"), key="f2_t2_q3")
     
-    # 嚴格按指令：第4題答案係 C
     q4 = st.radio("4. Joe has brought some candies for his students who pass the term test. If 84 students pass, each of the students can have 7 candies. How many students pass the term test if each of them can have 3 candies?", ("A) 4", "B) 36", "C) 196", "D) 252"), key="f2_t2_q4")
     
     st.markdown("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", unsafe_allow_html=True)
@@ -470,10 +468,10 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
     q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\n\nI. The value of n is 24.\n\nII. The ratio of the size of each interior angle of the polygon to that of each exterior angle is 12 : 1.\n\nIII. The sum of the interior angles of the polygon is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q6")
     safe_image("images/f2_t2_q7.png", width=390)
     
-    # 嚴格按指令：第7題答案係 C
     q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
     safe_image("images/f2_t2_q8.png", width=390)
     
+    # 嚴格按你指示修正：第8題選項 D 呈現為純 "D) I, II and III"
     q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that angle PSQ = angle SPR and angle PQS = angle SRP. Which of the following must be true?\n\nI. △QPS ≅ △RSP\n\nII. △PTS ~ △QTR\n\nIII. PS || QR", (
         "A) I and II only", 
         "B) I and III only", 
@@ -483,12 +481,12 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         "A) I and II only": "A) I and II only",
         "B) I and III only": "B) I and III only",
         "C) II and III only": "C) II and III only",
-        "D) I, II and III": "D) I, II and III ($\\triangle QPS \\cong \\triangle RSP$, $\\triangle PTS \\sim \\triangle QTR$)"
+        "D) I, II and III": "D) I, II and III"
     }[x], key="f2_t2_q8")
 
     safe_image("images/f2_t2_q9.png", width=390)
     
-    # 嚴格按指令：第9題答案係 A，並且選項 C 內取消咗重複多餘嘅全等括號
+    # 嚴格按你指示修正：第9題答案係 A 且呈現為 "A) I and III only"
     q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC || FD and AF || CD. Which of the following must be true?\n\nI. △ABF ≅ △EFB\n\nII. △EFB ≅ △EDB\n\nIII. △CBD ≅ △ABF", (
         "A) I and III only", 
         "B) I only", 
@@ -503,21 +501,20 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
 
     safe_image("images/f2_t2_q10.png", width=390)
     
-    # 嚴格按指令：第10題答案係 D
     q10 = st.radio("10. In the figure, ABCD is a square and triangle CED is an equilateral triangle. If DE = DG and DG || EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="f2_t2_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: f"A) {f_13_5}",       # 修正為第 1 題 A
+        1: f"A) {f_13_5}", 
         2: "B) 623 USD", 
         3: "C) 36 minutes", 
-        4: "C) 196",             # 修正為第 4 題 C (196)
+        4: "C) 196", 
         5: "B) 21 : 25",
         6: "B) I and III only", 
-        7: "C) 8",               # 修正為第 7 題 C (8)
-        8: "D) I, II and III", 
-        9: "A) I and III only",  # 修正為第 9 題 A
-        10: "D) 41°"             # 修正為第 10 題 D (41°)
+        7: "C) 8", 
+        8: "D) I, II and III",       # <-- 第 8 題答案 D
+        9: "A) I and III only",    # <-- 第 9 題答案 A
+        10: "D) 41°"
     }
     question_topics = {
         1: "比與率及分式代數化簡 (Ratios & Fractions)", 2: "外幣找換與比例應用 (Currency Conversions)",

@@ -702,10 +702,10 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
 
 elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     # ----------------------------------------------------
-    # 嚴格對齊你目前在畫面上看到的網頁圖片內容 (第1, 2, 3, 4, 5, 7, 8, 10題)
+    # 嚴格完全對齊你所提供 6 張圖片入面嘅真實題目文字
     # ----------------------------------------------------
     
-    # 【第 1 題】：對應圖中「The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.」
+    # 【第 1 題】：對應第一張圖 (Sector OAB 題目)
     safe_image("images/f3_t2_q1.png", width=390)
     q1 = st.radio(
         "1. The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.", 
@@ -713,23 +713,23 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q1"
     )
     
-    # 【第 2 題】：對應圖中「In the figure, slopes of L1, L2, L3 are m1, m2, m3. Which of the following are correct? ...」
+    # 【第 2 題】：對應第二張圖 (Slopes of L1, L2, L3 題目)
     safe_image("images/f3_t2_q2.png", width=390)
     q2 = st.radio(
-        "2. In the figure, slopes of L₁, L₂, L₃ are m₁, m₂, m₃. Which of the following are correct?\n\nI. m₂ < 0\n\nII. m₃ > 0\n\nIII. m₂ > m₁", 
+        "2. In the figure, the slopes of the straight lines L₁, L₂ and L₃ are m₁, m₂ and m₃ respectively. Which of the following must be correct?", 
         ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), 
         key="f3_t2_q2"
     )
     
-    # 【第 3 題】：對應圖中「Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.」
+    # 【第 3 題】：對應第三張圖 (Mr Choi drives along an inclined road PQ 題目)
     safe_image("images/f3_t2_q3.png", width=390)
     q3 = st.radio(
-        "3. Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.", 
+        "3. Mr Choi drives along an inclined road PQ at a speed of 36 km/h for 2 hours. If the horizontal distance he has travelled is 68 km, find the gradient of PQ in the form of 1 : n, where n is correct to the nearest integer.", 
         ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), 
         key="f3_t2_q3"
     )
     
-    # 【第 4 題】：對應圖中「If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.」
+    # 第 4 題維持
     safe_image("images/f3_t2_q4.png", width=390)
     q4 = st.radio(
         "4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", 
@@ -737,15 +737,15 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q4"
     )
 
-    # 【第 5 題】：對應圖中「A sheep walks 12m south from A to B, 25m east to C, 29m north to D. Find compass bearing of D from A.」
+    # 【第 5 題】：對應第四張圖 (A sheep walks 12 m due south from tree A... 題目)
     safe_image("images/f3_t2_q5.png", width=390)
     q5 = st.radio(
-        "5. A sheep walks 12m south from A to B, 25m east to C, 29m north to D. Find compass bearing of D from A.", 
+        "5. A sheep walks 12 m due south from tree A to tree B, then walks 25 m due east to tree C and finally walks 29 m due north to tree D. Find the compass bearing of D from A, correct to the nearest degree.", 
         ("A) S34°W", "B) S56°W", "C) N34°E", "D) N56°E"), 
         key="f3_t2_q5"
     )
     
-    # 【第 6 題】：對應圖中「The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.」
+    # 第 6 題維持
     safe_image("images/f3_t2_q6.png", width=390)
     q6 = st.radio(
         "6. The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.", 
@@ -753,18 +753,18 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q6"
     )
 
-    # 【第 7 題】：對應圖中「A(-6, -1), B(b, -13), C(-2, b - 5), E(-1, -9). If AE || BC, find b.」
+    # 【第 7 題】：對應第五張圖 (A(-6, -1), B(b, -13), C(-2, b - 5) and E(-1, -9) 題目)
     safe_image("images/f3_t2_q7.png", width=390)
     q7 = st.radio(
-        "7. A(-6, -1), B(b, -13), C(-2, b - 5), E(-1, -9). If AE || BC, find b.", 
+        "7. A(-6, -1), B(b, -13), C(-2, b - 5) and E(-1, -9) are four given points. If AE // BC, find the value of b.", 
         ("A) -8", "B) -2", "C) 2", "D) 8"), 
         key="f3_t2_q7"
     )
     
-    # 【第 8 題】：對應圖中「Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.」
+    # 【第 8 題】：對應第六張圖 (The ratio of the base radius of a right circular cylinder... 題目)
     safe_image("images/f3_t2_q8.png", width=390)
     q8 = st.radio(
-        "8. Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.", 
+        "8. The ratio of the base radius of a right circular cylinder to the base radius of a right circular cone is 6 : 5 while the ratio of the volume of the circular cylinder to the volume of the circular cone is 18 : 5. If the height of the circular cylinder is 5 cm, then the height of the circular cone is", 
         ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), 
         key="f3_t2_q8"
     )
@@ -773,7 +773,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q9.png", width=585)
     q9 = st.radio("9. Which of the following are identities?\n\nI. sin²θ - cos²θ = 1 - 2cos²θ\n\nII. sin²θ + (cos θ)/(tan θ) = 1/sin θ\n\nIII. sin²θ × tan(90° - θ) = sin θ × cos θ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_t2_q9")
     
-    # 【第 10 題】：改成最後果幅圖（Sector OAB 摺成圓錐果幅圖）內容
+    # 【第 10 題】：對應第一張圖 (Sector OAB 題目作第 10 題變體)
     safe_image("images/f3_t2_q10.png", width=390)
     q10 = st.radio(
         "10. The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.", 

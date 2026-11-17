@@ -487,6 +487,7 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\nI. The value of n is 16.\n\nII. The sum of the interior angle of the polygon is 2520°.\n\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q6")
     safe_image("images/f2_fin_q7.png", width=390)
     
+    # 完美修正第 7 題選項：取消選項 D 後面多出嘅 "D" 字，只保留 I, II, III 相關說明
     q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. △ABC ≅ △EDC\n\nII. AC ⊥ CE\n\nIII. angle AEF = 80°", (
         "A) I and II only", 
         "B) I and III only", 
@@ -496,23 +497,32 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
         "A) I and II only": "A) I and II only",
         "B) I and III only": "B) I and III only",
         "C) II and III only": "C) II and III only",
-        "D) I, II and III": "D) I, II and III ($\\triangle ABC \\cong \\triangle EDC$)"
+        "D) I, II and III": "D) I, II and III"
     }[x], key="f2_fin_q7")
 
     safe_image("images/f2_fin_q8.png", width=390)
     
-    # 完美修復第 8 題題目與選項 A 的上下立體分數排版
-    f_cos_beta_sin_alpha = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>cos β</span><span style='display:block; padding-top:1px;'>sin α</span></span>"
-    f_mr_nr = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>MR</span><span style='display:block; padding-top:1px;'>NR</span></span>"
+    # 完美修復第 8 題問題：根據圖片顯示改為 "Find MR / NR."，分子分母用立體分數排版
+    f_mr_nr_title = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>MR</span><span style='display:block; padding-top:1px;'>NR</span></span>"
+    st.markdown(f"8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find {f_mr_nr_title}.", unsafe_allow_html=True)
     
-    st.markdown(f"8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find {f_cos_beta_sin_alpha}.", unsafe_allow_html=True)
+    # 選項：A. cos β / sin α, B. sin β / cos α, C. sin α cos β, D. cos α sin β (全部用立體分數排版)
+    f_cos_beta_sin_alpha = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>cos β</span><span style='display:block; padding-top:1px;'>sin α</span></span>"
+    f_sin_beta_cos_alpha = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>sin β</span><span style='display:block; padding-top:1px;'>cos α</span></span>"
+    
     q8_choice = st.radio("請選擇第 8 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
-        "A": "A) MR / NR",
-        "B": "B) sin β",
-        "C": "C) cos α",
-        "D": "D) sin α × cos β"
+        "A": "A) cos β / sin α",
+        "B": "B) sin β / cos α",
+        "C": "C) sin α cos β",
+        "D": "D) cos α sin β"
     }[x], key="f2_fin_q8_ans", label_visibility="collapsed")
-    q8_mapping = {"A": f"A) {f_mr_nr}", "B": "B) sin β", "C": "C) cos α", "D": "D) sin α × cos β"}
+    
+    q8_mapping = {
+        "A": f"A) {f_cos_beta_sin_alpha}", 
+        "B": f"B) {f_sin_beta_cos_alpha}", 
+        "C": "C) sin α cos β", 
+        "D": "D) cos α sin β"
+    }
     q8 = q8_mapping[q8_choice]
 
     q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1 : 2. The ratio of the base radius of P to the height of P is 1 : 3. The ratio of the total surface area of P to Q is", ("A) 1 : 2", "B) 2 : 5", "C) 4 : 7", "D) 7 : 16"), key="f2_fin_q9")
@@ -521,18 +531,18 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     
-    # 嚴格對應你提供嘅最新 10 題正確答案 (C, C, C, C, B, A, B, A, C, B)
+    # 答案對應 (第 8 題正確答案為 A)
     correct_answers = {
         1: "C) I and III only", 
         2: "C) 10.46 km", 
         3: "A) A circle with area 5 cm²", 
         4: "C) 25", 
-        5: "B) 265 cm²",          # <-- 修正 Q5 答案為 B
-        6: "A) I and II only",    # <-- 修正 Q6 答案為 A
-        7: "B) I and III only",   # <-- 修正 Q7 答案為 B
-        8: f"A) {f_mr_nr}",       # <-- 修正 Q8 答案為 A
-        9: "C) 4 : 7",            # <-- 修正 Q9 答案為 C
-        10: "B) 2x sin 54°"       # <-- 修正 Q10 答案為 B
+        5: "B) 265 cm²", 
+        6: "A) I and II only", 
+        7: "B) I and III only", 
+        8: f"A) {f_cos_beta_sin_alpha}", 
+        9: "C) 4 : 7", 
+        10: "B) 2x sin 54°"
     }
     question_topics = {
         1: "有理數與無理數概念 (Rational & Irrational Numbers)", 2: "地圖比例尺與實際距離換算 (Map Scales & Actual Distances)",

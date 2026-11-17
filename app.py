@@ -610,7 +610,6 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     f_8_3x_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>8 - 3x</span><span style='display:block; padding-top:1px;'>5</span></span>"
     f_5_2x_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5 + 2x</span><span style='display:block; padding-top:1px;'>2</span></span>"
 
-    # 將第 5 題的表達式改回高質的分數樣式
     f_q5_expr = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'><i>x</i>² - 9<i>y</i>²</span><span style='display:block; padding-top:1px;'><i>y</i>⁴</span></span> ÷ <span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'><i>x</i> + 3<i>y</i></span><span style='display:block; padding-top:1px;'><i>y</i>²</span></span>"
 
     st.markdown("1. 3²⁴⁶ × 9⁻¹²³ =", unsafe_allow_html=True)
@@ -650,11 +649,9 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
 
     q4 = st.radio("4. If the growth rate of a value is 10% per month, and its value after 1 year is 2,125, find the original value correct to 3 significant figures.", ("A) 193", "B) 677", "C) 989", "D) 1,920"), key="f3_ex1_q4")
     
-    # 第 5 題採用立體分數樣式
     st.markdown(f"5. {f_q5_expr} =", unsafe_allow_html=True)
     q5 = st.radio("請選擇第 5 題答案：", ("A) (x + 3y) / y⁶", "B) (x - 9y) / y⁶", "C) (x - 3y) / y²", "D) (x - 9y) / y²"), key="f3_ex1_q5", label_visibility="collapsed")
     
-    # 第 6 題的圖放大 50% (width=585)
     safe_image("images/f3_ex1_q6.png", width=585)
     q6 = st.radio("6. In the figure, QS and RS are angle bisectors of triangle PQR. Find angle QSR.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_ex1_q6")
     
@@ -668,11 +665,9 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     q7_mapping = {"A": f"A) {f_1_12}", "B": f"B) {f_1_6}", "C": f"C) {f_1_4}", "D": f"D) {f_1_3}"}
     q7 = q7_mapping[q7_choice]
 
-    # 第 8 題維持原本尺寸 (width=390)
     safe_image("images/f3_ex1_q8.png", width=390)
     q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_ex1_q8")
     
-    # 第 9 題的圖放大 50% (width=585)
     safe_image("images/f3_ex1_q9.png", width=585)
     q9 = st.radio("9. The prices of items sold in a supermarket are as follows: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. The prices of all items are increased by 10% and then decreased by $2. Find the mean of the adjusted price of the above items.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_ex1_q9")
     
@@ -706,12 +701,28 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     }
 
 elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
-    safe_image("images/f3_t2_q1.png", width=390)
-    q1 = st.radio("1. In the figure, ABCE is a rectangle, CDEF is a rhombus. If angle FBC = 34°, find angle CDE.", ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), key="f3_t2_q1")
-    safe_image("images/f3_t2_q2.png", width=390)
-    q2 = st.radio("2. Solid consists of a right circular cone and hemisphere with common base. Height = 8 cm, slant height = 10 cm. Find total surface area.", ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), key="f3_t2_q2")
-    safe_image("images/f3_t2_q3.png", width=390)
+    # ----------------------------------------------------
+    # 嚴格跟足上傳圖片 1, 2, 5, 6 題的文字、題號、圖形與選項
+    # ----------------------------------------------------
     
+    # 【第 1 題】：對應圖片 1 (編號 11)
+    safe_image("images/f3_t2_q1.png", width=390)
+    q1 = st.radio(
+        "11. In the figure, ABCE is a rectangle, CDEF is a rhombus. If angle FBC = 34°, find angle CDE.", 
+        ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), 
+        key="f3_t2_q1"
+    )
+    
+    # 【第 2 題】：對應圖片 2 (編號 12)
+    safe_image("images/f3_t2_q2.png", width=390)
+    q2 = st.radio(
+        "12. In the figure, the solid consists of a right circular cone and a hemisphere with a common base. The height and the slant height of the cone are 8 cm and 10 cm respectively. Find the total surface area of the solid.", 
+        ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), 
+        key="f3_t2_q2"
+    )
+    
+    # 第 3 題維持
+    safe_image("images/f3_t2_q3.png", width=390)
     st.markdown("""
     <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
         3. Simplify 
@@ -728,6 +739,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     """, unsafe_allow_html=True)
     q3 = st.radio("請選擇第 3 題答案：", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3_ans", label_visibility="collapsed")
     
+    # 第 4 題維持
     safe_image("images/f3_t2_q4.png", width=390)
     st.markdown("""
     <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
@@ -748,16 +760,31 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     }
     q4 = q4_mapping[q4_choice]
 
+    # 【第 5 題】：對應圖片 3 (編號 18)
     safe_image("images/f3_t2_q5.png", width=390)
-    q5 = st.radio("5. ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), key="f3_t2_q5")
+    q5 = st.radio(
+        "18. In the figure, ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", 
+        ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), 
+        key="f3_t2_q5"
+    )
+    
+    # 【第 6 題】：對應圖片 4 (編號 19)
     safe_image("images/f3_t2_q6.png", width=390)
-    q6 = st.radio("6. Paul deposited $65,000 at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year?", ("A) $112", "B) $2,746", "C) $2,858", "D) $5,604"), key="f3_t2_q6")
+    q6 = st.radio(
+        "19. Paul deposited $65 000 into a bank at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year, correct to the nearest dollar?", 
+        ("A) $112", "B) $2 746", "C) $2 858", "D) $5 604"), 
+        key="f3_t2_q6"
+    )
+
     safe_image("images/f3_t2_q7.png", width=390)
     q7 = st.radio("7. Factorize 8xy - 6x² - 2y².", ("A) -2(x - y)(4x + y)", "B) -2(3x - y)(x - y)", "C) (x - y)(4x + y)", "D) (3x - y)(x - y)"), key="f3_t2_q7")
     safe_image("images/f3_t2_q8.png", width=390)
     q8 = st.radio("8. BCDE is a parallelogram. G is mid-point of CD. AG and BE intersect at F. CB produced to A so area triangle ABF : area triangle ACG = 4 : 9. Area triangle ABF = 12 cm², find area DEFG.", ("A) 21 cm²", "B) 27 cm²", "C) 36 cm²", "D) 42 cm²"), key="f3_t2_q8")
-    safe_image("images/f3_t2_q9.png", width=390)
+    
+    # ── 第 9 題的圖片按照你之前要求放大 50% (width=585) ──
+    safe_image("images/f3_t2_q9.png", width=585)
     q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
+    
     safe_image("images/f3_t2_q10.png", width=390)
     q10 = st.radio("10. Which of the following numbers is the smallest?", ("A) -4⁻⁴ × 10⁻¹⁰", "B) (-4)⁻⁴ × 10⁻¹⁰", "C) -0.0000000000004", "D) -3 / 12¹²"), key="f3_t2_q10")
 

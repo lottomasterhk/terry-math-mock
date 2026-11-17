@@ -105,7 +105,7 @@ exam_stage = st.radio(
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
     ],
-    index=0,
+    index=1,
     horizontal=False
 )
 
@@ -569,7 +569,6 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     q6 = st.radio("6. (25²⁰⁴⁸ × 2²⁰⁷⁶) / 5²⁰²⁰ =", ("A) 50⁴¹²⁴ / 5²⁰²⁰", "B) 25⁵⁶ × 2²⁰⁷⁶", "C) 10²⁰⁷⁶", "D) 10²¹⁰⁴"), key="f3_t1_q6")
     q7 = st.radio("7. Mr Cheung takes out a loan at an interest rate of 20% p.a. compounded quarterly for 2 years. If he has to pay an interest of $4,000, find the amount he needs to repay, correct to nearest dollar.", ("A) $8,378", "B) $8,619", "C) $9,091", "D) $12,378"), key="f3_t1_q7")
     
-    # 完美跟足圖入面嘅第 8 題標準問題內容
     q8 = st.radio(
         "8. There are 20 questions in a test. For each question answered correct, m marks will be given. For each unanswered question or wrongly answered question, n marks will be deducted. If 10 questions are answered correctly, a student will get 20 marks. If 15 questions are answered correctly, a student will get 60 marks. Find n.", 
         ("A) 2", "B) 3", "C) 4", "D) 5"), 
@@ -580,17 +579,15 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
     q10 = st.radio("10. Factorize -8x² - 28xy + 60y².", ("A) (x - 5y)(2x + 3y)", "B) (x + 5y)(2x - 3y)", "C) -4(x - 5y)(2x + 3y)", "D) -4(x + 5y)(2x - 3y)"), key="f3_t1_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
-    
-    # 第 5 題答案更新為 B (20)，第 8 題答案為 B (3)[cite: 2]
     correct_answers = {
         1: "A) 37 × 2⁸ + 28.", 
         2: "D) 1100000000001₂", 
         3: "D) 105₁₀ < 1101100₂ < 1101110₂", 
         4: "C) $3,662", 
-        5: "B) 20",  # <-- 已修正第 5 題為 B
+        5: "B) 20", 
         6: "C) 10²⁰⁷⁶", 
         7: "D) $12,378", 
-        8: "B) 3",    # <-- 第 8 題對應圖入面嘅 B (3)[cite: 2]
+        8: "B) 3", 
         9: "D) II and III only", 
         10: "D) -4(x + 5y)(2x - 3y)"
     }
@@ -612,6 +609,9 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     f_a_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>a</span><span style='display:block; padding-top:1px;'>5</span></span>"
     f_8_3x_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>8 - 3x</span><span style='display:block; padding-top:1px;'>5</span></span>"
     f_5_2x_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5 + 2x</span><span style='display:block; padding-top:1px;'>2</span></span>"
+
+    # 將第 5 題的表達式改回高質的分數樣式
+    f_q5_expr = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'><i>x</i>² - 9<i>y</i>²</span><span style='display:block; padding-top:1px;'><i>y</i>⁴</span></span> ÷ <span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'><i>x</i> + 3<i>y</i></span><span style='display:block; padding-top:1px;'><i>y</i>²</span></span>"
 
     st.markdown("1. 3²⁴⁶ × 9⁻¹²³ =", unsafe_allow_html=True)
     q1_choice = st.radio("請選擇第 1 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
@@ -649,8 +649,13 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     q3 = q3_mapping[q3_choice]
 
     q4 = st.radio("4. If the growth rate of a value is 10% per month, and its value after 1 year is 2,125, find the original value correct to 3 significant figures.", ("A) 193", "B) 677", "C) 989", "D) 1,920"), key="f3_ex1_q4")
-    q5 = st.radio("5. (x² - 9y²) / y⁴ ÷ ((x + 3y) / y²) =", ("A) (x + 3y) / y⁶", "B) (x - 9y) / y⁶", "C) (x - 3y) / y²", "D) (x - 9y) / y²"), key="f3_ex1_q5")
-    safe_image("images/f3_ex1_q6.png", width=390)
+    
+    # 第 5 題採用立體分數樣式
+    st.markdown(f"5. {f_q5_expr} =", unsafe_allow_html=True)
+    q5 = st.radio("請選擇第 5 題答案：", ("A) (x + 3y) / y⁶", "B) (x - 9y) / y⁶", "C) (x - 3y) / y²", "D) (x - 9y) / y²"), key="f3_ex1_q5", label_visibility="collapsed")
+    
+    # 第 6 題的圖放大 50% (width=585)
+    safe_image("images/f3_ex1_q6.png", width=585)
     q6 = st.radio("6. In the figure, QS and RS are angle bisectors of triangle PQR. Find angle QSR.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_ex1_q6")
     
     st.markdown("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", unsafe_allow_html=True)
@@ -663,7 +668,8 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     q7_mapping = {"A": f"A) {f_1_12}", "B": f"B) {f_1_6}", "C": f"C) {f_1_4}", "D": f"D) {f_1_3}"}
     q7 = q7_mapping[q7_choice]
 
-    safe_image("images/f3_ex1_q8.png", width=390)
+    # 第 8 題的圖放大 50% (width=585)
+    safe_image("images/f3_ex1_q8.png", width=585)
     q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_ex1_q8")
     safe_image("images/f3_ex1_q9.png", width=390)
     q9 = st.radio("9. The prices of items sold in a supermarket are as follows: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. The prices of all items are increased by 10% and then decreased by $2. Find the mean of the adjusted price of the above items.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_ex1_q9")

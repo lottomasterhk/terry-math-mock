@@ -471,7 +471,6 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
     q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
     safe_image("images/f2_t2_q8.png", width=390)
     
-    # 嚴格按你指示修正：第8題選項 D 呈現為純 "D) I, II and III"
     q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that angle PSQ = angle SPR and angle PQS = angle SRP. Which of the following must be true?\n\nI. △QPS ≅ △RSP\n\nII. △PTS ~ △QTR\n\nIII. PS || QR", (
         "A) I and II only", 
         "B) I and III only", 
@@ -486,7 +485,6 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
 
     safe_image("images/f2_t2_q9.png", width=390)
     
-    # 嚴格按你指示修正：第9題答案係 A 且呈現為 "A) I and III only"
     q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC || FD and AF || CD. Which of the following must be true?\n\nI. △ABF ≅ △EFB\n\nII. △EFB ≅ △EDB\n\nIII. △CBD ≅ △ABF", (
         "A) I and III only", 
         "B) I only", 
@@ -505,15 +503,15 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: f"A) {f_13_5}", 
+        1: f"D) {f_5_13}", 
         2: "B) 623 USD", 
         3: "C) 36 minutes", 
         4: "C) 196", 
         5: "B) 21 : 25",
         6: "B) I and III only", 
         7: "C) 8", 
-        8: "D) I, II and III",       # <-- 第 8 題答案 D
-        9: "A) I and III only",    # <-- 第 9 題答案 A
+        8: "D) I, II and III", 
+        9: "B) I only",            # <-- 修正：第 9 題答案係 B) I only
         10: "D) 41°"
     }
     question_topics = {

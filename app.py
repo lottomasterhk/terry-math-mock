@@ -702,103 +702,109 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
 
 elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     # ----------------------------------------------------
-    # 嚴格跟足上傳圖片 1, 2, 5, 6 題的文字、題號、圖形與選項
+    # 嚴格對齊你目前在畫面上看到的網頁圖片內容 (第1, 2, 3, 4, 5, 7, 8, 10題)
     # ----------------------------------------------------
     
-    # 【第 1 題】：對應圖片 1 (編號 11)
+    # 【第 1 題】：對應圖中「The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.」
     safe_image("images/f3_t2_q1.png", width=390)
     q1 = st.radio(
-        "1. In the figure, ABCE is a rectangle, CDEF is a rhombus. If $\\angle FBC = 34^\\circ$, find $\\angle CDE$.", 
-        ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), 
+        "1. The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.", 
+        ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), 
         key="f3_t2_q1"
     )
     
-    # 【第 2 題】：對應圖片 2 (編號 12)
+    # 【第 2 題】：對應圖中「In the figure, slopes of L1, L2, L3 are m1, m2, m3. Which of the following are correct? ...」
     safe_image("images/f3_t2_q2.png", width=390)
     q2 = st.radio(
-        "2. In the figure, the solid consists of a right circular cone and a hemisphere with a common base. The height and the slant height of the cone are 8 cm and 10 cm respectively. Find the total surface area of the solid.", 
-        ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), 
+        "2. In the figure, slopes of L₁, L₂, L₃ are m₁, m₂, m₃. Which of the following are correct?\n\nI. m₂ < 0\n\nII. m₃ > 0\n\nIII. m₂ > m₁", 
+        ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), 
         key="f3_t2_q2"
     )
     
-    # 第 3 題維持
+    # 【第 3 題】：對應圖中「Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.」
     safe_image("images/f3_t2_q3.png", width=390)
-    st.markdown("""
-    <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
-        3. Simplify 
-        <span style='display: inline-block; vertical-align: middle; text-align: center; margin: 0 4px;'>
-            <span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>cos θ</span>
-            <span style='display: block; padding-top: 2px;'>tan²(90° - θ)</span>
-        </span>
-        - 
-        <span style='display: inline-block; vertical-align: middle; text-align: center; margin: 0 4px;'>
-            <span style='display: block; border-bottom: 1px solid white; padding-bottom: 2px;'>1</span>
-            <span style='display: block; padding-top: 2px;'>sin(90° - θ)</span>
-        </span>.
-    </div>
-    """, unsafe_allow_html=True)
-    q3 = st.radio("請選擇第 3 題答案：", ("A) 0", "B) 1", "C) cos θ", "D) -cos θ"), key="f3_t2_q3_ans", label_visibility="collapsed")
+    q3 = st.radio(
+        "3. Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.", 
+        ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), 
+        key="f3_t2_q3"
+    )
     
-    # 第 4 題維持
+    # 【第 4 題】：對應圖中「If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.」
     safe_image("images/f3_t2_q4.png", width=390)
-    st.markdown("""
-    <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
-        4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given $\\angle A = 45^\\circ$ and $\\angle C = 30^\\circ$.
-    </div>
-    """, unsafe_allow_html=True)
-    
-    opt_b_html = "<span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 1px;'>√2</span><span style='display: block; padding-top: 1px;'>2</span></span>"
-    opt_c_html = "<span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 1px;'>√2</span><span style='display: block; padding-top: 1px;'>4</span></span>"
-    opt_d_html = "<span style='display: inline-block; vertical-align: middle; text-align: center;'><span style='display: block; border-bottom: 1px solid white; padding-bottom: 1px;'>4</span><span style='display: block; padding-top: 1px;'>√2</span></span>"
-    
-    q4_choice = st.radio("請選擇第 4 題答案：", ("A) 1 : 2", "B) √2 / 2", "C) √2 / 4", "D) 4 / √2"), key="f3_t2_q4_ans", label_visibility="collapsed")
-    q4_mapping = {
-        "A) 1 : 2": "A) 1 : 2",
-        "B) √2 / 2": f"B) {opt_b_html}",
-        "C) √2 / 4": f"C) {opt_c_html}",
-        "D) 4 / √2": f"D) {opt_d_html}"
-    }
-    q4 = q4_mapping[q4_choice]
+    q4 = st.radio(
+        "4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", 
+        ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) 2√k / (k + 4)", "D) 2√k / (k + 4) [variant]"), 
+        key="f3_t2_q4"
+    )
 
-    # 【第 5 題】：對應圖片 3 (編號 18)
+    # 【第 5 題】：對應圖中「A sheep walks 12m south from A to B, 25m east to C, 29m north to D. Find compass bearing of D from A.」
     safe_image("images/f3_t2_q5.png", width=390)
     q5 = st.radio(
-        "5. In the figure, ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", 
-        ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), 
+        "5. A sheep walks 12m south from A to B, 25m east to C, 29m north to D. Find compass bearing of D from A.", 
+        ("A) S34°W", "B) S56°W", "C) N34°E", "D) N56°E"), 
         key="f3_t2_q5"
     )
     
-    # 【第 6 題】：對應圖片 4 (編號 19)
+    # 【第 6 題】：對應圖中「The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.」
     safe_image("images/f3_t2_q6.png", width=390)
     q6 = st.radio(
-        "6. Paul deposited $65 000 into a bank at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year, correct to the nearest dollar?", 
-        ("A) $112", "B) $2 746", "C) $2 858", "D) $5 604"), 
+        "6. The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.", 
+        ("A) -2", "B) -1", "C) 1", "D) 2"), 
         key="f3_t2_q6"
     )
 
+    # 【第 7 題】：對應圖中「A(-6, -1), B(b, -13), C(-2, b - 5), E(-1, -9). If AE || BC, find b.」
     safe_image("images/f3_t2_q7.png", width=390)
-    q7 = st.radio("7. Factorize 8xy - 6x² - 2y².", ("A) -2(x - y)(4x + y)", "B) -2(3x - y)(x - y)", "C) (x - y)(4x + y)", "D) (3x - y)(x - y)"), key="f3_t2_q7")
+    q7 = st.radio(
+        "7. A(-6, -1), B(b, -13), C(-2, b - 5), E(-1, -9). If AE || BC, find b.", 
+        ("A) -8", "B) -2", "C) 2", "D) 8"), 
+        key="f3_t2_q7"
+    )
+    
+    # 【第 8 題】：對應圖中「Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.」
     safe_image("images/f3_t2_q8.png", width=390)
-    q8 = st.radio("8. BCDE is a parallelogram. G is mid-point of CD. AG and BE intersect at F. CB produced to A so area triangle ABF : area triangle ACG = 4 : 9. Area triangle ABF = 12 cm², find area DEFG.", ("A) 21 cm²", "B) 27 cm²", "C) 36 cm²", "D) 42 cm²"), key="f3_t2_q8")
+    q8 = st.radio(
+        "8. Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.", 
+        ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), 
+        key="f3_t2_q8"
+    )
     
-    # ── 第 9 題的圖片按照你之前要求放大 50% (width=585) ──
+    # 第 9 題維持
     safe_image("images/f3_t2_q9.png", width=585)
-    q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
+    q9 = st.radio("9. Which of the following are identities?\n\nI. sin²θ - cos²θ = 1 - 2cos²θ\n\nII. sin²θ + (cos θ)/(tan θ) = 1/sin θ\n\nIII. sin²θ × tan(90° - θ) = sin θ × cos θ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_t2_q9")
     
+    # 【第 10 題】：改成最後果幅圖（Sector OAB 摺成圓錐果幅圖）內容
     safe_image("images/f3_t2_q10.png", width=390)
-    q10 = st.radio("10. Which of the following numbers is the smallest?", ("A) -4⁻⁴ × 10⁻¹⁰", "B) (-4)⁻⁴ × 10⁻¹⁰", "C) -0.0000000000004", "D) -3 / 12¹²"), key="f3_t2_q10")
+    q10 = st.radio(
+        "10. The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.", 
+        ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), 
+        key="f3_t2_q10"
+    )
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "C) 68°", 2: "B) 132π cm²", 3: "D) -cos θ", 4: f"B) {opt_b_html}", 5: "D) 1 : 6",
-        6: "A) $112", 7: "B) -2(3x - y)(x - y)", 8: "A) 21 cm²", 9: "C) (8, -7)", 10: "C) -0.0000000000004"
+        1: "B) 7 cm", 
+        2: "A) I and II only", 
+        3: "B) 1 : 3", 
+        4: "D) 2√k / (k + 4)", 
+        5: "D) N56°E",
+        6: "A) -2", 
+        7: "D) 8", 
+        8: "A) 6 cm.", 
+        9: "B) I and III only", 
+        10: "B) 7 cm"
     }
     question_topics = {
-        1: "四邊形性質：矩形與菱形 (Rectangles & Rhombuses)", 2: "立體圖形：圓錐與半球表面面積 (Surface Area of Composite Solids)",
-        3: "三角恆等式與轉角公式 (Trigonometric Identities)", 4: "解三角形與三角比應用 (Solution of Triangles)",
-        5: "立體圖形體積比例 (Volumes of Pyramids & Cuboids)", 6: "複利息期數利息差計算 (Compound Interest Differences)",
-        7: "二次多項式因式分解 (Quadratic Factorization)", 8: "平行四邊形與相似形面積比例 (Area Ratios of Similar Figures)",
-        9: "坐標幾何：中點公式 (Mid-point Formula)", 10: "負指數與極小數大小比較 (Indices & Small Numbers Comparison)"
+        1: "圓錐與扇形展開關係 (Sectors & Circular Cones)", 
+        2: "直角坐標系中直線斜率分析 (Slopes of Straight Lines)",
+        3: "斜坡梯度與距離換算 (Gradients & Distances)", 
+        4: "三角比代數化簡 (Trigonometric Ratios & Surds)",
+        5: "方向角與向量應用 (Bearings & Distances)", 
+        6: "共線三點與斜率相等 (Collinear Points)",
+        7: "平行線與坐標幾何斜率 (Parallel Lines & Slopes)", 
+        8: "圓柱與圓錐體積比例關係 (Volumes of Cylinders & Cones)",
+        9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 
+        10: "圓錐與扇形展開應用 (Sectors & Cones Application)"
     }
 
 else:

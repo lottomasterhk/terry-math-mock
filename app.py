@@ -531,11 +531,11 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     
-    # 答案對應 (第 8 題正確答案為 A)
+    # 答案對應 (第 3 題修正為 C，第 8 題正確答案為 A)
     correct_answers = {
         1: "C) I and III only", 
         2: "C) 10.46 km", 
-        3: "A) A circle with area 5 cm²", 
+        3: "C) A circle with diameter 3 cm",  # <-- 已修正第 3 題為 C
         4: "C) 25", 
         5: "B) 265 cm²", 
         6: "A) I and II only", 

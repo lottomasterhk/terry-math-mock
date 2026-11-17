@@ -105,7 +105,7 @@ exam_stage = st.radio(
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
     ],
-    index=2,
+    index=3,
     horizontal=False
 )
 
@@ -119,7 +119,7 @@ question_topics = {}
 st.subheader(f"✍️ 第二步：{grade} {exam_stage} 校本真題級 10 題快測")
 st.markdown(f"請認真完成以下精選實戰試題：")
 
-# ==================== 嚴格雙重條件判定 ====================
+# ==================== 嚴格雙重條件判定 (完整覆蓋所有年級與階段) ====================
 
 # ----------------------------------------------------
 # 1. 中一 (Form 1)
@@ -248,14 +248,11 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
     q2 = st.radio("2. P(-3, 7), Q(0, k) and R(6, 1) are the vertices of a triangle in a rectangular coordinate plane where 1 < k < 7. If the area of triangle PQR is 9 square units, find k.", ("A) 2", "B) 3", "C) 4", "D) 6"), key="f1_fin_q2")
     safe_image("images/f1_fin_q3.png", width=390)
     q3 = st.radio("3. The figure below shows a trapezium PQRS where PS || QR. T is a point on PS. PR and TQ intersect at N. It is given that the lengths of PT, TS and QR are 4 cm, 2 cm and 8 cm respectively and the areas of triangle PNT and triangle QNR are 4 cm² and 16 cm² respectively. Find the area of the quadrilateral STNR.", ("A) 10 cm²", "B) 12 cm²", "C) 13 cm²", "D) 14 cm²"), key="f1_fin_q3")
-    
     q4 = st.radio("4. Anna divides the following data into 7 groups and constructs a frequency distribution table. If the first group is 0 - 9, what is the frequency of the last group in the table?\n\n8, 28, 54, 50, 60, 22, 34, 14, 55, 12\n\n14, 28, 6, 12, 15, 59, 66, 29, 4, 64", ("A) 1", "B) 2", "C) 3", "D) 4"), key="f1_fin_q4")
-    
     q5 = st.radio("5. 0.01491625 =", ("A) 0.015 (correct to the nearest integer)", "B) 0.015 (correct to 2 decimal places)", "C) 0.01491 (correct to 5 decimal places)", "D) 0.014916 (correct to 6 decimal places)"), key="f1_fin_q5")
     safe_image("images/f1_fin_q6.png", width=390)
     q6 = st.radio("6. The broken line graphs below show the profits of shop A and shop B in the first half of 2019.\n\nIn how many months is the profit of shop A lower than that of shop B?", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f1_fin_q6")
     q7 = st.radio("7. Determine whether the following are discrete data or continuous data?\n\nI. The daily rainfalls of city A in July.\n\nII. The number of rainy days of city A in 2019.", ("A) continuous data / discrete data", "B) continuous data / continuous data", "C) discrete data / discrete data", "D) discrete data / continuous data"), key="f1_fin_q7")
-    
     safe_image("images/f1_fin_q8.png", width=390)
     q8 = st.radio("8. In the figure, ADB is a straight line. Which of the following must be true?", (
         "A) △ABC ~ △ACD (3 sides proportional)", 
@@ -268,7 +265,6 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
         "C) △ABC ~ △CBD (3 sides proportional)": "C) $\\triangle ABC \\sim \\triangle CBD$ (3 sides proportional)",
         "D) △ABC ~ △CBD (ratio of 2 sides, inc. angle)": "D) $\\triangle ABC \\sim \\triangle CBD$ (ratio of 2 sides, inc. angle)"
     }[x], key="f1_fin_q8")
-
     safe_image("images/f1_fin_q9.png", width=390)
     q9 = st.radio("9. Refer to the figure. Which of the following must be true?\n\nI. △QPR ≅ △SRP\n\nII. x = 5\n\nIII. y = 20°", (
         "A) I and II only", 
@@ -281,7 +277,6 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
         "C) II and III only": "C) II and III only",
         "D) I, II and III": "D) I, II and III"
     }[x], key="f1_fin_q9")
-
     safe_image("images/f1_fin_q10.png", width=390)
     q10 = st.radio("10. Which of the following must be true?", (
         "A) △ABC ≅ △DEF (SSA)", 
@@ -297,16 +292,8 @@ elif grade == "中一 (Form 1)" and "2nd Exam" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "C) 10 cm", 
-        2: "B) 3", 
-        3: "D) 14 cm²", 
-        4: "C) 3", 
-        5: "D) 0.014916 (correct to 6 decimal places)",
-        6: "B) 3", 
-        7: "A) continuous data / discrete data", 
-        8: "B) △ABC ~ △ACD (ratio of 2 sides, inc. angle)", 
-        9: "A) I and II only", 
-        10: "D) None of the above"
+        1: "C) 10 cm", 2: "B) 3", 3: "D) 14 cm²", 4: "C) 3", 5: "D) 0.014916 (correct to 6 decimal places)",
+        6: "B) 3", 7: "A) continuous data / discrete data", 8: "B) △ABC ~ △ACD (ratio of 2 sides, inc. angle)", 9: "A) I and II only", 10: "D) None of the above"
     }
     question_topics = {
         1: "正方棱柱體積與表面積 (Square Prisms)", 2: "坐標平面三角形面積反算 (Triangle Areas in Coordinates)",
@@ -342,7 +329,6 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     f_1_64_100 = f"<span style='display:inline-block; vertical-align:middle; text-align:center;'>( {f_fraction_inner} )<sup>100</sup></span>"
     st.markdown(f"6. {f_minus_4_50_4} × {f_1_64_100} =", unsafe_allow_html=True)
     q6 = st.radio("6.", ("A) -1.", "B) 4¹⁰⁰.", "C) 1 / 4¹⁰⁰.", "D) -1 / 4²⁰⁰."), key="f2_t1_q6", label_visibility="collapsed")
-    
     q7 = st.radio("7. If a ≠ 0 and a ≠ 1, then (aⁿ⁺¹ - aⁿ⁻¹) / (aⁿ - aⁿ⁻¹) =", ("A) 2", "B) a", "C) a + 1", "D) a - 1"), key="f2_t1_q7")
     
     f_3_m_1 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>3</span><span style='display:block; padding-top:1px;'>m - 1</span></span>"
@@ -361,7 +347,6 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
     f_frac_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4<i>a</i> - 4<i>b</i></span><span style='display:block; padding-top:1px;'>9<i>a</i>²</span></span>"
     st.markdown(f"9. Simplify {f_frac_1} × {f_frac_2}.", unsafe_allow_html=True)
     q9 = st.radio("9.", ("A) 4 / (3a)", "B) 4a / 3", "C) 4(a + 2b) / 3a(a² + ab - 2b²)", "D) 4a(a + 2b) / 3(a² + ab - 2b²)"), key="f2_t1_q9", label_visibility="collapsed")
-    
     st.markdown("10. If x² + y² = m and x + y = n, then xy =", unsafe_allow_html=True)
     q10_choice = st.radio("請選擇第 10 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
         "A": "A) (1/2)(n² - m)",
@@ -374,16 +359,8 @@ elif grade == "中二 (Form 2)" and "1st Term Test" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "A) 1.25%", 
-        2: "D) 29.35 <= y < 29.45", 
-        3: "C) 3", 
-        4: "C) 1", 
-        5: "C) II and III only",
-        6: "C) 1 / 4¹⁰⁰.", 
-        7: "C) a + 1", 
-        8: f"C) {f_m_5_sq}", 
-        9: "A) 4 / (3a)", 
-        10: f"A) ({f_half})(n² - m)"
+        1: "A) 1.25%", 2: "D) 29.35 <= y < 29.45", 3: "C) 3", 4: "C) 1", 5: "C) II and III only",
+        6: "C) 1 / 4¹⁰⁰.", 7: "C) a + 1", 8: f"C) {f_m_5_sq}", 9: "A) 4 / (3a)", 10: f"A) ({f_half})(n² - m)"
     }
     question_topics = {
         1: "誤差與百分誤差計算 (Percentage Errors)", 2: "有效數字與數值範圍 (Significant Figures & Ranges)",
@@ -406,22 +383,13 @@ elif grade == "中二 (Form 2)" and "1st Exam" in exam_stage:
     q8 = st.radio("8. In the figure, PQT and PRS are straight lines. Which of the following must be true?", ("A) a = b - c", "B) c + e = 180°", "C) a + b = c + e", "D) c + d + e = 180° + b"), key="f2_ex1_q8")
     safe_image("images/f2_ex1_q9.png", width=390)
     q9 = st.radio("9. In the figure, CDE is a straight line and x + y = 90°. Which of the following must be true?\n\nI. AB || CE\n\nII. AC ⊥ AD\n\nIII. x = y", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_ex1_q9")
-    
     safe_image("images/f2_ex1_q10.png", width=585)
     q10 = st.radio("10. The pie charts below show the favourite flavours of ice cream voted by customers of shop A and shop B respectively.\n\nWhich of the following must be correct?\n\nI. The number of customers of shop A who vote peach flavour is more than that of shop B.\n\nII. In both shop A and shop B, peach flavour is more popular than strawberry flavour.\n\nIII. The percentages of customers who vote almond flavour in shop A and shop B are the same.", ("A) I only", "B) III only", "C) I and II only", "D) II and III only"), key="f2_ex1_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "C) 3.75 <= x < 4.25", 
-        2: "D) 5x - 3/y", 
-        3: "C) 3.2", 
-        4: "D) (x - y)(a - b - c)", 
-        5: "C) (1,7)",
-        6: "C) (-8/7, 64/7)", 
-        7: "D) x + y + z = 180°", 
-        8: "D) c + d + e = 180° + b", 
-        9: "A) I and II only", 
-        10: "D) II and III only"
+        1: "C) 3.75 <= x < 4.25", 2: "D) 5x - 3/y", 3: "C) 3.2", 4: "D) (x - y)(a - b - c)", 5: "C) (1,7)",
+        6: "C) (-8/7, 64/7)", 7: "D) x + y + z = 180°", 8: "D) c + d + e = 180° + b", 9: "A) I and II only", 10: "D) II and III only"
     }
     question_topics = {
         1: "量度極限與誤差範圍 (Measurement Limits & Limits of Accuracy)", 2: "多項式概念與辨別 (Polynomial Concepts)",
@@ -432,7 +400,6 @@ elif grade == "中二 (Form 2)" and "1st Exam" in exam_stage:
     }
 
 elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
-    # 建立上下直式分數 HTML 輔助變數
     f_5_13 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5</span><span style='display:block; padding-top:1px;'>13</span></span>"
     f_4_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>4</span><span style='display:block; padding-top:1px;'>3</span></span>"
     f_13_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>13</span><span style='display:block; padding-top:1px;'>5</span></span>"
@@ -452,7 +419,6 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
 
     q2 = st.radio("2. Suppose 10 Swiss Francs dollars (CHF) are equivalent to 89 H.K. dollars (HKD) and 10 U.S. dollars (USD) are equivalent to 78 HKD. How many USD can 546 CHF be changed to?", ("A) 478 USD", "B) 623 USD", "C) 1271 USD", "D) 2173 USD"), key="f2_t2_q2")
     q3 = st.radio("3. If 3 pipes are used to fill a swimming pool in 1.5 hour, how much time can be saved by using 5 pipes instead? Assume that all the pipes discharge at the same rate.", ("A) 10 minutes", "B) 24 minutes", "C) 36 minutes", "D) 54 minutes"), key="f2_t2_q3")
-    
     q4 = st.radio("4. Joe has brought some candies for his students who pass the term test. If 84 students pass, each of the students can have 7 candies. How many students pass the term test if each of them can have 3 candies?", ("A) 4", "B) 36", "C) 196", "D) 252"), key="f2_t2_q4")
     
     st.markdown("5. If 0.75x = y and 2z = 7y, where x, y and z are non-zero numbers, find (2x + y) : (y + z).", unsafe_allow_html=True)
@@ -467,10 +433,8 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
 
     q6 = st.radio("6. If each exterior angle of a regular n-sided polygon is 15°, which of the following are true?\n\nI. The value of n is 24.\n\nII. The ratio of the size of each interior angle of the polygon to that of each exterior angle is 12 : 1.\n\nIII. The sum of the interior angles of the polygon is 3960°.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_t2_q6")
     safe_image("images/f2_t2_q7.png", width=390)
-    
     q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
     safe_image("images/f2_t2_q8.png", width=390)
-    
     q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that angle PSQ = angle SPR and angle PQS = angle SRP. Which of the following must be true?\n\nI. △QPS ≅ △RSP\n\nII. △PTS ~ △QTR\n\nIII. PS || QR", (
         "A) I and II only", 
         "B) I and III only", 
@@ -482,9 +446,7 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         "C) II and III only": "C) II and III only",
         "D) I, II and III": "D) I, II and III"
     }[x], key="f2_t2_q8")
-
     safe_image("images/f2_t2_q9.png", width=390)
-    
     q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC || FD and AF || CD. Which of the following must be true?\n\nI. △ABF ≅ △EFB\n\nII. △EFB ≅ △EDB\n\nIII. △CBD ≅ △ABF", (
         "A) I and III only", 
         "B) I only", 
@@ -496,23 +458,13 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         "C) II only": "C) II only",
         "D) II and III only": "D) II and III only"
     }[x], key="f2_t2_q9")
-
     safe_image("images/f2_t2_q10.png", width=390)
-    
     q10 = st.radio("10. In the figure, ABCD is a square and triangle CED is an equilateral triangle. If DE = DG and DG || EF, find x.", ("A) 34°", "B) 36°", "C) 39°", "D) 41°"), key="f2_t2_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: f"D) {f_5_13}", 
-        2: "B) 623 USD", 
-        3: "C) 36 minutes", 
-        4: "C) 196", 
-        5: "A) 22 : 27",          # <-- 修正：第 5 題答案係 A) 22 : 27
-        6: "B) I and III only", 
-        7: "C) 8", 
-        8: "D) I, II and III", 
-        9: "B) I only",            # <-- 修正：第 9 題答案係 B) I only
-        10: "D) 41°"
+        1: f"D) {f_5_13}", 2: "B) 623 USD", 3: "C) 36 minutes", 4: "C) 196", 5: "A) 22 : 27",
+        6: "B) I and III only", 7: "C) 8", 8: "D) I, II and III", 9: "B) I only", 10: "D) 41°"
     }
     question_topics = {
         1: "比與率及分式代數化簡 (Ratios & Fractions)", 2: "外幣找換與比例應用 (Currency Conversions)",
@@ -522,6 +474,9 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         9: "圖形全等與平行線性質 (Congruence & Parallel Lines)", 10: "正方形與等邊三角形幾何綜合 (Squares & Equilateral Triangles)"
     }
 
+# ----------------------------------------------------
+# 2. 中二 (Form 2) - 2nd Exam (下學期考試 / Final) 【全修正版】
+# ----------------------------------------------------
 elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     q1 = st.radio("1. Which of the following is/are rational number(s)?\n\nI. √(2²)\n\nII. π\n\nIII. 0.3", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_fin_q1")
     q2 = st.radio("2. The scale of a map is 1 : 200,000. If the distance between two lighthouses on the map is 5.23 cm, find the actual distance between the two lighthouses.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"), key="f2_fin_q2")
@@ -545,15 +500,39 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     }[x], key="f2_fin_q7")
 
     safe_image("images/f2_fin_q8.png", width=390)
-    q8 = st.radio("8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find (cos β) / (sin α).", ("A) MR / NR", "B) sin β", "C) cos α", "D) sin α × cos β"), key="f2_fin_q8")
+    
+    # 完美修復第 8 題題目與選項 A 的上下立體分數排版
+    f_cos_beta_sin_alpha = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>cos β</span><span style='display:block; padding-top:1px;'>sin α</span></span>"
+    f_mr_nr = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>MR</span><span style='display:block; padding-top:1px;'>NR</span></span>"
+    
+    st.markdown(f"8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find {f_cos_beta_sin_alpha}.", unsafe_allow_html=True)
+    q8_choice = st.radio("請選擇第 8 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
+        "A": "A) MR / NR",
+        "B": "B) sin β",
+        "C": "C) cos α",
+        "D": "D) sin α × cos β"
+    }[x], key="f2_fin_q8_ans", label_visibility="collapsed")
+    q8_mapping = {"A": f"A) {f_mr_nr}", "B": "B) sin β", "C": "C) cos α", "D": "D) sin α × cos β"}
+    q8 = q8_mapping[q8_choice]
+
     q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1 : 2. The ratio of the base radius of P to the height of P is 1 : 3. The ratio of the total surface area of P to Q is", ("A) 1 : 2", "B) 2 : 5", "C) 4 : 7", "D) 7 : 16"), key="f2_fin_q9")
     safe_image("images/f2_fin_q10.png", width=390)
     q10 = st.radio("10. In the figure, PQRST is a regular pentagon. QT =", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"), key="f2_fin_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+    
+    # 嚴格對應你提供嘅最新 10 題正確答案 (C, C, C, C, B, A, B, A, C, B)
     correct_answers = {
-        1: "C) I and III only", 2: "C) 10.46 km", 3: "A) A circle with area 5 cm²", 4: "C) 25", 5: "D) 445 cm²",
-        6: "D) I, II and III", 7: "D) I, II and III", 8: "A) MR / NR", 9: "D) 7 : 16", 10: "B) 2x sin 54°"
+        1: "C) I and III only", 
+        2: "C) 10.46 km", 
+        3: "A) A circle with area 5 cm²", 
+        4: "C) 25", 
+        5: "B) 265 cm²",          # <-- 修正 Q5 答案為 B
+        6: "A) I and II only",    # <-- 修正 Q6 答案為 A
+        7: "B) I and III only",   # <-- 修正 Q7 答案為 B
+        8: f"A) {f_mr_nr}",       # <-- 修正 Q8 答案為 A
+        9: "C) 4 : 7",            # <-- 修正 Q9 答案為 C
+        10: "B) 2x sin 54°"       # <-- 修正 Q10 答案為 B
     }
     question_topics = {
         1: "有理數與無理數概念 (Rational & Irrational Numbers)", 2: "地圖比例尺與實際距離換算 (Map Scales & Actual Distances)",
@@ -611,7 +590,6 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     f_1_4 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>4</span></span>"
     f_1_3 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>1</span><span style='display:block; padding-top:1px;'>3</span></span>"
     f_a_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>a</span><span style='display:block; padding-top:1px;'>5</span></span>"
-    
     f_8_3x_5 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>8 - 3x</span><span style='display:block; padding-top:1px;'>5</span></span>"
     f_5_2x_2 = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>5 + 2x</span><span style='display:block; padding-top:1px;'>2</span></span>"
 
@@ -743,19 +721,14 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
 
     safe_image("images/f3_t2_q5.png", width=390)
     q5 = st.radio("5. ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), key="f3_t2_q5")
-    
     safe_image("images/f3_t2_q6.png", width=390)
     q6 = st.radio("6. Paul deposited $65,000 at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year?", ("A) $112", "B) $2,746", "C) $2,858", "D) $5,604"), key="f3_t2_q6")
-    
     safe_image("images/f3_t2_q7.png", width=390)
     q7 = st.radio("7. Factorize 8xy - 6x² - 2y².", ("A) -2(x - y)(4x + y)", "B) -2(3x - y)(x - y)", "C) (x - y)(4x + y)", "D) (3x - y)(x - y)"), key="f3_t2_q7")
-    
     safe_image("images/f3_t2_q8.png", width=390)
     q8 = st.radio("8. BCDE is a parallelogram. G is mid-point of CD. AG and BE intersect at F. CB produced to A so area triangle ABF : area triangle ACG = 4 : 9. Area triangle ABF = 12 cm², find area DEFG.", ("A) 21 cm²", "B) 27 cm²", "C) 36 cm²", "D) 42 cm²"), key="f3_t2_q8")
-    
     safe_image("images/f3_t2_q9.png", width=390)
     q9 = st.radio("9. A(2, -17) and B(14, 3) are two given points. If M is the mid-point of AB, find the coordinates of M.", ("A) (-6, -7)", "B) (-6, -10)", "C) (8, -7)", "D) (8, 10)"), key="f3_t2_q9")
-    
     safe_image("images/f3_t2_q10.png", width=390)
     q10 = st.radio("10. Which of the following numbers is the smallest?", ("A) -4⁻⁴ × 10⁻¹⁰", "B) (-4)⁻⁴ × 10⁻¹⁰", "C) -0.0000000000004", "D) -3 / 12¹²"), key="f3_t2_q10")
 
@@ -806,6 +779,7 @@ else:
         7: "平行線與坐標幾何斜率 (Parallel Lines & Slopes)", 8: "圓柱與圓錐體積比例關係 (Volumes of Cylinders & Cones)",
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 10: "幾何體積綜合應用 (Mensuration & Volumes)"
     }
+
 
 # ==================== 單一原生按鈕 (32px，乾淨俐落) ====================
 submit_clicked = st.button("🚀 按此立即提交\n並生成我的 Mock 考試預測報告！", type="primary")

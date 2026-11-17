@@ -435,7 +435,7 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
     safe_image("images/f2_t2_q7.png", width=390)
     q7 = st.radio("7. In the figure, AED and CGD are straight lines, and ABCD ~ EFGD. Find x.", ("A) 6", "B) 7", "C) 8", "D) 9"), key="f2_t2_q7")
     safe_image("images/f2_t2_q8.png", width=390)
-    q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that angle PSQ = angle SPR and angle PQS = angle SRP. Which of the following must be true?\n\nI. △QPS ≅ △RSP\n\nII. △PTS ~ △QTR\n\nIII. PS || QR", (
+    q8 = st.radio("8. In the figure, PQRS is a quadrilateral. The diagonals PR and QS intersect at T. It is given that $\\angle PSQ = \\angle SPR$ and $\\angle PQS = \\angle SRP$. Which of the following must be true?\n\nI. $\\triangle QPS \\cong \\triangle RSP$\n\nII. $\\triangle PTS \\sim \\triangle QTR$\n\nIII. $PS \\parallel QR$", (
         "A) I and II only", 
         "B) I and III only", 
         "C) II and III only", 
@@ -447,7 +447,7 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         "D) I, II and III": "D) I, II and III"
     }[x], key="f2_t2_q8")
     safe_image("images/f2_t2_q9.png", width=390)
-    q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC || FD and AF || CD. Which of the following must be true?\n\nI. △ABF ≅ △EFB\n\nII. △EFB ≅ △EDB\n\nIII. △CBD ≅ △ABF", (
+    q9 = st.radio("9. In the figure, ABC and FED are straight lines, where AB = BC = DE = EF. It is given that AC || FD and AF || CD. Which of the following must be true?\n\nI. $\\triangle ABF \\cong \\triangle EFB$\n\nII. $\\triangle EFB \\cong \\triangle EDB$\n\nIII. $\\triangle CBD \\cong \\triangle ABF$", (
         "A) I and III only", 
         "B) I only", 
         "C) II only", 
@@ -484,7 +484,7 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\nI. The value of n is 16.\n\nII. The sum of the interior angle of the polygon is 2520°.\n\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q6")
     safe_image("images/f2_fin_q7.png", width=390)
     
-    q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. △ABC ≅ △EDC\n\nII. AC ⊥ CE\n\nIII. angle AEF = 80°", (
+    q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. $\\triangle ABC \\cong \\triangle EDC$\n\nII. $AC \\perp CE$\n\nIII. $\\angle AEF = 80^\\circ$", (
         "A) I and II only", 
         "B) I and III only", 
         "C) II and III only", 
@@ -653,7 +653,7 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     q5 = st.radio("請選擇第 5 題答案：", ("A) (x + 3y) / y⁶", "B) (x - 9y) / y⁶", "C) (x - 3y) / y²", "D) (x - 9y) / y²"), key="f3_ex1_q5", label_visibility="collapsed")
     
     safe_image("images/f3_ex1_q6.png", width=585)
-    q6 = st.radio("6. In the figure, QS and RS are angle bisectors of triangle PQR. Find angle QSR.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_ex1_q6")
+    q6 = st.radio("6. In the figure, QS and RS are angle bisectors of triangle PQR. Find $\\angle QSR$.", ("A) 100°", "B) 120°", "C) 125°", "D) 130°"), key="f3_ex1_q6")
     
     st.markdown("7. Both Isaac and Andy want to buy a radiator. Isaac chooses a radiator among brands A, B, C and D at random, while Andy chooses a radiator among brands A, B and C at random. Find the probability that they choose the same brand.", unsafe_allow_html=True)
     q7_choice = st.radio("請選擇第 7 題答案：", ("A", "B", "C", "D"), format_func=lambda x: {
@@ -708,7 +708,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     # 【第 1 題】：對應圖片 1 (編號 11)
     safe_image("images/f3_t2_q1.png", width=390)
     q1 = st.radio(
-        "11. In the figure, ABCE is a rectangle, CDEF is a rhombus. If angle FBC = 34°, find angle CDE.", 
+        "1. In the figure, ABCE is a rectangle, CDEF is a rhombus. If $\\angle FBC = 34^\\circ$, find $\\angle CDE$.", 
         ("A) 64°", "B) 66°", "C) 68°", "D) 70°"), 
         key="f3_t2_q1"
     )
@@ -716,7 +716,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     # 【第 2 題】：對應圖片 2 (編號 12)
     safe_image("images/f3_t2_q2.png", width=390)
     q2 = st.radio(
-        "12. In the figure, the solid consists of a right circular cone and a hemisphere with a common base. The height and the slant height of the cone are 8 cm and 10 cm respectively. Find the total surface area of the solid.", 
+        "2. In the figure, the solid consists of a right circular cone and a hemisphere with a common base. The height and the slant height of the cone are 8 cm and 10 cm respectively. Find the total surface area of the solid.", 
         ("A) 120π cm²", "B) 132π cm²", "C) 384π cm²", "D) 204π cm²"), 
         key="f3_t2_q2"
     )
@@ -743,7 +743,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q4.png", width=390)
     st.markdown("""
     <div style="font-size: 16px; color: #ffffff; line-height: 1.8; margin-bottom: 8px;">
-        4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given angle A = 45° and angle C = 30°.
+        4. In the figure, D is a point on AC such that BD ⊥ AC. Find AB : BC given $\\angle A = 45^\\circ$ and $\\angle C = 30^\\circ$.
     </div>
     """, unsafe_allow_html=True)
     
@@ -763,7 +763,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     # 【第 5 題】：對應圖片 3 (編號 18)
     safe_image("images/f3_t2_q5.png", width=390)
     q5 = st.radio(
-        "18. In the figure, ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", 
+        "5. In the figure, ABCDEFGH is a cuboid and EACD is a pyramid. What is the ratio of the volume of the pyramid to that of the cuboid?", 
         ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 6"), 
         key="f3_t2_q5"
     )
@@ -771,7 +771,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     # 【第 6 題】：對應圖片 4 (編號 19)
     safe_image("images/f3_t2_q6.png", width=390)
     q6 = st.radio(
-        "19. Paul deposited $65 000 into a bank at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year, correct to the nearest dollar?", 
+        "6. Paul deposited $65 000 into a bank at 4% p.a. compounded quarterly. What is the difference between the interest obtained in the third year and that in the second year, correct to the nearest dollar?", 
         ("A) $112", "B) $2 746", "C) $2 858", "D) $5 604"), 
         key="f3_t2_q6"
     )
@@ -803,7 +803,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
 
 else:
     safe_image("images/f3_fin_q1.png", width=390)
-    q1 = st.radio("1. The figure shows sector OAB. Radius = 9 cm, angle = 280°. Folded into a hollow circular cone, find base radius.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
+    q1 = st.radio("1. The figure shows sector OAB. Radius = 9 cm, $\\angle = 280^\\circ$. Folded into a hollow circular cone, find base radius.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
     safe_image("images/f3_fin_q2.png", width=390)
     q2 = st.radio("2. In the figure, slopes of L₁, L₂, L₃ are m₁, m₂, m₃. Which are correct?\n\nI. m₂ < 0\n\nII. m₃ > 0\n\nIII. m₂ > m₁", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
     safe_image("images/f3_fin_q3.png", width=390)

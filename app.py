@@ -95,7 +95,7 @@ st.markdown("""
 
 # 第一步：先揀年級，再揀考試階段
 st.subheader("📌 第一步：選擇你的年級與考試階段")
-grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=1, horizontal=True)
+grade = st.radio("請選擇你嘅年級：", ["中一 (Form 1)", "中二 (Form 2)", "中三 (Form 3)"], index=2, horizontal=True)
 
 exam_stage = st.radio(
     "請選擇考試階段：",
@@ -105,7 +105,7 @@ exam_stage = st.radio(
         "2nd Term Test (第二次測驗)", 
         "2nd Exam (下學期考試 / Final)"
     ],
-    index=3,
+    index=0,
     horizontal=False
 )
 
@@ -474,9 +474,6 @@ elif grade == "中二 (Form 2)" and "2nd Term Test" in exam_stage:
         9: "圖形全等與平行線性質 (Congruence & Parallel Lines)", 10: "正方形與等邊三角形幾何綜合 (Squares & Equilateral Triangles)"
     }
 
-# ----------------------------------------------------
-# 2. 中二 (Form 2) - 2nd Exam (下學期考試 / Final) 【全修正版】
-# ----------------------------------------------------
 elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     q1 = st.radio("1. Which of the following is/are rational number(s)?\n\nI. √(2²)\n\nII. π\n\nIII. 0.3", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f2_fin_q1")
     q2 = st.radio("2. The scale of a map is 1 : 200,000. If the distance between two lighthouses on the map is 5.23 cm, find the actual distance between the two lighthouses.", ("A) 2.46 km", "B) 2.62 km", "C) 10.46 km", "D) 10.62 km"), key="f2_fin_q2")
@@ -487,7 +484,6 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     q6 = st.radio("6. If each interior angle of a regular n-sided polygon is 157.5°, which of the following are true?\n\nI. The value of n is 16.\n\nII. The sum of the interior angle of the polygon is 2520°.\n\nIII. The ratio of the size of each interior angle to that of each exterior angle is 6:1.", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f2_fin_q6")
     safe_image("images/f2_fin_q7.png", width=390)
     
-    # 完美修正第 7 題選項：取消選項 D 後面多出嘅 "D" 字，只保留 I, II, III 相關說明
     q7 = st.radio("7. In the figure, ABCDEFGHI is a regular nonagon. Which of the following are true?\n\nI. △ABC ≅ △EDC\n\nII. AC ⊥ CE\n\nIII. angle AEF = 80°", (
         "A) I and II only", 
         "B) I and III only", 
@@ -502,11 +498,9 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
 
     safe_image("images/f2_fin_q8.png", width=390)
     
-    # 完美修復第 8 題問題：根據圖片顯示改為 "Find MR / NR."，分子分母用立體分數排版
     f_mr_nr_title = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>MR</span><span style='display:block; padding-top:1px;'>NR</span></span>"
     st.markdown(f"8. In the figure, PQRS is a rectangle and PMNS is a straight line. Find {f_mr_nr_title}.", unsafe_allow_html=True)
     
-    # 選項：A. cos β / sin α, B. sin β / cos α, C. sin α cos β, D. cos α sin β (全部用立體分數排版)
     f_cos_beta_sin_alpha = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>cos β</span><span style='display:block; padding-top:1px;'>sin α</span></span>"
     f_sin_beta_cos_alpha = "<span style='display:inline-block; vertical-align:middle; text-align:center;'><span style='display:block; border-bottom:1px solid white; padding-bottom:1px;'>sin β</span><span style='display:block; padding-top:1px;'>cos α</span></span>"
     
@@ -531,11 +525,10 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     
-    # 答案對應 (第 3 題修正為 C，第 8 題正確答案為 A)
     correct_answers = {
         1: "C) I and III only", 
         2: "C) 10.46 km", 
-        3: "C) A circle with diameter 3 cm",  # <-- 已修正第 3 題為 C
+        3: "C) A circle with diameter 3 cm", 
         4: "C) 25", 
         5: "B) 265 cm²", 
         6: "A) I and II only", 
@@ -575,14 +568,31 @@ elif grade == "中三 (Form 3)" and "1st Term Test" in exam_stage:
 
     q6 = st.radio("6. (25²⁰⁴⁸ × 2²⁰⁷⁶) / 5²⁰²⁰ =", ("A) 50⁴¹²⁴ / 5²⁰²⁰", "B) 25⁵⁶ × 2²⁰⁷⁶", "C) 10²⁰⁷⁶", "D) 10²¹⁰⁴"), key="f3_t1_q6")
     q7 = st.radio("7. Mr Cheung takes out a loan at an interest rate of 20% p.a. compounded quarterly for 2 years. If he has to pay an interest of $4,000, find the amount he needs to repay, correct to nearest dollar.", ("A) $8,378", "B) $8,619", "C) $9,091", "D) $12,378"), key="f3_t1_q7")
-    q8 = st.radio("8. There are 20 questions in a test. For each question answered correct, m marks will be given. For each unanswered or wrong question, n marks will be deducted. If 10 correct = 20 marks, 15 correct = 60 marks. Find n.", ("A) 2", "B) 3", "C) 4", "D) 5"), key="f3_t1_q8")
+    
+    # 完美跟足圖入面嘅第 8 題標準問題內容
+    q8 = st.radio(
+        "8. There are 20 questions in a test. For each question answered correct, m marks will be given. For each unanswered question or wrongly answered question, n marks will be deducted. If 10 questions are answered correctly, a student will get 20 marks. If 15 questions are answered correctly, a student will get 60 marks. Find n.", 
+        ("A) 2", "B) 3", "C) 4", "D) 5"), 
+        key="f3_t1_q8"
+    )
+    
     q9 = st.radio("9. If -x² + kx + 10 can be factorized where k is an integer, which of the following is/are possible value(s) of k?\n\nI. -5\n\nII. -3\n\nIII. 9", ("A) I only", "B) II only", "C) I and III only", "D) II and III only"), key="f3_t1_q9")
     q10 = st.radio("10. Factorize -8x² - 28xy + 60y².", ("A) (x - 5y)(2x + 3y)", "B) (x + 5y)(2x - 3y)", "C) -4(x - 5y)(2x + 3y)", "D) -4(x + 5y)(2x - 3y)"), key="f3_t1_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
+    
+    # 第 5 題答案更新為 B (20)，第 8 題答案為 B (3)[cite: 2]
     correct_answers = {
-        1: "A) 37 × 2⁸ + 28.", 2: "D) 1100000000001₂", 3: "D) 105₁₀ < 1101100₂ < 1101110₂", 4: "C) $3,662", 5: f"C) 24",
-        6: "C) 10²⁰⁷⁶", 7: "D) $12,378", 8: "B) 3", 9: "D) II and III only", 10: "D) -4(x + 5y)(2x - 3y)"
+        1: "A) 37 × 2⁸ + 28.", 
+        2: "D) 1100000000001₂", 
+        3: "D) 105₁₀ < 1101100₂ < 1101110₂", 
+        4: "C) $3,662", 
+        5: "B) 20",  # <-- 已修正第 5 題為 B
+        6: "C) 10²⁰⁷⁶", 
+        7: "D) $12,378", 
+        8: "B) 3",    # <-- 第 8 題對應圖入面嘅 B (3)[cite: 2]
+        9: "D) II and III only", 
+        10: "D) -4(x + 5y)(2x - 3y)"
     }
     question_topics = {
         1: "二進制數與代數轉換 (Binary Numbers)", 2: "二進制數加減運算 (Binary Arithmetic)",

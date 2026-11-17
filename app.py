@@ -519,7 +519,7 @@ elif grade == "中二 (Form 2)" and "2nd Exam" in exam_stage:
     }
     q8 = q8_mapping[q8_choice]
 
-    q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of the base radii of cylinders P and Q is 1 : 2. The ratio of the base radius of P to the height of P is 1 : 3. The ratio of the total surface area of P to Q is", ("A) 1 : 2", "B) 2 : 5", "C) 4 : 7", "D) 7 : 16"), key="f2_fin_q9")
+    q9 = st.radio("9. Two right cylinders P and Q have the same height. It is given that the ratio of base radii of cylinders P and Q is 1 : 2. The ratio of the base radius of P to the height of P is 1 : 3. The ratio of the total surface area of P to Q is", ("A) 1 : 2", "B) 2 : 5", "C) 4 : 7", "D) 7 : 16"), key="f2_fin_q9")
     safe_image("images/f2_fin_q10.png", width=390)
     q10 = st.radio("10. In the figure, PQRST is a regular pentagon. QT =", ("A) 2x", "B) 2x sin 54°", "C) 2 cos 54°", "D) 2x tan 54°"), key="f2_fin_q10")
 
@@ -668,11 +668,14 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
     q7_mapping = {"A": f"A) {f_1_12}", "B": f"B) {f_1_6}", "C": f"C) {f_1_4}", "D": f"D) {f_1_3}"}
     q7 = q7_mapping[q7_choice]
 
-    # 第 8 題的圖放大 50% (width=585)
-    safe_image("images/f3_ex1_q8.png", width=585)
+    # 第 8 題維持原本尺寸 (width=390)
+    safe_image("images/f3_ex1_q8.png", width=390)
     q8 = st.radio("8. A bag contains 3 red cards, 2 green cards and 15 yellow cards. In a game, a card is randomly drawn from the bag and the corresponding score will be given according to the table.", ("A) 9.25", "B) 11.5", "C) 13.25", "D) 15"), key="f3_ex1_q8")
-    safe_image("images/f3_ex1_q9.png", width=390)
+    
+    # 第 9 題的圖放大 50% (width=585)
+    safe_image("images/f3_ex1_q9.png", width=585)
     q9 = st.radio("9. The prices of items sold in a supermarket are as follows: Shower gel $41, Oats $37, Chocolate bar $28, Hand sanitizer $33, Potato chips $26. The prices of all items are increased by 10% and then decreased by $2. Find the mean of the adjusted price of the above items.", ("A) $33.0", "B) $33.7", "C) $34.1", "D) $34.3"), key="f3_ex1_q9")
+    
     safe_image("images/f3_ex1_q10.png", width=390)
     q10 = st.radio("10. In the figure, APB and AQC are straight lines. If AQ = 26, PQ = 10, QC = 22 and PB = 28, which of the following must be true?", ("A) BC is an altitude of triangle ABC.", "B) BQ is an angle bisector of triangle ABC.", "C) PC is a median of triangle ABC.", "D) PQ is a perpendicular bisector of triangle ABC."), key="f3_ex1_q10")
 

@@ -727,7 +727,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q3"
     )
     
-    # 第 4 題修正 (修改為選項 D: 2√k / (k + 4))
+    # 第 4 題維持
     safe_image("images/f3_t2_q4.png", width=390)
     q4 = st.radio(
         "4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", 
@@ -784,11 +784,11 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         1: "B) 7 cm", 
         2: "A) I and II only", 
         3: "B) 1 : 3", 
-        4: "D) 2√k / (k + 4) ",  # <-- 已修正第 4 題正確答案
+        4: "D) 2√k / (k + 4) ", 
         5: "D) N56°E",
         6: "A) -2", 
         7: "D) 8", 
-        8: "A) 6 cm.", 
+        8: "A) 6 cm.",  # <-- 確保第 8 題對應 "A) 6 cm."
         9: "B) I and III only", 
         10: "B) 113 sq. units"
     }

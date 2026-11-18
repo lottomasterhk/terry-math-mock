@@ -823,7 +823,7 @@ else:
     safe_image("images/f3_fin_q7.png", width=390)
     q7 = st.radio("7. A(-6, -1), B(b, -13), C(-2, b - 5) and E(-1, -9) are four given points. If AE // BC, find the value of b.", ("A) -8", "B) -2", "C) 2", "D) 8"), key="f3_fin_q7")
     safe_image("images/f3_fin_q8.png", width=390)
-    q8 = st.radio("8. Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q8")
+    q8 = st.radio("8. The ratio of the base radius of a right circular cylinder to the base radius if a right circular cone is 6 : 5 while the ratio of volume of the the circular cylinder to the volume of the circular cone is 18 : 5. If the height of the circular cylinder is 5 cm, then the height of the circular cone is", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q8")
     safe_image("images/f3_fin_q9.png", width=390)
     q9 = st.radio("9. Which of the following are identities?\n\nI. sin²θ - cos²θ = 1 - 2cos²θ\n\nII. sin²θ + (cos θ)/(tan θ) = 1/sin θ\n\nIII. sin²θ × tan(90° - θ) = sin θ × cos θ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q9")
     safe_image("images/f3_fin_q10.png", width=390)

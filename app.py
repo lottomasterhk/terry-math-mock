@@ -788,7 +788,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         5: "D) N56°E",
         6: "A) -2", 
         7: "D) 8", 
-        8: "A) 6 cm.",  # <-- 確保第 8 題對應 "A) 6 cm."
+        8: "A) 6 cm.",
         9: "B) I and III only", 
         10: "B) 113 sq. units"
     }

@@ -813,7 +813,7 @@ else:
     safe_image("images/f3_fin_q3.png", width=390)
     q3 = st.radio("3. Mr Choi drives along an inclined road PQ at a speed of 36 km/h for 2 hours. If the horizontal distance he has travelled is 68 km, find the gradient of PQ in the form of 1 : n, where n is correct to the nearest integer.", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), key="f3_fin_q3")
     safe_image("images/f3_fin_q4.png", width=390)
-    q4 = st.radio("4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) 2√k / (k + 4)", "D) 2√k / (k + 4) "), key="f3_fin_q4")
+    q4 = st.radio("4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) (k + 4) / 2√k", "D) 2√k / (k + 4) "), key="f3_fin_q4")
     safe_image("images/f3_fin_q5.png", width=390)
     q5 = st.radio("5. A sheep walks 12 m due south from tree A to tree B, then walks 25 m due east to tree C and finally walks 29 m due north to tree D. Find the compass bearing of D from A, correct to the nearest degree.", ("A) S34°W", "B) S56°W", "C) N34°E", "D) N56°E"), key="f3_fin_q5")
     safe_image("images/f3_fin_q6.png", width=390)

@@ -702,10 +702,8 @@ elif grade == "中三 (Form 3)" and "1st Exam" in exam_stage:
 
 elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     # ----------------------------------------------------
-    # 嚴格完全對齊你所提供 6 張圖片入面嘅真實題目文字
+    # 第 1 題維持
     # ----------------------------------------------------
-    
-    # 【第 1 題】：對應第一張圖 (Sector OAB 題目)
     safe_image("images/f3_t2_q1.png", width=390)
     q1 = st.radio(
         "1. The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.", 
@@ -713,7 +711,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q1"
     )
     
-    # 【第 2 題】：對應第二張圖 (Slopes of L1, L2, L3 題目)
+    # 第 2 題維持
     safe_image("images/f3_t2_q2.png", width=390)
     q2 = st.radio(
         "2. In the figure, the slopes of the straight lines L₁, L₂ and L₃ are m₁, m₂ and m₃ respectively. Which of the following must be correct?", 
@@ -721,7 +719,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q2"
     )
     
-    # 【第 3 題】：對應第三張圖 (Mr Choi drives along an inclined road PQ 題目)
+    # 第 3 題維持
     safe_image("images/f3_t2_q3.png", width=390)
     q3 = st.radio(
         "3. Mr Choi drives along an inclined road PQ at a speed of 36 km/h for 2 hours. If the horizontal distance he has travelled is 68 km, find the gradient of PQ in the form of 1 : n, where n is correct to the nearest integer.", 
@@ -737,7 +735,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q4"
     )
 
-    # 【第 5 題】：對應第四張圖 (A sheep walks 12 m due south from tree A... 題目)
+    # 第 5 題維持
     safe_image("images/f3_t2_q5.png", width=390)
     q5 = st.radio(
         "5. A sheep walks 12 m due south from tree A to tree B, then walks 25 m due east to tree C and finally walks 29 m due north to tree D. Find the compass bearing of D from A, correct to the nearest degree.", 
@@ -753,7 +751,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q6"
     )
 
-    # 【第 7 題】：對應第五張圖 (A(-6, -1), B(b, -13), C(-2, b - 5) and E(-1, -9) 題目)
+    # 第 7 題維持
     safe_image("images/f3_t2_q7.png", width=390)
     q7 = st.radio(
         "7. A(-6, -1), B(b, -13), C(-2, b - 5) and E(-1, -9) are four given points. If AE // BC, find the value of b.", 
@@ -761,7 +759,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q7"
     )
     
-    # 【第 8 題】：對應第六張圖 (The ratio of the base radius of a right circular cylinder... 題目)
+    # 第 8 題維持
     safe_image("images/f3_t2_q8.png", width=390)
     q8 = st.radio(
         "8. The ratio of the base radius of a right circular cylinder to the base radius of a right circular cone is 6 : 5 while the ratio of the volume of the circular cylinder to the volume of the circular cone is 18 : 5. If the height of the circular cylinder is 5 cm, then the height of the circular cone is", 
@@ -773,11 +771,11 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q9.png", width=585)
     q9 = st.radio("9. Which of the following are identities?\n\nI. sin²θ - cos²θ = 1 - 2cos²θ\n\nII. sin²θ + (cos θ)/(tan θ) = 1/sin θ\n\nIII. sin²θ × tan(90° - θ) = sin θ × cos θ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_t2_q9")
     
-    # 【第 10 題】：對應第一張圖 (Sector OAB 題目作第 10 題變體)
+    # 【第 10 題】：根據剛才上傳的新圖片更新 (題目關於坐標、原點 O、點 A(22, 0) 及負 y 軸上的點 B 使得內心 x 坐標為 4，求三角形面積)
     safe_image("images/f3_t2_q10.png", width=390)
     q10 = st.radio(
-        "10. The figure shows the sector OAB. The radius of the sector is 9 cm and the angle of sector is 280°. If it is folded into a hollow circular cone, find the base radius of the cone.", 
-        ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), 
+        "10. Denote the origin by O. The coordinates of the point A are (22, 0). Let B be a point lying on the negative y-axis such that the x-coordinate of the incentre of ΔOAB is 4. Find the area of ΔOAB correct to 3 significant figures.", 
+        ("A) 99.0 sq. units", "B) 113 sq. units", "C) 161 sq. units", "D) 322 sq. units"), 
         key="f3_t2_q10"
     )
 
@@ -792,7 +790,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         7: "D) 8", 
         8: "A) 6 cm.", 
         9: "B) I and III only", 
-        10: "B) 7 cm"
+        10: "B) 113 sq. units"
     }
     question_topics = {
         1: "圓錐與扇形展開關係 (Sectors & Circular Cones)", 
@@ -804,7 +802,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         7: "平行線與坐標幾何斜率 (Parallel Lines & Slopes)", 
         8: "圓柱與圓錐體積比例關係 (Volumes of Cylinders & Cones)",
         9: "進階三角恆等式驗證 (Advanced Trigonometric Identities)", 
-        10: "圓錐與扇形展開應用 (Sectors & Cones Application)"
+        10: "坐標幾何與三角形內心面積 (Coordinate Geometry & Incentres)"
     }
 
 else:
@@ -817,7 +815,7 @@ else:
     safe_image("images/f3_fin_q4.png", width=390)
     q4 = st.radio("4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) 2√k / (k + 4)", "D) 2√k / (k + 4) [variant]"), key="f3_fin_q4")
     safe_image("images/f3_fin_q5.png", width=390)
-    q5 = st.radio("5.A sheep walks 12 m due south from tree A to tree B, then walks 25 m due east to tree C and finally walks 29 m due north to tree D. Find the compass bearing of D from A, correct to the nearest degree.", ("A) S34°W", "B) S56°W", "C) N34°E", "D) N56°E"), key="f3_fin_q5")
+    q5 = st.radio("5. A sheep walks 12 m due south from tree A to tree B, then walks 25 m due east to tree C and finally walks 29 m due north to tree D. Find the compass bearing of D from A, correct to the nearest degree.", ("A) S34°W", "B) S56°W", "C) N34°E", "D) N56°E"), key="f3_fin_q5")
     safe_image("images/f3_fin_q6.png", width=390)
     q6 = st.radio("6. The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.", ("A) -2", "B) -1", "C) 1", "D) 2"), key="f3_fin_q6")
     safe_image("images/f3_fin_q7.png", width=390)

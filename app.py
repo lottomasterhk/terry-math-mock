@@ -830,7 +830,7 @@ else:
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
         1: "B) 7 cm", 2: "A) I and II only", 3: "B) 1 : 3", 4: "D) 2√k / (k + 4) ", 5: "D) N56°E",
-        6: "A) -2", 7: "D) 8", 8: "A) 6 cm.", 9: "B) I and III only", 10: "A) 6 cm."
+        6: "A) -2", 7: "D) 8", 8: "A) 6 cm.", 9: "B) I and III only", 10: "B) 113 sq. units"
     }
     question_topics = {
         1: "圓錐與扇形展開關係 (Sectors & Circular Cones)", 2: "直角坐標系中直線斜率分析 (Slopes of Straight Lines)",

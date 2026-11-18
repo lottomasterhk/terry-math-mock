@@ -811,7 +811,7 @@ else:
     safe_image("images/f3_fin_q1.png", width=390)
     q1 = st.radio("1. The figure shows sector OAB. The radius of the sector is 9 cm and the angle of sector is  $\\angle = 280^\\circ$. If it is folded into a hollow circular cone, find base radius of the cone.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
     safe_image("images/f3_fin_q2.png", width=390)
-    q2 = st.radio("2. In the figure, slopes of L₁, L₂, L₃ are m₁, m₂, m₃. Which are correct?\n\nI. m₂ < 0\n\nII. m₃ > 0\n\nIII. m₂ > m₁", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
+    q2 = st.radio("2. In the figure, the slopes of the straight lines L₁, L₂ and L₃ are m₁, m₂ and m₃ respectively. Which of the following must be correct?\n\nI. m₂ < 0\n\nII. m₃ > 0\n\nIII. m₂ > m₁", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
     safe_image("images/f3_fin_q3.png", width=390)
     q3 = st.radio("3. Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), key="f3_fin_q3")
     safe_image("images/f3_fin_q4.png", width=390)

@@ -809,7 +809,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
 
 else:
     safe_image("images/f3_fin_q1.png", width=390)
-    q1 = st.radio("1. The figure shows sector OAB. Radius = 9 cm, $\\angle = 280^\\circ$. Folded into a hollow circular cone, find base radius.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
+    q1 = st.radio("1. The figure shows sector OAB. The radius of the sector is 9 cm and the angle of sector is  $\\angle = 280^\\circ$. If it is folded into a hollow circular cone, find base radius of the cone.", ("A) 4.5 cm", "B) 7 cm", "C) 9 cm", "D) 14 cm"), key="f3_fin_q1")
     safe_image("images/f3_fin_q2.png", width=390)
     q2 = st.radio("2. In the figure, slopes of L₁, L₂, L₃ are m₁, m₂, m₃. Which are correct?\n\nI. m₂ < 0\n\nII. m₃ > 0\n\nIII. m₂ > m₁", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
     safe_image("images/f3_fin_q3.png", width=390)

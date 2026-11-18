@@ -731,7 +731,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q4.png", width=390)
     q4 = st.radio(
         "4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", 
-        ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) 2√k / (k + 4)", "D) 2√k / (k + 4) "), 
+        ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) (k + 4) / 2√k ", "D) 2√k / (k + 4) "), 
         key="f3_t2_q4"
     )
 

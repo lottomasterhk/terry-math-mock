@@ -821,7 +821,7 @@ else:
     safe_image("images/f3_fin_q6.png", width=390)
     q6 = st.radio("6. The three points A(-2, -6), B(3, c) and C(23, 14) are collinear. Find c.", ("A) -2", "B) -1", "C) 1", "D) 2"), key="f3_fin_q6")
     safe_image("images/f3_fin_q7.png", width=390)
-    q7 = st.radio("7. A(-6, -1), B(b, -13), C(-2, b - 5), E(-1, -9). If AE || BC, find b.", ("A) -8", "B) -2", "C) 2", "D) 8"), key="f3_fin_q7")
+    q7 = st.radio("7. A(-6, -1), B(b, -13), C(-2, b - 5) and E(-1, -9) are four given points. If AE // BC, find the value of b.", ("A) -8", "B) -2", "C) 2", "D) 8"), key="f3_fin_q7")
     safe_image("images/f3_fin_q8.png", width=390)
     q8 = st.radio("8. Ratio of base radius of cylinder to cone is 6 : 5. Ratio of volume of cylinder to cone is 18 : 5. If cylinder height is 5 cm, find cone height.", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q8")
     safe_image("images/f3_fin_q9.png", width=390)

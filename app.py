@@ -813,7 +813,7 @@ else:
     safe_image("images/f3_fin_q2.png", width=390)
     q2 = st.radio("2. In the figure, the slopes of the straight lines L₁, L₂ and L₃ are m₁, m₂ and m₃ respectively. Which of the following must be correct?\n\nI. m₂ < 0\n\nII. m₃ > 0\n\nIII. m₂ > m₁", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q2")
     safe_image("images/f3_fin_q3.png", width=390)
-    q3 = st.radio("3. Mr Choi drives along an inclined road PQ at 36 km/h for 2 hours. Horizontal distance is 68 km. Find gradient of PQ in form 1 : n.", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), key="f3_fin_q3")
+    q3 = st.radio("3. Mr Choi drives along an inclined road PQ at a speed of 36 km/h for 2 hours. If the horizontal distance he has travelled is 68 km, find the gradient of PQ in the form of 1 : n, where n is correct to the nearest integer.", ("A) 1 : 2", "B) 1 : 3", "C) 1 : 4", "D) 1 : 5"), key="f3_fin_q3")
     safe_image("images/f3_fin_q4.png", width=390)
     q4 = st.radio("4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", ("A) 2k / (k + 4)", "B) (k + 4) / 2k", "C) 2√k / (k + 4)", "D) 2√k / (k + 4) [variant]"), key="f3_fin_q4")
     safe_image("images/f3_fin_q5.png", width=390)

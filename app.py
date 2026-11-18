@@ -727,7 +727,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         key="f3_t2_q3"
     )
     
-    # 第 4 題維持
+    # 第 4 題修正 (修改為選項 D: 2√k / (k + 4))
     safe_image("images/f3_t2_q4.png", width=390)
     q4 = st.radio(
         "4. If tan θ = √k / 2 where θ is acute, find sin θ × cos θ.", 
@@ -771,7 +771,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
     safe_image("images/f3_t2_q9.png", width=585)
     q9 = st.radio("9. Which of the following are identities?\n\nI. sin²θ - cos²θ = 1 - 2cos²θ\n\nII. sin²θ + (cos θ)/(tan θ) = 1/sin θ\n\nIII. sin²θ × tan(90° - θ) = sin θ × cos θ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_t2_q9")
     
-    # 【第 10 題】：根據剛才上傳的新圖片更新 (題目關於坐標、原點 O、點 A(22, 0) 及負 y 軸上的點 B 使得內心 x 坐標為 4，求三角形面積)
+    # 第 10 題維持
     safe_image("images/f3_t2_q10.png", width=390)
     q10 = st.radio(
         "10. Denote the origin by O. The coordinates of the point A are (22, 0). Let B be a point lying on the negative y-axis such that the x-coordinate of the incentre of ΔOAB is 4. Find the area of ΔOAB correct to 3 significant figures.", 
@@ -784,7 +784,7 @@ elif grade == "中三 (Form 3)" and "2nd Term Test" in exam_stage:
         1: "B) 7 cm", 
         2: "A) I and II only", 
         3: "B) 1 : 3", 
-        4: "D) 2√k / (k + 4)", 
+        4: "D) 2√k / (k + 4) ",  # <-- 已修正第 4 題正確答案
         5: "D) N56°E",
         6: "A) -2", 
         7: "D) 8", 
@@ -829,7 +829,7 @@ else:
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
-        1: "B) 7 cm", 2: "A) I and II only", 3: "B) 1 : 3", 4: "D) 2√k / (k + 4)", 5: "D) N56°E",
+        1: "B) 7 cm", 2: "A) I and II only", 3: "B) 1 : 3", 4: "D) 2√k / (k + 4) ", 5: "D) N56°E",
         6: "A) -2", 7: "D) 8", 8: "A) 6 cm.", 9: "B) I and III only", 10: "A) 6 cm."
     }
     question_topics = {

@@ -825,7 +825,7 @@ else:
     safe_image("images/f3_fin_q9.png", width=390)
     q9 = st.radio("9. Which of the following are identities?\n\nI. sin²θ - cos²θ = 1 - 2cos²θ\n\nII. sin²θ + (cos θ)/(tan θ) = 1/sin θ\n\nIII. sin²θ × tan(90° - θ) = sin θ × cos θ", ("A) I and II only", "B) I and III only", "C) II and III only", "D) I, II and III"), key="f3_fin_q9")
     safe_image("images/f3_fin_q10.png", width=390)
-    q10 = st.radio("10. Ratio of base radius of cylinder to cone is 6 : 5... [Duplicate variant test check]", ("A) 6 cm.", "B) 7 cm.", "C) 8 cm.", "D) 9 cm."), key="f3_fin_q10")
+    q10 = st.radio("10. Denote the origin by O. The coordinates of the point A are (22, 0). Let B be a point lying on the negative y-axis such that the x-coordinate of the incentre of ΔOAB is 4. Find the area of ΔOAB correct to 3 significant figures.", ("A) 99.0 sq. units", "B) 113 sq. units", "C) 161 sq. units", "D) 322 sq. units"), key="f3_fin_q10")
 
     user_answers = {1: q1, 2: q2, 3: q3, 4: q4, 5: q5, 6: q6, 7: q7, 8: q8, 9: q9, 10: q10}
     correct_answers = {
